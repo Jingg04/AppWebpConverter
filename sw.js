@@ -3,7 +3,7 @@
  * Caches core static application shell for fast offline launches.
  * Bypasses in-memory Blobs, user files, and analytics.
  */
-const CACHE_NAME = "fluxwebp-shell-v3";
+const CACHE_NAME = "fluxwebp-shell-v4";
 const CORE_ASSETS = [
   "/",
   "/index.html",
@@ -16,7 +16,8 @@ const CORE_ASSETS = [
   "/editor/",
   "/editor/index.html",
   "/editor/editor.css",
-  "/editor/editor.js"
+  "/editor/editor.js",
+  "/editor/bg-remover.js"
 ];
 
 self.addEventListener("install", (evt) => {

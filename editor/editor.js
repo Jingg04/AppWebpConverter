@@ -122,7 +122,8 @@
       shapes: document.getElementById("subpanelShapes"),
       draw: document.getElementById("subpanelDraw"),
       watermark: document.getElementById("subpanelWatermark"),
-      background: document.getElementById("subpanelBackground")
+      background: document.getElementById("subpanelBackground"),
+      "bg-remover": document.getElementById("subpanelBgRemover")
     },
 
     // Crop subpanel
@@ -241,7 +242,63 @@
     // Landing samples
     loadSampleLandscapeBtn: document.getElementById("loadSampleLandscapeBtn"),
     loadSamplePortraitBtn: document.getElementById("loadSamplePortraitBtn"),
-    pasteClipboardLandingBtn: document.getElementById("pasteClipboardLandingBtn")
+    loadSampleCutoutBtn: document.getElementById("loadSampleCutoutBtn"),
+    pasteClipboardLandingBtn: document.getElementById("pasteClipboardLandingBtn"),
+
+    // Background remover subpanel & buttons
+    btnHeaderRemoveBg: document.getElementById("btnHeaderRemoveBg"),
+    toolBtnBgRemover: document.getElementById("toolBtnBgRemover"),
+    bgRemoverEngineSelect: document.getElementById("bgRemoverEngineSelect"),
+    engineDescText: document.getElementById("engineDescText"),
+    btnRunBgRemoval: document.getElementById("btnRunBgRemoval"),
+    bgRemovalProgressWrap: document.getElementById("bgRemovalProgressWrap"),
+    bgRemovalProgressBar: document.getElementById("bgRemovalProgressBar"),
+    bgRemovalStatusText: document.getElementById("bgRemovalStatusText"),
+    bgRemovalCancelBtn: document.getElementById("bgRemovalCancelBtn"),
+    btnOpenRefinementStudio: document.getElementById("btnOpenRefinementStudio"),
+    inspectorRemoveBgBtn: document.getElementById("inspectorRemoveBgBtn"),
+    bgOptBtns: document.querySelectorAll(".bg-opt-btn[data-bg-type]"),
+    replaceBgColorInput: document.getElementById("replaceBgColorInput"),
+    replaceGradientGroup: document.getElementById("replaceGradientGroup"),
+    gradientPresetPills: document.getElementById("gradientPresetPills"),
+    replaceCustomImageGroup: document.getElementById("replaceCustomImageGroup"),
+    replaceCustomImageFile: document.getElementById("replaceCustomImageFile"),
+    btnOpenBatchBgModal: document.getElementById("btnOpenBatchBgModal"),
+
+    // Refinement Studio Modal
+    refinementModal: document.getElementById("refinementModal"),
+    refineViewTabs: document.querySelectorAll(".view-tab[data-view]"),
+    refineUndoBtn: document.getElementById("refineUndoBtn"),
+    refineRedoBtn: document.getElementById("refineRedoBtn"),
+    refineCancelBtn: document.getElementById("refineCancelBtn"),
+    refineApplyBtn: document.getElementById("refineApplyBtn"),
+    btnBrushRestore: document.getElementById("btnBrushRestore"),
+    btnBrushErase: document.getElementById("btnBrushErase"),
+    refineBrushSize: document.getElementById("refineBrushSize"),
+    refineBrushSizeVal: document.getElementById("refineBrushSizeVal"),
+    refineBrushHardness: document.getElementById("refineBrushHardness"),
+    refineBrushHardnessVal: document.getElementById("refineBrushHardnessVal"),
+    refineBrushOpacity: document.getElementById("refineBrushOpacity"),
+    refineBrushOpacityVal: document.getElementById("refineBrushOpacityVal"),
+    refineFeather: document.getElementById("refineFeather"),
+    refineFeatherVal: document.getElementById("refineFeatherVal"),
+    refineInvertMaskBtn: document.getElementById("refineInvertMaskBtn"),
+    refineResetMaskBtn: document.getElementById("refineResetMaskBtn"),
+    refineRerunAiBtn: document.getElementById("refineRerunAiBtn"),
+    refinementStage: document.getElementById("refinementStage"),
+    refinementCanvas: document.getElementById("refinementCanvas"),
+    brushCursor: document.getElementById("brushCursor"),
+    refineZoomBadge: document.getElementById("refineZoomBadge"),
+
+    // Batch Modal
+    batchBgModal: document.getElementById("batchBgModal"),
+    batchBgDropzone: document.getElementById("batchBgDropzone"),
+    batchBgUploadTrigger: document.getElementById("batchBgUploadTrigger"),
+    batchBgFileInput: document.getElementById("batchBgFileInput"),
+    batchSharedBgSelect: document.getElementById("batchSharedBgSelect"),
+    btnStartBatchBg: document.getElementById("btnStartBatchBg"),
+    btnDownloadBatchBgZip: document.getElementById("btnDownloadBatchBgZip"),
+    batchBgItemsList: document.getElementById("batchBgItemsList")
   };
 
   const ctx = dom.canvas.getContext("2d", { willReadFrequently: true });
@@ -415,6 +472,31 @@
 
   function renderImageLayer(layer) {
     if (!layer.source) return;
+
+    // Render Layer-specific background replacement if configured
+    if (layer.bgType && layer.bgType !== "transparent") {
+      ctx.save();
+      if (layer.bgType === "white") {
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, layer.width, layer.height);
+      } else if (layer.bgType === "black") {
+        ctx.fillStyle = "#000000";
+        ctx.fillRect(0, 0, layer.width, layer.height);
+      } else if (layer.bgType === "color") {
+        ctx.fillStyle = layer.bgColor || "#FFFFFF";
+        ctx.fillRect(0, 0, layer.width, layer.height);
+      } else if (layer.bgType === "gradient") {
+        const colors = window.FluxBgRemover?.getGradientPresets()?.[layer.bgGradient || "studio-soft"] || ["#E2E8F0", "#CBD5E1"];
+        const grad = ctx.createLinearGradient(0, 0, 0, layer.height);
+        grad.addColorStop(0, colors[0]);
+        grad.addColorStop(1, colors[1]);
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, layer.width, layer.height);
+      } else if (layer.bgType === "custom_image" && layer.bgCustomImage) {
+        ctx.drawImage(layer.bgCustomImage, 0, 0, layer.width, layer.height);
+      }
+      ctx.restore();
+    }
 
     // Apply adjustments & filters only if not comparing original
     if (!state.isOriginalComparing && (layer.id === "layer_base" || layer.hasAdjustments)) {
@@ -1133,6 +1215,10 @@
   // --- Export Pipeline & Conversion Integration ---
   async function generateExportBlob() {
     const { width, height } = state.doc;
+    const format = dom.exportFormatSelect?.value || "webp";
+    const quality = (Number(dom.exportQualityRange?.value) || 85) / 100;
+    const targetKb = Number(dom.exportTargetSize?.value) || 0;
+
     const exportCanvas = "OffscreenCanvas" in window
       ? new OffscreenCanvas(width, height)
       : Object.assign(document.createElement("canvas"), { width, height });
@@ -1143,6 +1229,10 @@
     // 1. Background
     if (state.doc.backgroundType === "color") {
       eCtx.fillStyle = state.doc.bgColorVal || "#FFFFFF";
+      eCtx.fillRect(0, 0, width, height);
+    } else if (format === "jpeg") {
+      // JPEG does not support alpha channel — fallback to studio white
+      eCtx.fillStyle = "#FFFFFF";
       eCtx.fillRect(0, 0, width, height);
     }
 
@@ -1170,6 +1260,30 @@
       eCtx.translate(-layer.width / 2, -layer.height / 2);
 
       if (layer.type === "image" && layer.source) {
+        if (layer.bgType && layer.bgType !== "transparent") {
+          eCtx.save();
+          if (layer.bgType === "white") {
+            eCtx.fillStyle = "#FFFFFF";
+            eCtx.fillRect(0, 0, layer.width, layer.height);
+          } else if (layer.bgType === "black") {
+            eCtx.fillStyle = "#000000";
+            eCtx.fillRect(0, 0, layer.width, layer.height);
+          } else if (layer.bgType === "color") {
+            eCtx.fillStyle = layer.bgColor || "#FFFFFF";
+            eCtx.fillRect(0, 0, layer.width, layer.height);
+          } else if (layer.bgType === "gradient") {
+            const colors = window.FluxBgRemover?.getGradientPresets()?.[layer.bgGradient || "studio-soft"] || ["#E2E8F0", "#CBD5E1"];
+            const grad = eCtx.createLinearGradient(0, 0, 0, layer.height);
+            grad.addColorStop(0, colors[0]);
+            grad.addColorStop(1, colors[1]);
+            eCtx.fillStyle = grad;
+            eCtx.fillRect(0, 0, layer.width, layer.height);
+          } else if (layer.bgType === "custom_image" && layer.bgCustomImage) {
+            eCtx.drawImage(layer.bgCustomImage, 0, 0, layer.width, layer.height);
+          }
+          eCtx.restore();
+        }
+
         const filterStr = buildCssFilterString(state.doc.adjustments, state.doc.filter, state.doc.filterIntensity);
         if (filterStr) eCtx.filter = filterStr;
         eCtx.drawImage(layer.source, 0, 0, layer.width, layer.height);
@@ -1202,11 +1316,6 @@
 
       eCtx.restore();
     });
-
-    // Encode to selected target format
-    const format = dom.exportFormatSelect?.value || "webp";
-    const quality = (Number(dom.exportQualityRange?.value) || 85) / 100;
-    const targetKb = Number(dom.exportTargetSize?.value) || 0;
 
     let mime = "image/webp";
     if (format === "png") mime = "image/png";
@@ -1287,8 +1396,651 @@
     }
   }
 
+  // ========================================================
+  // AI BACKGROUND REMOVER & REFINEMENT STUDIO CONTROLLER
+  // ========================================================
+
+  const refineSession = {
+    isOpen: false,
+    activeTool: "restore", // "restore" | "erase"
+    brushSize: 32,
+    brushHardness: 0.7,
+    brushOpacity: 1.0,
+    feather: 0,
+    viewMode: "cutout", // "cutout" | "ruby" | "matte" | "backdrop" | "split"
+    zoom: 1.0,
+    isPainting: false,
+    lastX: 0,
+    lastY: 0,
+    sourceCanvas: null,
+    workingMaskCanvas: null,
+    initialMaskSnapshot: null,
+    history: [],
+    historyIndex: -1
+  };
+
+  let batchItems = [];
+
+  function getActiveLayer() {
+    return getSelectedLayer();
+  }
+
+  function initBgRemoverSubpanel() {
+    // Populate studio gradient pills
+    if (dom.gradientPresetPills && window.FluxBgRemover) {
+      const presets = window.FluxBgRemover.getGradientPresets();
+      dom.gradientPresetPills.innerHTML = Object.keys(presets).map((key) => {
+        const colors = presets[key];
+        return `<button class="gradient-pill" data-gradient="${key}" title="${key}" style="background:linear-gradient(135deg, ${colors[0]}, ${colors[1]});" type="button"></button>`;
+      }).join("");
+
+      dom.gradientPresetPills.addEventListener("click", (e) => {
+        const pill = e.target.closest(".gradient-pill");
+        if (!pill) return;
+        dom.gradientPresetPills.querySelectorAll(".gradient-pill").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        applyBackgroundReplacement("gradient", { gradient: pill.dataset.gradient });
+      });
+    }
+
+    // Engine select change
+    dom.bgRemoverEngineSelect?.addEventListener("change", (e) => {
+      const eng = e.target.value;
+      if (dom.engineDescText) {
+        if (eng === "rmbg") {
+          dom.engineDescText.textContent = "Deep neural foreground extraction running 100% locally in browser (WebGPU/WASM).";
+        } else if (eng === "fast") {
+          dom.engineDescText.textContent = "Instant local color clustering & border matting. 0 MB download, works instantly on all devices.";
+        } else {
+          dom.engineDescText.textContent = "Connect to self-hosted Rembg / BiRefNet endpoint. Image is sent securely with explicit consent.";
+        }
+      }
+    });
+
+    // Background replacement buttons
+    dom.bgOptBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        dom.bgOptBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const type = btn.dataset.bgType;
+
+        dom.replaceGradientGroup?.classList.toggle("hidden", type !== "gradient");
+        dom.replaceCustomImageGroup?.classList.toggle("hidden", type !== "custom_image");
+
+        if (type === "transparent" || type === "white" || type === "black") {
+          applyBackgroundReplacement(type);
+        } else if (type === "color") {
+          applyBackgroundReplacement("color", { color: dom.replaceBgColorInput?.value || "#3B82F6" });
+        } else if (type === "gradient") {
+          applyBackgroundReplacement("gradient", { gradient: "studio-soft" });
+        }
+      });
+    });
+
+    dom.replaceBgColorInput?.addEventListener("input", (e) => {
+      applyBackgroundReplacement("color", { color: e.target.value });
+    });
+
+    dom.replaceCustomImageFile?.addEventListener("change", (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const img = new Image();
+      img.onload = () => {
+        applyBackgroundReplacement("custom_image", { customImage: img });
+      };
+      img.src = URL.createObjectURL(file);
+    });
+  }
+
+  function applyBackgroundReplacement(type, opts = {}) {
+    const activeLayer = getActiveLayer();
+    if (!activeLayer) return;
+
+    activeLayer.bgType = type;
+    if (type === "color") activeLayer.bgColor = opts.color || "#FFFFFF";
+    if (type === "gradient") activeLayer.bgGradient = opts.gradient || "studio-soft";
+    if (type === "custom_image") activeLayer.bgCustomImage = opts.customImage;
+
+    pushHistory("Change Background Replacement");
+    requestRender();
+  }
+
+  async function triggerAiBackgroundRemoval() {
+    const activeLayer = getActiveLayer();
+    if (!activeLayer || activeLayer.type !== "image") {
+      showToast("Please select an image layer first.");
+      return;
+    }
+
+    const source = activeLayer.originalSource || activeLayer.source;
+    if (!source) {
+      showToast("Selected layer does not contain an image.");
+      return;
+    }
+
+    const srcCanvas = document.createElement("canvas");
+    srcCanvas.width = source.naturalWidth || source.width;
+    srcCanvas.height = source.naturalHeight || source.height;
+    srcCanvas.getContext("2d").drawImage(source, 0, 0);
+
+    const engine = dom.bgRemoverEngineSelect?.value || "rmbg";
+    dom.bgRemovalProgressWrap?.classList.remove("hidden");
+    if (dom.btnRunBgRemoval) dom.btnRunBgRemoval.disabled = true;
+
+    try {
+      const result = await window.FluxBgRemover.removeBackground(srcCanvas, {
+        engine,
+        onProgress: (p) => {
+          if (dom.bgRemovalStatusText) dom.bgRemovalStatusText.textContent = p.message || "Processing...";
+          if (dom.bgRemovalProgressBar && typeof p.progress === "number") {
+            dom.bgRemovalProgressBar.style.setProperty("--progress", `${p.progress}%`);
+          }
+        }
+      });
+
+      if (!activeLayer.originalSource) {
+        activeLayer.originalSource = source;
+      }
+      activeLayer.source = result.resultCanvas;
+      activeLayer.maskCanvas = result.maskCanvas;
+      activeLayer.isCutout = true;
+
+      if (dom.btnOpenRefinementStudio) dom.btnOpenRefinementStudio.disabled = false;
+      pushHistory("AI Background Removal");
+      requestRender();
+      showToast(`AI Cutout complete in ${result.elapsed}s! Click "Open Refinement Studio" to refine.`);
+    } catch (err) {
+      console.error("AI Background Removal error:", err);
+      showToast("AI background removal error: " + err.message);
+    } finally {
+      dom.bgRemovalProgressWrap?.classList.add("hidden");
+      if (dom.btnRunBgRemoval) dom.btnRunBgRemoval.disabled = false;
+    }
+  }
+
+  function openRefinementStudio() {
+    const activeLayer = getActiveLayer();
+    if (!activeLayer || !activeLayer.maskCanvas || !activeLayer.originalSource) {
+      showToast("Please run background removal before refining edges.");
+      return;
+    }
+
+    refineSession.isOpen = true;
+    refineSession.sourceCanvas = activeLayer.originalSource;
+    refineSession.workingMaskCanvas = window.FluxBgRemover.MaskOperations.cloneMask(activeLayer.maskCanvas);
+    refineSession.initialMaskSnapshot = window.FluxBgRemover.MaskOperations.cloneMask(activeLayer.maskCanvas);
+    refineSession.history = [window.FluxBgRemover.MaskOperations.cloneMask(activeLayer.maskCanvas)];
+    refineSession.historyIndex = 0;
+    refineSession.zoom = 1.0;
+
+    dom.refinementModal?.showModal();
+    setupRefinementCanvas();
+    renderRefinementStage();
+  }
+
+  function setupRefinementCanvas() {
+    const { sourceCanvas } = refineSession;
+    if (!sourceCanvas || !dom.refinementCanvas) return;
+
+    dom.refinementCanvas.width = sourceCanvas.width;
+    dom.refinementCanvas.height = sourceCanvas.height;
+  }
+
+  function renderRefinementStage() {
+    const { sourceCanvas, workingMaskCanvas, viewMode } = refineSession;
+    if (!sourceCanvas || !workingMaskCanvas || !dom.refinementCanvas) return;
+
+    const rCtx = dom.refinementCanvas.getContext("2d");
+    const w = dom.refinementCanvas.width;
+    const h = dom.refinementCanvas.height;
+    rCtx.clearRect(0, 0, w, h);
+
+    if (viewMode === "cutout") {
+      const cutout = window.FluxBgRemover.applyMaskToSource(sourceCanvas, workingMaskCanvas);
+      rCtx.drawImage(cutout, 0, 0);
+    } else if (viewMode === "ruby") {
+      rCtx.drawImage(sourceCanvas, 0, 0);
+      rCtx.save();
+      const inv = window.FluxBgRemover.MaskOperations.cloneMask(workingMaskCanvas);
+      window.FluxBgRemover.MaskOperations.invertMask(inv);
+      rCtx.globalCompositeOperation = "source-over";
+      rCtx.globalAlpha = 0.5;
+      rCtx.fillStyle = "#EF4444";
+      rCtx.fillRect(0, 0, w, h);
+      rCtx.globalCompositeOperation = "destination-in";
+      rCtx.drawImage(inv, 0, 0);
+      rCtx.restore();
+    } else if (viewMode === "matte") {
+      rCtx.drawImage(workingMaskCanvas, 0, 0);
+    } else if (viewMode === "backdrop") {
+      const activeLayer = getActiveLayer();
+      const bg = window.FluxBgRemover.renderWithBackground(sourceCanvas, workingMaskCanvas, {
+        type: activeLayer?.bgType || "white",
+        color: activeLayer?.bgColor || "#FFFFFF",
+        gradient: activeLayer?.bgGradient || "studio-soft",
+        customImage: activeLayer?.bgCustomImage
+      });
+      rCtx.drawImage(bg, 0, 0);
+    } else if (viewMode === "split") {
+      rCtx.drawImage(sourceCanvas, 0, 0);
+      rCtx.save();
+      rCtx.beginPath();
+      rCtx.rect(w / 2, 0, w / 2, h);
+      rCtx.clip();
+      rCtx.clearRect(w / 2, 0, w / 2, h);
+      const cutout = window.FluxBgRemover.applyMaskToSource(sourceCanvas, workingMaskCanvas);
+      rCtx.drawImage(cutout, 0, 0);
+      rCtx.restore();
+
+      rCtx.strokeStyle = "#FFFFFF";
+      rCtx.lineWidth = 2;
+      rCtx.beginPath();
+      rCtx.moveTo(w / 2, 0);
+      rCtx.lineTo(w / 2, h);
+      rCtx.stroke();
+    }
+
+    if (dom.refineUndoBtn) dom.refineUndoBtn.disabled = refineSession.historyIndex <= 0;
+    if (dom.refineRedoBtn) dom.refineRedoBtn.disabled = refineSession.historyIndex >= refineSession.history.length - 1;
+  }
+
+  function pushRefineHistory() {
+    refineSession.history = refineSession.history.slice(0, refineSession.historyIndex + 1);
+    refineSession.history.push(window.FluxBgRemover.MaskOperations.cloneMask(refineSession.workingMaskCanvas));
+    if (refineSession.history.length > 20) refineSession.history.shift();
+    refineSession.historyIndex = refineSession.history.length - 1;
+  }
+
+  function refineUndo() {
+    if (refineSession.historyIndex > 0) {
+      refineSession.historyIndex--;
+      refineSession.workingMaskCanvas = window.FluxBgRemover.MaskOperations.cloneMask(refineSession.history[refineSession.historyIndex]);
+      renderRefinementStage();
+    }
+  }
+
+  function refineRedo() {
+    if (refineSession.historyIndex < refineSession.history.length - 1) {
+      refineSession.historyIndex++;
+      refineSession.workingMaskCanvas = window.FluxBgRemover.MaskOperations.cloneMask(refineSession.history[refineSession.historyIndex]);
+      renderRefinementStage();
+    }
+  }
+
+  function applyRefinementToLayer() {
+    const activeLayer = getActiveLayer();
+    if (!activeLayer || !refineSession.workingMaskCanvas || !activeLayer.originalSource) return;
+
+    if (refineSession.feather > 0) {
+      window.FluxBgRemover.MaskOperations.applyFeather(refineSession.workingMaskCanvas, refineSession.feather);
+    }
+
+    activeLayer.maskCanvas = window.FluxBgRemover.MaskOperations.cloneMask(refineSession.workingMaskCanvas);
+    activeLayer.source = window.FluxBgRemover.applyMaskToSource(activeLayer.originalSource, activeLayer.maskCanvas);
+
+    pushHistory("Refine Cutout Mask");
+    requestRender();
+    dom.refinementModal?.close();
+    refineSession.isOpen = false;
+    showToast("Refined cutout mask applied to document.");
+  }
+
+  function mapPointerToRefineCanvas(e) {
+    const rect = dom.refinementCanvas.getBoundingClientRect();
+    const scaleX = dom.refinementCanvas.width / rect.width;
+    const scaleY = dom.refinementCanvas.height / rect.height;
+    return {
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY
+    };
+  }
+
+  function generateSampleCutoutCanvas() {
+    const w = 1200;
+    const h = 1200;
+    const canvas = Object.assign(document.createElement("canvas"), { width: w, height: h });
+    const sCtx = canvas.getContext("2d");
+
+    // Vibrant background
+    const grad = sCtx.createRadialGradient(w / 2, h / 2, 100, w / 2, h / 2, w * 0.7);
+    grad.addColorStop(0, "#F59E0B");
+    grad.addColorStop(0.5, "#EF4444");
+    grad.addColorStop(1, "#831843");
+    sCtx.fillStyle = grad;
+    sCtx.fillRect(0, 0, w, h);
+
+    // Subject silhouette & portrait
+    sCtx.save();
+    sCtx.fillStyle = "#1E293B";
+    sCtx.beginPath();
+    sCtx.arc(w / 2, h * 0.38, 160, 0, Math.PI * 2);
+    sCtx.fill();
+
+    sCtx.beginPath();
+    sCtx.arc(w / 2 - 70, h * 0.3, 110, 0, Math.PI * 2);
+    sCtx.arc(w / 2 + 70, h * 0.3, 110, 0, Math.PI * 2);
+    sCtx.arc(w / 2, h * 0.22, 120, 0, Math.PI * 2);
+    sCtx.fill();
+
+    sCtx.fillStyle = "#FDBA74";
+    sCtx.beginPath();
+    sCtx.arc(w / 2, h * 0.42, 125, 0, Math.PI * 2);
+    sCtx.fill();
+    sCtx.fillRect(w / 2 - 50, h * 0.5, 100, 120);
+
+    sCtx.fillStyle = "#2563EB";
+    sCtx.beginPath();
+    sCtx.ellipse(w / 2, h * 0.85, 360, 260, 0, 0, Math.PI * 2);
+    sCtx.fill();
+    sCtx.restore();
+
+    initDocumentWithImage(canvas, "Portrait Cutout Demo");
+    setTimeout(() => {
+      setActiveTool("bg-remover");
+      triggerAiBackgroundRemoval();
+    }, 500);
+  }
+
+  function handleBatchFiles(e) {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+
+    files.forEach((file) => {
+      batchItems.push({
+        id: makeId(),
+        file,
+        name: file.name,
+        size: file.size,
+        status: "queued",
+        resultCanvas: null
+      });
+    });
+
+    renderBatchList();
+  }
+
+  function renderBatchList() {
+    if (!dom.batchBgItemsList) return;
+    if (batchItems.length === 0) {
+      dom.batchBgItemsList.innerHTML = `<div class="empty-batch-note">No images queued yet. Upload files above to begin.</div>`;
+      return;
+    }
+
+    dom.batchBgItemsList.innerHTML = batchItems.map((item) => `
+      <div class="batch-item-card" data-batch-id="${item.id}">
+        <div class="flex items-center gap-2">
+          <strong>${escapeHtml(item.name)}</strong>
+          <span class="text-secondary text-xs">(${(item.size / 1024).toFixed(0)} KB)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="status-pill status-${item.status === 'done' ? 'success' : item.status === 'processing' ? 'active' : 'queued'}">${item.status}</span>
+          ${item.resultCanvas ? `<button class="btn btn-xs btn-outline" data-action="download-batch-item" data-id="${item.id}">Download</button>` : ''}
+        </div>
+      </div>
+    `).join("");
+
+    dom.batchBgItemsList.querySelectorAll('button[data-action="download-batch-item"]').forEach((b) => {
+      b.addEventListener("click", () => {
+        const it = batchItems.find(x => x.id === b.dataset.id);
+        if (it && it.resultCanvas) {
+          it.resultCanvas.toBlob((blob) => {
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = `${it.name.replace(/\.[^/.]+$/, "")}-cutout.png`;
+            a.click();
+          }, "image/png");
+        }
+      });
+    });
+  }
+
+  async function startBatchProcessing() {
+    const queued = batchItems.filter(i => i.status === "queued");
+    if (!queued.length) {
+      showToast("No queued images to process.");
+      return;
+    }
+
+    if (dom.btnStartBatchBg) dom.btnStartBatchBg.disabled = true;
+    showToast(`Starting batch background removal for ${queued.length} images...`);
+
+    const sharedBg = dom.batchSharedBgSelect?.value || "transparent";
+
+    await window.FluxBgRemover.runBatchRemoval(queued, {
+      concurrency: 2,
+      onItemStart: (item) => {
+        item.status = "processing";
+        renderBatchList();
+      },
+      onItemDone: (item, res) => {
+        item.status = "done";
+        if (sharedBg !== "transparent") {
+          item.resultCanvas = window.FluxBgRemover.renderWithBackground(res.sourceCanvas, res.maskCanvas, {
+            type: sharedBg,
+            color: sharedBg === "white" ? "#FFFFFF" : sharedBg === "black" ? "#000000" : "#FFFFFF",
+            gradient: "studio-soft"
+          });
+        } else {
+          item.resultCanvas = res.resultCanvas;
+        }
+        renderBatchList();
+      },
+      onError: (item) => {
+        item.status = "error";
+        renderBatchList();
+      }
+    });
+
+    if (dom.btnStartBatchBg) dom.btnStartBatchBg.disabled = false;
+    if (dom.btnDownloadBatchBgZip) dom.btnDownloadBatchBgZip.disabled = false;
+    showToast("Batch background removal completed!");
+  }
+
+  function bindBgRemoverEvents() {
+    initBgRemoverSubpanel();
+
+    // Header & Tool Palette triggers
+    dom.btnHeaderRemoveBg?.addEventListener("click", () => {
+      setActiveTool("bg-remover");
+      triggerAiBackgroundRemoval();
+    });
+
+    dom.btnRunBgRemoval?.addEventListener("click", () => {
+      triggerAiBackgroundRemoval();
+    });
+
+    dom.inspectorRemoveBgBtn?.addEventListener("click", () => {
+      setActiveTool("bg-remover");
+      triggerAiBackgroundRemoval();
+    });
+
+    dom.btnOpenRefinementStudio?.addEventListener("click", openRefinementStudio);
+
+    // Refinement Studio View Tabs
+    dom.refineViewTabs?.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        dom.refineViewTabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        refineSession.viewMode = tab.dataset.view || "cutout";
+        renderRefinementStage();
+      });
+    });
+
+    // Refinement Studio Brush Selectors
+    dom.btnBrushRestore?.addEventListener("click", () => {
+      refineSession.activeTool = "restore";
+      dom.btnBrushRestore.classList.add("active");
+      dom.btnBrushErase?.classList.remove("active");
+    });
+
+    dom.btnBrushErase?.addEventListener("click", () => {
+      refineSession.activeTool = "erase";
+      dom.btnBrushErase.classList.add("active");
+      dom.btnBrushRestore?.classList.remove("active");
+    });
+
+    // Brush parameter sliders
+    dom.refineBrushSize?.addEventListener("input", (e) => {
+      refineSession.brushSize = Number(e.target.value);
+      if (dom.refineBrushSizeVal) dom.refineBrushSizeVal.textContent = `${refineSession.brushSize} px`;
+    });
+
+    dom.refineBrushHardness?.addEventListener("input", (e) => {
+      refineSession.brushHardness = Number(e.target.value) / 100;
+      if (dom.refineBrushHardnessVal) dom.refineBrushHardnessVal.textContent = `${e.target.value}%`;
+    });
+
+    dom.refineBrushOpacity?.addEventListener("input", (e) => {
+      refineSession.brushOpacity = Number(e.target.value) / 100;
+      if (dom.refineBrushOpacityVal) dom.refineBrushOpacityVal.textContent = `${e.target.value}%`;
+    });
+
+    dom.refineFeather?.addEventListener("input", (e) => {
+      refineSession.feather = Number(e.target.value);
+      if (dom.refineFeatherVal) dom.refineFeatherVal.textContent = `${refineSession.feather} px`;
+    });
+
+    // Mask operations
+    dom.refineInvertMaskBtn?.addEventListener("click", () => {
+      if (refineSession.workingMaskCanvas) {
+        window.FluxBgRemover.MaskOperations.invertMask(refineSession.workingMaskCanvas);
+        pushRefineHistory();
+        renderRefinementStage();
+      }
+    });
+
+    dom.refineResetMaskBtn?.addEventListener("click", () => {
+      if (refineSession.initialMaskSnapshot) {
+        refineSession.workingMaskCanvas = window.FluxBgRemover.MaskOperations.cloneMask(refineSession.initialMaskSnapshot);
+        pushRefineHistory();
+        renderRefinementStage();
+        showToast("Mask reset to initial AI segmentation.");
+      }
+    });
+
+    dom.refineRerunAiBtn?.addEventListener("click", async () => {
+      if (!refineSession.sourceCanvas) return;
+      showToast("Re-running AI segmentation...");
+      try {
+        const res = await window.FluxBgRemover.removeBackground(refineSession.sourceCanvas, {
+          engine: dom.bgRemoverEngineSelect?.value || "rmbg"
+        });
+        refineSession.workingMaskCanvas = window.FluxBgRemover.MaskOperations.cloneMask(res.maskCanvas);
+        refineSession.initialMaskSnapshot = window.FluxBgRemover.MaskOperations.cloneMask(res.maskCanvas);
+        pushRefineHistory();
+        renderRefinementStage();
+        showToast("AI segmentation updated.");
+      } catch (err) {
+        showToast("Re-run failed: " + err.message);
+      }
+    });
+
+    dom.refineUndoBtn?.addEventListener("click", refineUndo);
+    dom.refineRedoBtn?.addEventListener("click", refineRedo);
+
+    dom.refineApplyBtn?.addEventListener("click", applyRefinementToLayer);
+    dom.refineCancelBtn?.addEventListener("click", () => {
+      dom.refinementModal?.close();
+      refineSession.isOpen = false;
+    });
+
+    // Refinement Canvas Drawing Handlers
+    dom.refinementStage?.addEventListener("mousemove", (e) => {
+      if (dom.brushCursor && dom.refinementCanvas) {
+        dom.brushCursor.style.display = "block";
+        const rect = dom.refinementStage.getBoundingClientRect();
+        dom.brushCursor.style.left = `${e.clientX - rect.left}px`;
+        dom.brushCursor.style.top = `${e.clientY - rect.top}px`;
+        const canvasRect = dom.refinementCanvas.getBoundingClientRect();
+        const displayScale = canvasRect.width / dom.refinementCanvas.width || 1;
+        const displayR = Math.max(4, refineSession.brushSize * displayScale);
+        dom.brushCursor.style.width = `${displayR * 2}px`;
+        dom.brushCursor.style.height = `${displayR * 2}px`;
+      }
+
+      if (refineSession.isPainting && refineSession.workingMaskCanvas) {
+        const pt = mapPointerToRefineCanvas(e);
+        window.FluxBgRemover.MaskOperations.paintStroke(
+          refineSession.workingMaskCanvas,
+          refineSession.lastX,
+          refineSession.lastY,
+          pt.x,
+          pt.y,
+          {
+            action: refineSession.activeTool,
+            radius: refineSession.brushSize,
+            hardness: refineSession.brushHardness,
+            opacity: refineSession.brushOpacity
+          }
+        );
+        refineSession.lastX = pt.x;
+        refineSession.lastY = pt.y;
+        renderRefinementStage();
+      }
+    });
+
+    dom.refinementStage?.addEventListener("mousedown", (e) => {
+      if (e.button !== 0 || !refineSession.workingMaskCanvas) return;
+      refineSession.isPainting = true;
+      const pt = mapPointerToRefineCanvas(e);
+      refineSession.lastX = pt.x;
+      refineSession.lastY = pt.y;
+
+      window.FluxBgRemover.MaskOperations.paintBrush(
+        refineSession.workingMaskCanvas,
+        pt.x,
+        pt.y,
+        {
+          action: refineSession.activeTool,
+          radius: refineSession.brushSize,
+          hardness: refineSession.brushHardness,
+          opacity: refineSession.brushOpacity
+        }
+      );
+      renderRefinementStage();
+    });
+
+    window.addEventListener("mouseup", () => {
+      if (refineSession.isPainting) {
+        refineSession.isPainting = false;
+        pushRefineHistory();
+      }
+    });
+
+    dom.refinementStage?.addEventListener("mouseleave", () => {
+      if (dom.brushCursor) dom.brushCursor.style.display = "none";
+    });
+
+    // Batch Modal Actions
+    dom.btnOpenBatchBgModal?.addEventListener("click", () => {
+      dom.batchBgModal?.showModal();
+    });
+
+    dom.batchBgUploadTrigger?.addEventListener("click", () => dom.batchBgFileInput?.click());
+    dom.batchBgFileInput?.addEventListener("change", handleBatchFiles);
+
+    dom.batchBgDropzone?.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dom.batchBgDropzone.classList.add("dragover");
+    });
+    dom.batchBgDropzone?.addEventListener("dragleave", () => {
+      dom.batchBgDropzone.classList.remove("dragover");
+    });
+    dom.batchBgDropzone?.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dom.batchBgDropzone.classList.remove("dragover");
+      if (e.dataTransfer.files?.length) {
+        handleBatchFiles({ target: { files: e.dataTransfer.files } });
+      }
+    });
+
+    dom.btnStartBatchBg?.addEventListener("click", startBatchProcessing);
+    dom.loadSampleCutoutBtn?.addEventListener("click", generateSampleCutoutCanvas);
+  }
+
   // --- Event Bindings ---
   function bindEvents() {
+    bindBgRemoverEvents();
     // Theme Toggle
     dom.themeToggleBtn?.addEventListener("click", toggleTheme);
 
@@ -1930,12 +2682,22 @@
   function initEmptyState() {
     try {
       const transferred = sessionStorage.getItem("fluxwebp_edit_source");
+      const autoRemoveBg = sessionStorage.getItem("fluxwebp_auto_remove_bg") === "true";
       if (transferred) {
         sessionStorage.removeItem("fluxwebp_edit_source");
+        sessionStorage.removeItem("fluxwebp_auto_remove_bg");
         const parsed = JSON.parse(transferred);
         if (parsed.dataUrl) {
           const img = new Image();
-          img.onload = () => initDocumentWithImage(img, parsed.name || "Imported Image");
+          img.onload = () => {
+            initDocumentWithImage(img, parsed.name || "Imported Image");
+            if (autoRemoveBg) {
+              setTimeout(() => {
+                setActiveTool("bg-remover");
+                triggerAiBackgroundRemoval();
+              }, 400);
+            }
+          };
           img.src = parsed.dataUrl;
           return;
         }
@@ -1977,9 +2739,15 @@
   // Export Global API for developer inspections
   window.FluxEditor = {
     getState: () => state,
+    getSelectedLayer,
+    getActiveLayer,
+    setActiveTool,
     initDocumentWithImage,
     applyCrop,
     applyResize,
+    triggerAiBackgroundRemoval,
+    openRefinementStudio,
+    applyRefinementToLayer,
     generateExportBlob,
     undo,
     redo

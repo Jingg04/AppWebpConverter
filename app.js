@@ -2627,6 +2627,12 @@ function renderQueue() {
           <div class="progress-bar" style="--progress: ${item.progress}%"><span></span></div>
         </div>
         <div class="queue-item-actions">
+          <button class="icon-btn text-purple" type="button" data-action="remove-bg" title="AI Remove Background" aria-label="AI Remove Background from ${escapeHtml(item.name)}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path><path d="M19 16l-1 2.5L15.5 19l2.5 1 1 2.5 1-2.5 2.5-1-2.5-1L19 16z"></path></svg>
+          </button>
+          <button class="icon-btn text-blue" type="button" data-action="edit" title="Edit in Image Editor" aria-label="Edit ${escapeHtml(item.name)} in Image Editor">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </button>
           <button class="icon-btn text-blue" type="button" data-action="edit" title="Edit in Image Editor" aria-label="Edit ${escapeHtml(item.name)} in Image Editor">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
           </button>
@@ -2713,6 +2719,17 @@ function bindQueueRow(row) {
     const button = event.target.closest("button");
     if (button) {
       const action = button.dataset.action;
+      if (action === "remove-bg") {
+        const item = findItem(id);
+        if (item) {
+          sessionStorage.setItem("fluxwebp_auto_remove_bg", "true");
+          openItemInEditor(item);
+        }
+      }
+      if (action === "edit") {
+        const item = findItem(id);
+        if (item) openItemInEditor(item);
+      }
       if (action === "edit") {
         const item = findItem(id);
         if (item) openItemInEditor(item);

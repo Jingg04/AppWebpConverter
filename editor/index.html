@@ -89,6 +89,10 @@
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
             <span>Open</span>
           </button>
+          <button class="btn btn-sm btn-ai-gradient" id="btnHeaderRemoveBg" type="button" title="One-Click AI Background Removal">
+            <svg viewBox="0 0 24 24"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path><path d="M19 16l-1 2.5L15.5 19l2.5 1 1 2.5 1-2.5 2.5-1-2.5-1L19 16z"></path></svg>
+            <span>Remove BG</span>
+          </button>
           <button class="btn btn-sm btn-outline" id="saveProjBtn" type="button" title="Save Project locally (.fluxproj)">
             <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
             <span>Save</span>
@@ -126,6 +130,11 @@
           <button class="tool-icon-btn" data-tool="transform" id="toolBtnTransform" title="Rotate &amp; Flip">
             <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
             <span>Rotate</span>
+          </button>
+
+          <button class="tool-icon-btn highlight-ai" data-tool="bg-remover" id="toolBtnBgRemover" title="AI Background Remover (Cutout)">
+            <svg viewBox="0 0 24 24"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path><path d="M19 16l-1 2.5L15.5 19l2.5 1 1 2.5 1-2.5 2.5-1-2.5-1L19 16z"></path></svg>
+            <span>Cutout</span>
           </button>
 
           <div class="tools-divider"></div>
@@ -182,6 +191,106 @@
                 <button class="btn btn-sm btn-outline" id="sendBackwardBtn" type="button">Send Backward</button>
               </div>
               <button class="btn btn-sm btn-outline text-red" id="deleteSelectedLayerBtn" type="button">Delete Selected Object</button>
+            </div>
+          </div>
+
+          <!-- Subpanel: AI Cutout / Background Remover -->
+          <div class="subpanel-content hidden" id="subpanelBgRemover">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path><path d="M19 16l-1 2.5L15.5 19l2.5 1 1 2.5 1-2.5 2.5-1-2.5-1L19 16z"></path></svg>
+                <span>AI Background Remover</span>
+              </h3>
+            </div>
+            <div class="subpanel-body">
+              <p class="text-secondary text-xs mb-3">Automatically segment foreground subjects (people, animals, products, vehicles) and produce clean transparent alpha cutouts.</p>
+
+              <div class="form-group mb-3">
+                <label for="bgRemoverEngineSelect" class="form-label-xs">AI Inference Engine</label>
+                <select id="bgRemoverEngineSelect" class="form-select">
+                  <option value="rmbg" selected>RMBG-1.4 Neural AI (High Accuracy, WebGPU/WASM)</option>
+                  <option value="fast">Fast Saliency &amp; Matting (Instant 0MB Download)</option>
+                  <option value="cloud">Custom Cloud Inference Endpoint</option>
+                </select>
+                <small class="meta-sub" id="engineDescText">Deep neural foreground extraction running 100% locally in browser.</small>
+              </div>
+
+              <div class="ai-action-card mb-3">
+                <button class="btn btn-primary w-full btn-lg-ai" id="btnRunBgRemoval" type="button">
+                  <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path><path d="M19 16l-1 2.5L15.5 19l2.5 1 1 2.5 1-2.5 2.5-1-2.5-1L19 16z"></path></svg>
+                  <span>Remove Background</span>
+                </button>
+                <div class="ai-progress-status hidden" id="bgRemovalProgressWrap">
+                  <div class="progress-bar mb-1" id="bgRemovalProgressBar" style="--progress: 0%"><span></span></div>
+                  <div class="flex-between text-xs">
+                    <span id="bgRemovalStatusText">Initializing AI model...</span>
+                    <button class="btn btn-xs btn-ghost text-red" id="bgRemovalCancelBtn" type="button">Cancel</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="divider mb-3"></div>
+
+              <div class="refinement-studio-callout mb-3">
+                <label class="form-label-xs">Mask &amp; Edge Refinement</label>
+                <p class="text-secondary text-xs mb-2">Restore missing details or erase unwanted background with interactive smart brushes.</p>
+                <button class="btn btn-sm btn-outline w-full" id="btnOpenRefinementStudio" type="button" disabled>
+                  <svg viewBox="0 0 24 24" width="14" height="14"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg>
+                  <span>Open Refinement Studio</span>
+                </button>
+              </div>
+
+              <div class="divider mb-3"></div>
+
+              <div class="form-group mb-3">
+                <label class="form-label-xs">Background Replacement</label>
+                <div class="bg-replace-grid">
+                  <button class="bg-opt-btn active" data-bg-type="transparent" type="button" title="Transparent (Checkerboard)">
+                    <span class="swatch-transparent"></span>
+                    <span>None</span>
+                  </button>
+                  <button class="bg-opt-btn" data-bg-type="white" type="button" title="Studio White">
+                    <span class="swatch-solid" style="background:#FFFFFF;border:1px solid var(--border-color);"></span>
+                    <span>White</span>
+                  </button>
+                  <button class="bg-opt-btn" data-bg-type="black" type="button" title="Studio Black">
+                    <span class="swatch-solid" style="background:#000000;"></span>
+                    <span>Black</span>
+                  </button>
+                  <button class="bg-opt-btn" data-bg-type="color" type="button" title="Custom Color">
+                    <span class="swatch-color-picker"><input type="color" id="replaceBgColorInput" value="#3B82F6" /></span>
+                    <span>Color</span>
+                  </button>
+                  <button class="bg-opt-btn" data-bg-type="gradient" type="button" title="Studio Gradient">
+                    <span class="swatch-solid" style="background:linear-gradient(135deg, #3B82F6, #8B5CF6);"></span>
+                    <span>Gradient</span>
+                  </button>
+                  <button class="bg-opt-btn" data-bg-type="custom_image" type="button" title="Custom Image Backdrop">
+                    <span class="swatch-image-icon"><svg viewBox="0 0 24 24" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></span>
+                    <span>Image</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Gradient Presets Selector (conditionally visible) -->
+              <div class="form-group mb-3 hidden" id="replaceGradientGroup">
+                <label class="form-label-xs">Studio Gradient Presets</label>
+                <div class="gradient-preset-pills" id="gradientPresetPills"></div>
+              </div>
+
+              <!-- Custom Backdrop Upload (conditionally visible) -->
+              <div class="form-group mb-3 hidden" id="replaceCustomImageGroup">
+                <label class="form-label-xs">Upload Backdrop Image</label>
+                <input type="file" id="replaceCustomImageFile" class="form-file-input" accept="image/*" />
+              </div>
+
+              <div class="batch-callout-card mt-3">
+                <div class="flex-between">
+                  <span class="text-xs font-semibold">Bulk Processing?</span>
+                  <button class="btn btn-xs btn-outline" id="btnOpenBatchBgModal" type="button">Batch Mode</button>
+                </div>
+                <p class="text-secondary text-xs mt-1">Remove backgrounds from 10+ images at once with shared background.</p>
+              </div>
             </div>
           </div>
 
@@ -672,6 +781,12 @@
                 </div>
                 <input type="range" id="propOpacity" class="slider" min="0" max="100" value="100" />
               </div>
+              <div class="form-group mt-3" id="propRemoveBgGroup">
+                <button class="btn btn-sm btn-outline w-full" id="inspectorRemoveBgBtn" type="button">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path><path d="M19 16l-1 2.5L15.5 19l2.5 1 1 2.5 1-2.5 2.5-1-2.5-1L19 16z"></path></svg>
+                  <span>AI Remove Background</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -771,6 +886,7 @@
           <div class="quick-samples-row">
             <button class="btn btn-xs btn-outline" id="loadSampleLandscapeBtn" type="button">Sample Landscape</button>
             <button class="btn btn-xs btn-outline" id="loadSamplePortraitBtn" type="button">Sample Portrait</button>
+            <button class="btn btn-xs btn-ai-gradient" id="loadSampleCutoutBtn" type="button">AI Cutout Demo</button>
             <button class="btn btn-xs btn-ghost" id="pasteClipboardLandingBtn" type="button">Paste from Clipboard</button>
           </div>
         </div>
@@ -801,9 +917,163 @@
       </nav>
     </div>
 
+    <!-- ======================================================== -->
+    <!-- DIALOG: AI MASK & EDGE REFINEMENT STUDIO                 -->
+    <!-- ======================================================== -->
+    <dialog id="refinementModal" class="app-dialog refinement-dialog" aria-labelledby="refinementModalTitle">
+      <div class="dialog-content full-dialog refinement-dialog-content">
+        <!-- Refinement Header -->
+        <div class="refinement-header">
+          <div class="refinement-header-left">
+            <h2 id="refinementModalTitle" class="refinement-title">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path></svg>
+              <span>Cutout &amp; Edge Refinement Studio</span>
+            </h2>
+            <div class="view-mode-tabs" role="tablist">
+              <button class="view-tab active" data-view="cutout" type="button">Cutout</button>
+              <button class="view-tab" data-view="ruby" type="button">Ruby Mask</button>
+              <button class="view-tab" data-view="matte" type="button">Alpha Matte</button>
+              <button class="view-tab" data-view="backdrop" type="button">Backdrop</button>
+              <button class="view-tab" data-view="split" type="button">Before / After</button>
+            </div>
+          </div>
+
+          <div class="refinement-header-right">
+            <button class="icon-btn" id="refineUndoBtn" type="button" title="Undo Brush (Ctrl+Z)" disabled>
+              <svg viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"></polyline><path d="M20 20v-7a4 4 0 0 0-4-4H4"></path></svg>
+            </button>
+            <button class="icon-btn" id="refineRedoBtn" type="button" title="Redo Brush (Ctrl+Y)" disabled>
+              <svg viewBox="0 0 24 24"><polyline points="15 14 20 9 15 4"></polyline><path d="M4 20v-7a4 4 0 0 1 4-4h12"></path></svg>
+            </button>
+            <div class="divider-v"></div>
+            <button class="btn btn-sm btn-ghost" id="refineCancelBtn" type="button">Cancel</button>
+            <button class="btn btn-sm btn-primary" id="refineApplyBtn" type="button">Apply Cutout</button>
+          </div>
+        </div>
+
+        <!-- Refinement Body (Stage + Toolbars) -->
+        <div class="refinement-body">
+          <!-- Refinement Left Brush Controls -->
+          <aside class="refinement-toolbar" aria-label="Brush Refinements">
+            <div class="brush-mode-toggle mb-3">
+              <button class="brush-toggle-btn active" id="btnBrushRestore" data-action="restore" type="button" title="Restore Foreground">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                <span>Restore</span>
+              </button>
+              <button class="brush-toggle-btn" id="btnBrushErase" data-action="erase" type="button" title="Erase Background">
+                <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 20H7L3 16c-.8-.8-.8-2 0-2.8L13.8 2.4c.8-.8 2-.8 2.8 0l5 5c.8.8.8 2 0 2.8L12 20"></path></svg>
+                <span>Erase</span>
+              </button>
+            </div>
+
+            <div class="form-group mb-3">
+              <div class="flex-between">
+                <label for="refineBrushSize" class="form-label-xs">Brush Size</label>
+                <span id="refineBrushSizeVal" class="text-xs font-mono">32 px</span>
+              </div>
+              <input type="range" id="refineBrushSize" class="slider" min="2" max="200" value="32" />
+            </div>
+
+            <div class="form-group mb-3">
+              <div class="flex-between">
+                <label for="refineBrushHardness" class="form-label-xs">Edge Hardness</label>
+                <span id="refineBrushHardnessVal" class="text-xs font-mono">70%</span>
+              </div>
+              <input type="range" id="refineBrushHardness" class="slider" min="0" max="100" value="70" />
+            </div>
+
+            <div class="form-group mb-3">
+              <div class="flex-between">
+                <label for="refineBrushOpacity" class="form-label-xs">Brush Opacity</label>
+                <span id="refineBrushOpacityVal" class="text-xs font-mono">100%</span>
+              </div>
+              <input type="range" id="refineBrushOpacity" class="slider" min="5" max="100" value="100" />
+            </div>
+
+            <div class="divider mb-3"></div>
+
+            <label class="form-label-xs">Edge Refinements</label>
+            <div class="form-group mb-2">
+              <div class="flex-between">
+                <label for="refineFeather" class="form-label-xs">Feather Radius</label>
+                <span id="refineFeatherVal" class="text-xs font-mono">0 px</span>
+              </div>
+              <input type="range" id="refineFeather" class="slider" min="0" max="25" value="0" />
+            </div>
+
+            <div class="btn-group-v w-full mt-3">
+              <button class="btn btn-xs btn-outline" id="refineInvertMaskBtn" type="button">Invert Mask</button>
+              <button class="btn btn-xs btn-outline" id="refineResetMaskBtn" type="button">Reset AI Mask</button>
+              <button class="btn btn-xs btn-outline text-blue" id="refineRerunAiBtn" type="button">Re-Run AI Removal</button>
+            </div>
+          </aside>
+
+          <!-- Center Interactive Viewport -->
+          <div class="refinement-stage checkerboard-bg" id="refinementStage">
+            <canvas id="refinementCanvas"></canvas>
+            <div class="brush-cursor" id="brushCursor"></div>
+            
+            <!-- Floating Zoom Readout -->
+            <div class="refine-zoom-badge" id="refineZoomBadge">100%</div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- ======================================================== -->
+    <!-- DIALOG: BATCH AI BACKGROUND REMOVAL MODAL                -->
+    <!-- ======================================================== -->
+    <dialog id="batchBgModal" class="app-dialog batch-bg-dialog" aria-labelledby="batchBgModalTitle">
+      <div class="dialog-content batch-bg-dialog-content">
+        <div class="dialog-header">
+          <div class="flex items-center gap-2">
+            <svg viewBox="0 0 24 24" width="22" height="22" stroke="#2563EB" fill="none" stroke-width="2"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path></svg>
+            <h2 id="batchBgModalTitle">Batch AI Background Removal</h2>
+          </div>
+          <form method="dialog">
+            <button class="icon-btn dialog-close-btn" value="close" aria-label="Close">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="batch-bg-body">
+          <div class="batch-upload-zone mb-3" id="batchBgDropzone">
+            <svg viewBox="0 0 24 24" width="36" height="36" stroke="var(--primary)" fill="none" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            <p><strong>Drag &amp; drop images</strong> to remove backgrounds in bulk</p>
+            <button class="btn btn-sm btn-outline mt-2" type="button" id="batchBgUploadTrigger">Choose Files</button>
+            <input type="file" id="batchBgFileInput" multiple accept="image/*" class="hidden" />
+          </div>
+
+          <div class="batch-bg-controls mb-3">
+            <div class="flex-between">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold">Shared Background:</span>
+                <select id="batchSharedBgSelect" class="form-select form-select-sm">
+                  <option value="transparent" selected>Transparent (PNG / WebP)</option>
+                  <option value="white">Pure White (#FFFFFF - eCommerce)</option>
+                  <option value="black">Pure Black (#000000)</option>
+                  <option value="gradient">Studio Soft Gradient</option>
+                </select>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="btn btn-sm btn-primary" id="btnStartBatchBg" type="button">Start Batch Removal</button>
+                <button class="btn btn-sm btn-outline" id="btnDownloadBatchBgZip" type="button" disabled>Download All (ZIP)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="batch-items-list" id="batchBgItemsList">
+            <div class="empty-batch-note">No images queued yet. Upload files above to begin.</div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
     <!-- Toast Notification Container -->
     <div class="toast-container" id="toastContainer"></div>
 
+    <script src="bg-remover.js"></script>
     <script src="editor.js"></script>
   </body>
 </html>
