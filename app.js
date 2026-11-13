@@ -308,6 +308,9 @@ const dom = {
   toggleCheckerboard: document.getElementById("toggleCheckerboard"),
   openFullscreenPreview: document.getElementById("openFullscreenPreview"),
   editSelectedInEditor: document.getElementById("editSelectedInEditor"),
+  bgRemoveSelected: document.getElementById("bgRemoveSelected"),
+  posterSelected: document.getElementById("posterSelected"),
+  resizeSelected: document.getElementById("resizeSelected"),
   downloadSelected: document.getElementById("downloadSelected"),
   comparisonStage: document.getElementById("comparisonStage"),
   comparisonWrapper: document.getElementById("comparisonWrapper"),
@@ -877,6 +880,18 @@ function bindAllEvents() {
   dom.editSelectedInEditor?.addEventListener("click", () => {
     const selected = findItem(state.selectedId);
     if (selected) openItemInEditor(selected);
+  });
+  dom.bgRemoveSelected?.addEventListener("click", () => {
+    const selected = findItem(state.selectedId);
+    if (selected) openItemInBgRemover(selected);
+  });
+  dom.posterSelected?.addEventListener("click", () => {
+    const selected = findItem(state.selectedId);
+    if (selected) openItemInPosterStudio(selected);
+  });
+  dom.resizeSelected?.addEventListener("click", () => {
+    const selected = findItem(state.selectedId);
+    if (selected) openItemInResizer(selected);
   });
   dom.downloadSelected?.addEventListener("click", downloadSelected);
 
@@ -2633,8 +2648,11 @@ function renderQueue() {
           <button class="icon-btn text-blue" type="button" data-action="edit" title="Edit in Image Editor" aria-label="Edit ${escapeHtml(item.name)} in Image Editor">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
           </button>
-          <button class="icon-btn text-blue" type="button" data-action="edit" title="Edit in Image Editor" aria-label="Edit ${escapeHtml(item.name)} in Image Editor">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          <button class="icon-btn text-amber" type="button" data-action="poster" title="Design AI Poster" aria-label="Design AI Poster with ${escapeHtml(item.name)}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+          </button>
+          <button class="icon-btn text-teal" type="button" data-action="resize" title="Resize Image" aria-label="Resize ${escapeHtml(item.name)}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
           </button>
           <button class="icon-btn" type="button" data-action="preview" title="Inspect / Compare" aria-label="Inspect ${escapeHtml(item.name)}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
@@ -2721,18 +2739,19 @@ function bindQueueRow(row) {
       const action = button.dataset.action;
       if (action === "remove-bg") {
         const item = findItem(id);
-        if (item) {
-          sessionStorage.setItem("fluxwebp_auto_remove_bg", "true");
-          openItemInEditor(item);
-        }
+        if (item) openItemInBgRemover(item);
       }
       if (action === "edit") {
         const item = findItem(id);
         if (item) openItemInEditor(item);
       }
-      if (action === "edit") {
+      if (action === "poster") {
         const item = findItem(id);
-        if (item) openItemInEditor(item);
+        if (item) openItemInPosterStudio(item);
+      }
+      if (action === "resize") {
+        const item = findItem(id);
+        if (item) openItemInResizer(item);
       }
       if (action === "download") {
         const item = findItem(id);
@@ -2800,6 +2819,9 @@ function renderPreview() {
     dom.downloadSelected.disabled = true;
     dom.openFullscreenPreview.disabled = true;
     if (dom.editSelectedInEditor) dom.editSelectedInEditor.disabled = true;
+    if (dom.bgRemoveSelected) dom.bgRemoveSelected.disabled = true;
+    if (dom.posterSelected) dom.posterSelected.disabled = true;
+    if (dom.resizeSelected) dom.resizeSelected.disabled = true;
 
     dom.selectedOriginal.textContent = "0 KB";
     dom.selectedOrigDim.textContent = "0 × 0";
@@ -2813,6 +2835,9 @@ function renderPreview() {
   dom.emptyState.classList.add("hidden");
   dom.comparisonStage.classList.remove("empty");
   if (dom.editSelectedInEditor) dom.editSelectedInEditor.disabled = false;
+  if (dom.bgRemoveSelected) dom.bgRemoveSelected.disabled = false;
+  if (dom.posterSelected) dom.posterSelected.disabled = false;
+  if (dom.resizeSelected) dom.resizeSelected.disabled = false;
   dom.previewTitle.textContent = selected.name;
 
   const ext = getExtension(selected.name).toUpperCase() || "IMG";
@@ -3180,11 +3205,11 @@ function downloadItem(item) {
   downloadBlob(item.outputBlob, filename);
 }
 
-function openItemInEditor(item) {
+function passItemToRoute(item, route, toolName) {
   if (!item) return;
   const blob = item.outputBlob || item.originalBlob || item.file;
   if (!blob) {
-    showToast("Unable to load image for editing.");
+    showToast(`Unable to load image for ${toolName}.`);
     return;
   }
   const reader = new FileReader();
@@ -3194,15 +3219,31 @@ function openItemInEditor(item) {
         name: item.name || "image",
         dataUrl: reader.result
       }));
-      window.location.href = "/editor/";
+      window.location.href = route;
     } catch (err) {
-      showToast("Image too large to pass automatically. Please open directly in the Editor.");
+      showToast(`Image too large to pass automatically. Please open directly in ${toolName}.`);
     }
   };
   reader.onerror = () => {
     showToast("Failed to read image data.");
   };
   reader.readAsDataURL(blob);
+}
+
+function openItemInEditor(item) {
+  passItemToRoute(item, "/editor/", "Image Editor");
+}
+
+function openItemInBgRemover(item) {
+  passItemToRoute(item, "/background-remover/", "AI Background Remover");
+}
+
+function openItemInPosterStudio(item) {
+  passItemToRoute(item, "/poster-studio/", "AI Poster Studio");
+}
+
+function openItemInResizer(item) {
+  passItemToRoute(item, "/resizer/", "Image Resizer");
 }
 
 async function downloadAllAsZip() {

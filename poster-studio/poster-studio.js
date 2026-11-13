@@ -143,6 +143,38 @@
     // Initial Zoom Fit
     fitCanvasToViewport();
     checkAiStatus();
+    checkTransferredImage();
+  }
+
+  // Check incoming transferred image from other tools
+  async function checkTransferredImage() {
+    try {
+      const incomingPosterBg = sessionStorage.getItem('fluxwebp_poster_bg_image');
+      if (incomingPosterBg) {
+        sessionStorage.removeItem('fluxwebp_poster_bg_image');
+        const res = await fetch(incomingPosterBg);
+        const blob = await res.blob();
+        const file = new File([blob], 'cutout.png', { type: 'image/png' });
+        await engine.loadProductImage(file, false);
+        showToast('Cutout placed onto poster canvas!');
+        return;
+      }
+
+      const rawSource = sessionStorage.getItem('fluxwebp_edit_source');
+      if (rawSource) {
+        sessionStorage.removeItem('fluxwebp_edit_source');
+        const parsed = JSON.parse(rawSource);
+        if (parsed && parsed.dataUrl) {
+          const res = await fetch(parsed.dataUrl);
+          const blob = await res.blob();
+          const file = new File([blob], parsed.name || 'product.png', { type: blob.type || 'image/png' });
+          await engine.loadProductImage(file, true);
+          showToast(`Loaded "${file.name}" as product layer!`);
+        }
+      }
+    } catch (err) {
+      console.warn('Could not auto-import transferred image:', err);
+    }
   }
 
   // -------------------------------------------------------------

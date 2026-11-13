@@ -3,7 +3,7 @@
  * Caches core static application shell for fast offline launches.
  * Bypasses in-memory Blobs, user files, and analytics.
  */
-const CACHE_NAME = "fluxwebp-shell-v5";
+const CACHE_NAME = "fluxwebp-shell-v6";
 const CORE_ASSETS = [
   "/",
   "/index.html",
@@ -25,7 +25,21 @@ const CORE_ASSETS = [
   "/poster-studio/poster-templates.js",
   "/poster-studio/poster-studio.js",
   "/ai-poster-generator/",
-  "/ai-poster-generator/index.html"
+  "/ai-poster-generator/index.html",
+  "/background-remover/",
+  "/background-remover/index.html",
+  "/resizer/",
+  "/resizer/index.html",
+  "/projects/",
+  "/projects/index.html",
+  "/help/",
+  "/help/index.html",
+  "/contact/",
+  "/contact/index.html",
+  "/about/",
+  "/privacy/",
+  "/terms/",
+  "/404.html"
 ];
 
 self.addEventListener("install", (evt) => {

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Free AI Background Remover Online – Instant 1-Click Cutout | FluxWebP Pro</title>
+    <meta
+      name="description"
+      content="Remove image backgrounds automatically in seconds with AI. 100% free, private on-device processing, high-resolution transparent PNG and WebP exports."
+    />
+    <meta name="keywords" content="ai background remover, remove bg online free, transparent background maker, cutout photo online, product background removal" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://app-webp-converter.vercel.app/background-remover/" />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "FluxWebP AI Background Remover",
+      "url": "https://app-webp-converter.vercel.app/background-remover/",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All modern web browsers",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Instant automatic AI background removal for photos, products, and portraits directly in your browser."
+    }
+    </script>
+  </head>
+  <body>
+    <div class="app-shell" id="top">
+      <!-- Global Navigation Header -->
+      <header class="global-header" role="banner">
+        <div class="header-container">
+          <div class="header-brand-group">
+            <a class="brand-link" href="/" aria-label="FluxWebP Pro Home">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name-wrap"><span class="brand-title">FluxWebP</span><span class="brand-badge">AI REMOVER</span></span>
+            </a>
+          </div>
+          <nav class="primary-nav" aria-label="Main Navigation">
+            <ul class="nav-link-list">
+              <li><a href="/" class="nav-item">Converter</a></li>
+              <li><a href="/editor/" class="nav-item">Image Editor</a></li>
+              <li><a href="/background-remover/" class="nav-item active">AI Remover</a></li>
+              <li><a href="/poster-studio/" class="nav-item">Poster Studio</a></li>
+              <li><a href="/help/" class="nav-item">Help</a></li>
+            </ul>
+          </nav>
+          <div class="header-action-group">
+            <a href="/editor/" class="btn btn-sm btn-outline">Full Editor</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Dedicated Tool Workspace -->
+      <main class="main-viewport" role="main" style="max-width: 1040px; margin: 0 auto; padding: 40px 20px;">
+        <div class="text-center mb-4">
+          <span class="badge badge-blue mb-2" style="display:inline-block; margin-bottom:8px;">100% PRIVATE • ZERO SERVER UPLOADS</span>
+          <h1 style="font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+            AI Automatic Background Remover
+          </h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto;">
+            Extract clean transparent cutouts of people, products, animals, and vehicles in seconds using cutting-edge client-side neural segmentation.
+          </p>
+        </div>
+
+        <!-- Dedicated Upload & Interaction Card -->
+        <div class="card p-4 text-center" style="background: var(--bg-card); border: 2px dashed var(--border-color); border-radius: 16px; padding: 48px 24px; position: relative; cursor: pointer;" id="bgDropzone">
+          <input type="file" id="bgFileInput" accept="image/*" class="hidden" style="display:none;" />
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary-blue); margin-bottom: 16px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">Upload an Image to Remove Background</h2>
+          <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px;">Drag &amp; drop PNG, JPG, WebP, HEIC, or Camera RAW</p>
+          <button class="btn btn-primary" type="button" id="btnSelectBgFile">Choose Photo</button>
+        </div>
+
+        <!-- Processing State Card (Hidden by default) -->
+        <div class="card p-4 text-center hidden" id="bgProcessingCard" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 48px 24px; margin-top: 24px;">
+          <div class="spinner mb-3" style="width: 40px; height: 40px; border: 4px solid var(--border-color); border-top-color: var(--primary-blue); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite;"></div>
+          <h3 id="bgStatusText" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Analyzing foreground subject...</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Processing locally inside your browser sandbox.</p>
+        </div>
+
+        <!-- Result Card (Hidden by default) -->
+        <div class="card p-4 hidden" id="bgResultCard" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; margin-top: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Transparent Cutout Result</h3>
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-sm btn-primary" id="btnDownloadPng" type="button">Download PNG</button>
+              <button class="btn btn-sm btn-outline" id="btnDownloadWebp" type="button">Download WebP</button>
+              <button class="btn btn-sm btn-outline" id="btnSendToEditor" type="button">Open in Editor</button>
+              <button class="btn btn-sm btn-outline" id="btnSendToPoster" type="button">Make Poster</button>
+            </div>
+          </div>
+
+          <div style="background: repeating-conic-gradient(#E2E8F0 0% 25%, transparent 0% 50%) 50% / 20px 20px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 400px; padding: 20px;">
+            <canvas id="bgResultCanvas" style="max-width: 100%; max-height: 550px; object-fit: contain; box-shadow: 0 10px 25px rgba(0,0,0,0.1);"></canvas>
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer" role="contentinfo" style="margin-top: 60px;">
+        <div class="footer-container">
+          <div class="footer-brand-col">
+            <div class="brand">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name">FluxWebP Pro</span>
+            </div>
+            <p class="footer-desc">Professional on-device image conversion &amp; AI tools.</p>
+          </div>
+          <div class="footer-links-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="/">Converter</a></li>
+              <li><a href="/editor/">Image Editor</a></li>
+              <li><a href="/background-remover/">Background Remover</a></li>
+              <li><a href="/poster-studio/">AI Poster Studio</a></li>
+              <li><a href="/privacy/">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <style>
+      @keyframes spin { to { transform: rotate(360deg); } }
+      .hidden { display: none !important; }
+    </style>
+
+    <script src="../editor/bg-remover.js"></script>
+    <script>
+      (function() {
+        const dropzone = document.getElementById('bgDropzone');
+        const fileInput = document.getElementById('bgFileInput');
+        const selectBtn = document.getElementById('btnSelectBgFile');
+        const processingCard = document.getElementById('bgProcessingCard');
+        const resultCard = document.getElementById('bgResultCard');
+        const statusText = document.getElementById('bgStatusText');
+        const resultCanvas = document.getElementById('bgResultCanvas');
+        const btnDownloadPng = document.getElementById('btnDownloadPng');
+        const btnDownloadWebp = document.getElementById('btnDownloadWebp');
+        const btnSendToEditor = document.getElementById('btnSendToEditor');
+        const btnSendToPoster = document.getElementById('btnSendToPoster');
+
+        let lastResultCanvas = null;
+        let lastFileName = 'cutout';
+
+        selectBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          fileInput.click();
+        });
+
+        dropzone.addEventListener('click', () => fileInput.click());
+        dropzone.addEventListener('dragover', (e) => e.preventDefault());
+        dropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          const file = e.dataTransfer.files[0];
+          if (file) processFile(file);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (file) processFile(file);
+        });
+
+        async function processFile(file) {
+          lastFileName = file.name.replace(/\.[^.]+$/, '');
+          dropzone.classList.add('hidden');
+          processingCard.classList.remove('hidden');
+          resultCard.classList.add('hidden');
+
+          const img = new Image();
+          const url = URL.createObjectURL(file);
+
+          await new Promise((resolve, reject) => {
+            img.onload = resolve;
+            img.onerror = reject;
+            img.src = url;
+          });
+
+          const srcCanvas = document.createElement('canvas');
+          srcCanvas.width = img.naturalWidth || img.width;
+          srcCanvas.height = img.naturalHeight || img.height;
+          srcCanvas.getContext('2d').drawImage(img, 0, 0);
+
+          try {
+            const result = await window.FluxBgRemover.removeBackground(srcCanvas, {
+              onProgress: (p) => {
+                if (statusText) statusText.textContent = p.message || 'Processing...';
+              }
+            });
+
+            lastResultCanvas = result.resultCanvas;
+            resultCanvas.width = lastResultCanvas.width;
+            resultCanvas.height = lastResultCanvas.height;
+            resultCanvas.getContext('2d').drawImage(lastResultCanvas, 0, 0);
+
+            processingCard.classList.add('hidden');
+            resultCard.classList.remove('hidden');
+          } catch (err) {
+            console.error('Removal error:', err);
+            statusText.textContent = 'Error: ' + err.message;
+            setTimeout(() => {
+              processingCard.classList.add('hidden');
+              dropzone.classList.remove('hidden');
+            }, 3000);
+          }
+        }
+
+        btnDownloadPng?.addEventListener('click', () => {
+          if (!lastResultCanvas) return;
+          lastResultCanvas.toBlob((blob) => {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `${lastFileName}-cutout.png`;
+            a.click();
+          }, 'image/png');
+        });
+
+        btnDownloadWebp?.addEventListener('click', () => {
+          if (!lastResultCanvas) return;
+          lastResultCanvas.toBlob((blob) => {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `${lastFileName}-cutout.webp`;
+            a.click();
+          }, 'image/webp', 0.95);
+        });
+
+        btnSendToEditor?.addEventListener('click', () => {
+          if (!lastResultCanvas) return;
+          sessionStorage.setItem('fluxwebp_imported_editor_image', lastResultCanvas.toDataURL('image/png'));
+          sessionStorage.setItem('fluxwebp_editor_title', `${lastFileName} Cutout`);
+          window.location.href = '/editor/';
+        });
+
+        btnSendToPoster?.addEventListener('click', () => {
+          if (lastResultCanvas) {
+            sessionStorage.setItem('fluxwebp_poster_bg_image', lastResultCanvas.toDataURL('image/png'));
+          }
+          window.location.href = '/poster-studio/';
+        });
+
+        // Auto-load transferred image if arriving from Converter or Editor
+        try {
+          const rawSource = sessionStorage.getItem('fluxwebp_edit_source');
+          if (rawSource) {
+            sessionStorage.removeItem('fluxwebp_edit_source');
+            const parsed = JSON.parse(rawSource);
+            if (parsed && parsed.dataUrl) {
+              fetch(parsed.dataUrl)
+                .then(res => res.blob())
+                .then(blob => {
+                  const file = new File([blob], parsed.name || 'image.png', { type: blob.type || 'image/png' });
+                  processFile(file);
+                }).catch(e => console.warn('Could not load incoming image:', e));
+            }
+          }
+        } catch (_) {}
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>My Projects &amp; Saved Designs | FluxWebP Pro</title>
+    <meta
+      name="description"
+      content="Manage, reopen, duplicate, and export your saved FluxWebP Pro image editor projects (.fluxproj) and AI poster designs (.fluxposter) stored locally on your device."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://app-webp-converter.vercel.app/projects/" />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="top">
+      <header class="global-header" role="banner">
+        <div class="header-container">
+          <div class="header-brand-group">
+            <a class="brand-link" href="/" aria-label="FluxWebP Pro Home">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name-wrap"><span class="brand-title">FluxWebP</span><span class="brand-badge">PROJECTS</span></span>
+            </a>
+          </div>
+          <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
+            <ul class="nav-link-list">
+              <li><a href="/" class="nav-item">Converter</a></li>
+              <li><a href="/editor/" class="nav-item">Image Editor</a></li>
+              <li><a href="/poster-studio/" class="nav-item">Poster Studio</a></li>
+              <li><a href="/projects/" class="nav-item active">My Projects</a></li>
+              <li><a href="/help/" class="nav-item">Help</a></li>
+            </ul>
+          </nav>
+          <div class="header-action-group">
+            <a href="/" class="btn btn-sm btn-primary">Open Converter</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-viewport" role="main" style="max-width: 1040px; margin: 0 auto; padding: 48px 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--text-main); margin-bottom: 6px;">
+              My Projects &amp; Saved Designs
+            </h1>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">
+              All project files (.fluxproj &amp; .fluxposter) are securely persisted in your local browser sandbox.
+            </p>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-sm btn-outline" id="btnImportProject" type="button">Import Project File</button>
+            <input type="file" id="importFileInput" accept=".json,.fluxproj,.fluxposter" class="hidden" style="display:none;" />
+            <a href="/poster-studio/" class="btn btn-sm btn-primary">+ New Poster</a>
+            <a href="/editor/" class="btn btn-sm btn-primary">+ New Edit</a>
+          </div>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div id="projectsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;"></div>
+
+        <!-- Empty State Container -->
+        <div id="projectsEmptyState" class="card p-5 text-center hidden" style="background: var(--bg-card); border: 2px dashed var(--border-color); border-radius: 16px; padding: 60px 20px;">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-secondary); margin-bottom: 16px;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline></svg>
+          <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">No Saved Projects Yet</h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 480px; margin: 0 auto 24px;">
+            When you create designs in the Image Editor or AI Poster Studio, you can save them locally to resume work at any time.
+          </p>
+          <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+            <a href="/poster-studio/" class="btn btn-primary">Create in Poster Studio</a>
+            <a href="/editor/" class="btn btn-outline">Create in Image Editor</a>
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer" role="contentinfo" style="margin-top: 60px;">
+        <div class="footer-container">
+          <div class="footer-brand-col">
+            <div class="brand">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name">FluxWebP Pro</span>
+            </div>
+            <p class="footer-desc">Universal on-device image conversion &amp; optimization platform.</p>
+          </div>
+          <div class="footer-links-col">
+            <h4>Workspace</h4>
+            <ul>
+              <li><a href="/">Converter</a></li>
+              <li><a href="/editor/">Image Editor</a></li>
+              <li><a href="/poster-studio/">Poster Studio</a></li>
+              <li><a href="/projects/">My Projects</a></li>
+              <li><a href="/privacy/">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <style>.hidden { display: none !important; }</style>
+
+    <script>
+      (function() {
+        const grid = document.getElementById('projectsGrid');
+        const emptyState = document.getElementById('projectsEmptyState');
+        const importBtn = document.getElementById('btnImportProject');
+        const fileInput = document.getElementById('importFileInput');
+
+        importBtn.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = () => {
+            try {
+              const parsed = JSON.parse(reader.result);
+              const key = 'fluxwebp_project_' + Date.now();
+              const title = parsed.doc?.title || file.name.replace(/\.[^.]+$/, '');
+              localStorage.setItem(key, JSON.stringify({
+                id: key,
+                title,
+                json: reader.result,
+                date: new Date().toLocaleDateString()
+              }));
+              renderProjects();
+            } catch (err) {
+              alert('Invalid project file structure.');
+            }
+          };
+          reader.readAsText(file);
+        });
+
+        function renderProjects() {
+          const projects = [];
+          for (let i = 0; i < localStorage.length; i++) {
+            const k = localStorage.key(i);
+            if (k.startsWith('fluxwebp_project_') || k.startsWith('fluxwebp_editor_project_')) {
+              try {
+                projects.push(JSON.parse(localStorage.getItem(k)));
+              } catch (_) {}
+            }
+          }
+
+          if (projects.length === 0) {
+            grid.classList.add('hidden');
+            emptyState.classList.remove('hidden');
+            return;
+          }
+
+          grid.classList.remove('hidden');
+          emptyState.classList.add('hidden');
+
+          grid.innerHTML = projects.map(proj => {
+            const isPoster = proj.json?.includes('fluxposter') || proj.title?.includes('Poster');
+            const targetUrl = isPoster ? '/poster-studio/' : '/editor/';
+            const toolBadge = isPoster ? 'AI Poster Studio' : 'Image Editor';
+
+            return `
+              <div class="card p-4" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+                <div>
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+                    <span class="badge ${isPoster ? 'badge-purple' : 'badge-blue'}" style="font-size:0.75rem;">${toolBadge}</span>
+                    <span style="font-size:0.75rem;color:var(--text-secondary);">${proj.date || 'Saved'}</span>
+                  </div>
+                  <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text-main);">${escapeHtml(proj.title || 'Untitled Project')}</h3>
+                </div>
+                <div style="display:flex;gap:8px;margin-top:18px;border-top:1px solid var(--border-color);padding-top:14px;">
+                  <button class="btn btn-sm btn-primary btn-open" data-id="${proj.id}" data-url="${targetUrl}" style="flex:1;">Open</button>
+                  <button class="btn btn-sm btn-outline btn-export" data-id="${proj.id}" title="Download project JSON">Export</button>
+                  <button class="btn btn-sm btn-outline text-red btn-delete" data-id="${proj.id}" title="Delete">🗑</button>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          grid.querySelectorAll('.btn-open').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const item = JSON.parse(localStorage.getItem(btn.dataset.id));
+              if (item) {
+                sessionStorage.setItem('fluxwebp_imported_project', item.json);
+                window.location.href = btn.dataset.url;
+              }
+            });
+          });
+
+          grid.querySelectorAll('.btn-export').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const item = JSON.parse(localStorage.getItem(btn.dataset.id));
+              if (item) {
+                const blob = new Blob([item.json || JSON.stringify(item)], { type: 'application/json' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = `${(item.title || 'project').toLowerCase().replace(/[^a-z0-9]/g, '-')}.json`;
+                a.click();
+              }
+            });
+          });
+
+          grid.querySelectorAll('.btn-delete').forEach(btn => {
+            btn.addEventListener('click', () => {
+              if (confirm('Are you sure you want to delete this saved project?')) {
+                localStorage.removeItem(btn.dataset.id);
+                renderProjects();
+              }
+            });
+          });
+        }
+
+        function escapeHtml(str) {
+          return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+        }
+
+        renderProjects();
+      })();
+    </script>
+  </body>
+</html>

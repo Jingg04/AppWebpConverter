@@ -29,6 +29,24 @@
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
+  <url>
+    <loc>https://app-webp-converter.vercel.app/background-remover/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://app-webp-converter.vercel.app/resizer/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://app-webp-converter.vercel.app/projects/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 
   <!-- High-Intent Dedicated Conversion Landing Pages -->
   <url>
@@ -68,12 +86,24 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Educational Guides & Knowledge Base -->
+  <!-- Educational Guides, Help & Knowledge Base -->
   <url>
     <loc>https://app-webp-converter.vercel.app/blog/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://app-webp-converter.vercel.app/help/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://app-webp-converter.vercel.app/contact/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
   </url>
   <url>
     <loc>https://app-webp-converter.vercel.app/blog/webp-vs-png-vs-jpg/</loc>

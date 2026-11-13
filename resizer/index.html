@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Free Online Image Resizer – Pixels, Percentage &amp; Social Presets | FluxWebP Pro</title>
+    <meta
+      name="description"
+      content="Resize images online in seconds by pixels, percentage, or social media presets (Instagram, YouTube, Facebook, Twitter). Fast, high-quality, 100% private on-device processing."
+    />
+    <meta name="keywords" content="image resizer, resize image online, bulk image resizer, instagram photo resize, youtube thumbnail resizer" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://app-webp-converter.vercel.app/resizer/" />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "FluxWebP Image Resizer",
+      "url": "https://app-webp-converter.vercel.app/resizer/",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All modern web browsers",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Fast, high-fidelity client-side image resizing with aspect-ratio locking and social media presets."
+    }
+    </script>
+  </head>
+  <body>
+    <div class="app-shell" id="top">
+      <header class="global-header" role="banner">
+        <div class="header-container">
+          <div class="header-brand-group">
+            <a class="brand-link" href="/" aria-label="FluxWebP Pro Home">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name-wrap"><span class="brand-title">FluxWebP</span><span class="brand-badge">RESIZER</span></span>
+            </a>
+          </div>
+          <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
+            <ul class="nav-link-list">
+              <li><a href="/" class="nav-item">Converter</a></li>
+              <li><a href="/editor/" class="nav-item">Image Editor</a></li>
+              <li><a href="/resizer/" class="nav-item active">Resizer</a></li>
+              <li><a href="/image-compressor/" class="nav-item">Compressor</a></li>
+              <li><a href="/help/" class="nav-item">Help</a></li>
+            </ul>
+          </nav>
+          <div class="header-action-group">
+            <a href="/" class="btn btn-sm btn-primary">Open Converter</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-viewport" role="main" style="max-width: 960px; margin: 0 auto; padding: 40px 20px;">
+        <div class="text-center mb-4">
+          <h1 style="font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 800; color: var(--text-main); margin-bottom: 10px;">
+            Image Resizer &amp; Dimension Scaler
+          </h1>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+            Resize photos by exact pixel dimensions, percentage, or social media standards. Zero server uploads.
+          </p>
+        </div>
+
+        <div class="card p-4" style="background: var(--bg-card); border: 2px dashed var(--border-color); border-radius: 16px; padding: 36px 20px; text-align: center; cursor: pointer;" id="resizerDropzone">
+          <input type="file" id="resizerFileInput" accept="image/*" class="hidden" style="display:none;" />
+          <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary-blue); margin-bottom: 12px;"><path d="M15 3h6v6m0-6L10 14m-1 7H3v-6m0 6l11-11"></path></svg>
+          <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;">Select or Drop Image to Resize</h2>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">PNG, JPG, WebP, SVG, or TIFF</p>
+          <button class="btn btn-primary" type="button" id="btnSelectResizerFile">Choose Image</button>
+        </div>
+
+        <!-- Controls Card (Hidden by default) -->
+        <div class="card p-4 hidden" id="resizerControlsCard" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 28px; margin-top: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 14px;">
+            <div style="font-weight: 700; font-size: 1.1rem;" id="resizerImageName">photo.jpg</div>
+            <span class="badge badge-blue" id="resizerOriginalDim">Original: 1920 × 1080 px</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 24px;">
+            <div>
+              <label for="targetWidth" style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 6px;">Target Width (px)</label>
+              <input type="number" id="targetWidth" class="form-select" style="width: 100%; padding: 8px 12px;" value="1200" />
+            </div>
+            <div>
+              <label for="targetHeight" style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 6px;">Target Height (px)</label>
+              <input type="number" id="targetHeight" class="form-select" style="width: 100%; padding: 8px 12px;" value="800" />
+            </div>
+            <div style="display: flex; align-items: center; padding-top: 22px;">
+              <label style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer;">
+                <input type="checkbox" id="lockAspectCheckbox" checked />
+                <span>Lock Aspect Ratio</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Social Presets -->
+          <div style="margin-bottom: 24px;">
+            <label style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 10px; color: var(--text-secondary); text-transform: uppercase;">Social Media Presets</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <button class="btn btn-sm btn-outline preset-btn" data-w="1080" data-h="1080" type="button">Instagram Square (1080×1080)</button>
+              <button class="btn btn-sm btn-outline preset-btn" data-w="1080" data-h="1350" type="button">Instagram Portrait (1080×1350)</button>
+              <button class="btn btn-sm btn-outline preset-btn" data-w="1080" data-h="1920" type="button">Story / Reels (1080×1920)</button>
+              <button class="btn btn-sm btn-outline preset-btn" data-w="1280" data-h="720" type="button">YouTube Thumb (1280×720)</button>
+              <button class="btn btn-sm btn-outline preset-btn" data-w="1200" data-h="627" type="button">LinkedIn Post (1200×627)</button>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; border-top: 1px solid var(--border-color); padding-top: 18px;">
+            <button class="btn btn-outline" id="btnEditInEditor" type="button">Open in Image Editor</button>
+            <button class="btn btn-outline" id="btnConvertToWebp" type="button">Convert to WebP</button>
+            <button class="btn btn-primary" id="btnDownloadResized" type="button">Download Resized Image</button>
+          </div>
+        </div>
+      </main>
+
+      <footer class="site-footer" role="contentinfo" style="margin-top: 60px;">
+        <div class="footer-container">
+          <div class="footer-brand-col">
+            <div class="brand">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name">FluxWebP Pro</span>
+            </div>
+            <p class="footer-desc">Universal on-device image conversion &amp; optimization platform.</p>
+          </div>
+          <div class="footer-links-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/">Converter</a></li>
+              <li><a href="/editor/">Image Editor</a></li>
+              <li><a href="/resizer/">Resizer</a></li>
+              <li><a href="/image-compressor/">Compressor</a></li>
+              <li><a href="/help/">Help Center</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <style>.hidden { display: none !important; }</style>
+
+    <script>
+      (function() {
+        const dropzone = document.getElementById('resizerDropzone');
+        const fileInput = document.getElementById('resizerFileInput');
+        const selectBtn = document.getElementById('btnSelectResizerFile');
+        const controlsCard = document.getElementById('resizerControlsCard');
+        const targetWidthInput = document.getElementById('targetWidth');
+        const targetHeightInput = document.getElementById('targetHeight');
+        const lockAspectCheckbox = document.getElementById('lockAspectCheckbox');
+        const originalDimBadge = document.getElementById('resizerOriginalDim');
+        const imageName = document.getElementById('resizerImageName');
+        const downloadBtn = document.getElementById('btnDownloadResized');
+
+        let originalImg = null;
+        let aspectRatio = 1.0;
+        let currentFile = null;
+
+        selectBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          fileInput.click();
+        });
+
+        dropzone.addEventListener('click', () => fileInput.click());
+        dropzone.addEventListener('dragover', (e) => e.preventDefault());
+        dropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+          if (e.target.files[0]) handleFile(e.target.files[0]);
+        });
+
+        function handleFile(file) {
+          currentFile = file;
+          imageName.textContent = file.name;
+          const url = URL.createObjectURL(file);
+          originalImg = new Image();
+          originalImg.onload = () => {
+            aspectRatio = originalImg.width / originalImg.height;
+            originalDimBadge.textContent = `Original: ${originalImg.width} × ${originalImg.height} px`;
+            targetWidthInput.value = originalImg.width;
+            targetHeightInput.value = originalImg.height;
+            dropzone.classList.add('hidden');
+            controlsCard.classList.remove('hidden');
+          };
+          originalImg.src = url;
+        }
+
+        targetWidthInput.addEventListener('input', () => {
+          if (lockAspectCheckbox.checked && aspectRatio) {
+            targetHeightInput.value = Math.round(targetWidthInput.value / aspectRatio);
+          }
+        });
+
+        targetHeightInput.addEventListener('input', () => {
+          if (lockAspectCheckbox.checked && aspectRatio) {
+            targetWidthInput.value = Math.round(targetHeightInput.value * aspectRatio);
+          }
+        });
+
+        document.querySelectorAll('.preset-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            targetWidthInput.value = btn.dataset.w;
+            targetHeightInput.value = btn.dataset.h;
+            lockAspectCheckbox.checked = false;
+          });
+        });
+
+        downloadBtn.addEventListener('click', () => {
+          if (!originalImg) return;
+          const w = parseInt(targetWidthInput.value, 10);
+          const h = parseInt(targetHeightInput.value, 10);
+
+          const canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(originalImg, 0, 0, w, h);
+
+          canvas.toBlob((blob) => {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            const ext = currentFile.name.split('.').pop() || 'png';
+            a.download = `resized-${w}x${h}-${currentFile.name}`;
+            a.click();
+          }, currentFile.type || 'image/png');
+        });
+
+        function getResizedCanvas() {
+          if (!originalImg) return null;
+          const w = parseInt(targetWidthInput.value, 10);
+          const h = parseInt(targetHeightInput.value, 10);
+          const canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(originalImg, 0, 0, w, h);
+          return canvas;
+        }
+
+        document.getElementById('btnEditInEditor')?.addEventListener('click', () => {
+          const cvs = getResizedCanvas();
+          if (!cvs) return;
+          sessionStorage.setItem('fluxwebp_imported_editor_image', cvs.toDataURL('image/png'));
+          sessionStorage.setItem('fluxwebp_editor_title', `Resized ${currentFile?.name || 'Image'}`);
+          window.location.href = '/editor/';
+        });
+
+        document.getElementById('btnConvertToWebp')?.addEventListener('click', () => {
+          const cvs = getResizedCanvas();
+          if (!cvs) return;
+          sessionStorage.setItem('fluxwebp_transfer_image', JSON.stringify({
+            name: `resized-${currentFile?.name?.replace(/\.[^.]+$/, '') || 'image'}.webp`,
+            dataUrl: cvs.toDataURL('image/webp', 0.9)
+          }));
+          window.location.href = '/';
+        });
+
+        // Auto-load transferred image if arriving from Converter or Editor
+        try {
+          const rawSource = sessionStorage.getItem('fluxwebp_edit_source');
+          if (rawSource) {
+            sessionStorage.removeItem('fluxwebp_edit_source');
+            const parsed = JSON.parse(rawSource);
+            if (parsed && parsed.dataUrl) {
+              fetch(parsed.dataUrl)
+                .then(res => res.blob())
+                .then(blob => {
+                  const file = new File([blob], parsed.name || 'image.png', { type: blob.type || 'image/png' });
+                  handleFile(file);
+                }).catch(e => console.warn('Could not load incoming image:', e));
+            }
+          }
+        } catch (_) {}
+      })();
+    </script>
+  </body>
+</html>

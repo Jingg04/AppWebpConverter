@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Privacy Policy – 100% Client-Side On-Device Guarantee | FluxWebP Pro</title>
+    <title>Privacy Policy – Client-Side Security &amp; AI Data Disclosure | FluxWebP Pro</title>
     <meta
       name="description"
-      content="Read the FluxWebP Pro privacy policy: zero server uploads, 100% on-device image processing, no tracking cookies, and automatic memory cleanup."
+      content="Read the FluxWebP Pro privacy policy: 100% on-device client-side image processing, transparent remote AI generation disclosure, and local storage management."
     />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://app-webp-converter.vercel.app/privacy/" />
@@ -26,8 +26,10 @@
           <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
             <ul class="nav-link-list">
               <li><a href="/" class="nav-item">Converter</a></li>
-              <li><a href="/jpg-to-webp/" class="nav-item">JPG to WebP</a></li>
-              <li><a href="/blog/" class="nav-item">Guides</a></li>
+              <li><a href="/editor/" class="nav-item">Image Editor</a></li>
+              <li><a href="/poster-studio/" class="nav-item">Poster Studio</a></li>
+              <li><a href="/about/" class="nav-item">About</a></li>
+              <li><a href="/help/" class="nav-item">Help Center</a></li>
             </ul>
           </nav>
           <div class="header-action-group">
@@ -39,34 +41,56 @@
       <main class="main-viewport" role="main" style="max-width: 860px; margin: 0 auto; padding-top: 24px;">
         <article class="seo-section" style="padding: clamp(24px, 5vw, 48px); line-height: 1.8;">
           <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--text-main); margin-bottom: 20px;">
-            Privacy Policy
+            Privacy Policy &amp; Data Transparency
           </h1>
           <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px;">
-            Last Updated: November 2026
+            Last Updated: November 14, 2026
           </p>
 
-          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">1. Zero Remote Server Uploads</h2>
+          <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid var(--primary-blue); padding: 16px 20px; border-radius: 6px; margin-bottom: 32px;">
+            <p style="margin: 0; font-size: 0.95rem; color: var(--text-main); font-weight: 500;">
+              <strong>Summary:</strong> FluxWebP Pro processes your photos locally inside your browser sandbox by default. We do not store, view, or sell your files. When you explicitly use cloud-based AI generation in the Poster Studio, prompt text and selected reference imagery are transmitted securely to designated AI model inference endpoints.
+            </p>
+          </div>
+
+          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">1. Local On-Device Processing (Default Engine)</h2>
           <p style="margin-bottom: 16px;">
-            FluxWebP Pro operates strictly as a client-side web application. When you drag and drop or select files to convert, your images are decoded and encoded directly within your web browser using HTML5 Canvas, WebAssembly, and local Web Worker threads. At no point are your image files, file names, or image metadata uploaded to any remote server or third-party cloud.
+            The primary tools in FluxWebP Pro—including the <strong>Universal Image Converter</strong>, <strong>Image Compressor</strong>, <strong>Image Resizer</strong>, <strong>Image Editor</strong>, and the <strong>Fast Saliency Background Remover</strong>—operate 100% on your device. File decoding, raster transformations, WebAssembly operations, and format encoding (WebP, PNG, JPEG, AVIF) occur strictly inside your browser's V8 engine and Web Worker threads. Your source images never touch our servers.
           </p>
 
-          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">2. Location &amp; EXIF Metadata Sanitization</h2>
+          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">2. AI Poster Studio &amp; Cloud Inference Disclosure</h2>
           <p style="margin-bottom: 16px;">
-            By default, FluxWebP Pro strips GPS latitude and longitude tags from all exported files to protect your physical location privacy when publishing photos online. You have full control in the Advanced Settings drawer to retain or strip EXIF metadata.
+            When using the <strong>AI Poster Studio</strong> (`/poster-studio/`), you can generate original creative artwork from text prompts. These generations utilize serverless inference connections:
           </p>
+          <ul style="margin-left: 24px; margin-bottom: 16px;">
+            <li><strong>FLUX.1 Cloud Engine (Default):</strong> Generates visuals based on your text prompt via public inference endpoints without requiring user accounts or storing personal files.</li>
+            <li><strong>Google Imagen 3 &amp; OpenAI DALL-E 3 (Optional BYOK):</strong> When you configure a private API key, requests are routed directly to Google or OpenAI over encrypted TLS connections.</li>
+            <li><strong>Reference Images:</strong> When you upload a product photo for AI compositing, background segmentation is performed client-side on your device first. Only user-approved generation queries are sent externally.</li>
+          </ul>
 
-          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">3. Local Browser Storage &amp; Cookies</h2>
+          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">3. Metadata Sanitization &amp; EXIF Stripping</h2>
           <p style="margin-bottom: 16px;">
-            We do not use tracking cookies or advertising pixels. Your preferences (e.g. chosen quality level, dark/light theme, and local conversion history) are saved exclusively in your browser's <code>localStorage</code> on your own device. You can purge all saved records at any time via Application Settings.
+            To protect your real-world physical location privacy, FluxWebP Pro strips GPS coordinates (latitude, longitude, altitude) by default from all converted images. In the Advanced Settings drawer, you can customize whether camera EXIF metadata (lens, aperture, shutter speed) is retained or stripped.
           </p>
 
-          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">4. Privacy-First Analytics</h2>
+          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">4. Local Browser Storage (LocalStorage)</h2>
+          <p style="margin-bottom: 16px;">
+            FluxWebP Pro stores project drafts (<code>.fluxproj</code> and <code>.fluxposter</code> documents), Brand Kits, and conversion history strictly on your device using HTML5 <code>localStorage</code> and <code>IndexedDB</code>. We do not maintain server-side user accounts or cross-device cloud databases. You can permanently wipe all locally cached data at any time by clicking "Purge All Saved Data" in Settings.
+          </p>
+
+          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">5. Cookies and Analytics</h2>
+          <p style="margin-bottom: 16px;">
+            We do not use advertising tracking pixels or commercial tracking cookies. Diagnostic metrics (such as page response latency and error status codes) are collected in aggregated, anonymized form to monitor system uptime.
+          </p>
+
+          <h2 style="font-size: 1.3rem; font-weight: 700; margin: 24px 0 12px 0;">6. User Rights &amp; Contact</h2>
           <p style="margin-bottom: 24px;">
-            Any performance metric tracking is strictly anonymous, client-side, and aggregated (e.g., counting total conversions completed locally). We never transmit file contents or identifiable personal information.
+            Because we do not store your files or identifiable account profiles on remote servers, your right to erase, inspect, or retrieve your data is instantaneously exercisable on your machine through your browser settings or our built-in purge utility. For questions, reach out via our <a href="/contact/">Contact Page</a>.
           </p>
 
-          <div style="margin-top: 32px;">
-            <a href="/" class="btn btn-primary">Return to Converter</a>
+          <div style="margin-top: 32px; display: flex; gap: 12px;">
+            <a href="/" class="btn btn-primary">Open Converter</a>
+            <a href="/terms/" class="btn btn-outline">Terms of Service</a>
           </div>
         </article>
       </main>
@@ -78,14 +102,15 @@
               <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
               <span class="brand-name">FluxWebP Pro</span>
             </div>
-            <p class="footer-desc">Universal on-device image conversion platform.</p>
+            <p class="footer-desc">Universal on-device image conversion &amp; creative platform.</p>
           </div>
           <div class="footer-links-col">
-            <h4>Company</h4>
+            <h4>Legal &amp; Trust</h4>
             <ul>
               <li><a href="/about/">About</a></li>
               <li><a href="/privacy/">Privacy Policy</a></li>
               <li><a href="/terms/">Terms of Service</a></li>
+              <li><a href="/contact/">Contact Us</a></li>
             </ul>
           </div>
         </div>
@@ -93,4 +118,3 @@
     </div>
   </body>
 </html>
-
