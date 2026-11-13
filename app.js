@@ -433,19 +433,39 @@ function handleThemeSelectChange() {
   }
 }
 
+// --- Body Scroll Lock Manager ---
+function lockBodyScroll(locked) {
+  if (locked) {
+    document.body.classList.add("modal-open");
+    document.body.style.overflow = "hidden";
+  } else {
+    const hasOpenModal = document.querySelector("dialog[open]") || dom.advancedDrawer?.classList.contains("open") || dom.mainNav?.classList.contains("nav-open");
+    if (!hasOpenModal) {
+      document.body.classList.remove("modal-open");
+      document.body.style.overflow = "";
+    }
+  }
+}
+
+function openModal(dialog) {
+  if (!dialog) return;
+  dialog.showModal();
+  lockBodyScroll(true);
+}
+
 // --- Drawer Management ---
 function openDrawer() {
   dom.drawerOverlay.classList.add("open");
   dom.advancedDrawer.classList.add("open");
   dom.advancedDrawer.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+  lockBodyScroll(true);
 }
 
 function closeDrawer() {
   dom.drawerOverlay.classList.remove("open");
   dom.advancedDrawer.classList.remove("open");
   dom.advancedDrawer.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
+  lockBodyScroll(false);
 }
 
 // --- Event Binding ---
@@ -454,14 +474,15 @@ function bindAllEvents() {
   dom.mobileMenuToggle?.addEventListener("click", () => {
     const isOpen = dom.mainNav.classList.toggle("nav-open");
     dom.mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+    lockBodyScroll(isOpen);
   });
 
   // Theme & Settings Triggers
   dom.themeToggle?.addEventListener("click", toggleTheme);
-  dom.openSettings?.addEventListener("click", () => dom.settingsDialog.showModal());
-  dom.footerSettingsBtn?.addEventListener("click", () => dom.settingsDialog.showModal());
-  dom.docsLink?.addEventListener("click", () => dom.docsModal.showModal());
-  dom.footerDocsBtn?.addEventListener("click", () => dom.docsModal.showModal());
+  dom.openSettings?.addEventListener("click", () => openModal(dom.settingsDialog));
+  dom.footerSettingsBtn?.addEventListener("click", () => openModal(dom.settingsDialog));
+  dom.docsLink?.addEventListener("click", () => openModal(dom.docsModal));
+  dom.footerDocsBtn?.addEventListener("click", () => openModal(dom.docsModal));
   dom.footerPrivacyBtn?.addEventListener("click", () => {
     switchTab("converter");
     const privacy = document.getElementById("privacy");
@@ -603,12 +624,68 @@ function bindAllEvents() {
   dom.historySearchInput?.addEventListener("input", renderHistory);
   dom.exportHistoryBtn?.addEventListener("click", exportHistoryToJson);
   dom.clearHistory?.addEventListener("click", clearHistory);
+
+  // History individual item delete
+  dom.historyList?.addEventListener("click", (e) => {
+    const btn = e.target.closest('button[data-action="delete-history"]');
+    if (!btn) return;
+    const idx = Number(btn.dataset.index);
+    const history = getHistory();
+    if (idx >= 0 && idx < history.length) {
+      history.splice(idx, 1);
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+      renderHistory();
+      showToast("History entry removed.");
+    }
+  });
+
+  // API Documentation Navigation links smooth scrolling
+  document.querySelectorAll(".api-nav-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#api-")) {
+        e.preventDefault();
+        const targetEl = document.querySelector(href);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          document.querySelectorAll(".api-nav-link").forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        }
+      }
+    });
+  });
+
+  // Touch comparison slider
+  initTouchComparison();
+}
+
+function initTouchComparison() {
+  const stage = dom.comparisonStage;
+  if (!stage) return;
+
+  function handleTouch(e) {
+    if (state.compareMode !== "split") return;
+    const touch = e.touches[0];
+    if (!touch) return;
+    const rect = stage.getBoundingClientRect();
+    if (rect.width <= 0) return;
+    const x = touch.clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, Math.round((x / rect.width) * 100)));
+    dom.compareRange.value = String(percentage);
+    syncCompare();
+  }
+
+  stage.addEventListener("touchstart", handleTouch, { passive: true });
+  stage.addEventListener("touchmove", handleTouch, { passive: true });
 }
 
 function wireDialogBackdrop(dialog) {
   if (!dialog) return;
   dialog.addEventListener("click", (e) => {
     if (e.target === dialog) dialog.close();
+  });
+  dialog.addEventListener("close", () => {
+    lockBodyScroll(false);
   });
 }
 
@@ -826,7 +903,7 @@ function openFullscreenInspector() {
   dom.exifLens.textContent = `File Size: ${formatBytes(selected.originalSize)}`;
   dom.exifSpecs.textContent = selected.width ? `${selected.width} × ${selected.height} px • sRGB` : "Resolution: Pending";
 
-  dom.previewModal.showModal();
+  openModal(dom.previewModal);
 }
 
 function navigateInspectorPrev() {
@@ -2055,42 +2132,53 @@ function renderQueue() {
     });
 
     row.innerHTML = `
-      <input type="checkbox" class="queue-checkbox" ${item.selectedForBatch ? "checked" : ""} aria-label="Select ${escapeHtml(item.name)}" />
-      <div class="queue-thumb-wrap">
-        <img class="queue-thumb" src="${item.outputUrl || item.previewUrl || item.originalUrl}" alt="" loading="lazy" />
-      </div>
-      <div class="queue-main">
-        <div class="queue-title-row">
-          <span class="format-badge format-${formatClass}">${escapeHtml(ext)}</span>
-          <span class="queue-name" title="${escapeHtml(item.name)}">${escapeHtml(item.name)}</span>
+      <div class="queue-item-header">
+        <input type="checkbox" class="queue-checkbox" ${item.selectedForBatch ? "checked" : ""} aria-label="Select ${escapeHtml(item.name)}" />
+        <div class="queue-thumb-wrap">
+          <img class="queue-thumb" src="${item.outputUrl || item.previewUrl || item.originalUrl}" alt="" loading="lazy" />
         </div>
-        <div class="queue-submeta">
-          <span>${formatBytes(item.originalSize)}</span>
-          <span>•</span>
-          <span>${item.width && item.height ? `${item.width}×${item.height}px` : "Original"}</span>
-          <span>➔</span>
-          <span class="text-blue">${escapeHtml(outName)}</span>
+        <div class="queue-main">
+          <div class="queue-title-row">
+            <span class="format-badge format-${formatClass}">${escapeHtml(ext)}</span>
+            <span class="queue-name" title="${escapeHtml(item.name)}">${escapeHtml(item.name)}</span>
+          </div>
+          <div class="queue-submeta">
+            <span>${formatBytes(item.originalSize)}</span>
+            <span>•</span>
+            <span>${item.width && item.height ? `${item.width}×${item.height}px` : "Original"}</span>
+            <span>➔</span>
+            <span class="text-blue font-semibold">${escapeHtml(outName)}</span>
+          </div>
+          <div class="progress-bar" style="--progress: ${item.progress}%"><span></span></div>
         </div>
-        <div class="progress-bar" style="--progress: ${item.progress}%"><span></span></div>
+        <div class="queue-item-actions">
+          <button class="icon-btn" type="button" data-action="preview" title="Inspect / Compare" aria-label="Inspect ${escapeHtml(item.name)}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </button>
+          ${item.status === "error" ? `
+          <button class="icon-btn text-orange" type="button" data-action="retry" title="Retry conversion" aria-label="Retry">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+          </button>` : ""}
+          <button class="icon-btn" type="button" data-action="download" title="Download converted file" aria-label="Download" ${item.status === "done" ? "" : "disabled"}>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </button>
+          <button class="icon-btn text-red" type="button" data-action="remove" title="Remove from queue" aria-label="Remove">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
       </div>
-      <div class="queue-status-col">
-        <span class="status-pill status-${statusClass(item.status)}">${statusLabel(item.status)}</span>
-      </div>
-      <div class="queue-savings-col">
-        ${item.status === "done"
-          ? `<strong class="text-green">${item.savedPercent}% saved</strong><small class="meta-sub">${formatBytes(item.outputSize)}</small>`
-          : item.status === "error"
-          ? `<small class="text-red">${escapeHtml(item.error)}</small>`
-          : `<small class="text-muted">Converting...</small>`
-        }
-      </div>
-      <div class="queue-item-actions">
-        <button class="icon-btn" type="button" data-action="download" title="Download converted file" ${item.status === "done" ? "" : "disabled"}>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-        </button>
-        <button class="icon-btn" type="button" data-action="remove" title="Remove from queue">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
+      <div class="queue-item-footer">
+        <div class="queue-status-col">
+          <span class="status-pill status-${statusClass(item.status)}">${statusLabel(item.status)}</span>
+        </div>
+        <div class="queue-savings-col">
+          ${item.status === "done"
+            ? `<strong class="text-green">${item.savedPercent}% saved</strong> <small class="meta-sub">(${formatBytes(item.outputSize)})</small>`
+            : item.status === "error"
+            ? `<small class="text-red">${escapeHtml(item.error)}</small>`
+            : `<small class="text-muted">Converting...</small>`
+          }
+        </div>
       </div>
     `;
 
@@ -2113,6 +2201,20 @@ function renderQueueItem(id) {
   const statusCol = row.querySelector(".queue-status-col");
   if (statusCol) {
     statusCol.innerHTML = `<span class="status-pill status-${statusClass(item.status)}">${statusLabel(item.status)}</span>`;
+  }
+
+  const savingsCol = row.querySelector(".queue-savings-col");
+  if (savingsCol) {
+    savingsCol.innerHTML = item.status === "done"
+      ? `<strong class="text-green">${item.savedPercent}% saved</strong> <small class="meta-sub">(${formatBytes(item.outputSize)})</small>`
+      : item.status === "error"
+      ? `<small class="text-red">${escapeHtml(item.error)}</small>`
+      : `<small class="text-muted">Converting...</small>`;
+  }
+
+  const downloadBtn = row.querySelector('button[data-action="download"]');
+  if (downloadBtn) {
+    downloadBtn.disabled = item.status !== "done";
   }
 }
 
@@ -2138,6 +2240,22 @@ function bindQueueRow(row) {
         if (item) downloadItem(item);
       }
       if (action === "remove") removeItem(id);
+      if (action === "preview") {
+        state.selectedId = id;
+        renderPreview();
+        renderQueue();
+        openFullscreenInspector();
+      }
+      if (action === "retry") {
+        const item = findItem(id);
+        if (item) {
+          item.status = "pending";
+          item.error = null;
+          item.progress = 0;
+          renderQueue();
+          startQueueWorker();
+        }
+      }
       return;
     }
 
@@ -2329,9 +2447,10 @@ function renderHistory() {
   }
 
   const fragment = document.createDocumentFragment();
-  filtered.forEach((entry) => {
+  filtered.forEach((entry, idx) => {
     const row = document.createElement("article");
     row.className = "history-row";
+    row.dataset.index = String(idx);
     const date = new Date(entry.date);
     const timeFormatted = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     const dateFormatted = date.toLocaleDateString([], { month: "short", day: "numeric" });
@@ -2342,6 +2461,7 @@ function renderHistory() {
         <div class="queue-title-row">
           <span class="format-badge format-web">${escapeHtml(fmt)}</span>
           <strong class="history-name" title="${escapeHtml(entry.name)}">${escapeHtml(entry.name)}</strong>
+          <span class="status-pill status-done">Success</span>
         </div>
         <div class="history-meta">
           <span>${formatBytes(entry.originalSize)} ➔ ${formatBytes(entry.outputSize)}</span>
@@ -2353,6 +2473,9 @@ function renderHistory() {
       </div>
       <div class="history-right">
         <span class="queue-submeta">${dateFormatted}, ${timeFormatted}</span>
+        <button class="icon-btn text-red history-del-btn" type="button" data-action="delete-history" data-index="${idx}" title="Remove entry" aria-label="Remove entry">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
       </div>
     `;
     fragment.append(row);
