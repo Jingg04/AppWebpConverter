@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-29-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Quadratic Pixel Dimension Matrix Hero",
+    "concept": "Concentric nested glowing geometric frames showing the massive mathematical area difference between 4K, 1080p, and Mobile.",
+    "prompt": "Architectural 3D conceptual rendering of concentric nested frames glowing in electric blue and cyan on a dark reflective surface. The outermost giant frame represents 24 Megapixels (6000x4000), nesting inside it a 4K frame, a 1080p desktop frame, and a compact mobile frame, visually demonstrating the vast 98% pixel area difference. 16:9 cinematic framing, razor-sharp geometric focus.",
+    "aspectRatio": "16:9",
+    "filename": "how-image-dimensions-affect-file-size-hero.webp",
+    "altText": "Concentric nested geometric frames visually illustrating the massive quadratic area difference in pixel dimensions",
+    "caption": "Pixel volume scales quadratically: Downscaling from 24MP to 1080p eliminates 91% of raw data instantly.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-29-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Square Law Pixel Multiplier Chart",
+    "concept": "Technical infographic charting Pixel Dimensions (Width x Height) against Total Pixel Count and Uncompressed RAM Footprint.",
+    "prompt": "Infographic bar and area chart: 1. 6000x4000 (24 MP = 96 MB RAM) -> 2. 3840x2160 (8.3 MP = 33 MB RAM) -> 3. 1920x1080 (2.1 MP = 8.3 MB RAM) -> 4. 800x600 (0.48 MP = 1.9 MB RAM). Clean modern vector styling with dramatic percentage drops highlighted in green.",
+    "aspectRatio": "16:9",
+    "filename": "square-law-pixel-dimensions-chart.svg",
+    "altText": "Chart detailing the exponential reduction in pixel counts and memory footprint as dimensions decrease",
+    "caption": "Resizing dimensions to your website's actual display container eliminates over 90% of raw data payload.",
+    "placement": "Section 2: The Mathematical Square Law"
+  },
+  {
+    "id": "va-29-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Two-Stage Optimization Workflow: Resize First, Compress Second",
+    "concept": "Flowchart showing: Upload Original -> Stage 1: Right-Size Dimensions -> Stage 2: Compress -> Perfect File Size.",
+    "prompt": "Flowchart diagram illustrating the two-stage optimization pipeline: Step 1: Upload Raw 24MP Photo -> Step 2: Target Container Resizer (Scale to max container width: 1920px) -> Step 3: WebP Perceptual Compressor (82% quality) -> Final Result: 140 KB file. High-contrast vector styling.",
+    "aspectRatio": "16:9",
+    "filename": "two-stage-resize-and-compress-workflow.svg",
+    "altText": "Flowchart showing the two-stage image optimization strategy: resize dimensions first, compress second",
+    "caption": "Always resize pixel dimensions to match your site layout before tuning compression quality sliders.",
+    "placement": "Section 3: The Resize-First Methodology"
+  },
+  {
+    "id": "va-29-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Dimensional Downscaling vs Quality Cranking Benchmark",
+    "concept": "Comparison of a photo at 6000px compressed to 30% quality (ugly artifacts, 680KB) vs 1600px at 85% quality (pristine, 180KB).",
+    "prompt": "Side-by-side comparison. Left panel: 6000px image compressed aggressively to 30% quality (680 KB) showing severe blockiness and blurry text. Right panel: Image resized to 1600px wide and compressed gently at 85% quality (180 KB) showing razor-sharp detail and 73% smaller file size. Clear callout badges.",
+    "aspectRatio": "16:9",
+    "filename": "dimensional-resizing-vs-heavy-compression-comparison.webp",
+    "altText": "Comparison showing that resizing dimensions produces far sharper and smaller images than cranking down quality",
+    "caption": "Resizing to 1600px at 85% quality produced a file 4× smaller and vastly sharper than compressing the 6000px original at 30%.",
+    "placement": "Section 4: The Fallacy of Quality Cranking"
+  },
+  {
+    "id": "va-29-5",
+    "index": 5,
+    "type": "application",
+    "title": "Responsive HTML5 <picture> srcset Multi-Device Delivery",
+    "concept": "Diagram showing an e-commerce website serving 400px to mobile, 800px to tablet, and 1600px to desktop.",
+    "prompt": "Clean modern graphic displaying a single responsive web page requested by three physical devices: an iPhone (receiving an optimized 400px image), an iPad (receiving an 800px image), and a 4K iMac (receiving a 1600px image). Clean vector arrows connecting from a central CDN hub.",
+    "aspectRatio": "16:9",
+    "filename": "responsive-srcset-device-dimension-delivery.webp",
+    "altText": "Illustration of responsive HTML5 picture tag serving tailored pixel dimensions to mobile, tablet, and desktop",
+    "caption": "Using responsive srcset ensures mobile phones never download oversized desktop pixel dimensions.",
+    "placement": "Section 5: Production Responsive Image Delivery"
+  }
+]

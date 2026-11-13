@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-89-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Colorimetric Precision & Spectral Accuracy Studio",
+    "concept": "3D render showing an apparel product floating inside a color calibration laboratory, surrounded by spectrophotometer sensors, 18% neutral gray card, and color gamut boundaries.",
+    "prompt": "High-tech color science laboratory: a luxury cashmere knit sweater in vibrant terracotta floating in an illuminated optical testing chamber. High-precision spectrophotometer lasers scan fabric fibers, verifying exact spectral color matching. An 18% neutral gray calibration card and floating 3D CIE Chromaticity color gamut diagrams in cyan and gold illustrate perfect sRGB profile alignment. Dark tech backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "color-accurate-srgb-ecommerce-returns-hero.webp",
+    "altText": "3D visual of color calibration laboratory testing fabric color accuracy with sRGB profiles",
+    "caption": "Strict sRGB color calibration guarantees products look identical on screen and in person.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-89-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Cost of Color Returns vs The sRGB Protocol",
+    "concept": "Infographic poster contrasting financial cost of returns ($30/return) with the 3-step color accuracy protocol.",
+    "prompt": "Clean technical retail infographic on dark slate background: Left Column: The Problem (22% of apparel returns caused by color mismatch, costing retailers billions); Right Column: The 3-Step Fix (1. 18% Gray Card White Balance, 2. CIE Color Chart Calibration, 3. Mathematical sRGB Conversion). High-contrast metrics and icons.",
+    "aspectRatio": "4:3",
+    "filename": "cost-of-color-returns-vs-srgb-protocol.webp",
+    "altText": "Technical infographic contrasting financial cost of color returns with 3-step sRGB calibration",
+    "caption": "Implementing strict color management eliminates the primary driver of e-commerce apparel returns.",
+    "placement": "Under Technical Culprits Section"
+  },
+  {
+    "id": "va-89-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Studio Gray Card to Web-Ready sRGB Pipeline",
+    "concept": "Vector workflow showing studio gray card shot, custom white balance lock in Lightroom, sRGB mathematical transform, and WebP export.",
+    "prompt": "Vector photo production workflow: 1. Snapping 18% gray card under studio strobes, 2. Locking custom Kelvin white balance (5500K), 3. Converting color space to sRGB IEC61966-2.1, 4. Exporting color-accurate WebP files. Modern clean UI styling with blue and green accents.",
+    "aspectRatio": "16:9",
+    "filename": "studio-gray-card-to-srgb-workflow.webp",
+    "altText": "Workflow diagram for calibrating studio white balance and converting images to sRGB for e-commerce",
+    "caption": "Locking white balance with a gray card guarantees color consistency across entire photo sessions.",
+    "placement": "Under 3-Step Protocol Section"
+  },
+  {
+    "id": "va-89-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Unmanaged Adobe RGB Color Shift vs True sRGB Accuracy",
+    "concept": "Side-by-side comparison showing muddy desaturated dress from unmanaged Adobe RGB vs rich vibrant true color.",
+    "prompt": "Side-by-side product comparison of a luxury emerald dress: Left panel shows 'Unmanaged Adobe RGB' in web browser where green colors have shifted into dull, washed-out muddy olive (causes customer return); Right panel shows 'True Converted sRGB' displaying the exact rich, vibrant emerald green delivered to the customer. Clear visual comparison badges.",
+    "aspectRatio": "16:9",
+    "filename": "adobe-rgb-color-shift-vs-true-srgb-comparison.webp",
+    "altText": "Comparison showing dull color shift of unmanaged Adobe RGB vs vibrant color accuracy of sRGB",
+    "caption": "Unconverted Adobe RGB files look dull on the web, triggering expensive customer return cycles.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-89-5",
+    "index": 5,
+    "type": "application",
+    "title": "E-Commerce Return Logistics Hub Slashing Return Volume",
+    "concept": "E-commerce fulfillment and returns center displaying logistics dashboard showing return rates dropping from 28% to 14%.",
+    "prompt": "High-tech retail fulfillment and logistics facility: a management workstation overlooks automated parcel sorting lines. High-resolution dashboard displays return metrics: 'Color Discrepancy Returns Down 62%' following sitewide sRGB recalibration. High-energy corporate operations atmosphere.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-fulfillment-slashing-return-rates.webp",
+    "altText": "E-commerce logistics fulfillment operations center tracking 62% reduction in color-related returns",
+    "caption": "Accurate product representation protects merchant margins and increases customer lifetime value.",
+    "placement": "Conclusion Section"
+  }
+]

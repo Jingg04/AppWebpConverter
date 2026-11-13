@@ -1,0 +1,59 @@
+{
+  "id": 1,
+  "title": "What Is WebP? How It Works and When to Use It",
+  "slug": "what-is-webp-how-it-works",
+  "folder": "01-what-is-webp-how-it-works",
+  "category": "Image Formats & Conversion",
+  "categorySlug": "formats-and-conversion",
+  "subcategory": "Codec Specifications",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "What Is WebP? How It Works, Benefits & When to Use It | FluxWebP Pro",
+    "metaDescription": "Comprehensive technical guide to Google's WebP image format. Understand VP8 predictive encoding, alpha transparency, 25-34% byte savings, and when to use it.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/what-is-webp-how-it-works/",
+    "primaryKeyword": "what is webp",
+    "secondaryKeywords": [
+      "how webp works",
+      "webp browser support",
+      "when to use webp",
+      "webp compression algorithm"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/01-what-is-webp-how-it-works/hero.svg",
+  "visualAssetsCount": 5
+}

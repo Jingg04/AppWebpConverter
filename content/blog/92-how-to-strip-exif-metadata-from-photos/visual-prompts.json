@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-92-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Automated Metadata Stripping & Privacy Shield Engine",
+    "concept": "3D render showing an image file passing through an illuminated optical scrubbing chamber that strips away trailing digital data tags, leaving pure, sanitized imagery.",
+    "prompt": "Futuristic digital privacy purification chamber: a photograph enters a glowing decontamination scanner. The scanner separates the image into two streams: the visual photographic content emerges clean, radiant, and pristine, while dangerous trailing digital tags (red GPS pin icons, timestamps, camera serial numbers) are vaporized by an emerald cryptographic laser beam. Dark high-tech studio backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "strip-exif-metadata-privacy-hero.webp",
+    "altText": "3D visual of digital privacy scrubber removing GPS tags and personal metadata from photos",
+    "caption": "Metadata stripping removes GPS tags and device serial numbers while keeping image pixels untouched.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-92-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Three Ways to Strip EXIF Metadata",
+    "concept": "Infographic poster comparing FluxWebP In-Browser Scrubbing, macOS Preview, and Windows File Properties.",
+    "prompt": "Clean technical comparison infographic on dark slate background: 3 method columns: 1. FluxWebP (1-Click, Batch 100 photos, Cross-platform, 100% Private); 2. macOS Preview (Manual Cmd+I Inspector, 1 file at a time); 3. Windows Properties (Manual Details tab, prone to leftover tags). High contrast icons and step badges.",
+    "aspectRatio": "4:3",
+    "filename": "three-methods-to-strip-exif-infographic.webp",
+    "altText": "Technical infographic comparing three methods for stripping EXIF metadata across platforms",
+    "caption": "Comparing automated in-browser sanitization with native operating system tools.",
+    "placement": "Under 3 Methods Section"
+  },
+  {
+    "id": "va-92-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "1-Click Client-Side EXIF Stripping Workflow",
+    "concept": "Vector UI workflow showing dragging 50 photos into dropzone, toggling 'Strip All Metadata', and instant ZIP download.",
+    "prompt": "Vector software UI workflow diagram: 1. Dragging 50 vacation photos into dropzone, 2. EXIF scrubber module detects GPS and serial tags, 3. One-click toggle 'Strip All Metadata', 4. Downloading clean, sanitized ZIP in 3 seconds. Royal blue and green modern aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "batch-exif-stripping-ui-workflow.webp",
+    "altText": "Workflow showing one-click batch EXIF metadata stripping inside FluxWebP",
+    "caption": "Scrub metadata from entire folders of photos in seconds directly inside your browser.",
+    "placement": "Under Method 1 Section"
+  },
+  {
+    "id": "va-92-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Exposed Geolocation Map vs Zero-Location Sanitized File",
+    "concept": "Side-by-side comparison showing raw photo revealing exact house on satellite map vs sanitized file showing 'No Geolocation Data'.",
+    "prompt": "Side-by-side visual demonstration: Left panel shows 'Raw Image' with ExifTool metadata inspection window mapping coordinates to an exact residential rooftop on a satellite map (severe privacy leak); Right panel shows 'Sanitized WebP' where inspection reveals zero GPS tags, zero timestamps, and zero camera details. Clear visual privacy shields.",
+    "aspectRatio": "16:9",
+    "filename": "exposed-gps-vs-sanitized-photo-comparison.webp",
+    "altText": "Comparison showing raw photo pinpointing house on map vs sanitized photo with zero location data",
+    "caption": "Sanitizing photos ensures no stranger can trace your home address from digital uploads.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-92-5",
+    "index": 5,
+    "type": "application",
+    "title": "Online Classifieds & Marketplace Safe Sharing",
+    "concept": "Smartphone user safely listing household furniture on classifieds marketplace with sanitized, location-safe photos.",
+    "prompt": "Modern living room setting: a user holds a smartphone photographing a designer armchair for an online marketplace. The screen displays FluxWebP confirming 'EXIF Stripped - Ready for Public Sharing'. Natural daylight, secure digital hygiene aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "safe-marketplace-photo-sharing-hygiene.webp",
+    "altText": "User preparing safe, metadata-sanitized product photos for online classifieds marketplace",
+    "caption": "Scrubbing photos before posting to online marketplaces protects your personal safety and home address.",
+    "placement": "Conclusion Section"
+  }
+]

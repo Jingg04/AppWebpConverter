@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-21-1",
+    "index": 1,
+    "type": "hero",
+    "title": "High-Speed Website Optimization Stream Hero",
+    "concept": "A digital racecar or high-speed fiber beam accelerating through an illuminated digital tunnel of compressed images.",
+    "prompt": "Futuristic visual representation of website acceleration: A glowing high-speed pulse of optical energy racing down a digital tunnel formed by floating, crystal-clear website image cards. Speedometer readouts show load times dropping from 4.8s to 0.7s. Vibrant cobalt blue, emerald green, and deep charcoal palette, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "compress-images-for-faster-websites-hero.webp",
+    "altText": "Conceptual illustration of digital optical energy accelerating website load speed through image compression",
+    "caption": "Compressing website imagery slashes LCP loading times from seconds to sub-second blinks.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-21-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 3 Pillars of Modern Image Optimization",
+    "concept": "Three interconnected pillars: Format Migration, Dimensional Right-Sizing, and Perceptual Quantization.",
+    "prompt": "Clean modern architectural infographic showing three structural pillars: Pillar 1: Modern Format (WebP/AVIF) -> Pillar 2: Dimension Scaling (Exact Display Pixels) -> Pillar 3: Perceptual Compression (80-82% Quality). Supporting a glowing roof labeled '100/100 Core Web Vitals'. Clean vector styling with green accent badges.",
+    "aspectRatio": "16:9",
+    "filename": "three-pillars-image-optimization-diagram.svg",
+    "altText": "Infographic illustrating the three pillars of website image optimization: format, dimensions, and compression",
+    "caption": "A comprehensive optimization strategy addresses codec format, pixel dimensions, and compression quality simultaneously.",
+    "placement": "Section 2: The Three Pillars Strategy"
+  },
+  {
+    "id": "va-21-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Production Image Optimization Pipeline Flowchart",
+    "concept": "Flowchart from CMS upload -> dimension check -> EXIF stripping -> WebP encoding -> CDN caching.",
+    "prompt": "Flowchart architecture diagram: 1. Author Uploads 10 MB RAW/JPG -> 2. Ingest & Strip GPS Metadata -> 3. Downscale to Responsive Breakpoints (375w, 768w, 1440w) -> 4. Multi-Quality WebP Compression -> 5. Cache at CDN Edge. Clean technical blueprint styling.",
+    "aspectRatio": "16:9",
+    "filename": "automated-image-optimization-pipeline-workflow.svg",
+    "altText": "Flowchart showing an end-to-end automated image optimization pipeline for web publishing",
+    "caption": "Automating metadata stripping, responsive resizing, and WebP compression creates a frictionless publishing pipeline.",
+    "placement": "Section 3: Designing a Robust Publishing Pipeline"
+  },
+  {
+    "id": "va-21-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Lighthouse Performance Audit: Before vs After Compression",
+    "concept": "Side-by-side Google Lighthouse audits showing mobile performance leaping from 48 to 97.",
+    "prompt": "Side-by-side Google Lighthouse audit comparison on a split screen. Left side: 'Unoptimized Site' scores 48 with red LCP 4.2s and 'Properly size images (3.8 MB savings)'. Right side: 'Optimized Site' scores 97 with green LCP 0.8s and zero diagnostic warnings. Clean modern UI aesthetics.",
+    "aspectRatio": "16:9",
+    "filename": "google-lighthouse-audit-before-after-compression.webp",
+    "altText": "Google Lighthouse audit comparison showing mobile score increase from 48 to 97 after image compression",
+    "caption": "Compressing images directly resolves Google's top PageSpeed diagnostics and lifts Core Web Vitals rankings.",
+    "placement": "Section 4: Google Lighthouse Audit Impact"
+  },
+  {
+    "id": "va-21-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-Traffic News Portal Responsive Layout",
+    "concept": "High-traffic media news portal loading 30 editorial images simultaneously across desktop and mobile devices.",
+    "prompt": "Modern editorial workspace showing responsive multi-device preview: a desktop monitor, tablet, and smartphone displaying a breaking news portal. Over 30 article photos and thumbnails load instantaneously without layout shift or stutter. Bright, clean modern newsroom setting.",
+    "aspectRatio": "16:9",
+    "filename": "high-traffic-news-portal-image-compression.webp",
+    "altText": "Multi-device layout of a high-traffic news portal loading 30 images simultaneously without lag",
+    "caption": "High-traffic media portals rely on aggressive WebP compression to serve millions of daily readers at minimal CDN cost.",
+    "placement": "Section 5: High-Traffic Enterprise Media Case Study"
+  }
+]

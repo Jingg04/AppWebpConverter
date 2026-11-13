@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-88-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Mobile Touch Ergonomics & Vertical Viewport Optimization",
+    "concept": "3D render showing an iPhone floating in space with an ergonomic glowing 'Thumb Zone' heatmap arc framing an ultra-fast vertical 4:5 product gallery.",
+    "prompt": "Futuristic mobile human-computer interaction laboratory: a flagship smartphone suspended in mid-air. An ergonomic glowing heatmap arc in emerald green illustrates the natural one-handed 'Thumb Zone'. Inside the mobile display, a vertical 4:5 fashion product image renders with razor-sharp WebP clarity. Floating cellular data packets stream seamlessly with '0.3s Load Time' callouts. Dark slate backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "mobile-ecommerce-image-optimization-hero.webp",
+    "altText": "3D visual of mobile smartphone touch ergonomics and thumb zone optimization for e-commerce",
+    "caption": "Optimizing product imagery for natural thumb zones and vertical viewports elevates mobile conversion rates.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-88-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Mobile Thumb Zone Ergonomics Matrix",
+    "concept": "Infographic mapping out Natural Reach (Green), Stretch Zone (Yellow), and Hard-to-Reach Zone (Red) on smartphone screen.",
+    "prompt": "Clean technical mobile UX infographic on dark slate background: Smartphone screen diagram mapped into 3 ergonomic reach zones: Lower 45% = Natural Thumb Arc (Optimal for swipe carousels and Add to Cart buttons); Middle 35% = Stretch Zone; Top 20% = Hard to Reach Zone. Clear dimensional annotations and UX guidelines.",
+    "aspectRatio": "4:3",
+    "filename": "mobile-thumb-zone-ergonomics-infographic.webp",
+    "altText": "Technical diagram illustrating mobile thumb zone ergonomics for e-commerce design",
+    "caption": "Place interactive image swipe controls within the natural thumb zone for effortless navigation.",
+    "placement": "Under 3 Mobile Imperatives Section"
+  },
+  {
+    "id": "va-88-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "CSS Scroll-Snap Native Swipe Implementation",
+    "concept": "Vector code diagram showing smooth horizontal mobile swipe gallery implemented with CSS scroll-snap-type: x mandatory.",
+    "prompt": "Vector code architecture diagram: CSS snippet showing 'scroll-snap-type: x mandatory' and 'scroll-snap-align: start' coordinating with responsive WebP image cards on a smartphone viewport. Luminous green swipe gesture arrows illustrate smooth 60fps deceleration. Modern developer aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "css-scroll-snap-mobile-gallery-workflow.webp",
+    "altText": "Workflow diagram showing native CSS scroll snap implementation for mobile product galleries",
+    "caption": "Native CSS scroll-snap delivers buttery 60fps mobile swipes without heavy JavaScript libraries.",
+    "placement": "Under Zero-Friction Swipe Section"
+  },
+  {
+    "id": "va-88-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Tiny Widescreen 16:9 vs Commanding Vertical 4:5 on Mobile",
+    "concept": "Side-by-side smartphone mockup showing small 16:9 photo leaving 60% of screen empty vs 4:5 vertical photo commanding full view.",
+    "prompt": "Side-by-side mobile smartphone mockup comparison: Left phone displays a traditional wide 16:9 product photo that looks tiny and lost, wasting 65% of the vertical viewport; Right phone displays an immersive vertical 4:5 crop that fills the mobile screen with stunning detail, commanding immediate emotional connection. Clear UX callout badges.",
+    "aspectRatio": "16:9",
+    "filename": "widescreen-vs-vertical-mobile-screen-comparison.webp",
+    "altText": "Comparison showing tiny 16:9 image wasting mobile space vs commanding vertical 4:5 product image",
+    "caption": "Vertical 4:5 imagery occupies 70% more vertical mobile screen real estate than wide formats.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-88-5",
+    "index": 5,
+    "type": "application",
+    "title": "Fast Mobile E-Commerce Storefront in Real-World Use",
+    "concept": "Commuter using smartphone on city transit to seamlessly browse an apparel boutique and complete a 1-click purchase.",
+    "prompt": "Urban lifestyle scene: a stylish commuter on a modern commuter train effortlessly swiping through a high-end streetwear mobile boutique on an iPhone. The product photos swipe with zero latency, and the shopper completes an Apple Pay checkout in seconds. Warm natural city sunlight through train window.",
+    "aspectRatio": "16:9",
+    "filename": "mobile-commuter-fast-ecommerce-checkout.webp",
+    "altText": "Mobile commuter effortlessly browsing fast-loading product images and checking out on phone",
+    "caption": "Sub-second image loading delivers frictionless shopping experiences anywhere customers browse.",
+    "placement": "Conclusion Section"
+  }
+]

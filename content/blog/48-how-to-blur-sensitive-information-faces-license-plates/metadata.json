@@ -1,0 +1,59 @@
+{
+  "id": 48,
+  "title": "How to Blur Sensitive Information, Faces, and License Plates in Images",
+  "slug": "how-to-blur-sensitive-information-faces-license-plates",
+  "folder": "48-how-to-blur-sensitive-information-faces-license-plates",
+  "category": "Image Editing & Creative Workflows",
+  "categorySlug": "editing-and-creative-workflows",
+  "subcategory": "Privacy & Redaction",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-12",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Blur Sensitive Information, Faces & License Plates | FluxWebP Pro",
+    "metaDescription": "Learn how to safely redact sensitive data, blur faces, and obscure license plates in photos and screenshots. Understand irreversible redaction vs weak blurs.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-blur-sensitive-information-faces-license-plates/",
+    "primaryKeyword": "blur sensitive information in photos",
+    "secondaryKeywords": [
+      "how to blur faces in images",
+      "redact license plates online",
+      "pixelate text in screenshot",
+      "free photo blur tool"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/48-how-to-blur-sensitive-information-faces-license-plates/hero.svg",
+  "visualAssetsCount": 5
+}

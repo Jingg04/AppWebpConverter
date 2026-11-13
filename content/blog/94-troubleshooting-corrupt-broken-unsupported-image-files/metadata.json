@@ -1,0 +1,59 @@
+{
+  "id": 94,
+  "title": "Troubleshooting Corrupt, Broken, or Unsupported Image Files",
+  "slug": "troubleshooting-corrupt-broken-unsupported-image-files",
+  "folder": "94-troubleshooting-corrupt-broken-unsupported-image-files",
+  "category": "Privacy, Metadata & Troubleshooting",
+  "categorySlug": "privacy-metadata-and-troubleshooting",
+  "subcategory": "File Diagnostics",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-08",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Fix Corrupt & Broken Image Files: Repair & Recovery | FluxWebP Pro",
+    "metaDescription": "Learn how to diagnose and repair corrupt, damaged, or unsupported image files. Fix missing SOI/EOI markers, truncated bitstreams, and file extension mismatches.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/troubleshooting-corrupt-broken-unsupported-image-files/",
+    "primaryKeyword": "fix corrupt broken image files",
+    "secondaryKeywords": [
+      "repair damaged jpeg header",
+      "unsupported image format fix",
+      "premature end of jpeg marker",
+      "fix corrupt webp file"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/94-troubleshooting-corrupt-broken-unsupported-image-files/hero.svg",
+  "visualAssetsCount": 5
+}

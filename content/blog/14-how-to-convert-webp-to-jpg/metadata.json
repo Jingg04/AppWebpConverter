@@ -1,0 +1,59 @@
+{
+  "id": 14,
+  "title": "How to Convert WebP to JPG for Better Compatibility",
+  "slug": "how-to-convert-webp-to-jpg",
+  "folder": "14-how-to-convert-webp-to-jpg",
+  "category": "Image Conversion Tutorials",
+  "categorySlug": "conversion-tutorials",
+  "subcategory": "Reverse Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 5,
+  "seo": {
+    "metaTitle": "How to Convert WebP to JPG Online (Fast & Private) | FluxWebP Pro",
+    "metaDescription": "Step-by-step guide to converting WebP files to universal JPG format. Understand background color filling for transparent WebP images and preserve photo quality.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-convert-webp-to-jpg/",
+    "primaryKeyword": "convert webp to jpg",
+    "secondaryKeywords": [
+      "save webp as jpeg",
+      "change webp to jpg",
+      "webp to jpg converter free",
+      "turn webp into jpeg"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/14-how-to-convert-webp-to-jpg/hero.svg",
+  "visualAssetsCount": 5
+}

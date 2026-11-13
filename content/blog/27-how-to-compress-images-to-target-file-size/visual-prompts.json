@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-27-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Exact Calibration Target Lock Hero",
+    "concept": "A digital laser reticle locking onto an exact 500 KB target threshold on a futuristic digital caliper.",
+    "prompt": "High-tech conceptual photography: A glowing laser reticle locking directly onto an illuminated digital caliper display reading 'Target: 500.0 KB [LOCKED]'. High-precision digital engineering aesthetic, dark titanium surface, sapphire blue laser guides, 16:9 cinematic framing, razor-sharp focus.",
+    "aspectRatio": "16:9",
+    "filename": "compress-to-target-file-size-hero.webp",
+    "altText": "Futuristic digital caliper locking onto an exact 500 KB target file size constraint",
+    "caption": "Automated binary search algorithms converge on your exact file size limit in milliseconds.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-27-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Binary Search Quality Convergence Tree",
+    "concept": "Tree diagram showing how binary search narrows quality from [0, 100] -> 50% -> 75% -> 82% in 4 iterations.",
+    "prompt": "Decision tree diagram illustrating 4-step binary search convergence: Iteration 1: Test 50% (Result: 280 KB, too small) -> Iteration 2: Test 75% (Result: 420 KB, too small) -> Iteration 3: Test 88% (Result: 540 KB, too large) -> Iteration 4: Test 82% (Result: 492 KB, TARGET ACHIEVED). Clean vector flow.",
+    "aspectRatio": "16:9",
+    "filename": "binary-search-quality-convergence-diagram.svg",
+    "altText": "Flowchart diagram illustrating binary search convergence to achieve an exact target image size",
+    "caption": "Binary search tests quality midpoints to locate the optimal compression setting in under 100 milliseconds.",
+    "placement": "Section 2: How Binary Search Convergence Works"
+  },
+  {
+    "id": "va-27-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "FluxWebP Target KB Mode User Walkthrough",
+    "concept": "UI guide: Select 'Target Size' -> Enter '200 KB' -> FluxWebP auto-tunes quality -> Download.",
+    "prompt": "UI walkthrough graphic displaying 3 steps: 1. Toggle 'Target Size Limit' switch -> 2. Enter desired numeric value '200' and select 'KB' -> 3. Engine indicates 'Calculating optimal quality: 81%' -> 4. Output confirms '198.4 KB (Target Met)'. Clean modern SaaS interface styling.",
+    "aspectRatio": "16:9",
+    "filename": "target-size-mode-user-workflow.svg",
+    "altText": "Visual walkthrough showing how to set an exact target file size in FluxWebP Pro",
+    "caption": "Enter your maximum allowable file size in kilobytes and let FluxWebP calculate the exact quality for you.",
+    "placement": "Section 3: Step-by-Step Target Size Guide"
+  },
+  {
+    "id": "va-27-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Manual Guessing (12 Minutes) vs Binary Search (80ms)",
+    "concept": "Comparison of manual trial-and-error slider adjustments vs instant automated binary convergence.",
+    "prompt": "Side-by-side workflow comparison graphic. Left side: Frustrated user manually exporting 8 test files trying to hit <200 KB (12 minutes wasted). Right side: Automated FluxWebP binary search engine testing 5 virtual buffers in memory and hitting 196 KB in 80 milliseconds. Clear speed badges.",
+    "aspectRatio": "16:9",
+    "filename": "manual-guessing-vs-binary-search-comparison.webp",
+    "altText": "Comparison showing manual trial-and-error guessing versus instant automated binary search compression",
+    "caption": "Automated binary search eliminates the tedious trial-and-error of manually re-exporting images.",
+    "placement": "Section 4: Speed and Accuracy Benchmarks"
+  },
+  {
+    "id": "va-27-5",
+    "index": 5,
+    "type": "application",
+    "title": "Government Visa and Passport Application Portal Upload",
+    "concept": "Official government portal form displaying successful green checkmark on an exact 200 KB photo upload.",
+    "prompt": "Clean desktop screenshot mockup of an official government passport and visa portal application form. The photo upload field displays a crisp passport portrait alongside a prominent green badge: 'File Accepted: 194 KB (Maximum Limit: 200 KB)'. Clean, trustworthy administrative UI aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "passport-portal-target-size-upload.webp",
+    "altText": "Official government passport application portal accepting an image compressed to exact 200 KB limit",
+    "caption": "Ensure instant acceptance on strict government and university portals by locking file sizes below exact limits.",
+    "placement": "Section 5: Strict Portal & Compliance Applications"
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "id": 80,
+  "title": "Auditing Website Image Performance with Lighthouse, PageSpeed Insights, and WebPageTest",
+  "slug": "auditing-website-image-performance-lighthouse-webpagetest",
+  "folder": "80-auditing-website-image-performance-lighthouse-webpagetest",
+  "category": "Website Image SEO & Performance",
+  "categorySlug": "image-seo-and-performance",
+  "subcategory": "Auditing & Diagnostics",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-14",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Audit Website Image Performance: Lighthouse & WebPageTest | FluxWebP Pro",
+    "metaDescription": "Master website image performance auditing. Learn how to diagnose Lighthouse warnings: 'Properly size images', 'Defer offscreen images', and 'Efficiently encode'.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/auditing-website-image-performance-lighthouse-webpagetest/",
+    "primaryKeyword": "audit website image performance",
+    "secondaryKeywords": [
+      "lighthouse image performance audit",
+      "pagespeed insights image optimization",
+      "webpagetest image analysis",
+      "fix properly size images lighthouse"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/80-auditing-website-image-performance-lighthouse-webpagetest/hero.svg",
+  "visualAssetsCount": 5
+}

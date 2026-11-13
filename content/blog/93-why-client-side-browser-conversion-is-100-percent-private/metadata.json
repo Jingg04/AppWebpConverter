@@ -1,0 +1,59 @@
+{
+  "id": 93,
+  "title": "Why Client-Side In-Browser Conversion is 100% Private (Zero Server Uploads)",
+  "slug": "why-client-side-browser-conversion-is-100-percent-private",
+  "folder": "93-why-client-side-browser-conversion-is-100-percent-private",
+  "category": "Privacy, Metadata & Troubleshooting",
+  "categorySlug": "privacy-metadata-and-troubleshooting",
+  "subcategory": "Privacy Architecture",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-07",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Client-Side Image Conversion: 100% Private (Zero Uploads) | FluxWebP Pro",
+    "metaDescription": "Learn how client-side WebAssembly converts images directly in your browser. Zero server uploads, zero cloud data storage, and complete GDPR/HIPAA compliance.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/why-client-side-browser-conversion-is-100-percent-private/",
+    "primaryKeyword": "client side private image conversion",
+    "secondaryKeywords": [
+      "zero server upload file converter",
+      "in browser wasm image processing privacy",
+      "how private are online image converters",
+      "hipaa compliant image converter"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/93-why-client-side-browser-conversion-is-100-percent-private/hero.svg",
+  "visualAssetsCount": 5
+}

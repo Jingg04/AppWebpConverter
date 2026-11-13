@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-48-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Digital Privacy and Visual Data Redaction",
+    "concept": "3D render showing an interface screenshot protected by sleek solid black redaction bars and heavy cryptographic privacy blurs.",
+    "prompt": "Futuristic cybersecurity concept: a floating holographic dashboard display containing sensitive financial data. Sleek solid matte-black redaction bars cover credit card numbers, while a high-tech optical Gaussian blur protects user faces and license plates. Glowing blue privacy lock icon, dark secure environment, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "blur-sensitive-data-redaction-hero.webp",
+    "altText": "3D visualization of digital privacy redaction protecting sensitive text and faces in images",
+    "caption": "Permanent redaction destroys sensitive pixel data, preventing AI reconstruction attacks.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-48-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Security Comparison: Solid Box vs Heavy Blur vs Light Pixelation",
+    "concept": "Infographic rating redaction security across Solid Black (100% Secure), Heavy Blur (Safe for Faces), and Light Mosaic (Vulnerable).",
+    "prompt": "Clean technical comparison infographic on dark slate background: 3 test cases hiding a password: 1. Solid Black Box (Rated 100% Unhackable, Green Shield), 2. Heavy Gaussian Blur (Rated 85% Safe, Yellow Shield), 3. Weak Pixelation (Rated Vulnerable to AI Depix tools, Red Warning). High contrast callouts.",
+    "aspectRatio": "4:3",
+    "filename": "redaction-security-levels-infographic.webp",
+    "altText": "Infographic comparing security levels of solid black box vs heavy blur vs weak pixelation",
+    "caption": "Solid black boxes are cryptographically irreversible; weak pixelation can be decoded by AI.",
+    "placement": "Under Danger of Weak Blurs Section"
+  },
+  {
+    "id": "va-48-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "FluxWebP Privacy Redaction Workflow",
+    "concept": "Vector UI workflow showing selecting redaction tool, drawing bounding box over license plate, and applying solid fill.",
+    "prompt": "Vector workflow diagram: 1. Uploading car photo with visible license plate, 2. Dragging redaction box over plate, 3. Selecting 'Solid Fill Black' or 'Heavy Blur 40px', 4. Exporting sanitized WebP with EXIF stripped. Clean technical icons, royal blue theme.",
+    "aspectRatio": "16:9",
+    "filename": "privacy-redaction-ui-workflow.webp",
+    "altText": "Step-by-step workflow for redacting license plates and personal data in FluxWebP",
+    "caption": "Sanitize photos and strip EXIF location data in seconds before sharing online.",
+    "placement": "Under Three Tiers Section"
+  },
+  {
+    "id": "va-48-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Weak Semi-Transparent Redaction Exposed by Contrast Adjustment",
+    "concept": "Side-by-side comparison showing a fake black box revealed by boosting contrast vs true 100% solid redaction.",
+    "prompt": "Side-by-side visual demonstration: Left panel shows an amateur 90% opacity black box where adjusting contrast in Photoshop clearly reveals the hidden credit card number underneath; Right panel shows true 100% opaque pixel destruction where contrast adjustments reveal zero data.",
+    "aspectRatio": "16:9",
+    "filename": "semi-transparent-redaction-failure-comparison.webp",
+    "altText": "Comparison showing how 90% opacity leaks data under contrast boosting vs true 100% solid redaction",
+    "caption": "Never use semi-transparent boxes; 100% opaque pixel replacement is required for true security.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-48-5",
+    "index": 5,
+    "type": "application",
+    "title": "Corporate Legal and Security Compliance Team in Action",
+    "concept": "Security analyst workstation redacting customer identification documents and software screenshots before public release.",
+    "prompt": "Modern corporate cybersecurity office: a compliance analyst reviews sanitized user screenshots and identification documents on high-res monitors. Sensitive data is cleanly and permanently blocked out. Professional tech enterprise atmosphere.",
+    "aspectRatio": "16:9",
+    "filename": "corporate-security-document-sanitization.webp",
+    "altText": "Compliance analyst workstation properly sanitizing sensitive documents and screenshots",
+    "caption": "Proper visual redaction protects customer privacy and ensures compliance with GDPR and HIPAA.",
+    "placement": "Conclusion Section"
+  }
+]

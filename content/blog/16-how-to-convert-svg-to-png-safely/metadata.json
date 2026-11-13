@@ -1,0 +1,59 @@
+{
+  "id": 16,
+  "title": "How to Convert SVG to PNG Safely",
+  "slug": "how-to-convert-svg-to-png-safely",
+  "folder": "16-how-to-convert-svg-to-png-safely",
+  "category": "Image Conversion Tutorials",
+  "categorySlug": "conversion-tutorials",
+  "subcategory": "Vector Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Convert SVG to PNG Safely (Sanitized & High-Res) | FluxWebP Pro",
+    "metaDescription": "Learn how to convert vector SVG to high-resolution PNG safely. Understand SVG XML security risks (XSS, XXE injection), font embedding, and 4K rasterization.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-convert-svg-to-png-safely/",
+    "primaryKeyword": "convert svg to png safely",
+    "secondaryKeywords": [
+      "svg to png high resolution",
+      "sanitize svg conversion",
+      "svg security xxe script",
+      "convert vector to raster"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/16-how-to-convert-svg-to-png-safely/hero.svg",
+  "visualAssetsCount": 5
+}

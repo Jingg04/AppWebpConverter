@@ -1,0 +1,59 @@
+{
+  "id": 58,
+  "title": "Batch Background Removal for Online Store Product Catalogs",
+  "slug": "batch-background-removal-for-product-catalogs",
+  "folder": "58-batch-background-removal-for-product-catalogs",
+  "category": "AI Background Removal",
+  "categorySlug": "ai-background-removal",
+  "subcategory": "Enterprise Scaling",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-12",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Batch Background Removal for Catalogs (Fast & Free) | FluxWebP Pro",
+    "metaDescription": "Process hundreds of e-commerce product photos simultaneously. Batch remove backgrounds, standardize on pure white, and export organized ZIP files in minutes.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/batch-background-removal-for-product-catalogs/",
+    "primaryKeyword": "batch background removal product catalog",
+    "secondaryKeywords": [
+      "bulk remove background online free",
+      "automate product photo cutouts",
+      "batch image segmentation ecommerce",
+      "mass background remover"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/58-batch-background-removal-for-product-catalogs/hero.svg",
+  "visualAssetsCount": 5
+}

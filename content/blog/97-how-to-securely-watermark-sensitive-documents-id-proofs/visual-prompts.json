@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-97-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Cryptographic Identity Shield & Document Security",
+    "concept": "3D render showing a government passport document protected behind an impenetrable holographic security watermark grid, blocking identity theft fraud bots.",
+    "prompt": "Futuristic identity security visualization: a high-res sample government passport identification document floating in mid-air. An illuminated diagonal security watermark ('FOR ACME BANK KYC ONLY - NOT VALID FOR CREDIT') cuts across the document in semi-transparent glowing amber and cyan typography. A protective cryptographic shield deflects unauthorized facial recognition scanners and identity theft bots. Dark cybersecurity backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "secure-document-watermarking-identity-hero.webp",
+    "altText": "3D visual of government ID document protected by diagonal purpose-specific security watermark",
+    "caption": "Purpose-specific security watermarks prevent stolen identity documents from being used in loan fraud.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-97-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 4 Elements of an Airtight Security Watermark",
+    "concept": "Infographic poster breaking down Entity Name, Transaction Purpose, Date Stamp, and Central Overlap placement.",
+    "prompt": "Clean technical cybersecurity infographic on dark slate background: Breakdown of an ID card with 4 highlighted security callouts: 1. Specific Entity ('For Landlord XYZ'), 2. Purpose Restriction ('Rental Application Only'), 3. Temporal Validity ('November 2026'), 4. Critical Overlap (Crosses photo and signature at 30% opacity). High contrast warning and pass indicators.",
+    "aspectRatio": "4:3",
+    "filename": "airtight-document-watermark-elements-infographic.webp",
+    "altText": "Technical diagram detailing the four mandatory components of a secure document watermark",
+    "caption": "The four mandatory elements required to render stolen identity documents legally useless to fraudsters.",
+    "placement": "Under Anatomy of an Airtight Watermark Section"
+  },
+  {
+    "id": "va-97-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Client-Side Secure Document Watermarking Workflow",
+    "concept": "Vector workflow showing drag-and-drop ID scan, entering purpose text, adjusting 30% opacity, and saving locally with zero server upload.",
+    "prompt": "Vector software UI workflow diagram: 1. Loading driver's license scan into local canvas, 2. Typing 'For Acme Corp Application Only', 3. Slider setting 30% opacity and diagonal angle across photo, 4. Instant local WebP/PDF export with verified zero network transmission badge. Royal blue and green clean UI styling.",
+    "aspectRatio": "16:9",
+    "filename": "client-side-id-watermarking-workflow.webp",
+    "altText": "Workflow showing how to safely watermark sensitive ID documents inside browser without uploading",
+    "caption": "Watermark sensitive government credentials locally without uploading unencrypted scans to the cloud.",
+    "placement": "Under Strategic Placement Section"
+  },
+  {
+    "id": "va-97-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Vulnerable Raw Passport Scan vs Tamper-Resistant Watermarked ID",
+    "concept": "Side-by-side comparison showing raw scan easily reused by fraudsters vs watermarked scan rejected by loan algorithms.",
+    "prompt": "Side-by-side cybersecurity comparison: Left shows raw, un-watermarked passport scan marked with red alert: 'Easily Reusable for Fraudulent Loans & Crypto Accounts'; Right shows diagonally watermarked document marked with green pass: 'Tamper-Resistant - Automatically Rejected by Fraud Rings'. Clear visual impact.",
+    "aspectRatio": "16:9",
+    "filename": "raw-id-scan-vs-tamper-resistant-watermark-comparison.webp",
+    "altText": "Comparison showing vulnerable un-watermarked ID scan vs secure tamper-resistant watermarked document",
+    "caption": "Watermarked IDs are instantly rejected by automated loan fraud bots and unauthorized third parties.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-97-5",
+    "index": 5,
+    "type": "application",
+    "title": "Cybersecurity Consumer Safety & Anti-Fraud Protection",
+    "concept": "Security-conscious individual securely submitting watermarked credentials to real estate agent from laptop.",
+    "prompt": "Modern home setting: an individual safely prepares rental application documentation on an ultrabook. The screen shows the tenant's driver's license crisply overlaid with a semi-transparent watermark: 'For Skyline Apartments Application Only'. Peace of mind atmosphere, contemporary setting.",
+    "aspectRatio": "16:9",
+    "filename": "tenant-safely-watermarking-rental-application.webp",
+    "altText": "Tenant securely watermarking driver's license before emailing to prospective landlord",
+    "caption": "Watermarking sensitive credentials ensures personal information can never be repurposed if leaked.",
+    "placement": "Conclusion Section"
+  }
+]

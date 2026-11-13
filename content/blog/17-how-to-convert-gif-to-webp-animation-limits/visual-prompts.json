@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-17-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Death of Heavy GIFs Hero",
+    "concept": "Visual metaphor of a heavy iron film reel transforming into a glowing lightweight optical fiber wave.",
+    "prompt": "Cinematic visual metaphor showing a heavy, rusted, cumbersome metal film reel labeled 'GIF 12MB' dissolving and transforming into a razor-thin, floating, luminous sapphire blue holographic wave labeled 'WebP 3MB'. High-speed motion blur, dark futuristic laboratory background, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "convert-gif-to-webp-animation-hero.webp",
+    "altText": "Visual metaphor showing heavy metal GIF film reel transforming into lightweight luminous WebP wave",
+    "caption": "Converting animated GIF to WebP reduces file size by up to 64% while unlocking 24-bit true color depth.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-17-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Inter-Frame Sub-Rect Optimization Architecture",
+    "concept": "Technical diagram demonstrating how WebP only encodes the sub-rectangle bounding box of changing pixels.",
+    "prompt": "Diagram illustrating 3 sequential animation frames: Frame 1: Full character and background -> Frame 2: Only the moving waving arm is highlighted with a green bounding box; unchanged background is discarded -> Frame 3: Only moving hand. Vector diagram showing 80% byte savings from sub-rectangle encoding.",
+    "aspectRatio": "16:9",
+    "filename": "webp-sub-rectangle-animation-encoding-diagram.svg",
+    "altText": "Technical diagram showing WebP sub-rectangle animation encoding where only changing pixels are saved",
+    "caption": "Animated WebP only encodes pixels that change between frames, eliminating redundant background data.",
+    "placement": "Section 2: Frame-Differential Encoding"
+  },
+  {
+    "id": "va-17-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Batch GIF to WebP Conversion Flowchart",
+    "concept": "Flowchart showing: Upload Multi-Frame GIF -> Demux Frames -> Re-quantize Palette -> Pack RIFF ANMF -> Export.",
+    "prompt": "Technical workflow diagram displaying 5 stages: 1. Drag & drop animated GIF -> 2. Demux frames and frame delays -> 3. Convert 8-bit palette to 24-bit RGB -> 4. WebP intra-frame compressor -> 5. Assemble RIFF WebP animation file. Clean SaaS blueprint aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "gif-to-webp-conversion-pipeline.svg",
+    "altText": "Flowchart displaying multi-frame GIF demuxing and WebP animation assembly pipeline",
+    "caption": "FluxWebP extracts every frame, preserves exact frame delays, and re-encodes using WebP compression.",
+    "placement": "Section 3: Conversion Engineering Sequence"
+  },
+  {
+    "id": "va-17-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Color Dithering vs True Color: 256-Color GIF vs 24-Bit WebP",
+    "concept": "Magnified comparison of a smooth gradient in an animation showing noisy GIF dithering dots vs silky WebP.",
+    "prompt": "Side-by-side magnified crop of a glowing colorful sunset animation. Left side shows GIF with heavy Bayer dithering speckles, noise dots, and stair-stepped color bands. Right side shows WebP with silky smooth 24-bit color gradation and zero noise dots. File size comparison pill badges visible.",
+    "aspectRatio": "16:9",
+    "filename": "gif-dithering-vs-webp-24bit-color-comparison.webp",
+    "altText": "Magnified comparison showing harsh GIF dithering dots against silky smooth 24-bit WebP color gradations",
+    "caption": "GIF's 256-color limit forces ugly dithering noise dots; WebP delivers silky smooth 24-bit color gradients.",
+    "placement": "Section 4: Color Depth and Dithering Analysis"
+  },
+  {
+    "id": "va-17-5",
+    "index": 5,
+    "type": "application",
+    "title": "Documentation Knowledge Base with 20 Animated Tutorials",
+    "concept": "Software documentation portal loading 20 animated UI guide animations without browser stutter.",
+    "prompt": "Modern developer documentation knowledge base screen displayed on a high-resolution monitor. 20 animated UI walkthrough loops play simultaneously with silky smooth 60fps scrolling and zero browser stutter. Network performance overlay indicates 78 MB saved across the documentation page.",
+    "aspectRatio": "16:9",
+    "filename": "documentation-knowledge-base-animated-webp.webp",
+    "altText": "Software documentation website rendering 20 smooth animated WebP tutorial loops without lagging",
+    "caption": "Deploying animated WebP across software documentation centers cuts page weights from 120 MB down to 42 MB.",
+    "placement": "Section 5: Real-World Documentation Knowledge Bases"
+  }
+]

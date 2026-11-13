@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-82-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Financial Speed Velocity & Conversion Turbine",
+    "concept": "3D render showing an e-commerce checkout funnel accelerating like a luminous turbine as image file weights drop from 15MB to 800KB.",
+    "prompt": "Futuristic fintech and e-commerce analytics visualization: a glowing 3D checkout conversion funnel accelerating with high-speed turbine energy. On the input side, heavy bloated image files (red warning labels) shrink into lightweight, glowing WebP diamonds. On the output side, a luminous green revenue chart surges upward with 'Conversion Rate +24.8%' and 'Cart Abandonment -32%' metric holograms. Deep navy studio environment, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "roi-of-fast-loading-product-images-hero.webp",
+    "altText": "3D visual illustrating the direct revenue impact and conversion increase of fast-loading product images",
+    "caption": "Slashing image payloads accelerates conversion rates and directly reduces cart abandonment.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-82-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Milliseconds Make Millions: The E-Commerce Speed Curve",
+    "concept": "Infographic data curve showing the inverse relationship between page load time (seconds) and conversion rate (%).",
+    "prompt": "Clean technical financial infographic on dark slate background: X-axis: Page Load Time (1s to 5s); Y-axis: Conversion Rate (4.8% down to 0.9%). A steep descending curve illustrates that every 1-second delay erodes ~20% of revenue. Bold callouts: 'Deloitte: +8.4% Retail Conversions per 100ms'.",
+    "aspectRatio": "4:3",
+    "filename": "ecommerce-speed-vs-conversion-curve-infographic.webp",
+    "altText": "Technical infographic showing data curve between page load speed and retail conversion rates",
+    "caption": "Data from Google and Deloitte confirms that sub-second load times drive peak conversion rates.",
+    "placement": "Under Financial Equation Section"
+  },
+  {
+    "id": "va-82-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "The Frictionless Mobile Checkout Flow",
+    "concept": "Flowchart showing mobile user browsing catalog: instant WebP photo swipe -> instant cart add -> 1-click Apple Pay checkout in 15 seconds.",
+    "prompt": "Vector mobile UX dataflow diagram: 1. User taps Meta ad, 2. Product hero renders in 400ms, 3. Frictionless swipe through 5 high-res WebP gallery shots (0 lag), 4. Tap 'Buy with Apple Pay' -> Order Confirmed in 12 seconds. Royal blue and green modern aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "frictionless-mobile-checkout-flow-workflow.webp",
+    "altText": "Workflow diagram illustrating frictionless mobile shopping experience enabled by fast images",
+    "caption": "Zero-latency image swiping keeps mobile shoppers in a high-converting buying flow.",
+    "placement": "Under Cart Abandonment Section"
+  },
+  {
+    "id": "va-82-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Slow 4.2s Page (Cart Abandoned) vs Fast 0.8s Page (Order Complete)",
+    "concept": "Side-by-side mobile smartphone mockup comparing shopper giving up at loading spinner vs happy shopper seeing order confirmation.",
+    "prompt": "Side-by-side mobile shopping comparison: Left phone shows frustrated shopper waiting on spinning loading icon over product photo, abandoning cart (red 'Bounce' badge); Right phone shows instant product rendering, seamless checkout, and 'Order Confirmed! $184.00' green success badge. High contrast commercial impact.",
+    "aspectRatio": "16:9",
+    "filename": "slow-loading-abandonment-vs-instant-checkout.webp",
+    "altText": "Comparison showing customer bouncing on slow loading photo vs completing checkout on fast site",
+    "caption": "Image loading spinners trigger immediate abandonment; instant rendering drives orders.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-82-5",
+    "index": 5,
+    "type": "application",
+    "title": "Shopify Store Analytics Dashboard After WebP Migration",
+    "concept": "Shopify merchant reviewing analytics dashboard showing a 22% increase in sales and 60% drop in bounce rate after full image optimization.",
+    "prompt": "E-commerce founder's desk: a sleek MacBook Pro displaying Shopify Analytics. Metrics reveal a 22.4% increase in sales conversion rate, average session duration up by 2.5 minutes, and page speed score jumping from 34 to 96. Modern sunny home office setup with coffee.",
+    "aspectRatio": "16:9",
+    "filename": "shopify-analytics-conversion-surge-dashboard.webp",
+    "altText": "Shopify analytics dashboard displaying 22% sales increase after optimizing product images",
+    "caption": "Optimizing your store's image assets delivers an immediate, measurable surge in monthly revenue.",
+    "placement": "Conclusion Section"
+  }
+]

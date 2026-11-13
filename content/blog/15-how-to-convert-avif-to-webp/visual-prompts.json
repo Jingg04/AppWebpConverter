@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-15-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Cross-Platform Bridge: AVIF to WebP Hero",
+    "concept": "Digital transformation bridge taking complex AV1 algorithmic data streams into universally compatible WebP packets.",
+    "prompt": "Futuristic digital communications hub showing intricate emerald green AV1 video streams smoothly translating into high-velocity blue WebP data packets distributed to diverse modern screens: smartphones, laptops, smart TVs. High-tech laboratory atmosphere, 16:9 cinematic framing, soft reflections.",
+    "aspectRatio": "16:9",
+    "filename": "convert-avif-to-webp-cross-platform-hero.webp",
+    "altText": "Futuristic digital network showing AVIF data converting into universally compatible WebP streams",
+    "caption": "Converting AVIF to WebP bridges cutting-edge compression with universal browser and device compatibility.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-15-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Browser Support Gap: AVIF (93%) vs WebP (97.4%)",
+    "concept": "Comparative radial gauge chart comparing worldwide device compatibility between AVIF and WebP.",
+    "prompt": "Clean modern infographic featuring two circular radial progress gauges: Left gauge: AVIF at 93.1% global device support with callouts highlighting legacy iOS/Android gaps. Right gauge: WebP at 97.4% universal support with full green status across all platforms. Crisp vector data styling.",
+    "aspectRatio": "16:9",
+    "filename": "avif-vs-webp-browser-support-gap-chart.svg",
+    "altText": "Comparative radial gauge chart showing WebP's superior 97.4% device support over AVIF's 93.1%",
+    "caption": "WebP reaches an additional 4.3% of global users—representing hundreds of millions of legacy mobile devices.",
+    "placement": "Section 2: The Compatibility Gap Analysis"
+  },
+  {
+    "id": "va-15-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Client-Side AVIF Decoding and WebP Re-Encoding Flow",
+    "concept": "Flowchart showing in-browser native AV1 decoding -> Canvas 2D -> WebAssembly libwebp encoder.",
+    "prompt": "Architecture flowchart diagram showing: Step 1: Ingest .avif -> Step 2: Native browser AV1 VideoDecoder -> Step 3: High-precision ImageBitmap -> Step 4: libwebp SIMD encoder -> Step 5: Export .webp. Clean blueprint vectors with green and cyan color coding.",
+    "aspectRatio": "16:9",
+    "filename": "avif-to-webp-client-decoding-workflow.svg",
+    "altText": "Flowchart showing client-side hardware AVIF decoding and rapid WebP re-encoding",
+    "caption": "FluxWebP leverages native browser AV1 decoders to re-encode AVIF into WebP in under 100 milliseconds.",
+    "placement": "Section 3: Conversion Engineering"
+  },
+  {
+    "id": "va-15-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Social Media Card Preview: Broken AVIF vs Rendered WebP",
+    "concept": "Comparison of a social media link preview: gray broken image icon for AVIF vs vibrant rendered card for WebP.",
+    "prompt": "Side-by-side social media feed card comparison. Left panel: Link sharing preview displays an empty gray placeholder box with a broken image icon because the platform scraper cannot decode AVIF. Right panel: Converted WebP displays a rich, vibrant high-res open-graph preview card with full engagement metrics.",
+    "aspectRatio": "16:9",
+    "filename": "social-media-preview-broken-avif-vs-rendered-webp.webp",
+    "altText": "Social media link preview comparison showing broken AVIF thumbnail against rich, rendered WebP preview",
+    "caption": "Social media crawlers and messaging apps frequently fail on AVIF, resulting in blank preview thumbnails.",
+    "placement": "Section 4: Social Media and Open Graph Previews"
+  },
+  {
+    "id": "va-15-5",
+    "index": 5,
+    "type": "application",
+    "title": "Legacy Mobile Device Rendering Test",
+    "concept": "Physical older smartphone displaying a blank broken image box on an AVIF site vs instant rendering on WebP.",
+    "prompt": "Hands holding an older smartphone running iOS 14 / Android 11. The browser screen displays an online article where WebP images render crisply and instantaneously, avoiding the blank white boxes that occur with unpolyfilled AVIF files. Natural warm indoor lighting.",
+    "aspectRatio": "16:9",
+    "filename": "legacy-mobile-browser-webp-rendering.webp",
+    "altText": "Older mobile phone displaying smooth WebP image rendering where AVIF would fail to load",
+    "caption": "Converting to WebP ensures zero blank image drops on older budget smartphones and unupdated tablets.",
+    "placement": "Section 5: Real-World Mobile Device Scenarios"
+  }
+]

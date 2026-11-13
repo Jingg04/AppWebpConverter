@@ -1,0 +1,59 @@
+{
+  "id": 87,
+  "title": "Designing High-Converting Promotional Banners and Flash Sale Graphics",
+  "slug": "designing-promotional-banners-flash-sale-graphics",
+  "folder": "87-designing-promotional-banners-flash-sale-graphics",
+  "category": "E-Commerce & Business Images",
+  "categorySlug": "ecommerce-and-business-images",
+  "subcategory": "Promotional Graphics",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-11",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "High-Converting Promo Banners & Flash Sale Graphics | FluxWebP Pro",
+    "metaDescription": "Design high-converting promotional banners for Black Friday, flash sales, and seasonal campaigns. Master visual hierarchy, urgency badges, and CTA contrast.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/designing-promotional-banners-flash-sale-graphics/",
+    "primaryKeyword": "promotional banner design ecommerce",
+    "secondaryKeywords": [
+      "flash sale graphics best practices",
+      "high converting promo banner",
+      "black friday banner design rules",
+      "ecommerce website hero banner optimization"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/87-designing-promotional-banners-flash-sale-graphics/hero.svg",
+  "visualAssetsCount": 5
+}

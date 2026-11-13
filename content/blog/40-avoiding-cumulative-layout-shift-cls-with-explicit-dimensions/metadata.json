@@ -1,0 +1,59 @@
+{
+  "id": 40,
+  "title": "Avoiding Cumulative Layout Shift (CLS) with Explicit Image Width & Height Attributes",
+  "slug": "avoiding-cumulative-layout-shift-cls-with-explicit-dimensions",
+  "folder": "40-avoiding-cumulative-layout-shift-cls-with-explicit-dimensions",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Core Web Vitals",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-14",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Fix Image CLS: Width & Height Attributes for Core Web Vitals | FluxWebP Pro",
+    "metaDescription": "Eliminate Cumulative Layout Shift (CLS) caused by images. Learn how browsers use HTML width/height to calculate aspect ratio and reserve layout space instantly.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/avoiding-cumulative-layout-shift-cls-with-explicit-dimensions/",
+    "primaryKeyword": "avoiding cumulative layout shift images",
+    "secondaryKeywords": [
+      "fix cls images",
+      "image width and height attributes cls",
+      "cumulative layout shift core web vitals",
+      "aspect ratio css cls fix"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/40-avoiding-cumulative-layout-shift-cls-with-explicit-dimensions/hero.svg",
+  "visualAssetsCount": 5
+}

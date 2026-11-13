@@ -1,0 +1,59 @@
+{
+  "id": 96,
+  "title": "Fixing Common Image Upload Errors: 'File Too Large', 'Invalid Format', 'MIME Mismatch'",
+  "slug": "fixing-common-image-upload-errors-file-too-large-mime",
+  "folder": "96-fixing-common-image-upload-errors-file-too-large-mime",
+  "category": "Privacy, Metadata & Troubleshooting",
+  "categorySlug": "privacy-metadata-and-troubleshooting",
+  "subcategory": "Upload Troubleshooting",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Fix Image Upload Errors: File Too Large & MIME Mismatch | FluxWebP Pro",
+    "metaDescription": "Fix frustrating image upload failures. Learn how to solve 'File Too Large (HTTP 413)', 'Invalid Format', and 'MIME Mismatch' errors on government and job portals.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/fixing-common-image-upload-errors-file-too-large-mime/",
+    "primaryKeyword": "fix image upload errors file too large",
+    "secondaryKeywords": [
+      "invalid image format error fix",
+      "http 413 payload too large image upload",
+      "mime type mismatch image upload",
+      "compress image under 2mb for upload"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/96-fixing-common-image-upload-errors-file-too-large-mime/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,59 @@
+{
+  "id": 39,
+  "title": "Responsive Image Breakpoints: Defining srcSet and sizes for Flawless Display",
+  "slug": "responsive-image-breakpoints-srcset-sizes-guide",
+  "folder": "39-responsive-image-breakpoints-srcset-sizes-guide",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Responsive Coding",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-13",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Responsive Image Breakpoints: Master srcset & sizes | FluxWebP Pro",
+    "metaDescription": "Master HTML5 srcset and sizes attributes. Learn how width descriptors (w) work, how browsers select optimal image resolutions, and standard breakpoint rules.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/responsive-image-breakpoints-srcset-sizes-guide/",
+    "primaryKeyword": "responsive image breakpoints",
+    "secondaryKeywords": [
+      "srcset and sizes explained",
+      "how to write srcset",
+      "responsive image sizes attribute",
+      "srcset width descriptor"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/39-responsive-image-breakpoints-srcset-sizes-guide/hero.svg",
+  "visualAssetsCount": 5
+}

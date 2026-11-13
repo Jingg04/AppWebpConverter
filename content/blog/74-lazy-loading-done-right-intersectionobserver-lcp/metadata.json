@@ -1,0 +1,59 @@
+{
+  "id": 74,
+  "title": "Lazy Loading Done Right: loading='lazy', IntersectionObserver, and LCP Optimization",
+  "slug": "lazy-loading-done-right-intersectionobserver-lcp",
+  "folder": "74-lazy-loading-done-right-intersectionobserver-lcp",
+  "category": "Website Image SEO & Performance",
+  "categorySlug": "image-seo-and-performance",
+  "subcategory": "Loading Performance",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-08",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Lazy Loading Done Right: loading='lazy' & LCP Fixes | FluxWebP Pro",
+    "metaDescription": "Master image lazy loading without ruining your Core Web Vitals. Learn native loading='lazy', why you must never lazy load hero images, and IntersectionObserver.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/lazy-loading-done-right-intersectionobserver-lcp/",
+    "primaryKeyword": "lazy loading images done right",
+    "secondaryKeywords": [
+      "loading lazy vs intersectionobserver",
+      "lazy loading breaks lcp",
+      "how to implement native lazy loading",
+      "dont lazy load above the fold"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/74-lazy-loading-done-right-intersectionobserver-lcp/hero.svg",
+  "visualAssetsCount": 5
+}

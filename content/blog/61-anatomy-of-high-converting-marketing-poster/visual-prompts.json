@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-61-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Poster Layout Anatomy & Eye-Tracking Geometry",
+    "concept": "3D render showing an architectural marketing poster floating in space with glowing neon eye-tracking trajectories and hierarchy callout tags.",
+    "prompt": "Futuristic graphic design studio: a massive 3D marketing poster for a modern architecture summit floats in mid-air. Glowing neon laser lines in cyan and electric amber trace the viewer's eye-path across the layout in a smooth Z-pattern. Dimensional wireframe tags label: '1. Hero Focal Point', '2. Primary Display Headline', '3. Secondary Body Grid', '4. High-Contrast CTA'. Dark slate gallery backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "marketing-poster-layout-anatomy-hero.webp",
+    "altText": "3D render of marketing poster layout showing visual hierarchy layers and Z-pattern eye tracking",
+    "caption": "Structuring posters around clear visual hierarchy guides the viewer's eye naturally from hook to call to action.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-61-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 3-Second Rule Poster Breakdown",
+    "concept": "Infographic poster detailing the 50/30/20 ratio rule and Z-pattern scanning path.",
+    "prompt": "Clean technical graphic design infographic on dark navy background: Shows vertical poster frame dissected into 50% Visual Hook (Hero Art), 30% Typography (Headline + Details), 20% Negative Space. Luminous Z-pattern arrows indicate reading flow down to QR code in bottom corner. High contrast modern styling.",
+    "aspectRatio": "4:3",
+    "filename": "poster-layout-ratio-and-z-pattern-infographic.webp",
+    "altText": "Infographic detailing the 50-30-20 layout ratio and Z-pattern flow for high-converting posters",
+    "caption": "The 50/30/20 composition rule ensures your poster breathes while maintaining high visual power.",
+    "placement": "Under 4 Anatomical Layers Section"
+  },
+  {
+    "id": "va-61-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "FluxWebP Poster Studio Design Pipeline",
+    "concept": "Vector UI workflow showing selecting layout grid, generating AI background art, adding typography hierarchy, and exporting 4K poster.",
+    "prompt": "Vector design workflow diagram: 1. Selecting 16:9 or 3:4 canvas grid, 2. Generating AI background with prompt engine, 3. Applying typography pairing (Syne + Inter), 4. Adding QR code and brand logo badge, 5. High-res WebP export. Clean UI icons with royal blue theme.",
+    "aspectRatio": "16:9",
+    "filename": "poster-creation-studio-workflow.webp",
+    "altText": "Workflow diagram for creating professional marketing posters in FluxWebP Poster Studio",
+    "caption": "FluxWebP Poster Studio combines AI visual generation with structured graphic design templates.",
+    "placement": "Under Hero Hook Section"
+  },
+  {
+    "id": "va-61-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Cluttered Chaos Poster vs Clean Structured Layout",
+    "concept": "Side-by-side comparison showing an overwhelming poster with 6 fonts and no focal point vs a striking, modern structured poster.",
+    "prompt": "Side-by-side poster comparison: Left shows an amateur event flyer with 6 clashing fonts, competing photos, and zero breathing room (cognitive overload); Right shows a sleek modern design using one bold visual, elegant typography hierarchy, and a clear high-contrast call to action. Clear UX callout badges.",
+    "aspectRatio": "16:9",
+    "filename": "cluttered-flyer-vs-structured-poster-comparison.webp",
+    "altText": "Comparison showing cluttered amateur flyer vs clean professional structured marketing poster",
+    "caption": "Simplifying elements and establishing a dominant focal point dramatically increases viewer recall.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-61-5",
+    "index": 5,
+    "type": "application",
+    "title": "Urban Lightbox and Digital Billboard Deployment",
+    "concept": "Photorealistic city street at twilight showing the poster displayed inside an illuminated urban transit lightbox.",
+    "prompt": "Cinematic photograph of a modern glass transit shelter on a vibrant metropolitan boulevard at dusk. Inside the illuminated lightbox, the design poster glows with rich, saturated colors and razor-sharp typography. Wet pavement reflections, chic urban atmosphere, commercial design showcase.",
+    "aspectRatio": "16:9",
+    "filename": "urban-transit-lightbox-poster-deployment.webp",
+    "altText": "Modern city street transit shelter displaying vibrant illuminated marketing poster at twilight",
+    "caption": "High-contrast poster designs remain instantly readable in both physical transit lightboxes and digital feeds.",
+    "placement": "Conclusion Section"
+  }
+]

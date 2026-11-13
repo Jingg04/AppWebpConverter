@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-83-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The 5-Shot Product Visual Narrative Architecture",
+    "concept": "3D render showing an artisan leather weekend duffel bag surrounded by five floating holographic photographic frames detailing the 5 essential shots.",
+    "prompt": "Futuristic commercial photography studio: a luxury handcrafted leather duffel bag rests on a reflective pedestal. Floating around it in a semicircle are five illuminated glass photo frames: 1. Clean White Studio Hero; 2. 45-Degree Depth Angle; 3. Macro Stitching Detail; 4. In-Hand Scale Shot; 5. Aspirational Airport Lounge Lifestyle. Volumetric studio lighting, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "multi-angle-product-photography-hero.webp",
+    "altText": "3D render of luxury product surrounded by the 5 essential e-commerce photography angles",
+    "caption": "A comprehensive 5-shot visual narrative answers customer questions and builds buyer trust.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-83-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 5-Shot E-Commerce Checklist Matrix",
+    "concept": "Infographic poster breaking down each of the 5 shot types, their objective, and buyer psychology impact.",
+    "prompt": "Clean technical retail infographic on dark slate background: 5 horizontal cards detailing Shot 1 (Studio Hero - Recognition), Shot 2 (45° Perspective - Dimension), Shot 3 (Macro - Quality Proof), Shot 4 (Human Scale - Fit & Size), Shot 5 (Lifestyle - Emotional Aspiration). High contrast icons and photography examples.",
+    "aspectRatio": "4:3",
+    "filename": "5-shot-product-checklist-matrix-infographic.webp",
+    "altText": "Technical infographic matrix detailing the 5 essential product photography shots and buyer psychology",
+    "caption": "The objective and psychological impact of each product gallery image.",
+    "placement": "Under 5 Essential Shots Section"
+  },
+  {
+    "id": "va-83-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "E-Commerce Photo Shoot Planning Workflow",
+    "concept": "Flowchart showing studio prep, shot list execution, AI background standardization, and catalog upload.",
+    "prompt": "Vector production workflow: 1. Product sample prep & cleaning, 2. Studio camera rig executing 5-shot angles, 3. FluxWebP batch background standardization, 4. Publishing cohesive 5-shot gallery to Shopify in WebP format. Clean modern aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-photoshoot-planning-workflow.webp",
+    "altText": "Workflow diagram illustrating planning, shooting, and standardizing multi-angle product photography",
+    "caption": "Plan and execute your 5-shot product gallery systematically for complete catalog consistency.",
+    "placement": "Under Macro Close-Up Section"
+  },
+  {
+    "id": "va-83-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Single Flat Image Listing vs 5-Shot Comprehensive Gallery",
+    "concept": "Side-by-side product page mockup showing poor 1-photo listing vs rich 5-photo interactive gallery.",
+    "prompt": "Side-by-side e-commerce product page comparison: Left panel shows an amateur listing with only 1 flat photo, causing customer hesitation and low 1.2% conversion rate; Right panel shows rich interactive gallery with 5 synchronized angles (hero, macro, lifestyle, scale), achieving 4.6% conversion rate. High visual impact.",
+    "aspectRatio": "16:9",
+    "filename": "single-photo-vs-5-angle-gallery-comparison.webp",
+    "altText": "Comparison showing low-converting 1-photo listing vs high-converting 5-angle product gallery",
+    "caption": "Listings with 5 or more comprehensive angles convert over three times higher than single-photo listings.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-83-5",
+    "index": 5,
+    "type": "application",
+    "title": "D2C Luxury Footwear Brand Product Page in Production",
+    "concept": "High-end direct-to-consumer footwear store displayed on iPad Pro, allowing customer to inspect leather grain and scale effortlessly.",
+    "prompt": "Photorealistic iPad Pro on an oak coffee table displaying a luxury Italian leather boot product page. The thumbnail gallery smoothly highlights 5 synchronized angles, with the macro shot displaying intricate welt stitching in razor-sharp detail. Warm contemporary living space.",
+    "aspectRatio": "16:9",
+    "filename": "luxury-footwear-gallery-product-page.webp",
+    "altText": "Luxury footwear product page on iPad showcasing comprehensive 5-angle product photography",
+    "caption": "Comprehensive multi-angle galleries justify premium price points and eliminate buyer hesitation.",
+    "placement": "Conclusion Section"
+  }
+]

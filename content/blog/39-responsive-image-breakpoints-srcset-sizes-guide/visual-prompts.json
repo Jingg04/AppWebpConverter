@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-39-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Responsive Breakpoint Negotiation Engine",
+    "concept": "3D render showing an image request routing through an algorithmic browser gate to select the exact right file size.",
+    "prompt": "Futuristic digital network visualization: an incoming device request streams into an optical routing nexus. The nexus inspects device pixel density and viewport width, instantly selecting the optimal file tier (400w, 800w, 1200w, 1920w). Deep navy background, cyan and neon purple optical paths, clean typographic data badges, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "responsive-image-breakpoints-srcset-hero.webp",
+    "altText": "3D visualization of browser negotiating responsive image breakpoints using srcset and sizes",
+    "caption": "Browsers evaluate viewport width and DPR to pull the lightest file that maintains full sharpness.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-39-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The srcset & sizes Math Formula",
+    "concept": "Infographic breaking down how the browser calculates required physical pixels from CSS width and DPR.",
+    "prompt": "Technical infographic poster on dark slate background breaking down the browser decision equation: [Viewport Media Query] -> [CSS Layout Width] x [Device Pixel Ratio DPR] = [Required Physical Pixels] -> [Matching srcset Candidate]. Clear mathematical flowchart with clean typography and sample phone, tablet, and desktop calculations.",
+    "aspectRatio": "4:3",
+    "filename": "browser-srcset-selection-math-infographic.webp",
+    "altText": "Infographic detailing the mathematical formula browsers use to select files from srcset and sizes",
+    "caption": "Mathematical decision path executed by the browser engine before issuing image network requests.",
+    "placement": "Under How the Browser Decides Section"
+  },
+  {
+    "id": "va-39-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Automated Responsive Breakpoint Generation Pipeline",
+    "concept": "Flowchart showing master image being scaled into 400w, 800w, 1200w, and 1920w files with auto-generated HTML markup.",
+    "prompt": "Clean vector development workflow diagram showing FluxWebP processing a 4K master photo into 4 distinct WebP files (400w, 800w, 1200w, 1920w), accompanied by a generated, ready-to-paste HTML img tag snippet. Modern code editor aesthetic, vibrant accent colors.",
+    "aspectRatio": "16:9",
+    "filename": "automated-breakpoint-generation-workflow.webp",
+    "altText": "Workflow diagram showing batch generation of responsive image files and HTML markup",
+    "caption": "Generate all standard responsive breakpoint files and HTML markup in a single automated step.",
+    "placement": "Under The Anatomy of srcset Section"
+  },
+  {
+    "id": "va-39-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Wasted Bandwidth: Single Desktop File vs Responsive srcset",
+    "concept": "Data visualization comparing network payload across mobile users downloading 1920px image vs 400px srcset match.",
+    "prompt": "Data chart comparison: Left bar shows mobile user forced to download 1.8MB desktop hero image; Right bar shows mobile user downloading 45KB responsive srcset 400w file. 97% bandwidth reduction callout badge in neon green, high-contrast tech dashboard design.",
+    "aspectRatio": "16:9",
+    "filename": "responsive-srcset-bandwidth-savings-comparison.webp",
+    "altText": "Comparison chart showing 97% data savings between serving responsive srcset vs single desktop file",
+    "caption": "Serving responsive breakpoints reduces mobile data consumption by up to 97% and accelerates LCP.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-39-5",
+    "index": 5,
+    "type": "application",
+    "title": "Multi-Breakpoint Responsive Testing Suite",
+    "concept": "Developer inspecting responsive image loading across simulated mobile, tablet, and 4K desktop devices in Chrome DevTools.",
+    "prompt": "Software developer's dual monitor setup running Chrome DevTools Network Tab and Device Mode. Clear logs show an iPhone downloading the 800w file while an adjacent 4K display downloads the 1920w file. Ambient desk lighting, professional engineering atmosphere.",
+    "aspectRatio": "16:9",
+    "filename": "developer-auditing-responsive-srcset-devtools.webp",
+    "altText": "Software developer auditing responsive image srcset loading using Chrome DevTools network tab",
+    "caption": "Verifying srcset resolution selection in DevTools confirms mobile users receive lightweight assets.",
+    "placement": "Conclusion Section"
+  }
+]

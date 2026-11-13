@@ -1,0 +1,42 @@
+---
+title: "High Dynamic Range (HDR) Images for the Web: AVIF, Ultra HDR, and Gain Maps"
+slug: "high-dynamic-range-hdr-images-web-avif-gain-maps"
+id: 98
+category: "Privacy, Metadata & Troubleshooting"
+categorySlug: "privacy-metadata-and-troubleshooting"
+publicationStatus: "published"
+publishedDate: "2026-11-12"
+updatedDate: "2026-11-14"
+author: "Dr. Sarah Chen"
+authorRole: "Head of Web Performance Architecture"
+readingTime: 8
+primaryKeyword: "hdr images for the web"
+featuredImage: "/public/blog-assets/98-high-dynamic-range-hdr-images-web-avif-gain-maps/hero.svg"
+---
+
+# High Dynamic Range (HDR) Images for the Web: AVIF, Ultra HDR, and Gain Maps
+
+<VisualAsset id="va-98-1" type="hero" src="/public/blog-assets/98-high-dynamic-range-hdr-images-web-avif-gain-maps/hero.svg" alt="3D visual of High Dynamic Range HDR gain map architecture boosting peak display luminance" />
+
+> **Summary:** Break free from 8-bit SDR limitations. Discover how Ultra HDR gain maps and 10-bit AVIF bring dazzling sunlight, neon glares, and deep shadow contrast to web browsers.
+
+
+
+
+## Frequently Asked Questions
+
+### What is an HDR Gain Map in digital imaging?
+
+A gain map is an auxiliary secondary grayscale image channel stored inside a standard JPEG or WebP file. It acts as an optical multiplier: on standard displays, the base SDR image renders normally; on HDR displays, the browser uses the gain map to boost highlights up to 1000+ nits of true physical brightness.
+
+### Why is AVIF the premier format for native 10-bit HDR?
+
+AVIF natively supports the Rec. 2100 wide color gamut, 10-bit and 12-bit color depth, and Perceptual Quantizer (PQ) / Hybrid Log-Gamma (HLG) transfer curves without banding or artifacting.
+
+### How do you detect HDR display support in CSS?
+
+Use the modern CSS media query: <code>@media (dynamic-range: high)</code>. This allows you to serve HDR gain map assets exclusively to compatible OLED and Apple XDR displays.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

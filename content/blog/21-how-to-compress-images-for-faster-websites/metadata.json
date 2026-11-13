@@ -1,0 +1,59 @@
+{
+  "id": 21,
+  "title": "How to Compress Images for Faster Websites",
+  "slug": "how-to-compress-images-for-faster-websites",
+  "folder": "21-how-to-compress-images-for-faster-websites",
+  "category": "Compression & Optimization",
+  "categorySlug": "compression-and-optimization",
+  "subcategory": "Website Performance",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Compress Images for Faster Websites (2026 Guide) | FluxWebP Pro",
+    "metaDescription": "Master website image compression. Learn the optimal balance between visual quality and byte savings, pass Google Core Web Vitals, and slash page load times.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-compress-images-for-faster-websites/",
+    "primaryKeyword": "compress images for faster websites",
+    "secondaryKeywords": [
+      "website image compression",
+      "reduce image size page speed",
+      "compress photos without quality loss",
+      "core web vitals image optimization"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/21-how-to-compress-images-for-faster-websites/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-10-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Spectrum of Image Extensions Hero",
+    "concept": "Abstract technological display of colorful glowing file extension badges in 3D perspective.",
+    "prompt": "Futuristic digital exhibition of floating translucent glass badges displaying iconic image extensions: .WEBP, .PNG, .JPG, .AVIF, .ARW, .CR2, .SVG, .HEIC. Soft ambient studio lighting, dark graphite reflective floor, sharp crisp focus, 16:9 cinematic framing, clean modern tech aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "common-image-file-extensions-hero.webp",
+    "altText": "3D glass badges representing major image file extensions across web, print, and camera RAW",
+    "caption": "Understanding image extensions and binary headers ensures seamless cross-platform asset workflows.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-10-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Magic Bytes Binary Header Decoder Reference",
+    "concept": "Technical reference chart detailing file extensions, MIME types, and their exact hexadecimal magic byte signatures.",
+    "prompt": "Clean technical reference card listing major image formats with three data columns: File Extension, MIME Type, and Binary Hex Signature (e.g. JPG: FF D8 FF; PNG: 89 50 4E 47; WebP: 52 49 46 46; TIFF: 49 49 2A 00). Monospace font accents and color-coded status badges.",
+    "aspectRatio": "16:9",
+    "filename": "binary-magic-bytes-header-reference.svg",
+    "altText": "Technical reference table detailing binary magic byte signatures for common image file extensions",
+    "caption": "Decoders read magic bytes at offset zero to identify the actual image structure regardless of extension.",
+    "placement": "Section 2: Magic Bytes & Binary Signatures"
+  },
+  {
+    "id": "va-10-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Camera RAW TIFF Container Parsing Pipeline",
+    "concept": "Flowchart showing how FluxWebP extracts embedded full-resolution ISP JPEG previews from RAW containers.",
+    "prompt": "Flowchart diagram illustrating camera RAW processing: Step 1: Ingest .ARW/.CR2/.NEF -> Step 2: Traverse TIFF IFD directory -> Step 3: Locate full-res ISP preview tag (0x0111) -> Step 4: Extract compressed RGB preview -> Step 5: Encode directly to WebP. Clean blueprint styling.",
+    "aspectRatio": "16:9",
+    "filename": "camera-raw-tiff-parsing-workflow.svg",
+    "altText": "Flowchart of camera RAW parsing pipeline extracting full-resolution ISP preview images",
+    "caption": "FluxWebP reads TIFF IFD directory tags to extract camera-rendered previews without heavy Bayer demosaicing.",
+    "placement": "Section 3: Camera RAW File Structures Explained"
+  },
+  {
+    "id": "va-10-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Extension Renaming vs True Re-Encoding Experiment",
+    "concept": "Visual demonstration showing what happens when renaming photo.jpg to photo.webp versus true conversion.",
+    "prompt": "Side-by-side terminal inspector comparison. Left panel: A file merely renamed from .jpg to .webp still registers as 'JPEG image data' in the Unix file utility with unchanged 2.4 MB size. Right panel: Truly converted WebP file registers as 'RIFF WebP image' with size reduced to 820 KB. Clear red and green callout pills.",
+    "aspectRatio": "16:9",
+    "filename": "extension-renaming-vs-true-conversion-comparison.webp",
+    "altText": "Terminal comparison showing fake extension renaming versus true binary WebP re-encoding",
+    "caption": "Renaming a file extension does not compress the image; true re-encoding rewrites the underlying bitstream.",
+    "placement": "Section 4: Why Renaming Extensions Fails"
+  },
+  {
+    "id": "va-10-5",
+    "index": 5,
+    "type": "application",
+    "title": "Cross-Platform Operating System File Type Associations",
+    "concept": "Desktop operating system file manager showing previews across diverse image formats.",
+    "prompt": "High-resolution desktop view displaying modern macOS Finder and Windows File Explorer windows side-by-side. Directory lists mixed professional media: Sony RAW (.arw), iPhone photo (.heic), web asset (.webp), vector logo (.svg). All thumbnails render smoothly with clean metadata badges. Crisp studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "os-file-manager-image-extensions-previews.webp",
+    "altText": "Desktop file manager displaying thumbnails and metadata across diverse modern image file extensions",
+    "caption": "Modern operating systems provide native desktop thumbnail caching across WebP, HEIC, and Camera RAW formats.",
+    "placement": "Section 5: Operating System Integration & Workflow"
+  }
+]

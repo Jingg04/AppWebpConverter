@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-71-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Four Pillars of Image Search Engine Optimization",
+    "concept": "3D render showing an image asset ascending a staircase of search engine ranking signals: File Name, Alt Text, Contextual Body, and Schema Object.",
+    "prompt": "Futuristic SEO laboratory visualization: a glowing translucent digital photograph ascending an illuminated staircase of search ranking signals. Each glowing step is labeled: 'Semantic File Name', 'Accessible Alt Text', 'Contextual Text Proximity', 'Schema.org ImageObject'. A holographic Google search crawler bot analyzes the asset with laser scanning beams. Deep slate backdrop, cyan and emerald glow, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "image-seo-checklist-pillars-hero.webp",
+    "altText": "3D visual diagram showing image ascending Google ranking steps with alt text and semantic metadata",
+    "caption": "Optimizing filenames, alt text, and surrounding copy secures top rankings in Google Image Search.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-71-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Complete Image SEO Technical Checklist",
+    "concept": "Infographic poster listing the 10 actionable checks for on-page image SEO with pass/fail indicators.",
+    "prompt": "Clean technical SEO audit checklist on dark slate background: 10 vertical items: 1. Descriptive filename, 2. Concise alt text (<125 chars), 3. Modern WebP/AVIF format, 4. Under 100KB file weight, 5. Explicit width/height attributes, 6. Structured schema data, 7. In image sitemap, 8. loading='lazy', 9. High-res Open Graph card, 10. Natural surrounding context. Crisp checkmarks.",
+    "aspectRatio": "4:3",
+    "filename": "image-seo-audit-checklist-infographic.webp",
+    "altText": "Technical infographic checklist covering 10 critical factors for Google image search optimization",
+    "caption": "Comprehensive 10-point checklist for auditing on-page image SEO.",
+    "placement": "Under 4 Pillars Section"
+  },
+  {
+    "id": "va-71-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Automated Image Metadata Extraction Pipeline",
+    "concept": "Vector workflow showing raw camera upload, AI auto-tagging generating alt text, and semantic file renaming.",
+    "prompt": "Vector tech workflow: 1. Uploading raw file IMG_0042.jpg, 2. AI vision model analyzing visual elements, 3. Auto-suggesting semantic filename 'leather-crossbody-handbag-tan.webp' and screen-reader compliant alt text, 4. 1-click batch apply and download. Royal blue and green accents.",
+    "aspectRatio": "16:9",
+    "filename": "automated-image-seo-metadata-workflow.webp",
+    "altText": "Workflow diagram for automating image SEO metadata extraction and semantic renaming",
+    "caption": "Automated workflows generate descriptive filenames and accessible alt text in seconds.",
+    "placement": "Under Semantic File Naming Section"
+  },
+  {
+    "id": "va-71-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Keyword Stuffed Spam vs High-Quality Accessible Alt Text",
+    "concept": "Side-by-side comparison showing spammy keyword list penalized by Google vs natural descriptive alt text ranking #1.",
+    "prompt": "Side-by-side SEO code comparison: Left panel labeled 'Spammy Keyword Stuffing (Penalized)' showing alt='shoes buy shoes cheap shoes discount sneakers sneakers sale'; Right panel labeled 'High-Quality Semantic Alt Text (Ranked #1)' showing alt='Pair of white leather minimalist sneakers resting on a light wood floor'. Clear red penalty and green pass badges.",
+    "aspectRatio": "16:9",
+    "filename": "spammy-vs-semantic-alt-text-comparison.webp",
+    "altText": "Comparison showing keyword-stuffed spam alt text vs natural descriptive accessible alt text",
+    "caption": "Descriptive alt text satisfies accessibility guidelines while outranking keyword-stuffed spam.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-71-5",
+    "index": 5,
+    "type": "application",
+    "title": "Google Search Console Image Performance Surge",
+    "concept": "Marketing workstation displaying Google Search Console report showing a 400% surge in image search clicks and impressions.",
+    "prompt": "High-tech digital marketing agency workstation: dual displays showing Google Search Console Image Search performance graphs. A glowing green line chart demonstrates a dramatic 400% surge in organic image impressions and clicks following a sitewide Image SEO audit. Sleek desk setting.",
+    "aspectRatio": "16:9",
+    "filename": "gsc-image-search-performance-surge.webp",
+    "altText": "Google Search Console performance dashboard showing 400% surge in Google Image traffic",
+    "caption": "Systematic Image SEO drives compounding organic search impressions and referral traffic.",
+    "placement": "Conclusion Section"
+  }
+]

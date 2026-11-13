@@ -1,0 +1,59 @@
+{
+  "id": 12,
+  "title": "How to Convert PNG to WebP While Preserving Transparency",
+  "slug": "how-to-convert-png-to-webp-preserve-transparency",
+  "folder": "12-how-to-convert-png-to-webp-preserve-transparency",
+  "category": "Image Conversion Tutorials",
+  "categorySlug": "conversion-tutorials",
+  "subcategory": "PNG Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Convert PNG to WebP With Transparency (Lossless) | FluxWebP Pro",
+    "metaDescription": "Step-by-step tutorial on converting transparent PNG files to WebP. Preserve true 8-bit alpha channels, semi-transparent drop shadows, and eliminate background fringes.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-convert-png-to-webp-preserve-transparency/",
+    "primaryKeyword": "convert png to webp preserving transparency",
+    "secondaryKeywords": [
+      "png to webp transparent background",
+      "lossless png to webp conversion",
+      "convert transparent logo to webp",
+      "alpha channel webp"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/12-how-to-convert-png-to-webp-preserve-transparency/hero.svg",
+  "visualAssetsCount": 5
+}

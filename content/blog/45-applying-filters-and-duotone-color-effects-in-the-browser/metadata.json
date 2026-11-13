@@ -1,0 +1,59 @@
+{
+  "id": 45,
+  "title": "Applying Filters and Duotone Color Effects to Photos in the Browser",
+  "slug": "applying-filters-and-duotone-color-effects-in-the-browser",
+  "folder": "45-applying-filters-and-duotone-color-effects-in-the-browser",
+  "category": "Image Editing & Creative Workflows",
+  "categorySlug": "editing-and-creative-workflows",
+  "subcategory": "Creative Styling",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-09",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Duotone Color Effects & Photo Filters Online | FluxWebP Pro",
+    "metaDescription": "Create trendy duotone effects, vintage tones, and stylistic photo filters online. Learn color gradient mapping algorithms with live browser WebGL processing.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/applying-filters-and-duotone-color-effects-in-the-browser/",
+    "primaryKeyword": "duotone color effect online",
+    "secondaryKeywords": [
+      "browser photo filters",
+      "spotify duotone effect tutorial",
+      "vintage photo filter online",
+      "css duotone generator"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/45-applying-filters-and-duotone-color-effects-in-the-browser/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-20-1",
+    "index": 1,
+    "type": "hero",
+    "title": "High-Throughput Batch Processing Engine Hero",
+    "concept": "High-speed conveyor of multi-format digital image cards passing through an optical compression laser.",
+    "prompt": "Dynamic visual representation of high-speed batch data processing. Dozens of glowing semi-transparent image cards (.JPG, .PNG, .HEIC, .RAW) flowing along a dual-rail optical conveyor through an intense blue laser compression gate (#2563EB), emerging as synchronized, compact WebP packets. High-velocity light trails, 16:9 cinematic framing, futuristic tech lab aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "convert-multiple-images-batch-hero.webp",
+    "altText": "High-speed visual conveyor representing batch processing of multiple image formats into WebP",
+    "caption": "FluxWebP's multi-core batch engine converts dozens of files simultaneously without cloud upload limits.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-20-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Web Worker Concurrency Pool Architecture",
+    "concept": "Technical architecture diagram of the Main UI Thread coordinating a FIFO Task Queue with 4 Worker Threads.",
+    "prompt": "System architecture diagram: Main Thread (UI at 60 FPS) -> Concurrency Dispatcher -> FIFO Task Queue -> Worker 1 (Core 1), Worker 2 (Core 2), Worker 3 (Core 3), Worker 4 (Core 4) -> Streamed ZIP Packager -> Download Blob. Clean technical vector graphics with green performance badges.",
+    "aspectRatio": "16:9",
+    "filename": "web-worker-concurrency-pool-architecture.svg",
+    "altText": "Architecture diagram showing multi-threaded Web Worker concurrency pool managing batch conversion",
+    "caption": "Controlled worker concurrency prevents memory exhaustion and keeps the browser interface responsive.",
+    "placement": "Section 2: Concurrency & Multi-Threading Architecture"
+  },
+  {
+    "id": "va-20-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "The 4-Step Batch Conversion Walkthrough",
+    "concept": "Step-by-step visual storyboard: Select Folder -> Global Target Format -> Batch Progress -> ZIP Download.",
+    "prompt": "Step-by-step visual workflow graphic: 1. Drag in entire folder of 50 images -> 2. Select Global Format 'WebP' and Naming Pattern '{name}_optimized' -> 3. Watch parallel progress bars fill -> 4. Click 'Download All as ZIP'. Clean modern SaaS interface styling.",
+    "aspectRatio": "16:9",
+    "filename": "batch-conversion-four-step-workflow.svg",
+    "altText": "Four-step visual walkthrough for batch converting multiple images into a packaged ZIP archive",
+    "caption": "Batch convert entire photo folders and download your optimized assets in a single structured ZIP file.",
+    "placement": "Section 3: Step-by-Step Batch Walkthrough"
+  },
+  {
+    "id": "va-20-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Single File vs Batch Conversion Time Comparison",
+    "concept": "Bar chart comparing manual one-by-one conversion (45 minutes) vs FluxWebP multi-threaded batch (18 seconds).",
+    "prompt": "Comparative bar chart graphic: 'Manual One-by-One Conversion' bar stretches across the chart at 45 minutes (red). 'FluxWebP Multi-Threaded Batch Engine' bar finishes in a tiny fraction at 18 seconds (vivid electric blue). Clean typography with a bold '150× Faster' callout badge.",
+    "aspectRatio": "16:9",
+    "filename": "single-file-vs-batch-conversion-time-chart.svg",
+    "altText": "Bar chart showing 150x time savings when using multi-threaded batch conversion over manual processing",
+    "caption": "Parallel multi-threading completes a 50-image conversion batch in 18 seconds versus 45 minutes manually.",
+    "placement": "Section 4: Efficiency & Time Savings Benchmarks"
+  },
+  {
+    "id": "va-20-5",
+    "index": 5,
+    "type": "application",
+    "title": "Commercial E-Commerce Catalog Migration in Action",
+    "concept": "Dual-screen workstation of a web agency team migrating 500 product photos for a Shopify store.",
+    "prompt": "Agency creative director's desk with dual ultra-wide displays. Left display shows FluxWebP processing a 500-product batch queue with live savings counter displaying '1.2 GB Saved (74%)'. Right display shows the live Shopify storefront loading product grids instantaneously. Warm evening office atmosphere.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-catalog-batch-migration-workstation.webp",
+    "altText": "Web agency workstation batch converting 500 product images for an eCommerce website migration",
+    "caption": "Web agencies use batch conversion to optimize entire client media libraries before production launches.",
+    "placement": "Section 5: Real-World E-Commerce & Agency Workflows"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-13-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Universal Bridge: WebP to PNG Restoration Hero",
+    "concept": "Stylized digital bridge connecting a modern streamlined WebP file to an open desktop design workspace.",
+    "prompt": "Futuristic digital bridge connecting a sleek compact blue WebP data packet across a glowing geometric network to an expansive open creative artist studio with desktop monitors. The atmosphere conveys accessibility and cross-platform compatibility. Deep slate gray, vibrant cobalt blue, and warm studio lighting, 16:9 widescreen composition.",
+    "aspectRatio": "16:9",
+    "filename": "convert-webp-to-png-universal-bridge-hero.webp",
+    "altText": "Digital bridge representing the conversion of modern WebP images back into universally compatible PNG files",
+    "caption": "Converting WebP back to PNG bridges the gap between modern web speed and legacy desktop compatibility.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-13-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "WebP to PNG Decoding and Decompression Pipeline",
+    "concept": "Technical flowchart showing WebP Bitstream -> Hardware VP8 Decoder -> RGBA Bitmap -> PNG Deflate Encoder.",
+    "prompt": "Technical architecture diagram: 1. Input WebP File (Compressed) -> 2. Native libwebp / GPU Decoder -> 3. In-Memory 32-bit RGBA Raw Canvas -> 4. PNG Filter & Deflate Encoder -> 5. Universal Standard PNG Output. Clean technical diagram with clear arrows and status tags.",
+    "aspectRatio": "16:9",
+    "filename": "webp-to-png-decoding-pipeline-diagram.svg",
+    "altText": "Flowchart showing the decoding of WebP files into raw memory canvas and re-encoding into PNG",
+    "caption": "The decoding pipeline: WebP is decompressed into raw RGBA memory before being repackaged as a standard PNG.",
+    "placement": "Section 2: Under the Hood: Decoding Mechanics"
+  },
+  {
+    "id": "va-13-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "FluxWebP Quick Convert Workflow: WebP to PNG",
+    "concept": "Step-by-step user guide for dragging in WebP files, selecting PNG output, and downloading instantly.",
+    "prompt": "Step-by-step UI infographic: Step 1: Drag WebP image into FluxWebP -> Step 2: Select 'PNG' from format dropdown -> Step 3: Click 'Download Converted File'. Visual indicators highlight that conversion runs 100% locally in-browser in under 50ms.",
+    "aspectRatio": "16:9",
+    "filename": "fluxwebp-webp-to-png-quick-workflow.svg",
+    "altText": "Visual step-by-step guide for converting WebP to PNG in FluxWebP Pro",
+    "caption": "Convert WebP back to PNG in under 50 milliseconds directly in your browser tab.",
+    "placement": "Section 3: Fast 3-Step Conversion Walkthrough"
+  },
+  {
+    "id": "va-13-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Desktop Application Compatibility Check: WebP vs PNG",
+    "concept": "Comparison matrix showing software compatibility across Photoshop, Keynote, PowerPoint, and Word.",
+    "prompt": "Software compatibility matrix graphic comparing WebP and PNG across 6 common desktop tools: Adobe Photoshop 2020, Microsoft PowerPoint, Apple Keynote, Figma, Word, and Windows Photo Viewer. PNG displays 100% green checkmarks across all tools.",
+    "aspectRatio": "16:9",
+    "filename": "desktop-app-compatibility-webp-vs-png.svg",
+    "altText": "Compatibility matrix showing PNG working across all desktop applications compared to partial WebP support",
+    "caption": "Converting to PNG guarantees seamless import into older desktop publishing tools, presentations, and office suites.",
+    "placement": "Section 4: Software Compatibility Audit"
+  },
+  {
+    "id": "va-13-5",
+    "index": 5,
+    "type": "application",
+    "title": "Slide Deck Presentation Import Workflow",
+    "concept": "A keynote presentation slide deck importing converted PNG graphics cleanly without format errors.",
+    "prompt": "Overhead view of an executive conference room desk with an open laptop displaying a high-stakes investor pitch deck. A crisp transparent brand illustration, newly converted from WebP to PNG, sits perfectly positioned on a dark slide without import errors or visual artifacts. Warm corporate lighting.",
+    "aspectRatio": "16:9",
+    "filename": "presentation-slide-deck-png-import.webp",
+    "altText": "Laptop displaying an executive slide presentation successfully importing converted PNG graphics",
+    "caption": "Converted PNG graphics drop effortlessly into PowerPoint, Keynote, and Google Slides presentations.",
+    "placement": "Section 5: Presentation and Office Productivity Workflows"
+  }
+]

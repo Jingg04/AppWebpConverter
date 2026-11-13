@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-33-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Omni-Channel Social Media Sizing Studio",
+    "concept": "A digital creative dashboard showing social media aspect ratio frames floating with preview graphics.",
+    "prompt": "Vibrant creative design workspace featuring floating 3D glass canvases displaying synchronized social media formats: Instagram 4:5 vertical portrait, YouTube 16:9 thumbnail, LinkedIn banner, and Story 9:16 layout. Rich magenta, royal blue, and electric violet ambient lighting, crisp typographic labels, modern digital agency studio setting, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "social-media-image-sizes-guide-hero.webp",
+    "altText": "Digital agency workspace showcasing standard social media image aspect ratios and dimensions",
+    "caption": "Targeting exact platform aspect ratios maximizes feed engagement and eliminates ugly algorithmic cropping.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-33-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "2026 Social Platform Aspect Ratio Matrix",
+    "concept": "Color-coded visual matrix comparing pixel dimensions across Instagram, LinkedIn, YouTube, and X.",
+    "prompt": "Sleek infographic matrix on dark glass background organizing social media networks by column (Instagram, LinkedIn, YouTube, X). Rows detail Aspect Ratio, Optimal Pixels, Max File Size, and Safe Zone boundaries. High contrast neon accents, clean iconography for each network, perfectly aligned typography.",
+    "aspectRatio": "4:3",
+    "filename": "social-platform-dimensions-matrix-infographic.webp",
+    "altText": "Color-coded infographic matrix detailing image dimensions for major social media platforms in 2026",
+    "caption": "Comprehensive 2026 aspect ratio and dimension matrix across key social networks.",
+    "placement": "Under Platform Dimensions Section"
+  },
+  {
+    "id": "va-33-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Single Master Asset Multi-Channel Adaptation",
+    "concept": "Visual diagram illustrating how a single master creative asset is adapted into Story, Feed, and Banner sizes.",
+    "prompt": "Technical creative workflow diagram showing a core brand photography asset in the center branching outward into 4 distinct formatted crops: 9:16 Story, 4:5 Instagram Feed, 16:9 YouTube Thumbnail, and 3:1 LinkedIn Banner. Clean dashed lines, dimension tags, professional graphic design workflow aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "social-asset-repurposing-workflow.webp",
+    "altText": "Workflow showing how one master visual is resized and cropped for multiple social media formats",
+    "caption": "Repurposing one hero creative into multiple social dimensions using smart safe-zone cropping.",
+    "placement": "Under Safe Zone Rule"
+  },
+  {
+    "id": "va-33-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Instagram 1:1 Square vs 4:5 Portrait Feed Visibility",
+    "concept": "Side-by-side smartphone mockup showing the screen real-estate difference between square and 4:5 vertical posts.",
+    "prompt": "Realistic smartphone screen mockup comparing two Instagram feed posts: Left screen shows a standard 1:1 square post occupying 45% of the viewport; Right screen shows a 4:5 portrait post occupying 75% of the mobile screen. Glowing measurement indicators highlighting the 30% increase in screen presence.",
+    "aspectRatio": "16:9",
+    "filename": "instagram-square-vs-portrait-feed-comparison.webp",
+    "altText": "Comparison showing vertical screen real estate gained by using 4:5 aspect ratio instead of 1:1 square",
+    "caption": "4:5 vertical posts occupy 30% more vertical mobile viewport space than 1:1 squares.",
+    "placement": "Under Instagram Section"
+  },
+  {
+    "id": "va-33-5",
+    "index": 5,
+    "type": "application",
+    "title": "Live Social Campaign Multi-Screen Deployment",
+    "concept": "Multiple devices displaying a cohesive multi-channel brand launch across mobile feeds, tablets, and desktop.",
+    "prompt": "Modern agency presentation setting with an iPhone displaying an Instagram Story, an iPad displaying a LinkedIn company update, and a laptop displaying a YouTube video with a custom thumbnail. Every asset belongs to the same product launch, perfectly cropped and razor-sharp.",
+    "aspectRatio": "16:9",
+    "filename": "omni-channel-social-campaign-showcase.webp",
+    "altText": "Omni-channel marketing campaign displayed flawlessly across multiple social media apps and devices",
+    "caption": "Standardizing your social image pipeline creates a recognizable, high-converting brand presence.",
+    "placement": "Conclusion Section"
+  }
+]

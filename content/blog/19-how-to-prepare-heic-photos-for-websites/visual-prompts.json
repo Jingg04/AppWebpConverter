@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-19-1",
+    "index": 1,
+    "type": "hero",
+    "title": "From iPhone Capture to Web Masterpiece Hero",
+    "concept": "An iPhone displaying a breathtaking sunset photo projecting an illuminated data bridge to a multi-browser web layout.",
+    "prompt": "Contemporary lifestyle studio shot of a modern iPhone displaying a vibrant golden hour coastal landscape photograph. The photo seamlessly projects outward as a holographic web layout loading on laptops and tablets across Google Chrome and Safari. Warm cinematic lighting, shallow depth of field, 16:9 composition.",
+    "aspectRatio": "16:9",
+    "filename": "convert-iphone-heic-to-webp-hero.webp",
+    "altText": "iPhone displaying a coastal sunset photo connecting to a responsive web layout via WebP conversion",
+    "caption": "Bridge the Apple ecosystem to the open web: Convert iPhone HEIC photos into lightweight WebP in seconds.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-19-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "HEIC Patent Licensing vs WebP Open Standard Infographic",
+    "concept": "Infographic contrasting the proprietary HEVC patent pool with the royalty-free open WebP standard.",
+    "prompt": "Comparison infographic: Left column shows 'HEIC / HEVC' surrounded by complex licensing lock icons, patent fees, and 0% browser web support. Right column shows 'WebP' with open source green checkmarks, royalty-free status, and 97.4% universal browser support. Clean modern vector typography.",
+    "aspectRatio": "16:9",
+    "filename": "heic-licensing-vs-webp-open-standard-diagram.svg",
+    "altText": "Infographic explaining why browsers reject proprietary HEIC licensing and embrace open WebP",
+    "caption": "Proprietary HEVC patent licensing prevents browsers from supporting HEIC natively on the web.",
+    "placement": "Section 2: The Patent and Browser Compatibility Dilemma"
+  },
+  {
+    "id": "va-19-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "In-Browser WASM libde265 Extraction Flowchart",
+    "concept": "Flowchart showing local browser decoding: .heic -> WASM Demuxer -> YUV to RGB -> WebP encode.",
+    "prompt": "Technical process diagram: 1. User drops iPhone .heic file -> 2. In-browser WebAssembly libde265 decoder unpacks HEVC NAL units -> 3. YUV420 color converted to RGB matrix -> 4. WebP encoder creates optimized web asset -> 5. Instant download. Clean blueprint vectors.",
+    "aspectRatio": "16:9",
+    "filename": "heic-wasm-client-side-decoding-workflow.svg",
+    "altText": "Flowchart illustrating in-browser WebAssembly decoding of iPhone HEIC files into WebP images",
+    "caption": "FluxWebP decodes HEVC structures inside your browser tab without transmitting private photos across the web.",
+    "placement": "Section 3: Private Client-Side Conversion Engineering"
+  },
+  {
+    "id": "va-19-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Website Upload Test: Broken HEIC File vs Rendered WebP",
+    "concept": "Side-by-side comparison of a WordPress blog post: missing broken image box for HEIC vs sharp WebP image.",
+    "prompt": "Side-by-side screen capture of a live web blog. Left panel: Direct HEIC upload displays a frustrating broken image box with an error message: 'Format not supported by browser'. Right panel: Converted WebP file renders instantly with rich colors and crisp detail.",
+    "aspectRatio": "16:9",
+    "filename": "website-broken-heic-vs-rendered-webp-comparison.webp",
+    "altText": "Website comparison showing direct HEIC upload failing to display against converted WebP loading perfectly",
+    "caption": "Direct HEIC uploads result in broken image icons for 100% of non-Safari web visitors.",
+    "placement": "Section 4: Real-World Website Compatibility Test"
+  },
+  {
+    "id": "va-19-5",
+    "index": 5,
+    "type": "application",
+    "title": "Food & Restaurant Blog Mobile Upload Workflow",
+    "concept": "Restaurant owner snapping dishes on iPhone and publishing instant converted WebP photos to menu.",
+    "prompt": "Warm atmospheric restaurant environment. A chef uses an iPhone to photograph an artisan culinary dish. Next to the phone, an iPad displays the restaurant's live online menu with the dish appearing instantly in lightweight WebP format. Natural appetizing lighting.",
+    "aspectRatio": "16:9",
+    "filename": "restaurant-food-photography-heic-to-webp.webp",
+    "altText": "Restaurant owner using an iPhone to snap food photography and publish instant WebP images to online menu",
+    "caption": "Restaurant owners and food bloggers can upload iPhone captures directly to menus by converting to WebP.",
+    "placement": "Section 5: Real-World Mobile Publishing Scenarios"
+  }
+]

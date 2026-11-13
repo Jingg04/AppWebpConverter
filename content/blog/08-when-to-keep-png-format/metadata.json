@@ -1,0 +1,59 @@
+{
+  "id": 8,
+  "title": "When Should You Keep an Image in PNG Instead of Converting It?",
+  "slug": "when-to-keep-png-format",
+  "folder": "08-when-to-keep-png-format",
+  "category": "Image Formats & Conversion",
+  "categorySlug": "formats-and-conversion",
+  "subcategory": "Edge Cases & Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "When Should You Keep an Image in PNG Instead of Converting It? | FluxWebP Pro",
+    "metaDescription": "Learn the specific professional scenarios where keeping PNG is recommended over WebP: master archival assets, desktop app compatibility, and print workflows.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/when-to-keep-png-format/",
+    "primaryKeyword": "when to keep png format",
+    "secondaryKeywords": [
+      "when not to use webp",
+      "png vs webp use cases",
+      "why keep png",
+      "png editing master files"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/08-when-to-keep-png-format/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-75-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Preload Scanner & High-Priority Network Acceleration",
+    "concept": "3D render showing an image asset overtaking delayed CSS scripts in a high-speed optical fiber-optic network conduit labeled 'fetchpriority=high'.",
+    "prompt": "Futuristic network traffic acceleration visualization: an optical data highway inside a glowing fiber-optic tunnel. A hero image data packet (WebP format) blazes ahead at light-speed in a dedicated high-priority express lane labeled 'fetchpriority=high', effortlessly overtaking delayed JavaScript and CSS files. Electric cyan energy pulses, dark tech background, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "preload-critical-hero-image-lcp-hero.webp",
+    "altText": "3D visual of hero image accelerating past other assets via high-priority preload pipeline",
+    "caption": "Preloading critical hero images eliminates resource discovery delay and accelerates LCP.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-75-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 4 Sub-Parts of Largest Contentful Paint (LCP)",
+    "concept": "Infographic breaking down LCP: TTFB, Resource Load Delay, Resource Load Duration, and Element Render Delay.",
+    "prompt": "Clean technical web performance diagram on dark slate background: Horizontal bar decomposed into 4 phases: 1. TTFB (Time to First Byte, 200ms); 2. Resource Load Delay (Reduced from 800ms to 0ms via Preload); 3. Resource Load Duration (Compressed WebP, 300ms); 4. Element Render Delay (Instant, 100ms). Total LCP: 0.6s (Green).",
+    "aspectRatio": "4:3",
+    "filename": "lcp-subphases-breakdown-infographic.webp",
+    "altText": "Technical diagram illustrating the 4 sub-phases of Google Largest Contentful Paint metric",
+    "caption": "Preloading eliminates Resource Load Delay, cutting total LCP duration in half.",
+    "placement": "Under 2 Weapons Section"
+  },
+  {
+    "id": "va-75-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Preload Implementation in HTML Head",
+    "concept": "Vector code diagram showing link rel=preload tag placed in head coordinating with picture element in body.",
+    "prompt": "Vector code architecture diagram: HTML <head> showing glowing <link rel='preload' fetchpriority='high'> tag communicating directly with browser network engine; HTML <body> displaying corresponding <img> tag receiving cached bytes instantly. Royal blue and green modern developer aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "preload-link-head-coordination-workflow.webp",
+    "altText": "Workflow diagram showing how preload links in head connect with image tags in body",
+    "caption": "Preloading in the document head begins image download before CSS parsing finishes.",
+    "placement": "Under HTML Head Preload Section"
+  },
+  {
+    "id": "va-75-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Late CSS Discovery vs Instant Preload Discovery Waterfall",
+    "concept": "Side-by-side Chrome DevTools waterfall comparison showing 1200ms delay in CSS background-image vs 0ms preload.",
+    "prompt": "Side-by-side Chrome DevTools network timeline comparison: Left shows 'CSS background-image' where image request starts at 1,450ms after CSS downloads and parses; Right shows '<link rel=preload>' where image request starts at 45ms simultaneously with CSS. LCP drops from 3.2s to 0.9s. Clear visual badges.",
+    "aspectRatio": "16:9",
+    "filename": "css-discovery-vs-preload-waterfall-comparison.webp",
+    "altText": "Comparison showing late image discovery via CSS background vs instant start via HTML preload",
+    "caption": "Preloading avoids waiting for external CSS stylesheets to download, parse, and evaluate.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-75-5",
+    "index": 5,
+    "type": "application",
+    "title": "Global SaaS Landing Page Operating at 99 Lighthouse Score",
+    "concept": "Enterprise web team viewing PageSpeed Insights test achieving a perfect 100 Performance and 0.8s LCP.",
+    "prompt": "High-end corporate software office: an expansive wall monitor displaying Google PageSpeed Insights test results for a SaaS company landing page: Performance Score: 100/100, LCP: 0.8s, CLS: 0.00. The hero image renders instantly on a smartphone mockup. Sleek modern tech atmosphere.",
+    "aspectRatio": "16:9",
+    "filename": "pagespeed-insights-100-score-showcase.webp",
+    "altText": "Google PageSpeed Insights report displaying perfect 100 performance score and sub-second LCP",
+    "caption": "Sub-second LCP scores maximize organic search rankings and eliminate visitor bounce rates.",
+    "placement": "Conclusion Section"
+  }
+]

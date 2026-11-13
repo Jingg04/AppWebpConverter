@@ -1,0 +1,59 @@
+{
+  "id": 65,
+  "title": "Designing Social Media Banners: YouTube Thumbnails, Podcast Covers, and Ads",
+  "slug": "designing-social-media-banners-thumbnails-podcast-covers",
+  "folder": "65-designing-social-media-banners-thumbnails-podcast-covers",
+  "category": "AI Poster Generation & Design",
+  "categorySlug": "ai-poster-generation-and-design",
+  "subcategory": "Digital Formats",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-09",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Social Media Banners & Thumbnails: YouTube, Podcasts & Ads | FluxWebP Pro",
+    "metaDescription": "Master high-converting digital banners. Learn YouTube thumbnail psychology (CTR), Apple Podcasts cover specifications, and mobile thumbnail squint tests.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/designing-social-media-banners-thumbnails-podcast-covers/",
+    "primaryKeyword": "design social media banners and thumbnails",
+    "secondaryKeywords": [
+      "high ctr youtube thumbnail design",
+      "podcast cover art standards",
+      "social media ad banner creator",
+      "how to design youtube thumbnails that get clicks"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/65-designing-social-media-banners-thumbnails-podcast-covers/hero.svg",
+  "visualAssetsCount": 5
+}

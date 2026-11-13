@@ -1,0 +1,59 @@
+{
+  "id": 100,
+  "title": "The Future of Digital Imagery: Neural Codecs, Generative Super-Resolution, and WebP 2",
+  "slug": "future-of-digital-imagery-neural-codecs-webp2",
+  "folder": "100-future-of-digital-imagery-neural-codecs-webp2",
+  "category": "Privacy, Metadata & Troubleshooting",
+  "categorySlug": "privacy-metadata-and-troubleshooting",
+  "subcategory": "Future Technologies",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-14",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 9,
+  "seo": {
+    "metaTitle": "The Future of Digital Imagery: Neural Codecs & WebP 2 | FluxWebP Pro",
+    "metaDescription": "Explore the next frontier of web graphics. Learn how neural learned codecs, WebP 2, generative super-resolution, and perceptual loss functions will revolutionize visual media.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/future-of-digital-imagery-neural-codecs-webp2/",
+    "primaryKeyword": "future of digital imagery neural codecs",
+    "secondaryKeywords": [
+      "webp 2 next generation codec",
+      "ai neural image compression",
+      "generative super resolution web",
+      "learned image compression models"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/100-future-of-digital-imagery-neural-codecs-webp2/hero.svg",
+  "visualAssetsCount": 5
+}

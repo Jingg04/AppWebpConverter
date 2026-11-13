@@ -1,0 +1,59 @@
+{
+  "id": 26,
+  "title": "How to Choose the Right WebP Quality Setting",
+  "slug": "how-to-choose-the-right-webp-quality-setting",
+  "folder": "26-how-to-choose-the-right-webp-quality-setting",
+  "category": "Compression & Optimization",
+  "categorySlug": "compression-and-optimization",
+  "subcategory": "WebP Tuning",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Choose the Right WebP Quality Setting (Test Results) | FluxWebP Pro",
+    "metaDescription": "Discover the mathematically optimal WebP quality settings for photos, banners, logos, and e-commerce. Compare 70%, 80%, 85%, and 90% quality benchmarks.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-choose-the-right-webp-quality-setting/",
+    "primaryKeyword": "choose right webp quality setting",
+    "secondaryKeywords": [
+      "best webp quality setting",
+      "webp quality slider 75 vs 80 vs 85",
+      "webp lossy quality threshold",
+      "optimal webp compression ratio"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/26-how-to-choose-the-right-webp-quality-setting/hero.svg",
+  "visualAssetsCount": 5
+}

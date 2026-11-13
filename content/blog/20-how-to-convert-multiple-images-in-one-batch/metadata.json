@@ -1,0 +1,59 @@
+{
+  "id": 20,
+  "title": "How to Convert Multiple Images in One Batch",
+  "slug": "how-to-convert-multiple-images-in-one-batch",
+  "folder": "20-how-to-convert-multiple-images-in-one-batch",
+  "category": "Image Conversion Tutorials",
+  "categorySlug": "conversion-tutorials",
+  "subcategory": "Productivity Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Convert Multiple Images in One Batch (Free & Fast) | FluxWebP Pro",
+    "metaDescription": "Step-by-step tutorial on batch converting dozens or hundreds of images simultaneously. Learn multi-core Web Worker concurrency, ZIP downloads, and memory safety.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-convert-multiple-images-in-one-batch/",
+    "primaryKeyword": "convert multiple images in batch",
+    "secondaryKeywords": [
+      "bulk image converter",
+      "batch convert jpg to webp",
+      "convert 100 photos at once",
+      "fast batch image converter"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/20-how-to-convert-multiple-images-in-one-batch/hero.svg",
+  "visualAssetsCount": 5
+}

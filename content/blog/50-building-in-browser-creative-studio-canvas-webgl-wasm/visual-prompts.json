@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-50-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Tri-Core Web Creative Studio Engine Architecture",
+    "concept": "3D render showing Canvas 2D, WebGL GPU Shaders, and WebAssembly SIMD converging into a central processing turbine.",
+    "prompt": "Futuristic 3D system architecture visualization: three luminous technological rings converge into an optical processing nexus. Ring 1: Canvas 2D vector coordinates in royal blue; Ring 2: WebGL 2.0 GPU fragment shaders in electric magenta; Ring 3: WebAssembly SIMD multi-threaded data pipelines in bright emerald. High-tech engineering aesthetic, dark slate background, 8k crisp render.",
+    "aspectRatio": "16:9",
+    "filename": "in-browser-creative-studio-architecture-hero.webp",
+    "altText": "3D visual diagram showing Canvas 2D, WebGL, and WebAssembly architecture in browser photo editor",
+    "caption": "Orchestrating Canvas 2D, WebGL shaders, and WebAssembly SIMD achieves 60fps performance in the browser.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-50-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 3-Tier Web Image Processing Stack",
+    "concept": "Infographic breaking down roles, memory models, and execution speeds across UI Canvas, WebGL, and WASM.",
+    "prompt": "Clean technical architecture infographic on dark navy background: 3 horizontal tiers: Top Tier: Canvas 2D (Vectors, Text, Handles, 60fps UI); Middle Tier: WebGL 2.0 (GPU Fragment Shaders, Real-time Filters, <5ms); Bottom Tier: WebAssembly SIMD (Codecs, Lanczos Resampling, C++/Rust speed). Clear hardware pipeline arrows.",
+    "aspectRatio": "4:3",
+    "filename": "tri-tier-image-processing-stack-infographic.webp",
+    "altText": "Technical infographic breaking down the 3-tier browser image processing architecture",
+    "caption": "Separation of concerns: UI handles in 2D, shaders on GPU, and encoding in WebAssembly.",
+    "placement": "Under 3-Tier Technical Architecture Section"
+  },
+  {
+    "id": "va-50-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Zero-Latency Frame Processing Pipeline",
+    "concept": "Dataflow diagram tracing user moving a slider to GPU fragment shader execution and on-screen redraw.",
+    "prompt": "Vector dataflow diagram: 1. User drags contrast slider, 2. Uniform float passed to WebGL program, 3. GPU fragment shader processes 8 million pixels in parallel (2.8ms), 4. Frame rendered to canvas buffer with zero dropped frames. Sleek tech aesthetic with neon status badges.",
+    "aspectRatio": "16:9",
+    "filename": "zero-latency-gpu-pipeline-workflow.webp",
+    "altText": "Workflow diagram of zero-latency GPU fragment shader processing pipeline during slider drag",
+    "caption": "GPU fragment shaders execute adjustments across millions of pixels simultaneously in under 3ms.",
+    "placement": "Under Real-Time Filter Engine Section"
+  },
+  {
+    "id": "va-50-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "JavaScript Pixel Loop vs WebGL GPU Fragment Shader Speed",
+    "concept": "Benchmarking bar chart comparing 350ms CPU JavaScript loop vs 3.2ms GPU shader execution on a 4K image.",
+    "prompt": "High-contrast technical benchmark chart on dark background: Red bar showing 'Vanilla JavaScript CPU Loop' taking 348ms (severe lag, 3 fps); Green bar showing 'WebGL 2.0 GPU Shader' taking 3.1ms (smooth, 60 fps). '112x Faster' callout badge in glowing emerald.",
+    "aspectRatio": "16:9",
+    "filename": "javascript-loop-vs-webgl-shader-benchmark.webp",
+    "altText": "Benchmark comparison showing 112x speedup of WebGL GPU shaders over JavaScript CPU loops",
+    "caption": "WebGL fragment shaders process 4K images 112 times faster than standard JavaScript loops.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-50-5",
+    "index": 5,
+    "type": "application",
+    "title": "Desktop-Class Creative Suite Running Inside Chrome",
+    "concept": "Modern laptop running FluxWebP Studio with multi-layer compositing, real-time filters, and instant WebP export.",
+    "prompt": "Photorealistic scene of a creator working on a sleek ultrabook in a modern cafe. The browser tab displays FluxWebP Creative Studio operating with buttery 60fps smoothness on a high-res photographic project. Ambient morning sunlight, contemporary creative atmosphere.",
+    "aspectRatio": "16:9",
+    "filename": "browser-creative-studio-laptop-showcase.webp",
+    "altText": "Modern laptop displaying desktop-class photo editor running smoothly inside web browser",
+    "caption": "Modern web standards enable professional desktop-grade creative workflows without installing software.",
+    "placement": "Conclusion Section"
+  }
+]

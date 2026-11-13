@@ -1,0 +1,59 @@
+{
+  "id": 6,
+  "title": "Does WebP Support Transparency and Animation?",
+  "slug": "does-webp-support-transparency-and-animation",
+  "folder": "06-does-webp-support-transparency-and-animation",
+  "category": "Image Formats & Conversion",
+  "categorySlug": "formats-and-conversion",
+  "subcategory": "Advanced Features",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "Does WebP Support Transparency & Animation? (Full Guide) | FluxWebP Pro",
+    "metaDescription": "Learn how WebP supports true 8-bit alpha transparency and 24-bit color animation. Discover why animated WebP files are up to 64% smaller than legacy GIFs.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/does-webp-support-transparency-and-animation/",
+    "primaryKeyword": "does webp support transparency and animation",
+    "secondaryKeywords": [
+      "animated webp vs gif",
+      "webp alpha channel",
+      "transparent animated webp",
+      "webp animation file size"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/06-does-webp-support-transparency-and-animation/hero.svg",
+  "visualAssetsCount": 5
+}

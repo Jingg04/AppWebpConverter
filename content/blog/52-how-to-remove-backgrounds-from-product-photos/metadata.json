@@ -1,0 +1,59 @@
+{
+  "id": 52,
+  "title": "How to Remove Backgrounds from Product Photos in One Click",
+  "slug": "how-to-remove-backgrounds-from-product-photos",
+  "folder": "52-how-to-remove-backgrounds-from-product-photos",
+  "category": "AI Background Removal",
+  "categorySlug": "ai-background-removal",
+  "subcategory": "E-Commerce Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-06",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "Remove Background from Product Photos in 1 Click | FluxWebP Pro",
+    "metaDescription": "Easily remove backgrounds from e-commerce product photos. Create Amazon-compliant pure white backgrounds or transparent WebP cutouts in one click.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-remove-backgrounds-from-product-photos/",
+    "primaryKeyword": "remove background from product photos",
+    "secondaryKeywords": [
+      "ecommerce background removal free",
+      "product cutout online",
+      "transparent background for product photography",
+      "white background product photos"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/52-how-to-remove-backgrounds-from-product-photos/hero.svg",
+  "visualAssetsCount": 5
+}

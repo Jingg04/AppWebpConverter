@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-44-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Digital Copyright Protection & Watermark Shield",
+    "concept": "3D render showing a high-res photo protected by a glowing holographic security watermark shield.",
+    "prompt": "Cinematic 3D concept of digital asset security: a stunning landscape photo floating in a high-tech dark studio. A translucent glowing geometric watermark shield (incorporating brand crest and copyright symbols) hovers over the photo with cyan laser scanning lines. Deep charcoal backdrop, modern cybersecurity aesthetic, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "watermarking-images-copyright-protection-hero.webp",
+    "altText": "3D visual of digital photography asset protected by glowing copyright watermark shield",
+    "caption": "Watermarking embeds unmistakable brand attribution and legal copyright deterrence into visual assets.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-44-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Three Core Watermark Placements Compared",
+    "concept": "Infographic contrasting Corner Signature, Center Focal Lock, and Diagonal Tiled Proofing.",
+    "prompt": "Clean technical infographic on dark slate background showing 3 photo panels: 1. Corner Signature (Subtle 25% opacity in bottom right), 2. Center Focal Placement (Crosses subject, prevents cropping), 3. Diagonal Tiled Proofing (Full canvas repeating watermark). High contrast explanatory labels.",
+    "aspectRatio": "4:3",
+    "filename": "watermark-placement-strategies-infographic.webp",
+    "altText": "Infographic comparing corner watermark, center focal watermark, and diagonal tiled proofing grid",
+    "caption": "Comparing subtle corner attribution with diagonal tiled client-proofing grids.",
+    "placement": "Under Watermark Styles Section"
+  },
+  {
+    "id": "va-44-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Batch Watermarking 100 Photos in Memory",
+    "concept": "Flowchart showing batch drag-and-drop, logo PNG selection, opacity tuning, and instant ZIP export.",
+    "prompt": "Vector tech workflow schematic: 1. Batch drag of 50 photos, 2. Uploading transparent PNG logo, 3. Slider setting 25% opacity and bottom-right anchor, 4. Instant multi-core parallel processing, 5. Single ZIP download. Clean iconography and modern tech colors.",
+    "aspectRatio": "16:9",
+    "filename": "batch-watermark-workflow-steps.webp",
+    "altText": "Workflow diagram for batch watermarking multiple photos in browser with zero server uploads",
+    "caption": "Apply brand watermarks across hundreds of photos in seconds using local multi-threaded processing.",
+    "placement": "Under Client-Side Canvas Section"
+  },
+  {
+    "id": "va-44-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Unprotected Image vs Protected Client Proof",
+    "concept": "Side-by-side comparison showing raw unprotected shot vulnerable to piracy vs protected watermarked proof.",
+    "prompt": "Side-by-side photo comparison: Left panel labeled 'Unprotected (Vulnerable to Scrapers)' showing raw photo with red warning badge; Right panel labeled 'Protected Proof' showing elegant semi-transparent repeating diagonal watermark pattern preventing unauthorized commercial reuse. Clean UI styling.",
+    "aspectRatio": "16:9",
+    "filename": "unprotected-vs-watermarked-proof-comparison.webp",
+    "altText": "Comparison of unprotected image vulnerable to theft vs watermarked client review proof",
+    "caption": "Client proofing watermarks prevent premature asset usage while preserving client review fidelity.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-44-5",
+    "index": 5,
+    "type": "application",
+    "title": "Professional Photography Studio Client Delivery Portal",
+    "concept": "Commercial photographer workstation showing automated watermark application before client gallery delivery.",
+    "prompt": "High-end commercial photography studio: a photographer reviews a luxury fashion campaign on a dual-monitor editing station. Watermarked proofing galleries are generated effortlessly with brand credentials clearly displayed. Elegant contemporary loft studio setting.",
+    "aspectRatio": "16:9",
+    "filename": "photo-studio-watermark-client-delivery.webp",
+    "altText": "Professional photography studio workspace managing watermarked client delivery galleries",
+    "caption": "Watermarking is standard practice for creative agencies and independent photographers worldwide.",
+    "placement": "Conclusion Section"
+  }
+]

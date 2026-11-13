@@ -1,0 +1,59 @@
+{
+  "id": 68,
+  "title": "Multi-Layer Canvas Compositing: Text, Badges, Overlays, and Textures",
+  "slug": "multi-layer-canvas-compositing-text-badges-textures",
+  "folder": "68-multi-layer-canvas-compositing-text-badges-textures",
+  "category": "AI Poster Generation & Design",
+  "categorySlug": "ai-poster-generation-and-design",
+  "subcategory": "Advanced Compositing",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-12",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Multi-Layer Canvas Compositing: Text, Badges & Textures | FluxWebP Pro",
+    "metaDescription": "Master multi-layer poster compositing. Learn layer z-index stacking, Photoshop-style blend modes (Multiply, Overlay, Screen), and vintage paper texturing.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/multi-layer-canvas-compositing-text-badges-textures/",
+    "primaryKeyword": "multi layer canvas compositing",
+    "secondaryKeywords": [
+      "blend modes in poster design",
+      "add textures to digital posters",
+      "composite badges and stickers",
+      "canvas z-index layering tutorial"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/68-multi-layer-canvas-compositing-text-badges-textures/hero.svg",
+  "visualAssetsCount": 5
+}

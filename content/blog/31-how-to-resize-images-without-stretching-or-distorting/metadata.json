@@ -1,0 +1,59 @@
+{
+  "id": 31,
+  "title": "How to Resize Images Without Stretching or Distorting Them",
+  "slug": "how-to-resize-images-without-stretching-or-distorting",
+  "folder": "31-how-to-resize-images-without-stretching-or-distorting",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Aspect Ratio Preservation",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-05",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Resize Images Without Stretching (Step-by-Step) | FluxWebP Pro",
+    "metaDescription": "Learn how to resize images without stretching, squishing, or distorting them. Master aspect ratio locking, smart cropping, and CSS object-fit rules.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-resize-images-without-stretching-or-distorting/",
+    "primaryKeyword": "resize images without stretching",
+    "secondaryKeywords": [
+      "maintain aspect ratio resizing",
+      "image distortion fix",
+      "proportional image resizing",
+      "prevent stretched photos"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/31-how-to-resize-images-without-stretching-or-distorting/hero.svg",
+  "visualAssetsCount": 5
+}

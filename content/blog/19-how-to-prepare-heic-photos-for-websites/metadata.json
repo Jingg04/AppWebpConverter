@@ -1,0 +1,59 @@
+{
+  "id": 19,
+  "title": "How to Prepare HEIC Photos for Websites",
+  "slug": "how-to-prepare-heic-photos-for-websites",
+  "folder": "19-how-to-prepare-heic-photos-for-websites",
+  "category": "Image Conversion Tutorials",
+  "categorySlug": "conversion-tutorials",
+  "subcategory": "Mobile Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Prepare iPhone HEIC Photos for Websites | FluxWebP Pro",
+    "metaDescription": "Step-by-step tutorial on converting iPhone HEIC photos to web-ready WebP and JPEG. Overcome Apple High Efficiency browser blocks and preserve HDR colors.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-prepare-heic-photos-for-websites/",
+    "primaryKeyword": "prepare heic photos for websites",
+    "secondaryKeywords": [
+      "convert heic to webp",
+      "iphone photo format web",
+      "heic to jpg for website",
+      "heic browser compatibility"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/19-how-to-prepare-heic-photos-for-websites/hero.svg",
+  "visualAssetsCount": 5
+}

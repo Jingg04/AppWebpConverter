@@ -1,0 +1,59 @@
+{
+  "id": 83,
+  "title": "Multi-Angle Product Photography: Hero, Close-up, In-Context, and Scale Shots",
+  "slug": "multi-angle-product-photography-shot-list",
+  "folder": "83-multi-angle-product-photography-shot-list",
+  "category": "E-Commerce & Business Images",
+  "categorySlug": "ecommerce-and-business-images",
+  "subcategory": "Photography Planning",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-07",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Multi-Angle Product Photography: The 5-Shot Master List | FluxWebP Pro",
+    "metaDescription": "Master the essential 5-shot product photography list: Studio Hero, Macro Detail, 45-Degree Perspective, In-Context Lifestyle, and Size Scale Shots.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/multi-angle-product-photography-shot-list/",
+    "primaryKeyword": "multi angle product photography",
+    "secondaryKeywords": [
+      "ecommerce product shot list",
+      "product photography angles guide",
+      "scale shot in product photography",
+      "lifestyle in context product photos"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/83-multi-angle-product-photography-shot-list/hero.svg",
+  "visualAssetsCount": 5
+}

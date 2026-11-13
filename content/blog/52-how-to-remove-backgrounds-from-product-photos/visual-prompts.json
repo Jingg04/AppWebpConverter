@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-52-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Automated Product Staging & Cutout Engine",
+    "concept": "3D render of an artisanal sneaker floating in space with its original background vanishing into a sleek pure white studio cyclorama.",
+    "prompt": "Photorealistic 3D visualization: a high-end designer sneaker floating gracefully at a 45-degree angle. The chaotic apartment background behind it dissolves through a glowing cyan laser scan line, revealing a pristine, flawless studio white sweep (#FFFFFF) with a delicate, hyper-realistic contact shadow beneath the sole. Ultra-crisp lighting, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "product-photo-background-removal-hero.webp",
+    "altText": "3D visual showing product photo background dissolving into pure white e-commerce studio backdrop",
+    "caption": "One-click background removal transforms informal snapshots into studio-grade e-commerce assets.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-52-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Marketplace Compliance Checklist (Amazon, eBay, Shopify)",
+    "concept": "Infographic detailing technical requirements for main product images across top e-commerce platforms.",
+    "prompt": "Clean technical infographic on dark slate background comparing image requirements for Amazon, Shopify, and Google Shopping. Key criteria highlighted: 100% Pure White (#FFFFFF), 85%+ frame fill, No watermarks, RGB color space, WebP/JPG format. High-contrast checkmarks and dimension guides.",
+    "aspectRatio": "4:3",
+    "filename": "ecommerce-marketplace-image-compliance-infographic.webp",
+    "altText": "Infographic checklist for e-commerce marketplace product image compliance",
+    "caption": "Compliance standards for leading online retail platforms.",
+    "placement": "Under 3-Step Product Cutout Section"
+  },
+  {
+    "id": "va-52-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "From Kitchen Table to Amazon Storefront in 60 Seconds",
+    "concept": "Horizontal photo progression showing raw snapshot on kitchen counter -> AI cutout -> white background with drop shadow -> live listing.",
+    "prompt": "4-panel horizontal production workflow: 1. Phone photo of cosmetic bottle on wooden kitchen counter, 2. Glowing cyan cutout perimeter mask, 3. Pure white background with soft realistic contact shadow, 4. Live mockup in modern online cosmetics boutique. Clean photography, high polish.",
+    "aspectRatio": "16:9",
+    "filename": "product-photo-cutout-production-workflow.webp",
+    "altText": "Visual progression from informal smartphone photo to live online store product listing",
+    "caption": "From raw kitchen snapshot to live online store listing in under a minute.",
+    "placement": "Under Step 3 Section"
+  },
+  {
+    "id": "va-52-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Floating Cutout vs Grounded Contact Shadow",
+    "concept": "Side-by-side comparison showing an ungrounded product looking cut out and fake vs grounded with realistic ambient occlusion.",
+    "prompt": "Side-by-side product comparison on white background: Left panel shows 'No Shadow' where sunglasses look unnaturally pasted and floating; Right panel shows 'Adaptive Contact Shadow' featuring subtle ambient occlusion under the frame and diffused directional shadow, creating physical realism. Clear UX callouts.",
+    "aspectRatio": "16:9",
+    "filename": "floating-cutout-vs-grounded-contact-shadow.webp",
+    "altText": "Comparison showing floating cutout vs naturally grounded product with realistic contact shadow",
+    "caption": "Adding a subtle contact shadow prevents cutouts from looking fake and disconnected.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-52-5",
+    "index": 5,
+    "type": "application",
+    "title": "Shopify Storefront with Uniform Cutout Catalog",
+    "concept": "Laptop screen displaying a cohesive apparel and accessory collection with flawless white backdrops.",
+    "prompt": "Sleek designer desk with a MacBook Pro displaying a high-end fashion e-commerce storefront. Every product card features razor-sharp footwear, handbags, and accessories set against identical pure white backgrounds with uniform padding. Warm ambient lighting, luxury lifestyle aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "luxury-ecommerce-catalog-white-background.webp",
+    "altText": "Luxury fashion e-commerce website showing catalog with uniform white background product cutouts",
+    "caption": "Uniform catalog backgrounds elevate brand trust and increase add-to-cart conversions.",
+    "placement": "Conclusion Section"
+  }
+]

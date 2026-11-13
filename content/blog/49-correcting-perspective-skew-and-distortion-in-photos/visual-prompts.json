@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-49-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Architectural Homography & Perspective Rectification",
+    "concept": "3D render showing a tilted skyscraper photograph inside a holographic perspective grid that snaps vertical walls into true 90-degree alignment.",
+    "prompt": "Futuristic architectural design studio: a dramatic photograph of a modern glass skyscraper with converging keystoning. Glowing cyan 3D coordinate grid lines and corner anchor pins pull the building walls outward into perfectly straight vertical alignment. Dark slate studio backdrop, high-tech engineering aesthetic, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "perspective-correction-keystoning-hero.webp",
+    "altText": "3D visual of architectural perspective correction aligning converging skyscraper walls",
+    "caption": "Perspective homography transforms converging architectural keystones into upright, vertical walls.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-49-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Keystoning Phenomenon and Grid Alignment",
+    "concept": "Infographic contrasting tilted camera sensor plane creating vanishing points vs rectified parallel planes.",
+    "prompt": "Clean technical diagram on dark slate background: Shows camera tilted upward at 30° angle causing parallel vertical rays to converge into a trapezoid (Keystone); Adjacent diagram shows digital projective rectification restoring parallel vertical lines. Clear geometric angles and formulas.",
+    "aspectRatio": "4:3",
+    "filename": "keystoning-optical-geometry-infographic.webp",
+    "altText": "Technical diagram illustrating optical causes of keystoning and digital geometric rectification",
+    "caption": "Tilting the camera sensor creates trapezoidal keystoning; homography warping restores parallel geometry.",
+    "placement": "Under Mathematics of Homography Section"
+  },
+  {
+    "id": "va-49-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "4-Point Perspective Warp Workflow in FluxWebP",
+    "concept": "Vector UI workflow showing user dragging 4 corner anchor pins to match building edges, followed by instant auto-crop.",
+    "prompt": "Clean vector software workflow: 1. Distorted building photo, 2. Interactive 4-point corner pins placed on building facade, 3. Clicking 'Rectify Verticals' button, 4. Automatic bounding crop removing transparent corners. Sleek blue UI with high contrast guides.",
+    "aspectRatio": "16:9",
+    "filename": "4-point-perspective-warp-workflow.webp",
+    "altText": "Workflow diagram for interactive 4-point perspective warp in FluxWebP Image Editor",
+    "caption": "Drag four corner pins along architectural edges to straighten complex perspective distortions instantly.",
+    "placement": "Under 3 Rules Section"
+  },
+  {
+    "id": "va-49-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Tilted Leaning Skyscraper vs True Vertical Rectification",
+    "concept": "Side-by-side photographic comparison showing severe converging walls vs clean, upright professional architectural shot.",
+    "prompt": "Split-screen photographic comparison: Left shows a severe amateur street-level shot where building walls tilt inward by 25° like a pyramid; Right shows the identical image after perspective correction, with razor-sharp vertical walls perfectly parallel to the image frame.",
+    "aspectRatio": "16:9",
+    "filename": "tilted-building-vs-rectified-verticals-comparison.webp",
+    "altText": "Comparison showing leaning converging building walls vs perfectly rectified architectural photo",
+    "caption": "Rectified vertical lines transform amateur street snapshots into magazine-grade architectural photography.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-49-5",
+    "index": 5,
+    "type": "application",
+    "title": "Real Estate & Architecture Portfolio Showcase",
+    "concept": "Luxury real estate brokerage website showing flawless, upright interior and exterior property photographs.",
+    "prompt": "High-end architectural magazine website displayed on a 32-inch studio monitor: luxury residential villas and high-rises photographed with flawless vertical lines and impeccable geometry. Elegant contemporary interior desk environment.",
+    "aspectRatio": "16:9",
+    "filename": "luxury-real-estate-architecture-showcase.webp",
+    "altText": "Luxury real estate website showcasing professionally perspective-corrected architectural photography",
+    "caption": "Upright perspective lines inspire client trust and command premium valuations in real estate marketing.",
+    "placement": "Conclusion Section"
+  }
+]

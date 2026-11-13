@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-60-1",
+    "index": 1,
+    "type": "hero",
+    "title": "AI Segmentation Edge Case Diagnostic Studio",
+    "concept": "3D render showing difficult subjects (perfume glass bottle, chrome sphere, low-contrast portrait) being diagnosed by neural inspection lasers and manual brush retouches.",
+    "prompt": "Futuristic digital repair and diagnostics laboratory: three difficult photographic subjects (a clear glass perfume bottle with caustic refractions, a shiny chrome sculpture, and a low-contrast dark garment). Glowing red diagnostic wireframes highlight edge confusion zones, while a luminous cyan holographic touch-up brush seamlessly paints back missing alpha data. Dark tech studio backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "troubleshooting-ai-background-removal-hero.webp",
+    "altText": "3D visualization of AI edge case diagnostics and manual touch-up brush restoring difficult cutout",
+    "caption": "Diagnose and resolve edge cases with automated contrast pre-processing and manual touch-up brushes.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-60-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Four Core Segmentation Edge Cases and Fixes",
+    "concept": "Infographic diagnosing 4 failure modes: Zero Contrast, Glass/Transparency, Chrome Reflections, and Motion Blur with solutions.",
+    "prompt": "Clean technical diagnostic infographic on dark slate background: 4 problem-and-solution quadrants: 1. Low Contrast (Fix: Pre-exposure boost); 2. Glass Bottle (Fix: Restore Brush + Multiply blend); 3. Metallic Reflection (Fix: Edge Choke); 4. Motion Blur (Fix: 1.5px Edge Feather). High-contrast diagnostic icons.",
+    "aspectRatio": "4:3",
+    "filename": "segmentation-edge-cases-and-fixes-infographic.webp",
+    "altText": "Technical infographic diagnosing 4 common AI background removal failures and their solutions",
+    "caption": "Diagnostic cheat sheet for resolving difficult photographic edge cases.",
+    "placement": "Under 4 Most Common Failures Section"
+  },
+  {
+    "id": "va-60-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Manual Restore and Erase Touch-Up Workflow",
+    "concept": "Vector UI workflow showing user zooming in on clipped edge, selecting Restore brush, painting back missing piece, and re-exporting.",
+    "prompt": "Vector software UI workflow: 1. Product cutout with small accidental hole in glass handle, 2. Zooming to 300% on touch-up canvas, 3. Selecting 'Restore Brush' with 15px radius and painting over hole, 4. Instant re-composite with pristine solid finish. Royal blue and emerald accents.",
+    "aspectRatio": "16:9",
+    "filename": "manual-restore-brush-workflow.webp",
+    "altText": "Workflow showing how to manually restore accidentally erased areas using FluxWebP touch-up brush",
+    "caption": "Use the interactive Restore brush to recover accidentally erased details in seconds.",
+    "placement": "Under Interactive Touch-Up Section"
+  },
+  {
+    "id": "va-60-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Accidental AI Hole in Glass vs Restored Continuous Surface",
+    "concept": "Side-by-side comparison of a perfume bottle with missing glass wall vs perfectly restored transparent glass body.",
+    "prompt": "Macro comparison of a luxury perfume bottle cutout: Left panel shows 'Raw AI Glitch' where center of glass body was mistakenly wiped out as background; Right panel shows 'Post-Brush Restoration' where glass transparency and reflections are completely intact, looking gorgeous and solid.",
+    "aspectRatio": "16:9",
+    "filename": "glass-cutout-error-vs-restored-surface-comparison.webp",
+    "altText": "Comparison showing AI cutout error on glass bottle vs restored continuous reflection surface",
+    "caption": "Manual restoration recovers subtle glass reflections and transparency that AI occasionally clips.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-60-5",
+    "index": 5,
+    "type": "application",
+    "title": "Professional Retouching Station for High-Value Jewelry",
+    "concept": "Luxury jewelry retoucher using FluxWebP Refinement Studio to perfect complex diamond ring reflections.",
+    "prompt": "Commercial luxury jewelry retouching studio: dual high-resolution monitors displaying an intricate diamond and platinum ring. The retoucher uses a digital stylus to finesse fine gemstone facets and reflection edges against a pure white background. Elegant high-end studio setting.",
+    "aspectRatio": "16:9",
+    "filename": "luxury-jewelry-photo-retouching-studio.webp",
+    "altText": "Professional jewelry retoucher refining complex reflective product cutout on calibrated monitors",
+    "caption": "Combining AI speed with precision manual brushes handles even the most complex commercial luxury products.",
+    "placement": "Conclusion Section"
+  }
+]

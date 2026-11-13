@@ -1,0 +1,59 @@
+{
+  "id": 88,
+  "title": "Mobile E-Commerce Image Optimization: Designing for Thumbs and Smaller Screens",
+  "slug": "mobile-ecommerce-image-optimization-thumbs-smaller-screens",
+  "folder": "88-mobile-ecommerce-image-optimization-thumbs-smaller-screens",
+  "category": "E-Commerce & Business Images",
+  "categorySlug": "ecommerce-and-business-images",
+  "subcategory": "Mobile UX",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-12",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Mobile E-Commerce Image Optimization: Designing for Thumbs | FluxWebP Pro",
+    "metaDescription": "Over 75% of online shopping happens on smartphones. Learn how to optimize product images for mobile screens: thumb zones, vertical 4:5 crops, and instant swipe speed.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/mobile-ecommerce-image-optimization-thumbs-smaller-screens/",
+    "primaryKeyword": "mobile ecommerce image optimization",
+    "secondaryKeywords": [
+      "mobile first product photography",
+      "thumb friendly ecommerce galleries",
+      "mobile image compression data saver",
+      "responsive mobile product cards"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/88-mobile-ecommerce-image-optimization-thumbs-smaller-screens/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-22-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Dual Pillars of Data Compression Hero",
+    "concept": "Abstract scientific visualization representing the mathematical contrast between reversible lossless and quantized lossy data.",
+    "prompt": "Abstract conceptual visualization of data compression science. On the left: a perfectly symmetrical, crystalline geometric structure representing lossless mathematical reversibility. On the right: an artistic harmonic frequency wave representing psychoacoustic lossy approximation. Deep obsidian background, cyan and amber illumination, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "lossy-vs-lossless-compression-hero.webp",
+    "altText": "Conceptual 3D visualization contrasting lossless mathematical structure with lossy frequency approximation",
+    "caption": "Lossless preserves 100% of mathematical pixels; lossy selectively discards imperceptible visual frequencies.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-22-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Lossless Reversibility vs Lossy Quantization Pipeline",
+    "concept": "Flowchart comparing the reversible lossless loop with the one-way lossy quantization step.",
+    "prompt": "Technical comparison diagram: Top branch (Lossless): Original Data -> Entropy Coding -> Compressed File -> Decompress -> 100% Exact Copy (Complete Loop). Bottom branch (Lossy): Original Data -> Frequency Transform -> Quantization (Irreversible Data Drop) -> Entropy Coding -> Decompress -> Perceptual Approximation. High-contrast vector styling.",
+    "aspectRatio": "16:9",
+    "filename": "lossy-vs-lossless-pipeline-comparison-diagram.svg",
+    "altText": "Diagram illustrating the reversible lossless compression loop versus irreversible lossy quantization",
+    "caption": "Lossless compression is completely reversible; lossy compression irreversibly quantizes high-frequency data.",
+    "placement": "Section 2: Mathematical Mechanisms Compared"
+  },
+  {
+    "id": "va-22-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Format and Compression Mode Selector Workflow",
+    "concept": "Decision tree workflow guiding designers when to pick Lossy vs Lossless based on image contents.",
+    "prompt": "Decision tree flowchart: 1. Analyze Asset -> 'Is it a photo or realistic rendering?' -> YES: Lossy WebP (82% quality) -> NO: 'Does it contain text, sharp geometric lines, or icons?' -> YES: Lossless WebP / SVG -> NO: Lossy WebP with Alpha. Color-coded branch indicators.",
+    "aspectRatio": "16:9",
+    "filename": "lossy-vs-lossless-selection-workflow.svg",
+    "altText": "Flowchart guiding selection between lossy and lossless compression modes based on image type",
+    "caption": "Use lossy compression for photographs and continuous tones; use lossless compression for line art and text.",
+    "placement": "Section 3: When to Use Each Mode"
+  },
+  {
+    "id": "va-22-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Pixel-by-Pixel Verification: Lossless vs Lossy Artifacts",
+    "concept": "Magnified 800% comparison of an eye iris showing identical pixels on lossless vs subtle frequency smoothing on lossy.",
+    "prompt": "Magnified 800% pixel grid inspection of human eye iris and eyelashes. Left panel: Lossless compression showing 100% identical pixel grid to RAW capture (file size: 3.4 MB). Right panel: Lossy WebP at 82% quality showing slight frequency smoothing with zero visible macroblocking (file size: 480 KB). File size badges visible.",
+    "aspectRatio": "16:9",
+    "filename": "lossy-vs-lossless-pixel-grid-inspection.webp",
+    "altText": "800% magnified pixel comparison showing identical lossless pixel grid against smoothed lossy compression",
+    "caption": "At 800% magnification, lossless preserves exact pixel coordinates while lossy smooths ultra-high frequency noise.",
+    "placement": "Section 4: Microscopic Pixel Analysis"
+  },
+  {
+    "id": "va-22-5",
+    "index": 5,
+    "type": "application",
+    "title": "Medical Imaging and Technical Blueprints: The Lossless Imperative",
+    "concept": "Medical radiology diagnostic workstation displaying a high-resolution X-ray requiring lossless compliance.",
+    "prompt": "High-tech diagnostic radiology workstation in a hospital environment. Medical monitors display high-contrast bone fracture X-rays and MRI scans where lossless compression is legally mandatory to prevent misdiagnosis. Professional clinical atmosphere, clean cool lighting.",
+    "aspectRatio": "16:9",
+    "filename": "medical-imaging-lossless-compression-workstation.webp",
+    "altText": "Medical radiology workstation showing diagnostic X-rays where lossless compression is strictly mandatory",
+    "caption": "In medical diagnostics and engineering blueprints, lossless compression is mandatory to protect critical data.",
+    "placement": "Section 5: High-Stakes Lossless Applications"
+  }
+]

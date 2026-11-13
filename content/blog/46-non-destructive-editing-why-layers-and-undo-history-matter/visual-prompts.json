@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-46-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Non-Destructive Layer Stack Architecture",
+    "concept": "3D render showing an image separated into floating translucent glass layers: base photo, adjustments, and typography.",
+    "prompt": "Futuristic 3D visualization of non-destructive graphic design: an architectural scene separated into three floating translucent glass planes. Bottom layer: untouched raw photograph; Middle layer: glowing adjustment curves and color masks; Top layer: vector typography and brand badges. Clean electric cyan and amber lighting, modern dark studio backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "non-destructive-editing-layers-hero.webp",
+    "altText": "3D visualization of non-destructive layer stack separating base image from adjustments and text",
+    "caption": "Non-destructive layers keep original pixels untouched while enabling unlimited adjustments.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-46-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Destructive vs Non-Destructive Workflow Comparison",
+    "concept": "Infographic contrasting permanent pixel overwrite vs parametric instruction pipelines.",
+    "prompt": "Clean technical comparison infographic on dark slate background: Path A (Destructive) shows raw pixels overwritten at each step with red warning 'Irreversible Data Loss'; Path B (Non-Destructive) shows raw master preserved in memory with floating adjustment commands that can be toggled on/off at will. High-contrast vector styling.",
+    "aspectRatio": "4:3",
+    "filename": "destructive-vs-non-destructive-comparison.webp",
+    "altText": "Infographic contrasting destructive pixel overwrites against non-destructive parametric editing",
+    "caption": "Comparing permanent pixel overwriting with flexible non-destructive command stacks.",
+    "placement": "Under Command Pattern Section"
+  },
+  {
+    "id": "va-46-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Undo/Redo State History Stack Traversal",
+    "concept": "Visual timeline diagram showing user stepping backward and forward through image history states.",
+    "prompt": "Modern tech UI timeline showing 5 history nodes: Import -> Crop -> Brightness (+15) -> Vignette -> Text Overlay. A glowing selector indicates current state at Node 4, with clear 'Undo (Ctrl+Z)' and 'Redo (Ctrl+Y)' directional flow vectors. Clean typography, cyan accents.",
+    "aspectRatio": "16:9",
+    "filename": "undo-redo-history-stack-workflow.webp",
+    "altText": "Workflow diagram demonstrating undo and redo history stack traversal in FluxWebP",
+    "caption": "Step backward and forward through editing history without ever losing original image quality.",
+    "placement": "Under Power of Independent Layers Section"
+  },
+  {
+    "id": "va-46-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Pixel Degradation in Multi-Save vs Pristine Re-Render",
+    "concept": "Macro zoom comparison showing JPEG generation loss after 5 destructive saves vs single lossless WebP render.",
+    "prompt": "Magnified side-by-side macro view: Left panel shows severe blocky JPEG compression artifacts and color banding caused by saving over the file 5 times; Right panel shows pristine, razor-sharp detail produced by non-destructive re-rendering from the raw source buffer.",
+    "aspectRatio": "16:9",
+    "filename": "generation-loss-vs-pristine-rerender.webp",
+    "altText": "Macro comparison showing JPEG generation loss from repeated saves vs non-destructive re-rendering",
+    "caption": "Repeated destructive saves degrade image quality; non-destructive pipelines render once from raw source.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-46-5",
+    "index": 5,
+    "type": "application",
+    "title": "Professional Design Studio Multi-Layer Project Canvas",
+    "concept": "Digital artist desk showing complex multi-layer poster project being edited in real-time with live layer toggles.",
+    "prompt": "Contemporary design agency studio: dual displays showing an intricate advertising poster with multiple text, vector, and photographic layers. The designer clicks to hide a layer, instantly updating the master composition. Ambient warm studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "multi-layer-design-studio-showcase.webp",
+    "altText": "Digital designer editing multi-layer composition in browser with instant layer visibility toggles",
+    "caption": "Multi-layer editing empowers creators to build complex, professional design projects directly in the browser.",
+    "placement": "Conclusion Section"
+  }
+]

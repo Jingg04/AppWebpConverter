@@ -1,0 +1,42 @@
+---
+title: "Color Space Confusion: sRGB vs Display P3 vs Adobe RGB Explained"
+slug: "color-space-confusion-srgb-display-p3-adobe-rgb"
+id: 95
+category: "Privacy, Metadata & Troubleshooting"
+categorySlug: "privacy-metadata-and-troubleshooting"
+publicationStatus: "published"
+publishedDate: "2026-11-09"
+updatedDate: "2026-11-14"
+author: "Marcus Vance"
+authorRole: "Principal Image Processing Engineer"
+readingTime: 8
+primaryKeyword: "color spaces srgb display p3 adobe rgb"
+featuredImage: "/public/blog-assets/95-color-space-confusion-srgb-display-p3-adobe-rgb/hero.svg"
+---
+
+# Color Space Confusion: sRGB vs Display P3 vs Adobe RGB Explained
+
+<VisualAsset id="va-95-1" type="hero" src="/public/blog-assets/95-color-space-confusion-srgb-display-p3-adobe-rgb/hero.svg" alt="3D render of CIE chromaticity diagram showing nested triangles for sRGB, Display P3, and Adobe RGB" />
+
+> **Summary:** Why do your vibrant photos look washed out and dull on the web? Explore the geometry of color gamuts: sRGB, Display P3, Adobe RGB, and color transforms.
+
+
+
+
+## Frequently Asked Questions
+
+### What is a color space or color gamut?
+
+A color gamut is the complete range of colors that a specific device (camera sensor, monitor, printer) can capture, display, or print. It is mapped as a geometric triangle inside the universal CIE 1931 chromaticity diagram.
+
+### How much wider is Display P3 compared to standard sRGB?
+
+Display P3 features a color gamut that is approximately 25% larger than standard sRGB, displaying significantly more vibrant emerald greens, saturated oranges, and deep crimson reds on modern Apple and OLED screens.
+
+### Why do untagged Display P3 photos look washed out on standard monitors?
+
+Standard sRGB monitors interpret raw RGB numbers without understanding the wider color coordinate scale. A Display P3 coordinate representing ultra-vibrant red gets clamped or interpreted as a pale, washed-out orange on an sRGB display.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

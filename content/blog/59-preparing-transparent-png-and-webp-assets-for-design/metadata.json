@@ -1,0 +1,59 @@
+{
+  "id": 59,
+  "title": "Preparing Transparent PNG and WebP Assets for Graphic Design and Stickers",
+  "slug": "preparing-transparent-png-and-webp-assets-for-design",
+  "folder": "59-preparing-transparent-png-and-webp-assets-for-design",
+  "category": "AI Background Removal",
+  "categorySlug": "ai-background-removal",
+  "subcategory": "Graphic Design Assets",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-13",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Transparent PNG & WebP Assets for Design & Stickers | FluxWebP Pro",
+    "metaDescription": "Learn how to turn photo cutouts into professional graphic assets and die-cut stickers. Master white contour strokes, alpha padding, and WebP optimization.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/preparing-transparent-png-and-webp-assets-for-design/",
+    "primaryKeyword": "transparent png webp for graphic design",
+    "secondaryKeywords": [
+      "how to create digital stickers",
+      "transparent asset preparation",
+      "png vs webp for stickers",
+      "vector white sticker border outline"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/59-preparing-transparent-png-and-webp-assets-for-design/hero.svg",
+  "visualAssetsCount": 5
+}

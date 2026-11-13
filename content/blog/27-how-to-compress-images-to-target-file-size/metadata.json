@@ -1,0 +1,59 @@
+{
+  "id": 27,
+  "title": "How to Compress Images to a Target File Size",
+  "slug": "how-to-compress-images-to-target-file-size",
+  "folder": "27-how-to-compress-images-to-target-file-size",
+  "category": "Compression & Optimization",
+  "categorySlug": "compression-and-optimization",
+  "subcategory": "Constrained Compression",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Compress Images to a Target File Size (KB/MB) | FluxWebP Pro",
+    "metaDescription": "Learn how to compress images to a specific target file size (e.g., under 100KB, 500KB, or 1MB). Understand binary search quality estimation and dimension scaling.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-compress-images-to-target-file-size/",
+    "primaryKeyword": "compress image to target file size",
+    "secondaryKeywords": [
+      "compress image to 500kb",
+      "compress photo to 100kb",
+      "target size image compressor",
+      "binary search image compression"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/27-how-to-compress-images-to-target-file-size/hero.svg",
+  "visualAssetsCount": 5
+}

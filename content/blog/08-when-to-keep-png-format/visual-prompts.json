@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-8-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Archival Vault and Production Pipeline Hero",
+    "concept": "A secure digital master vault storing pristine PNG archives alongside a high-speed web distribution pipe.",
+    "prompt": "Conceptual architectural image of a secure, illuminated high-tech digital media storage vault. On the left: pristine gold and titanium archive drives labeled 'Master PNG Originals'. On the right: glowing high-speed fiber-optic data channels broadcasting lightweight WebP files. Sleek modern studio composition, 16:9 framing, cool cinematic lighting.",
+    "aspectRatio": "16:9",
+    "filename": "when-to-keep-png-master-vault-hero.webp",
+    "altText": "Digital vault representing master PNG archival storage alongside fast WebP web distribution",
+    "caption": "Best practice: Maintain pristine PNG masters in your asset archive while deploying WebP for web delivery.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-8-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "PNG vs WebP Domain Suitability Matrix",
+    "concept": "Domain classification chart showing where PNG wins versus where WebP wins.",
+    "prompt": "Two-column comparison infographic. Left Column: 'Keep as PNG' (Master Assets, Desktop Software, Game Engines, Print Workflows, Email Signatures). Right Column: 'Convert to WebP' (Websites, Mobile Apps, eCommerce Catalogs, SEO Landing Pages, CDN Delivery). Clean card styling with color-coded domain icons.",
+    "aspectRatio": "16:9",
+    "filename": "png-vs-webp-domain-suitability-matrix.svg",
+    "altText": "Domain matrix detailing when to keep PNG files versus when to convert to WebP",
+    "caption": "PNG is built for production workflows and desktop compatibility; WebP is engineered for web speed.",
+    "placement": "Section 2: Domain Suitability Analysis"
+  },
+  {
+    "id": "va-8-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "The Professional Dual-Tier Asset Pipeline",
+    "concept": "Workflow diagram showing Designer Export (PNG) -> CI/CD Build Tool (WebP Converter) -> Production CDN.",
+    "prompt": "Modern DevOps workflow diagram showing 3 stages: 1. Design Source Export (Master PNG saved to Git/Cloud) -> 2. Automated Build Pipeline (FluxWebP Batch Converter) -> 3. Production Deployment (Optimized WebP served to CDN edge). Clean minimalist vectors with blue and green connectors.",
+    "aspectRatio": "16:9",
+    "filename": "dual-tier-png-master-webp-production-workflow.svg",
+    "altText": "DevOps workflow showing automated conversion of master PNG assets into production WebP images",
+    "caption": "Professional workflow: Keep PNG in your repository and automate WebP conversion during site build.",
+    "placement": "Section 3: Professional Dual-Tier Asset Architecture"
+  },
+  {
+    "id": "va-8-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Legacy Desktop App Compatibility Test",
+    "concept": "Comparison of file opening dialog in legacy software showing PNG supported versus unsupported WebP error.",
+    "prompt": "Side-by-side UI mockup testing an asset import in a legacy desktop design application. Left panel shows PNG imported successfully with transparent layers intact. Right panel shows 'Unsupported format' dialog when attempting to import WebP in an unpatched 2018 desktop suite.",
+    "aspectRatio": "16:9",
+    "filename": "legacy-desktop-app-compatibility-comparison.webp",
+    "altText": "Software import comparison showing legacy desktop tool rejecting WebP but successfully importing PNG",
+    "caption": "Legacy desktop publishing suites and older office software often require PNG for native asset import.",
+    "placement": "Section 4: Desktop Software Ecosystem Realities"
+  },
+  {
+    "id": "va-8-5",
+    "index": 5,
+    "type": "application",
+    "title": "Game Development Texture Pipeline in Unreal Engine / Unity",
+    "concept": "Game engine inspector showing raw PNG texture maps linked to 3D model shaders.",
+    "prompt": "Overhead view of a 3D game developer's workstation displaying a character model in Unreal Engine / Unity editor. The asset inspector highlights uncompressed PNG texture maps (Normal, Roughness, Albedo) powering the real-time PBR shader pipeline. Atmospheric ambient studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "game-development-unreal-unity-png-pipeline.webp",
+    "altText": "Game engine workspace showing raw PNG texture maps applied to 3D character shaders",
+    "caption": "Game engines and 3D modeling packages rely on raw PNG texture channels to build real-time PBR shaders.",
+    "placement": "Section 5: Real-World Game Development & 3D Pipelines"
+  }
+]

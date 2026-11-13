@@ -1,0 +1,59 @@
+{
+  "id": 29,
+  "title": "How Image Dimensions Affect File Size",
+  "slug": "how-image-dimensions-affect-file-size",
+  "folder": "29-how-image-dimensions-affect-file-size",
+  "category": "Compression & Optimization",
+  "categorySlug": "compression-and-optimization",
+  "subcategory": "Resolution & Scaling",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How Image Dimensions Affect File Size (The Square Law) | FluxWebP Pro",
+    "metaDescription": "Understand the mathematical relationship between image pixel dimensions and file size. Learn why doubling dimensions quadruples data, and how to scale right.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-image-dimensions-affect-file-size/",
+    "primaryKeyword": "how image dimensions affect file size",
+    "secondaryKeywords": [
+      "image resolution vs file size",
+      "megapixels to megabytes",
+      "scaling images down to reduce bytes",
+      "aspect ratio pixel count"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/29-how-image-dimensions-affect-file-size/hero.svg",
+  "visualAssetsCount": 5
+}

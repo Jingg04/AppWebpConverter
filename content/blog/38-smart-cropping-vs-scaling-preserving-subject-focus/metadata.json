@@ -1,0 +1,59 @@
+{
+  "id": 38,
+  "title": "Smart Cropping vs Scaling: Preserving Subject Focus Across Breakpoints",
+  "slug": "smart-cropping-vs-scaling-preserving-subject-focus",
+  "folder": "38-smart-cropping-vs-scaling-preserving-subject-focus",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Responsive Composition",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-12",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Smart Cropping vs Scaling: Preserve Subject Focus | FluxWebP Pro",
+    "metaDescription": "Learn why naive image scaling fails on mobile. Master smart focal-point cropping, content-aware framing, and responsive art direction for modern web design.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/smart-cropping-vs-scaling-preserving-subject-focus/",
+    "primaryKeyword": "smart cropping vs scaling",
+    "secondaryKeywords": [
+      "focal point cropping",
+      "content aware image cropping",
+      "responsive art direction",
+      "preserve subject focus responsive design"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/38-smart-cropping-vs-scaling-preserving-subject-focus/hero.svg",
+  "visualAssetsCount": 5
+}

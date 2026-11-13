@@ -1,0 +1,59 @@
+{
+  "id": 91,
+  "title": "What is EXIF Metadata? GPS Location, Camera Settings, and Privacy Risks",
+  "slug": "what-is-exif-metadata-gps-location-privacy-risks",
+  "folder": "91-what-is-exif-metadata-gps-location-privacy-risks",
+  "category": "Privacy, Metadata & Troubleshooting",
+  "categorySlug": "privacy-metadata-and-troubleshooting",
+  "subcategory": "EXIF & Privacy",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-05",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "What is EXIF Metadata? GPS Location & Privacy Risks | FluxWebP Pro",
+    "metaDescription": "Learn what EXIF metadata is and why sharing raw photos risks exposing your exact GPS home coordinates, camera serial numbers, and personal timestamps.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/what-is-exif-metadata-gps-location-privacy-risks/",
+    "primaryKeyword": "what is exif metadata privacy risks",
+    "secondaryKeywords": [
+      "how to read exif data",
+      "gps coordinates in photo metadata",
+      "remove location data from photos",
+      "exif privacy leak risks"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/91-what-is-exif-metadata-gps-location-privacy-risks/hero.svg",
+  "visualAssetsCount": 5
+}

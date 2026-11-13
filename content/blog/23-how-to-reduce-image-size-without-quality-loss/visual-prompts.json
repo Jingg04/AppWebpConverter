@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-23-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Perceptual Weightless Optimization Hero",
+    "concept": "A digital photograph floating effortlessly on an ultra-precise digital jewel scale, showing drastic weight loss with pristine clarity.",
+    "prompt": "Surrealistic studio product shot of a high-resolution, vibrant landscape photo resting weightlessly on an ultra-precise titanium digital jeweler's scale. The scale readout glows bright green: '-82% Bytes'. The photograph is razor-sharp with crystalline detail. High-end studio lighting, deep navy background, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "reduce-image-size-without-quality-loss-hero.webp",
+    "altText": "Conceptual studio shot of a photograph on a precision scale demonstrating dramatic file size reduction",
+    "caption": "Smart compression eliminates invisible metadata and redundant frequencies while preserving razor-sharp visuals.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-23-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Where Image Bytes Actually Live (Anatomy of a 4MB Photo)",
+    "concept": "Exploded breakdown chart showing: Raw Pixel Data, EXIF & GPS Metadata, Embedded Preview, Chroma Redundancy.",
+    "prompt": "Exploded pie chart / bar breakdown infographic of a typical 4 MB camera photo: 1. Hidden EXIF & Embedded Thumbnail (12%) -> 2. Redundant Chroma Color Data (45%) -> 3. High-Frequency Noise (28%) -> 4. Essential Perceptual Visuals (15%). Crisp modern data styling with color-coded categories.",
+    "aspectRatio": "16:9",
+    "filename": "anatomy-of-unoptimized-photo-file-size.svg",
+    "altText": "Anatomy breakdown chart showing where file size bytes live in an unoptimized photograph",
+    "caption": "Up to 85% of a photograph's raw byte weight consists of invisible metadata and redundant color noise.",
+    "placement": "Section 2: The Anatomy of File Bloat"
+  },
+  {
+    "id": "va-23-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "The 3-Step Perceptual Shrink Workflow in FluxWebP",
+    "concept": "Step-by-step workflow: Upload -> Auto-Strip EXIF -> Set Smart Quality 82% -> Export.",
+    "prompt": "Visual workflow diagram: 1. Upload high-res photo -> 2. FluxWebP auto-strips GPS and EXIF headers -> 3. Interactive comparison slider verifies 100% visual match -> 4. One-click instant download. Modern SaaS interface with green checkmark indicators.",
+    "aspectRatio": "16:9",
+    "filename": "three-step-perceptual-shrink-workflow.svg",
+    "altText": "Three-step visual workflow for reducing image size without quality loss in FluxWebP Pro",
+    "caption": "FluxWebP automates metadata stripping and perceptual quantization to achieve peak compression in seconds.",
+    "placement": "Section 3: Step-by-Step Optimization Guide"
+  },
+  {
+    "id": "va-23-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Perceptual Split Test: 2.8 MB Original vs 380 KB Compressed",
+    "concept": "Side-by-side comparison of a detailed architectural facade showing identical brickwork and window reflections.",
+    "prompt": "Side-by-side photographic comparison of an intricate historical architectural cathedral facade. Left side: Original 2.8 MB camera file. Right side: Compressed 380 KB WebP. A magnifying loupe shows identical stone texture, carving sharpness, and stained-glass reflections with zero visible blurriness.",
+    "aspectRatio": "16:9",
+    "filename": "architectural-detail-original-vs-compressed-comparison.webp",
+    "altText": "Side-by-side architectural photo comparison showing identical detail between 2.8MB and 380KB files",
+    "caption": "Can you spot the difference? The 380 KB compressed image delivers identical visual fidelity to the 2.8 MB original.",
+    "placement": "Section 4: Visual Perception and Blind Testing"
+  },
+  {
+    "id": "va-23-5",
+    "index": 5,
+    "type": "application",
+    "title": "Luxury Real Estate Website Instant Property Tour",
+    "concept": "Modern luxury real estate website rendering 50 ultra-sharp villa photos loading with zero lag.",
+    "prompt": "Sleek designer laptop on an architect's drafting table displaying an ultra-luxury real estate portal. A virtual villa walkthrough displays 50 high-res property photos that load with zero lag or stutter. Page weight counter highlights 62 MB saved across the gallery. Warm studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "luxury-real-estate-compressed-gallery.webp",
+    "altText": "Luxury real estate website gallery loading 50 high-resolution property photos instantaneously",
+    "caption": "High-end real estate and architecture portfolios maintain pristine luxury imagery while loading instantly.",
+    "placement": "Section 5: Real-World Commercial Portfolio Applications"
+  }
+]

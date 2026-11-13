@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-36-1",
+    "index": 1,
+    "type": "hero",
+    "title": "High-Volume Parallel Batch Resizing Engine",
+    "concept": "3D render of dozens of photo thumbnails streaming into a central processing turbine and emerging as standardized web assets.",
+    "prompt": "Futuristic digital manufacturing visualization: dozens of floating image thumbnails stream into a sleek central optical processing prism. The prism emits cool teal energy beams, outputting uniformly sized, razor-sharp assets into an organized holographic ZIP container. Dark graphite backdrop, neon cyan highlights, clean motion blur, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "bulk-image-resizing-parallel-engine-hero.webp",
+    "altText": "3D digital illustration of parallel batch processing engine resizing multiple images at once",
+    "caption": "Parallel multi-threading enables instant bulk resizing of hundreds of photos directly in memory.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-36-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Four Core Batch Resizing Presets",
+    "concept": "Visual comparison chart detailing Fixed Width, Fixed Height, Bounding Box, and Fixed Crop presets.",
+    "prompt": "Modern technical infographic comparing 4 batch resizing modes: 1. Fixed Width (1200w), 2. Fixed Height (600h), 3. Bounding Box (800x800 Max), 4. Smart Crop (Square). Diagrams show how landscape and portrait photos adapt under each preset. Minimalist slate theme with electric blue accents.",
+    "aspectRatio": "4:3",
+    "filename": "batch-resizing-presets-infographic.webp",
+    "altText": "Infographic explaining four batch resizing strategies: fixed width, fixed height, bounding box, and crop",
+    "caption": "Selecting the right batch strategy prevents unexpected cropping across mixed photo orientations.",
+    "placement": "Under Batch Resizing Strategies Section"
+  },
+  {
+    "id": "va-36-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Bulk Drag-and-Drop to ZIP Download Flow",
+    "concept": "Step-by-step user interface workflow illustrating bulk upload, preset configuration, progress bar, and ZIP download.",
+    "prompt": "Clean isometric vector workflow showing the 4 steps of FluxWebP bulk resizing: 1. Dragging folder of 50 photos into dropzone, 2. Setting target dimension 1200px, 3. Multi-bar parallel progress indicator, 4. Single-click ZIP download button. Professional UI aesthetic, green status badges.",
+    "aspectRatio": "16:9",
+    "filename": "bulk-resizing-user-workflow-steps.webp",
+    "altText": "Four-step visual workflow for bulk resizing photos and downloading a single zip file",
+    "caption": "Process an entire folder of photos in 4 effortless steps without uploading files to third-party servers.",
+    "placement": "Under Multi-Core Architecture Section"
+  },
+  {
+    "id": "va-36-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Single-Thread Server Upload vs Local Multi-Worker Processing",
+    "concept": "Dataflow comparison showing slow upload queue vs instant local browser worker pool.",
+    "prompt": "Comparative infographic diagram: Top row labeled 'Cloud Upload Bottleneck' showing slow sequential 500MB upload over cellular; Bottom row labeled 'FluxWebP Local Web Workers' showing 8 parallel threads executing simultaneously with zero network upload latency. Bold performance metrics: 3.5 min vs 12 sec.",
+    "aspectRatio": "16:9",
+    "filename": "local-web-workers-vs-cloud-upload-speed.webp",
+    "altText": "Comparison diagram showing network upload lag vs instant local multi-threaded browser processing",
+    "caption": "Local Web Worker processing finishes in seconds by eliminating upload and download bottlenecks.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-36-5",
+    "index": 5,
+    "type": "application",
+    "title": "Real Estate & E-Commerce Batch Catalog Ingestion",
+    "concept": "Dual screen setup showing 150 property photos organized into uniform MLS-compliant web formats.",
+    "prompt": "High-end real estate office desk with a MacBook displaying an organized grid of 150 residential interior photos, all standardized to exactly 1920x1080px. Clean folder structure, pristine lighting, professional commercial workstation setting.",
+    "aspectRatio": "16:9",
+    "filename": "real-estate-batch-photo-catalog-showcase.webp",
+    "altText": "Real estate professional workstation with batch-processed property photo catalog",
+    "caption": "Bulk resizing streamlines workflow for real estate agents, e-commerce managers, and media publishers.",
+    "placement": "Conclusion Section"
+  }
+]

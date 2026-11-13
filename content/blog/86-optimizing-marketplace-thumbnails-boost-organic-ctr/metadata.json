@@ -1,0 +1,59 @@
+{
+  "id": 86,
+  "title": "Optimizing Marketplace Thumbnails to Boost Organic Click-Through Rates (CTR)",
+  "slug": "optimizing-marketplace-thumbnails-boost-organic-ctr",
+  "folder": "86-optimizing-marketplace-thumbnails-boost-organic-ctr",
+  "category": "E-Commerce & Business Images",
+  "categorySlug": "ecommerce-and-business-images",
+  "subcategory": "Marketplace SEO",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Optimize Marketplace Thumbnails: Boost Organic CTR | FluxWebP Pro",
+    "metaDescription": "Double your marketplace traffic. Learn visual psychology and compliance tactics to optimize product thumbnails for Amazon, Etsy, and Google Shopping search grids.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/optimizing-marketplace-thumbnails-boost-organic-ctr/",
+    "primaryKeyword": "optimizing marketplace thumbnails ctr",
+    "secondaryKeywords": [
+      "amazon main image ctr optimization",
+      "etsy search thumbnail tips",
+      "product thumbnail click through rate",
+      "how to stand out in marketplace search results"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/86-optimizing-marketplace-thumbnails-boost-organic-ctr/hero.svg",
+  "visualAssetsCount": 5
+}

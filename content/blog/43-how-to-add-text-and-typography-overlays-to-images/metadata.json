@@ -1,0 +1,59 @@
+{
+  "id": 43,
+  "title": "How to Add Text and Typography Overlays to Images Like a Pro",
+  "slug": "how-to-add-text-and-typography-overlays-to-images",
+  "folder": "43-how-to-add-text-and-typography-overlays-to-images",
+  "category": "Image Editing & Creative Workflows",
+  "categorySlug": "editing-and-creative-workflows",
+  "subcategory": "Graphic Design",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-07",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Add Text & Typography to Images Online (Pro Guide) | FluxWebP Pro",
+    "metaDescription": "Learn how to add readable text and elegant typography overlays to images. Master scrim gradients, contrast boxes, font pairing, and drop shadows.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-add-text-and-typography-overlays-to-images/",
+    "primaryKeyword": "add text to images online",
+    "secondaryKeywords": [
+      "photo typography overlay",
+      "text readability on images",
+      "image quote graphic creator",
+      "scrim overlay for text readability"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/43-how-to-add-text-and-typography-overlays-to-images/hero.svg",
+  "visualAssetsCount": 5
+}

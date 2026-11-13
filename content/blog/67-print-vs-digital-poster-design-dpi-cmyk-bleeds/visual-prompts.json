@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-67-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Print vs Digital Production Spectrum",
+    "concept": "3D render showing a poster canvas splitting in half: one side glowing as an ultra-vibrant RGB OLED display, the other side showing physical tactile paper with CMYK ink dots, bleed lines, and crop marks.",
+    "prompt": "Futuristic print and digital production laboratory: a massive poster artwork suspended in mid-air. The left half exists as a luminous digital OLED display glowing with electric RGB light and vector code; the right half transforms into physical textured paper stock marked with CMYK halftone rosette dots, glowing magenta 3mm bleed margins, and metal guillotine crop marks. Studio lighting, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "print-vs-digital-poster-production-hero.webp",
+    "altText": "3D render contrasting digital RGB screen display with physical CMYK print paper and bleed marks",
+    "caption": "Understanding the technical divide between RGB screen light and CMYK physical ink absorption.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-67-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Anatomy of a Print-Ready File",
+    "concept": "Technical diagram detailing Bleed Line (3mm outer), Trim Line (exact cut), and Safe Zone (inner margins).",
+    "prompt": "Clean technical engineering diagram on dark slate background showing a 24x36 poster anatomy: Outer Red Line = 3mm Bleed Margin; Middle Green Line = Trim Cut Line; Inner Cyan Line = Safe Text Zone (5mm inside trim). Dimension callouts and crop mark crosshairs illustrated with crisp vector styling.",
+    "aspectRatio": "4:3",
+    "filename": "print-file-anatomy-bleed-trim-safe-zone.webp",
+    "altText": "Technical diagram detailing bleed lines, trim marks, and safe margins for commercial poster printing",
+    "caption": "Always extend artwork to the 3mm bleed line and keep essential text inside the safe zone.",
+    "placement": "Under Technical Specification Section"
+  },
+  {
+    "id": "va-67-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Dual-Export Pipeline in FluxWebP Studio",
+    "concept": "Flowchart showing one master poster layout exported simultaneously as 300 DPI CMYK PDF for print and 72 DPI WebP for web marketing.",
+    "prompt": "Vector production workflow: 1. Master graphic composition in Poster Studio, 2. Forking export: Path A compiles 300 DPI vector PDF with embedded fonts and bleeds; Path B compresses into lightweight 85KB sRGB WebP file for social feeds. Clean UI icons with blue and green theme.",
+    "aspectRatio": "16:9",
+    "filename": "dual-export-print-pdf-web-webp-workflow.webp",
+    "altText": "Workflow showing dual export of 300 DPI print-ready PDF and lightweight 72 DPI web WebP file",
+    "caption": "Export production-ready 300 DPI print PDFs and ultra-fast 72 DPI web assets from a single project.",
+    "placement": "Under Bleed Margin Section"
+  },
+  {
+    "id": "va-67-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "RGB Screen Gamut vs CMYK In-Gamut Color Shift",
+    "concept": "Side-by-side color comparison showing vibrant electric RGB green shifting to muted organic forest green in CMYK.",
+    "prompt": "Side-by-side photographic color comparison: Left panel shows 'Screen sRGB' with radiant electric neon green and vivid cobalt blue; Right panel shows 'Physical CMYK Print Simulation' showing the natural desaturation of out-of-gamut hues into earthy, ink-absorbed tones. High contrast gamut boundary graphic.",
+    "aspectRatio": "16:9",
+    "filename": "rgb-vs-cmyk-color-gamut-shift-comparison.webp",
+    "altText": "Comparison showing vibrant additive RGB screen colors vs subtractive CMYK ink color shift",
+    "caption": "Out-of-gamut RGB neon colors naturally desaturate when translated to physical CMYK ink sets.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-67-5",
+    "index": 5,
+    "type": "application",
+    "title": "Commercial Print Shop Offset Press in Production",
+    "concept": "A master pressman reviewing freshly printed high-resolution concert posters coming off a Heidelberg offset press.",
+    "prompt": "Industrial commercial print shop: an experienced printer inspects large 24x36 concert posters freshly printed on a state-of-the-art Heidelberg offset press. Crisp halftone details, rich saturated inks, and perfect registration alignment under calibrated 5000K inspection lamps.",
+    "aspectRatio": "16:9",
+    "filename": "commercial-print-shop-offset-press-inspection.webp",
+    "altText": "Commercial print shop pressman inspecting printed posters fresh off Heidelberg offset press",
+    "caption": "Proper file preparation ensures flawless ink registration and razor-sharp physical print quality.",
+    "placement": "Conclusion Section"
+  }
+]

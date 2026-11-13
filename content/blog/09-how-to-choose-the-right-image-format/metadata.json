@@ -1,0 +1,59 @@
+{
+  "id": 9,
+  "title": "How to Choose the Right Image Format for Every Project",
+  "slug": "how-to-choose-the-right-image-format",
+  "folder": "09-how-to-choose-the-right-image-format",
+  "category": "Image Formats & Conversion",
+  "categorySlug": "formats-and-conversion",
+  "subcategory": "Practical Strategy",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "How to Choose the Right Image Format for Every Project | FluxWebP Pro",
+    "metaDescription": "Master image format selection. Learn exactly when to use WebP, AVIF, PNG, SVG, and JPEG across logos, banners, eCommerce photos, and vector icons.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-choose-the-right-image-format/",
+    "primaryKeyword": "choose the right image format",
+    "secondaryKeywords": [
+      "image format guide",
+      "best format for photos",
+      "best format for logos",
+      "web image format selection"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/09-how-to-choose-the-right-image-format/hero.svg",
+  "visualAssetsCount": 5
+}

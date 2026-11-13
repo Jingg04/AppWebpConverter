@@ -1,0 +1,59 @@
+{
+  "id": 30,
+  "title": "Image Compression Mistakes That Can Slow Down Your Website",
+  "slug": "image-compression-mistakes-that-slow-down-websites",
+  "folder": "30-image-compression-mistakes-that-slow-down-websites",
+  "category": "Compression & Optimization",
+  "categorySlug": "compression-and-optimization",
+  "subcategory": "Pitfalls & Troubleshooting",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "10 Image Compression Mistakes That Slow Down Your Website | FluxWebP Pro",
+    "metaDescription": "Avoid the top 10 image optimization mistakes that destroy page speed, ruin visual branding, and trigger Google Core Web Vitals penalties. Practical fixes included.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/image-compression-mistakes-that-slow-down-websites/",
+    "primaryKeyword": "image compression mistakes",
+    "secondaryKeywords": [
+      "website image errors",
+      "why is my website slow images",
+      "image optimization traps",
+      "common image mistakes web"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/30-image-compression-mistakes-that-slow-down-websites/hero.svg",
+  "visualAssetsCount": 5
+}

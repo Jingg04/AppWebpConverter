@@ -1,0 +1,59 @@
+{
+  "id": 95,
+  "title": "Color Space Confusion: sRGB vs Display P3 vs Adobe RGB Explained",
+  "slug": "color-space-confusion-srgb-display-p3-adobe-rgb",
+  "folder": "95-color-space-confusion-srgb-display-p3-adobe-rgb",
+  "category": "Privacy, Metadata & Troubleshooting",
+  "categorySlug": "privacy-metadata-and-troubleshooting",
+  "subcategory": "Color Science",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-09",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Color Spaces Explained: sRGB vs Display P3 vs Adobe RGB | FluxWebP Pro",
+    "metaDescription": "Demystify digital color spaces. Understand CIE chromaticity gamuts, why wide-gamut photos look washed out on the web, and how modern CSS Color 4 handles Display P3.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/color-space-confusion-srgb-display-p3-adobe-rgb/",
+    "primaryKeyword": "color spaces srgb display p3 adobe rgb",
+    "secondaryKeywords": [
+      "wide color gamut web",
+      "css color 4 display-p3",
+      "srgb vs adobe rgb photography",
+      "why do colors look washed out online"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/95-color-space-confusion-srgb-display-p3-adobe-rgb/hero.svg",
+  "visualAssetsCount": 5
+}

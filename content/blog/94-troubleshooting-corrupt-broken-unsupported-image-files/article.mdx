@@ -1,0 +1,42 @@
+---
+title: "Troubleshooting Corrupt, Broken, or Unsupported Image Files"
+slug: "troubleshooting-corrupt-broken-unsupported-image-files"
+id: 94
+category: "Privacy, Metadata & Troubleshooting"
+categorySlug: "privacy-metadata-and-troubleshooting"
+publicationStatus: "published"
+publishedDate: "2026-11-08"
+updatedDate: "2026-11-14"
+author: "Marcus Vance"
+authorRole: "Principal Image Processing Engineer"
+readingTime: 8
+primaryKeyword: "fix corrupt broken image files"
+featuredImage: "/public/blog-assets/94-troubleshooting-corrupt-broken-unsupported-image-files/hero.svg"
+---
+
+# Troubleshooting Corrupt, Broken, or Unsupported Image Files
+
+<VisualAsset id="va-94-1" type="hero" src="/public/blog-assets/94-troubleshooting-corrupt-broken-unsupported-image-files/hero.svg" alt="3D visual of digital forensics laboratory repairing damaged image file headers and hex bitstreams" />
+
+> **Summary:** Don't delete that damaged photo. Learn how to diagnose hex magic bytes, repair corrupted JPEG SOI markers, fix truncated bitstreams, and recover broken image files.
+
+
+
+
+## Frequently Asked Questions
+
+### Why do some corrupted photos render only the top half and gray out the bottom?
+
+This happens when an image download was interrupted or stored on bad flash sectors. The JPEG header and initial scan lines decoded successfully, but the bitstream hit a premature End of Image (EOI) or corrupt entropy marker, leaving the remaining macroblocks un-decodable.
+
+### What are 'Magic Bytes' and how do they fix extension errors?
+
+Magic bytes are the first few binary bytes of a file that definitively identify its true format regardless of its file name extension. For example, a PNG always starts with <code>89 50 4E 47 0D 0A 1A 0A</code>. If someone renamed a WebP file to <code>.jpg</code>, decoders crash until the extension is corrected.
+
+### Can a completely corrupted image header be reconstructed?
+
+Yes. By using a hex editor to paste the valid SOI (Start of Image <code>FF D8 FF E0</code>) header from an identical camera model into the damaged file, decoders can often parse the surviving raw entropy stream.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

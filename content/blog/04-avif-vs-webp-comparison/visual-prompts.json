@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-4-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Next-Gen Codec Horizon: AVIF and WebP",
+    "concept": "Futuristic digital landscape representing next-generation video-derived image compression algorithms.",
+    "prompt": "Futuristic digital visualization of computational photography algorithms. Interlocking optical data ribbons labeled AV1 and VP8 flowing smoothly into high-density silicon chips. High-tech clean laboratory setting, cool cyan and electric indigo illumination, 16:9 widescreen composition, hyper-sharp focus, cinematic depth of field.",
+    "aspectRatio": "16:9",
+    "filename": "avif-vs-webp-codec-horizon-hero.webp",
+    "altText": "Futuristic technological rendering comparing AV1 and VP8 computational image algorithms",
+    "caption": "AVIF and WebP leverage video compression breakthroughs to achieve unprecedented static image efficiency.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-4-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Encoding Speed vs Compression Efficiency Scatter Plot",
+    "concept": "2D scatter chart plotting encoding duration (CPU ms) against percentage byte reduction.",
+    "prompt": "Minimalist technical scatter plot showing Encoding Time (milliseconds on X-axis) versus File Size Savings (percentage on Y-axis). WebP sits in the 'Sweet Spot' quadrant (fast encode, 32% savings), while AVIF sits in the 'Ultra-Compression' quadrant (heavy CPU encode, 46% savings). Clean vector UI with crisp legend.",
+    "aspectRatio": "16:9",
+    "filename": "avif-vs-webp-encoding-speed-tradeoff-chart.svg",
+    "altText": "Scatter plot charting image encoding time against byte reduction percentage for AVIF and WebP",
+    "caption": "The engineering trade-off: AVIF yields 14% greater compression but requires up to 8× more CPU encoding time.",
+    "placement": "Section 2: Compression vs Computational Overhead"
+  },
+  {
+    "id": "va-4-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Dual-Format HTML5 <picture> Progressive Enhancement Tag",
+    "concept": "Code architecture diagram showing how the HTML5 picture tag negotiates AVIF -> WebP -> JPEG.",
+    "prompt": "Clean visual code architecture diagram illustrating the HTML5 picture element cascade: <picture> -> <source type='image/avif'> -> <source type='image/webp'> -> <img src='fallback.jpg'>. Color-coded branch indicators showing browser decision logic based on supported MIME types.",
+    "aspectRatio": "16:9",
+    "filename": "html5-picture-tag-avif-webp-negotiation.svg",
+    "altText": "Diagram illustrating progressive enhancement using the HTML5 picture tag with AVIF and WebP sources",
+    "caption": "Progressive enhancement: Serving AVIF with a WebP source fallback guarantees peak speed on every device.",
+    "placement": "Section 3: Production Deployment Patterns"
+  },
+  {
+    "id": "va-4-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Low-Bitrate Gradient Test: Banding vs Grain Retention",
+    "concept": "Challenging sunset sky gradient comparing color banding between JPEG, WebP, and 10-bit AVIF.",
+    "prompt": "Split comparison of a challenging twilight sunset sky with deep orange and purple color gradients. Left: JPEG showing severe stair-stepped posterization color bands. Center: 8-bit WebP showing smooth deblocked gradients. Right: 10-bit AVIF showing flawless tonal gradation and natural sensor grain retention.",
+    "aspectRatio": "16:9",
+    "filename": "sky-gradient-banding-jpeg-webp-avif-comparison.webp",
+    "altText": "Sunset sky gradient test comparing color banding across JPEG, 8-bit WebP, and 10-bit AVIF",
+    "caption": "Challenging sunset gradients: AVIF's 10-bit color depth eliminates banding, while WebP avoids harsh JPEG steps.",
+    "placement": "Section 4: Color Depth and Gradient Analysis"
+  },
+  {
+    "id": "va-4-5",
+    "index": 5,
+    "type": "application",
+    "title": "Mobile Battery Consumption and Decoding Latency Test",
+    "concept": "Smartphone bench test setup measuring battery impact during rapid continuous image decoding.",
+    "prompt": "High-tech smartphone testing bench with calibrated power meters monitoring mobile CPU temperature and battery draw while decoding 100 images in rapid succession. Clean modern tech review laboratory with clean white bench and glowing digital readouts, cinematic lighting.",
+    "aspectRatio": "16:9",
+    "filename": "mobile-battery-consumption-avif-webp-bench.webp",
+    "altText": "Hardware testing bench comparing mobile CPU energy draw during WebP versus AVIF decoding",
+    "caption": "Testing on mid-tier mobile hardware shows WebP hardware decoders consume 34% less battery during heavy scrolling.",
+    "placement": "Section 5: Mobile Hardware Performance Considerations"
+  }
+]

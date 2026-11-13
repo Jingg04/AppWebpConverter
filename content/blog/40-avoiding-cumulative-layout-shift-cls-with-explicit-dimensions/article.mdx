@@ -1,0 +1,42 @@
+---
+title: "Avoiding Cumulative Layout Shift (CLS) with Explicit Image Width & Height Attributes"
+slug: "avoiding-cumulative-layout-shift-cls-with-explicit-dimensions"
+id: 40
+category: "Resizing & Dimensions"
+categorySlug: "resizing-and-dimensions"
+publicationStatus: "published"
+publishedDate: "2026-11-14"
+updatedDate: "2026-11-14"
+author: "Dr. Sarah Chen"
+authorRole: "Head of Web Performance Architecture"
+readingTime: 7
+primaryKeyword: "avoiding cumulative layout shift images"
+featuredImage: "/public/blog-assets/40-avoiding-cumulative-layout-shift-cls-with-explicit-dimensions/hero.svg"
+---
+
+# Avoiding Cumulative Layout Shift (CLS) with Explicit Image Width & Height Attributes
+
+<VisualAsset id="va-40-1" type="hero" src="/public/blog-assets/40-avoiding-cumulative-layout-shift-cls-with-explicit-dimensions/hero.svg" alt="3D visualization illustrating how reserving image layout space eliminates Cumulative Layout Shift" />
+
+> **Summary:** Stop annoying layout jumps on page load. Discover how adding explicit width and height attributes eliminates Cumulative Layout Shift (CLS) for perfect Core Web Vitals.
+
+
+
+
+## Frequently Asked Questions
+
+### What is Cumulative Layout Shift (CLS)?
+
+CLS is a Google Core Web Vitals metric measuring unexpected layout movements that occur while a page loads. A good CLS score is 0.1 or lower.
+
+### How do explicit width and height attributes stop layout shifts?
+
+Modern browsers calculate the image's aspect ratio from its HTML width and height attributes BEFORE the image file is downloaded. The browser reserves the exact vertical layout box, preventing text from jumping down when the image loads.
+
+### Will HTML width='1200' prevent my image from being responsive?
+
+No. As long as your CSS includes <code>max-width: 100%; height: auto;</code>, the image remains fully fluid and responsive while the browser respects the inherent aspect ratio.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

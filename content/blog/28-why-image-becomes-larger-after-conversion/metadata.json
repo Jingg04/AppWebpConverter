@@ -1,0 +1,59 @@
+{
+  "id": 28,
+  "title": "Why an Image Can Become Larger After Conversion",
+  "slug": "why-image-becomes-larger-after-conversion",
+  "folder": "28-why-image-becomes-larger-after-conversion",
+  "category": "Compression & Optimization",
+  "categorySlug": "compression-and-optimization",
+  "subcategory": "Troubleshooting & Edge Cases",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "Why an Image Can Become Larger After Conversion (Explained) | FluxWebP Pro",
+    "metaDescription": "Troubleshoot the compression paradox. Understand why converting an already-compressed JPEG or PNG to WebP can sometimes increase file size, and how to fix it.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/why-image-becomes-larger-after-conversion/",
+    "primaryKeyword": "why image becomes larger after conversion",
+    "secondaryKeywords": [
+      "converted webp larger than jpg",
+      "why did file size increase after converting",
+      "webp bigger than png",
+      "compression paradox explained"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/28-why-image-becomes-larger-after-conversion/hero.svg",
+  "visualAssetsCount": 5
+}

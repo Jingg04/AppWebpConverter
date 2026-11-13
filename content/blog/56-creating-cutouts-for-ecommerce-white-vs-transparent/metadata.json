@@ -1,0 +1,59 @@
+{
+  "id": 56,
+  "title": "Creating Cutouts for E-Commerce: White Backgrounds vs Transparent WebP",
+  "slug": "creating-cutouts-for-ecommerce-white-vs-transparent",
+  "folder": "56-creating-cutouts-for-ecommerce-white-vs-transparent",
+  "category": "AI Background Removal",
+  "categorySlug": "ai-background-removal",
+  "subcategory": "Catalog Strategy",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "E-Commerce Cutouts: White Background vs Transparent WebP | FluxWebP Pro",
+    "metaDescription": "Decide between pure white backgrounds (#FFFFFF) and transparent WebP for your online store. Learn marketplace rules, theme adaptability, and page speed.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/creating-cutouts-for-ecommerce-white-vs-transparent/",
+    "primaryKeyword": "ecommerce product cutouts white vs transparent",
+    "secondaryKeywords": [
+      "transparent webp product images",
+      "amazon white background requirement",
+      "shopify transparent png vs webp",
+      "catalog image standards ecommerce"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/56-creating-cutouts-for-ecommerce-white-vs-transparent/hero.svg",
+  "visualAssetsCount": 5
+}

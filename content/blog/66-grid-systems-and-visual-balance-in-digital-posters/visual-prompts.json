@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-66-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Swiss Grid Architecture & Geometric Harmony",
+    "concept": "3D render showing an expansive architectural poster dissected by glowing geometric cyan grid lines, column tracks, and golden ratio spiral overlays.",
+    "prompt": "Futuristic Bauhaus design laboratory: a pristine vertical poster canvas floating in mid-air. Glowing neon laser lines in cyan and electric amber project a complex modular grid across the canvas: 6 vertical columns, horizontal baseline flowlines, and a subtle golden ratio spiral. Text blocks and photographic planes snap with mathematical perfection to grid coordinates. Dark slate background, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "grid-systems-visual-balance-hero.webp",
+    "altText": "3D render of poster canvas with glowing modular Swiss grid lines and geometric golden ratio overlays",
+    "caption": "Modular grids provide the invisible mathematical skeleton behind iconic poster design.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-66-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Three Core Poster Grid Models",
+    "concept": "Infographic comparing Rule of Thirds (3x3), 6-Column Swiss Grid, and Modular Matrix.",
+    "prompt": "Clean technical graphic design infographic on dark slate background showing 3 grid diagrams: 1. Rule of Thirds (3x3 with 4 glowing power points); 2. 6-Column Swiss Grid (showing asymmetrical 4-to-2 column split); 3. Modular Matrix (showing 12 individual content module blocks). High contrast vector lines and dimension annotations.",
+    "aspectRatio": "4:3",
+    "filename": "three-core-poster-grid-models-infographic.webp",
+    "altText": "Technical diagram illustrating Rule of Thirds, 6-column Swiss grid, and modular poster grid",
+    "caption": "Comparing the Rule of Thirds, Columnar Swiss Grid, and Modular Matrix layouts.",
+    "placement": "Under Core Grid Models Section"
+  },
+  {
+    "id": "va-66-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Magnetic Snap-to-Grid in FluxWebP Studio",
+    "concept": "Vector UI workflow showing user dragging headline and photo card, which effortlessly snap into alignment guides with smart distance indicators.",
+    "prompt": "Vector software UI diagram: poster canvas showing active magenta smart alignment guides and pixel distance callouts ('32px margin'). Dragging a text layer snaps it magnetically to the column edge with effortless precision. Royal blue modern interface.",
+    "aspectRatio": "16:9",
+    "filename": "snap-to-grid-alignment-workflow.webp",
+    "altText": "Workflow showing magnetic snap-to-grid alignment tools inside FluxWebP Poster Studio",
+    "caption": "Magnetic snap grids eliminate guesswork, aligning typography and assets with pixel precision.",
+    "placement": "Under Asymmetrical Balance Section"
+  },
+  {
+    "id": "va-66-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Eyeballed Disorder vs Mathematically Aligned Grid",
+    "concept": "Side-by-side comparison showing random misaligned text and uneven margins vs locked, harmonized grid layout.",
+    "prompt": "Side-by-side poster comparison: Left shows an amateur design with inconsistent margins, misaligned headers, and wandering body text; Right shows the identical content mapped to a 6-column modular grid, looking instantly authoritative, calm, and magazine-grade. High contrast UI badges.",
+    "aspectRatio": "16:9",
+    "filename": "eyeballed-disorder-vs-aligned-grid-comparison.webp",
+    "altText": "Comparison showing messy eyeballed layout vs mathematically aligned Swiss grid poster",
+    "caption": "Aligning content to a disciplined grid transforms chaotic layouts into structured works of art.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-66-5",
+    "index": 5,
+    "type": "application",
+    "title": "Architectural Exhibition Catalog and Poster Series",
+    "concept": "Exhibition hall with minimalist architectural posters lined up, demonstrating flawless mathematical grid continuity.",
+    "prompt": "Contemporary art museum exhibition hall: a row of 4 large vertical exhibition posters celebrating Bauhaus architecture. Each poster utilizes a different primary photo, but identical baseline grid alignments create a stunning, harmonious visual rhythm across the entire gallery wall.",
+    "aspectRatio": "16:9",
+    "filename": "bauhaus-architectural-poster-exhibition.webp",
+    "altText": "Museum gallery displaying cohesive Bauhaus architectural poster series aligned to modular grid",
+    "caption": "Grid continuity allows large poster campaigns to feel unified, cohesive, and rhythmically balanced.",
+    "placement": "Conclusion Section"
+  }
+]

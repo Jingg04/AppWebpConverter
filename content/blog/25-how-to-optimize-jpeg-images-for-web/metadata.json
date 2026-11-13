@@ -1,0 +1,59 @@
+{
+  "id": 25,
+  "title": "How to Optimize JPEG Images for the Web",
+  "slug": "how-to-optimize-jpeg-images-for-web",
+  "folder": "25-how-to-optimize-jpeg-images-for-web",
+  "category": "Compression & Optimization",
+  "categorySlug": "compression-and-optimization",
+  "subcategory": "JPEG Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Optimize JPEG Images for the Web (Complete Guide) | FluxWebP Pro",
+    "metaDescription": "Master JPEG web optimization. Learn progressive encoding for faster perceived loading, MozJPEG trellis quantization, chroma subsampling, and metadata stripping.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-optimize-jpeg-images-for-web/",
+    "primaryKeyword": "optimize jpeg images for web",
+    "secondaryKeywords": [
+      "progressive jpeg vs baseline",
+      "mozjpeg compression",
+      "jpeg quality settings",
+      "compress jpeg for web speed"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/25-how-to-optimize-jpeg-images-for-web/hero.svg",
+  "visualAssetsCount": 5
+}

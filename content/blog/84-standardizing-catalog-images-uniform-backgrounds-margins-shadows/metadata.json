@@ -1,0 +1,59 @@
+{
+  "id": 84,
+  "title": "Standardizing Catalog Images: Uniform Backgrounds, Padded Margins, and Shadows",
+  "slug": "standardizing-catalog-images-uniform-backgrounds-margins-shadows",
+  "folder": "84-standardizing-catalog-images-uniform-backgrounds-margins-shadows",
+  "category": "E-Commerce & Business Images",
+  "categorySlug": "ecommerce-and-business-images",
+  "subcategory": "Catalog Design Systems",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-08",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Standardize Catalog Images: Uniform Margins & Shadows | FluxWebP Pro",
+    "metaDescription": "Build a professional e-commerce catalog design system. Learn uniform aspect ratios, 10% bounding box padding, consistent lighting, and drop shadows.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/standardizing-catalog-images-uniform-backgrounds-margins-shadows/",
+    "primaryKeyword": "standardizing ecommerce catalog images",
+    "secondaryKeywords": [
+      "uniform product image padding",
+      "consistent product photo backgrounds",
+      "ecommerce catalog design system",
+      "batch align product photos"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/84-standardizing-catalog-images-uniform-backgrounds-margins-shadows/hero.svg",
+  "visualAssetsCount": 5
+}

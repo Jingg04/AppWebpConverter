@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-93-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Airtight Local WebAssembly Sandboxed Execution",
+    "concept": "3D render showing an image being processed inside an impenetrable glowing cryptographic glass cube inside a laptop, with an severed network cable proving zero data egress.",
+    "prompt": "Futuristic cybersecurity and privacy architecture visualization: a sleek modern laptop open on an obsidian desk. Inside the screen, an image asset is processed inside an impenetrable glowing emerald cryptographic sandbox (labeled 'WebAssembly Client Sandbox'). Beside the laptop, an optical fiber-optic network cable is severed, emitting zero data packets, with an illuminated hologram confirming '100% Local Device Execution - 0 Bytes Uploaded'. Slate backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "client-side-browser-conversion-privacy-hero.webp",
+    "altText": "3D architectural render of private client-side WebAssembly image processing sandbox with zero network uploads",
+    "caption": "WebAssembly processes images locally in device RAM with zero network uploads or external storage.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-93-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Cloud Server Converter vs In-Browser WebAssembly Dataflow",
+    "concept": "Infographic contrasting Cloud Model (Data travels across internet to 3rd-party disk) vs FluxWebP Model (Data stays in local RAM).",
+    "prompt": "Clean technical architecture infographic on dark slate background: Flow A (Legacy Cloud Converter) shows user laptop uploading photo across the open internet to a remote cloud server disk with red security vulnerability warnings; Flow B (FluxWebP WebAssembly) shows all processing confined entirely within the local browser sandbox with an emerald green privacy shield. High contrast data arrows.",
+    "aspectRatio": "4:3",
+    "filename": "cloud-converter-vs-wasm-dataflow-infographic.webp",
+    "altText": "Technical diagram contrasting cloud converter data risks with private in-browser WebAssembly processing",
+    "caption": "Comparing remote cloud data exposure with private client-side WebAssembly execution.",
+    "placement": "Under Two Architectures Section"
+  },
+  {
+    "id": "va-93-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Verifying Zero Data Egress in Chrome DevTools",
+    "concept": "Vector developer workflow diagram showing opening F12 Network tab, filtering by Fetch/XHR, and verifying 0 bytes transmitted.",
+    "prompt": "Vector developer UI workflow diagram: 1. Pressing F12 to open Chrome DevTools, 2. Selecting Network tab and filtering by Fetch/XHR, 3. Dropping a 15MB photo into FluxWebP, 4. Verifying network log: 0 requests, 0 bytes transferred, 100% offline verified. Clean modern software aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "verify-zero-egress-devtools-workflow.webp",
+    "altText": "Workflow showing how to independently verify zero server uploads using Chrome DevTools network tab",
+    "caption": "Verify privacy independently: Chrome DevTools confirms zero bytes leave your device during conversion.",
+    "placement": "Under Chrome DevTools Verification Section"
+  },
+  {
+    "id": "va-93-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Cloud Privacy Policy Red Flags vs Zero-Retention Client Guarantees",
+    "concept": "Side-by-side legal document comparison showing cloud converter TOS 'We may retain files for 24 hours' vs client-side zero-touch guarantee.",
+    "prompt": "Side-by-side legal privacy policy comparison: Left shows typical cloud converter TOS clause highlighted in red: 'We store your files on cloud servers for processing and up to 24 hours for download'; Right shows FluxWebP architecture guarantee: 'Zero files ever touch our servers because codecs run in your browser's WebAssembly sandbox'. High contrast visual styling.",
+    "aspectRatio": "16:9",
+    "filename": "cloud-tos-retention-vs-zero-upload-comparison.webp",
+    "altText": "Comparison showing cloud converter data retention terms vs client-side zero-upload privacy architecture",
+    "caption": "Cloud converters store files on remote disks; client-side architectures guarantee zero data retention by design.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-93-5",
+    "index": 5,
+    "type": "application",
+    "title": "Corporate Legal Department Processing Confidential NDAs",
+    "concept": "Corporate legal counsel securely converting confidential merger documents and proprietary blueprints using client-side tools.",
+    "prompt": "High-end corporate legal office in a major financial district: an attorney and compliance officer review confidential merger schematics and proprietary client blueprints on secure workstations. A verified green privacy badge confirms: 'Offline Sandboxed Processing - Air-Gapped Compliant'. Sleek executive office setting at dusk.",
+    "aspectRatio": "16:9",
+    "filename": "corporate-legal-confidential-document-processing.webp",
+    "altText": "Corporate legal counsel securely converting confidential documents using client-side privacy tools",
+    "caption": "Client-side conversion satisfies strict enterprise NDA, HIPAA, and GDPR compliance mandates.",
+    "placement": "Conclusion Section"
+  }
+]

@@ -1,0 +1,42 @@
+---
+title: "Image Sitemaps: How to Create, Submit, and Index Images in Google Search Console"
+slug: "image-sitemaps-create-submit-index-google-search-console"
+id: 76
+category: "Website Image SEO & Performance"
+categorySlug: "image-seo-and-performance"
+publicationStatus: "published"
+publishedDate: "2026-11-10"
+updatedDate: "2026-11-14"
+author: "Dr. Sarah Chen"
+authorRole: "Head of Web Performance Architecture"
+readingTime: 7
+primaryKeyword: "image sitemap google search console"
+featuredImage: "/public/blog-assets/76-image-sitemaps-create-submit-index-google-search-console/hero.svg"
+---
+
+# Image Sitemaps: How to Create, Submit, and Index Images in Google Search Console
+
+<VisualAsset id="va-76-1" type="hero" src="/public/blog-assets/76-image-sitemaps-create-submit-index-google-search-console/hero.svg" alt="3D visual of XML image sitemap architecture feeding image URLs into Google search index" />
+
+> **Summary:** Don't let JavaScript lazy loading hide images from Googlebot. Master XML image sitemap tags, automated sitemap generation, and Search Console verification.
+
+
+
+
+## Frequently Asked Questions
+
+### Can image tags be added to existing standard XML sitemaps?
+
+Yes. Google strongly encourages extending your standard URL sitemap using the <code>xmlns:image='http://www.google.com/schemas/sitemap-image/1.1'</code> namespace rather than creating completely separate sitemap files.
+
+### Can image URLs point to an external CDN domain?
+
+Yes. Unlike page URLs (which must belong to the verified domain), <code>&lt;image:loc&gt;</code> URLs can reside on a completely different domain or CDN (e.g. <code>https://cdn.example.com/photo.webp</code>) provided both domains are verified in Search Console.
+
+### What tags are supported inside &lt;image:image&gt;?
+
+Google officially supports: <code>&lt;image:loc&gt;</code> (mandatory, the image URL). Note that <code>&lt;image:caption&gt;</code>, <code>&lt;image:title&gt;</code>, and <code>&lt;image:license&gt;</code> were previously supported but Google now parses captions and licensing from page HTML and structured data.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

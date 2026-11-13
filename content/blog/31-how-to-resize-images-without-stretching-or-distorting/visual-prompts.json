@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-31-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Proportional Image Resizing Studio",
+    "concept": "A sleek minimalist digital workspace demonstrating clean aspect ratio lock indicators and pristine distortion-free image scaling.",
+    "prompt": "Cinematic 3D render of an ultra-modern digital canvas floating in space, showing an architectural photograph undergoing smooth proportional scaling. A glowing cyan lock icon links the width and height vector dimensions, with crisp holographic grid lines and measurement callouts. Dark studio backdrop (#0F172A), neon blue and emerald accent lighting, ultra-sharp detail, 8k resolution, minimalist UI elements, no blurry artifacts, perfectly straight lines.",
+    "aspectRatio": "16:9",
+    "filename": "resize-images-without-stretching-hero.webp",
+    "altText": "Visual demonstration of locked aspect ratio scaling preventing image stretching",
+    "caption": "Locking the aspect ratio links horizontal and vertical dimensions to eliminate distortion.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-31-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Stretched vs Proportional Scaling Comparison",
+    "concept": "Infographic comparing naive distorted scaling against aspect-locked resizing and smart cropping.",
+    "prompt": "Clean technical infographic illustration on a dark slate background comparing three panels: Panel A shows a distorted squished circular badge labeled 'Naive Resize (Broken)', Panel B shows a proportional scaled badge with lock icon labeled 'Proportional Scaling (Correct)', Panel C shows a focal-point cropped rectangle labeled 'Smart Center Crop'. Professional typography, crisp vector diagrams, cyan and coral red status badges, high contrast.",
+    "aspectRatio": "4:3",
+    "filename": "aspect-ratio-resizing-comparison-infographic.webp",
+    "altText": "Technical diagram illustrating difference between naive stretching, locked proportions, and smart cropping",
+    "caption": "Comparing naive stretching with aspect-ratio locked resizing and focal cropping.",
+    "placement": "Under Proportional Ratio Equation"
+  },
+  {
+    "id": "va-31-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "FluxWebP Proportional Resizing Workflow",
+    "concept": "Step-by-step UI workflow illustrating upload, dimension lock, target resolution input, and export.",
+    "prompt": "Isometric flat vector tech diagram showing the 4-step FluxWebP resizing workflow: 1. Input image file upload, 2. Automatic ratio detection with locked padlock badge, 3. Entering target width with real-time height calculation, 4. Instant lossy or lossless export. Modern tech color palette of deep blue, white, and subtle green checkmarks, clean isometric layout.",
+    "aspectRatio": "16:9",
+    "filename": "proportional-resizing-step-by-step-workflow.webp",
+    "altText": "Step-by-step workflow for resizing images proportionally using FluxWebP",
+    "caption": "FluxWebP automatically calculates target dimensions the moment you change width or height.",
+    "placement": "Under Smart Cropping Section"
+  },
+  {
+    "id": "va-31-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "CSS object-fit: contain vs cover vs fill",
+    "concept": "Visual comparison of CSS object-fit values displaying how browsers render images in fixed aspect containers.",
+    "prompt": "Triple split screen comparison visual showcasing how CSS handles fixed containers: Left panel showing 'object-fit: fill' with severe horizontal squishing, Center panel showing 'object-fit: contain' with letterbox bars, Right panel showing 'object-fit: cover' with clean edge clipping and zero distortion. Sleek developer UI overlay, dark theme, sharp typographic labels.",
+    "aspectRatio": "16:9",
+    "filename": "css-object-fit-contain-cover-comparison.webp",
+    "altText": "Visual comparison of CSS object-fit fill, contain, and cover rendering behaviors",
+    "caption": "Using CSS object-fit: cover eliminates distortion while filling parent container boundaries.",
+    "placement": "Under CSS Best Practices"
+  },
+  {
+    "id": "va-31-5",
+    "index": 5,
+    "type": "application",
+    "title": "E-Commerce Multi-Device Grid Application",
+    "concept": "Real-world web application mockup of an e-commerce catalog featuring uniformly sized, distortion-free product cards across mobile and desktop.",
+    "prompt": "Photorealistic desk scene with a MacBook Pro and an iPhone displaying an e-commerce watch store. Every product image is perfectly proportioned, razor sharp, and aligned within clean responsive grid cards. Ambient daylight, subtle shadows, clean modern UI on screens, professional product photography display, 8k crisp quality.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-responsive-proportional-grid-mockup.webp",
+    "altText": "Modern responsive e-commerce storefront with perfectly proportioned product images",
+    "caption": "Uniform, undistorted product photography elevates user trust and boosts checkout conversions.",
+    "placement": "Conclusion Section"
+  }
+]

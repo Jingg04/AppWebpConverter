@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-34-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Geometric Aspect Ratio Spectrum",
+    "concept": "3D architectural render showing nested glowing frames representing 16:9, 4:3, 1:1, and 9:16.",
+    "prompt": "Abstract 3D architectural gallery showcasing nested luminous glass frames: a wide 16:9 frame, a square 1:1 frame, a 4:3 tablet frame, and a tall 9:16 mobile frame. Soft neon outlines in cyan, gold, and magenta highlight the dimensional geometry. Pristine reflective concrete floor, deep moody studio lighting, clean mathematical elegance, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "aspect-ratio-geometry-guide-hero.webp",
+    "altText": "3D visual representation of nested aspect ratio frames including 16:9, 4:3, 1:1, and 9:16",
+    "caption": "Understanding aspect ratios is key to framing visual narratives across varying display formats.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-34-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Standard Aspect Ratio Visual Reference Chart",
+    "concept": "Technical diagram illustrating side-by-side silhouettes of the 5 primary ratios with their math multipliers.",
+    "prompt": "Clean technical reference poster displaying five aspect ratio silhouettes: 16:9 (1.78), 3:2 (1.50), 4:3 (1.33), 1:1 (1.00), and 9:16 (0.56). Each silhouette features internal grid divisions, mathematical formulas, and sample pixel resolutions. Dark background with crisp typography.",
+    "aspectRatio": "4:3",
+    "filename": "common-aspect-ratios-reference-chart.webp",
+    "altText": "Technical diagram showing proportions, multipliers, and sample resolutions for common aspect ratios",
+    "caption": "Mathematical proportions and decimal multipliers of the core digital aspect ratios.",
+    "placement": "Under Core Digital Ratios Section"
+  },
+  {
+    "id": "va-34-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Cropping a 3:2 Raw Photo into 16:9, 1:1, and 9:16",
+    "concept": "Visual diagram illustrating how a single 35mm photograph is framed into multiple ratios using focal point preservation.",
+    "prompt": "Professional photo editing workflow visual displaying a master 3:2 mountain landscape. Three semi-transparent crop overlay boxes show how 16:9 clips the sky and foreground, 1:1 frames the peak, and 9:16 captures the vertical path. Glowing crop handles, rule-of-thirds grid lines, clean UI styling.",
+    "aspectRatio": "16:9",
+    "filename": "re-framing-aspect-ratios-focal-crop.webp",
+    "altText": "Diagram demonstrating how to crop a 3:2 image into 16:9, 1:1, and 9:16 compositions",
+    "caption": "Re-framing from 3:2 requires strategic focal point positioning to avoid losing key subjects.",
+    "placement": "Under 3:2 Section"
+  },
+  {
+    "id": "va-34-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Letterboxing vs Pillarboxing vs Center Cropping",
+    "concept": "Three screen illustrations showing how a 16:9 display handles non-native aspect ratios.",
+    "prompt": "Side-by-side technical comparison showing how a widescreen 16:9 screen displays a 4:3 image: Panel 1: Black side bars (Pillarboxing); Panel 2: Stretched distorted pixels (Broken); Panel 3: Center crop trimming top and bottom (Full Bleed). Modern minimalist device vectors, clear explanatory badges.",
+    "aspectRatio": "16:9",
+    "filename": "pillarboxing-vs-distortion-vs-cropping.webp",
+    "altText": "Comparison of pillarboxing black bars versus horizontal distortion versus center cropping",
+    "caption": "Pillarboxing preserves full framing, while center cropping achieves a modern full-bleed aesthetic.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-34-5",
+    "index": 5,
+    "type": "application",
+    "title": "Multi-Platform Visual Harmonization in Production",
+    "concept": "Real-world creator desk showing video editing software exporting timeline clips simultaneously into 16:9 and 9:16.",
+    "prompt": "Cinematic close-up of a video editor's workspace: dual 4K monitors displaying DaVinci Resolve with an active 16:9 timeline and an adjacent vertical 9:16 preview monitor. Professional editing keyboard, audio interface, soft ambient purple studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "content-creator-multi-ratio-workspace.webp",
+    "altText": "Content creator workspace managing synchronized 16:9 widescreen and 9:16 vertical content pipelines",
+    "caption": "Modern creative workflows simultaneously produce 16:9 desktop assets and 9:16 mobile stories.",
+    "placement": "Conclusion Section"
+  }
+]

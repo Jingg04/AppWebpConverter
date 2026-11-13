@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-7-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Inside the PNG to WebP Transformation Core",
+    "concept": "Abstract digital visualization of PNG data packets dissolving into structured, lightweight WebP crystal matrix.",
+    "prompt": "Futuristic visual metaphor of data compression. Heavy blocky cubic pixels representing PNG smoothly transitioning and compacting into razor-sharp, streamlined crystalline geometric facets representing WebP. Deep sapphire blue, teal, and pure white luminescence, hyper-detailed rendering, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "png-to-webp-transformation-core-hero.webp",
+    "altText": "Conceptual illustration of digital pixel blocks transforming from PNG format into WebP structure",
+    "caption": "Converting PNG to WebP executes four spatial transforms to minimize mathematical entropy.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-7-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 4 Spatial Transforms of VP8L Explained",
+    "concept": "Technical diagram illustrating Spatial Subtraction, Color Decorrelation, Palette Indexing, and Color Cache.",
+    "prompt": "Step-by-step technical infographic breaking down the four lossless VP8L transforms: 1. Spatial Subtraction (Pixel Difference) -> 2. Color Transform (Green decorrelation) -> 3. Palette Indexing (Color lookup table) -> 4. Color Cache (Recent memory lookup). Crisp vector diagram with clear annotations.",
+    "aspectRatio": "16:9",
+    "filename": "vp8l-four-transforms-infographic.svg",
+    "altText": "Infographic explaining the four mathematical transforms utilized during lossless WebP encoding",
+    "caption": "VP8L lossless encoding breaks down spatial and color redundancy through four reversible mathematical steps.",
+    "placement": "Section 2: Inside the VP8L Encoding Pipeline"
+  },
+  {
+    "id": "va-7-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "FluxWebP In-Browser Client-Side Conversion Sequence",
+    "concept": "Architecture flowchart showing on-device File API -> Canvas2D/WASM decoder -> WebP encoder -> Blob export.",
+    "prompt": "Flowchart showing local browser security pipeline: Step 1: User Drops PNG -> Step 2: FileReader in Web Worker -> Step 3: Raw RGBA Array in Memory -> Step 4: WebAssembly libwebp Encoding -> Step 5: Direct Blob Download. High-contrast security lock badge highlighting 100% on-device processing.",
+    "aspectRatio": "16:9",
+    "filename": "client-side-browser-conversion-workflow.svg",
+    "altText": "Flowchart showing client-side in-browser PNG to WebP conversion without remote server uploads",
+    "caption": "In FluxWebP, the entire transformation takes place inside your browser's private memory sandbox.",
+    "placement": "Section 3: In-Browser vs Server Conversion"
+  },
+  {
+    "id": "va-7-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Difference Map Verification: 0.000% Delta",
+    "concept": "Difference map test comparing original PNG with converted Lossless WebP showing absolute zero pixel difference.",
+    "prompt": "Scientific image difference verification graphic. Panel 1: Original High-Res PNG Logo. Panel 2: Converted Lossless WebP. Panel 3: Inverted mathematical difference map rendering a completely uniform pure black canvas (#000000) confirming 100.000% identical pixel values. Green 'Zero Delta' verification badge.",
+    "aspectRatio": "16:9",
+    "filename": "png-to-webp-difference-map-verification.webp",
+    "altText": "Mathematical difference map showing zero delta difference between original PNG and converted lossless WebP",
+    "caption": "The mathematical difference map confirms: Lossless WebP produces an exact, zero-delta match with the original PNG.",
+    "placement": "Section 4: Mathematical Lossless Verification"
+  },
+  {
+    "id": "va-7-5",
+    "index": 5,
+    "type": "application",
+    "title": "Design System UI Icon Pack Optimization Result",
+    "concept": "Figma/Sketch design system component library with 200 vector icons exported to WebP.",
+    "prompt": "Overhead view of a UI designer's workstation with dual monitors displaying a comprehensive SaaS design system containing 200 interface icons. Summary readout highlights folder size shrinking from 42 MB (PNG) down to 9.4 MB (Lossless WebP) with instant asset loading. Modern clean studio workspace.",
+    "aspectRatio": "16:9",
+    "filename": "design-system-icon-pack-webp-optimization.webp",
+    "altText": "Design system UI icon library showing 77% byte reduction after converting from PNG to WebP",
+    "caption": "Converting a 200-icon UI component library from PNG to WebP reduced bundle weight from 42 MB down to 9.4 MB.",
+    "placement": "Section 5: Practical Design System Implementation"
+  }
+]

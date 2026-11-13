@@ -1,0 +1,59 @@
+{
+  "id": 71,
+  "title": "The Ultimate Image SEO Checklist: Alt Text, File Names, Titles, and Captions",
+  "slug": "ultimate-image-seo-checklist-alt-text-filenames",
+  "folder": "71-ultimate-image-seo-checklist-alt-text-filenames",
+  "category": "Website Image SEO & Performance",
+  "categorySlug": "image-seo-and-performance",
+  "subcategory": "On-Page Image SEO",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-05",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "The Ultimate Image SEO Checklist: Alt Text & Names | FluxWebP Pro",
+    "metaDescription": "Boost your organic Google Image traffic. Follow this complete Image SEO checklist: semantic filenames, accessible alt text, captions, and Open Graph tags.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/ultimate-image-seo-checklist-alt-text-filenames/",
+    "primaryKeyword": "image seo checklist",
+    "secondaryKeywords": [
+      "how to write alt text for seo",
+      "image file naming best practices",
+      "google image search optimization",
+      "image title and captions seo"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/71-ultimate-image-seo-checklist-alt-text-filenames/hero.svg",
+  "visualAssetsCount": 5
+}

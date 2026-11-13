@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-25-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Progressive Scanning Frequency Waves Hero",
+    "concept": "Abstract digital visualization of progressive frequency waves sharpening an image in sequential optical passes.",
+    "prompt": "Futuristic visual metaphor of progressive image rendering: Multiple concentric luminous scanning waves (glowing amber and gold) sweeping across a high-resolution digital landscape, progressively resolving blurred abstract shapes into razor-sharp mountains and water reflections. Dark high-tech background, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "optimize-jpeg-progressive-scanning-hero.webp",
+    "altText": "Abstract visualization of progressive scanning waves sharpening a digital photograph in real time",
+    "caption": "Progressive JPEG rendering delivers instant visual feedback to users before all bytes finish downloading.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-25-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Baseline (Top-to-Bottom) vs Progressive (Multi-Pass) Diagram",
+    "concept": "Comparative visual timeline showing baseline top-to-bottom rendering versus progressive full-frame sharpening.",
+    "prompt": "Timeline comparison diagram showing 3 stages over 1.5 seconds: Top row (Baseline JPEG): 0.5s (top 20% rendered, rest blank) -> 1.0s (top 60% rendered) -> 1.5s (full image). Bottom row (Progressive JPEG): 0.5s (entire frame rendered low-res blur) -> 1.0s (medium-res detail) -> 1.5s (full crisp finish). Clean vector labels.",
+    "aspectRatio": "16:9",
+    "filename": "baseline-vs-progressive-jpeg-timeline-diagram.svg",
+    "altText": "Visual timeline comparing baseline top-to-bottom loading against progressive full-frame sharpening",
+    "caption": "Progressive JPEGs eliminate jarring blank spaces by rendering an instant low-resolution preview.",
+    "placement": "Section 2: The Progressive Advantage"
+  },
+  {
+    "id": "va-25-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "MozJPEG Trellis Quantization Pipeline Flowchart",
+    "concept": "Flowchart showing: DCT Matrix -> Trellis Quantization -> Huffman Entropy Optimization -> Progressive Scan Pack.",
+    "prompt": "Technical process diagram: 1. Input RGB Image -> 2. Forward Discrete Cosine Transform (DCT) -> 3. MozJPEG Trellis Quantization (Optimizes coefficient rounding) -> 4. Chroma Subsampling 4:2:0 -> 5. Optimized Progressive JPEG File. Clean technical blueprint styling.",
+    "aspectRatio": "16:9",
+    "filename": "mozjpeg-trellis-quantization-pipeline.svg",
+    "altText": "Technical flowchart illustrating the MozJPEG trellis quantization and progressive encoding pipeline",
+    "caption": "MozJPEG's trellis quantization algorithm finds mathematically optimal coefficient values to shed 15% more bytes.",
+    "placement": "Section 3: Under the Hood: MozJPEG Engineering"
+  },
+  {
+    "id": "va-25-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Standard Libjpeg vs MozJPEG at Equivalent Visual Quality",
+    "concept": "Side-by-side comparison of a food photograph: Libjpeg (840 KB) vs MozJPEG (610 KB) with identical clarity.",
+    "prompt": "Side-by-side comparison of an appetizing artisan pizza photograph. Left side: Standard Libjpeg at 85% quality (840 KB). Right side: MozJPEG at 82% quality (610 KB). A zoomed inset circle highlights identical crispy crust texture and melted cheese highlights with a bold '-27% File Size' badge.",
+    "aspectRatio": "16:9",
+    "filename": "libjpeg-vs-mozjpeg-food-photo-comparison.webp",
+    "altText": "Comparison of a food photograph showing standard JPEG at 840KB versus MozJPEG at 610KB with identical quality",
+    "caption": "MozJPEG saves 27% more bytes than legacy JPEG decoders without introducing visible compression artifacts.",
+    "placement": "Section 4: Empirical Quality Benchmarks"
+  },
+  {
+    "id": "va-25-5",
+    "index": 5,
+    "type": "application",
+    "title": "Mobile Slow-3G Connection User Experience Simulation",
+    "concept": "Side-by-side smartphone simulation on a simulated Slow-3G cellular network.",
+    "prompt": "Two hands holding identical smartphones side-by-side on an outdoor cafe table. Left phone struggles with a baseline JPEG showing half-blank screen. Right phone displays progressive JPEG with the entire article photograph immediately readable and clear. Daylight outdoor setting.",
+    "aspectRatio": "16:9",
+    "filename": "mobile-slow-3g-progressive-jpeg-experience.webp",
+    "altText": "Two smartphones on slow 3G cellular network demonstrating the superior perceived speed of progressive JPEG",
+    "caption": "On slow mobile cellular connections, progressive JPEGs keep visitors engaged by avoiding blank screens.",
+    "placement": "Section 5: Real-World Mobile User Experience"
+  }
+]

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B"/>
+      <stop offset="100%" stop-color="#27272A"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Canvas Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+  
+  <!-- Grid Accent Lines -->
+  <g stroke="rgba(255, 255, 255, 0.05)" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135"/>
+    <line x1="0" y1="270" x2="1200" y2="270"/>
+    <line x1="0" y1="405" x2="1200" y2="405"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+    <line x1="240" y1="0" x2="240" y2="675"/>
+    <line x1="480" y1="0" x2="480" y2="675"/>
+    <line x1="720" y1="0" x2="720" y2="675"/>
+    <line x1="960" y1="0" x2="960" y2="675"/>
+  </g>
+
+  <!-- Brand Watermark -->
+  <g transform="translate(60, 55)">
+    <rect width="28" height="28" rx="6" fill="#2563EB"/>
+    <text x="40" y="20" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700" letter-spacing="1">FLUXWEBP PRO &bull; VISUAL ASSET #4</text>
+  </g>
+
+  <!-- Asset Type Badge -->
+  <g transform="translate(60, 120)">
+    <rect width="180" height="30" rx="15" fill="rgba(255,255,255,0.08)" stroke="#EC4899" stroke-width="1.5"/>
+    <text x="90" y="20" fill="#EC4899" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="0.8">VISUAL COMPARISON</text>
+  </g>
+
+  <!-- Title Text -->
+  <text x="60" y="240" fill="#F8FAFC" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="34" font-weight="800">
+    Generic Stock Photo vs Original Authentic Photograph...
+  </text>
+
+  <!-- Aspect Ratio & Specification Tag -->
+  <g transform="translate(60, 580)">
+    <text fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="600">
+      Aspect Ratio: 16:9 &bull; Vector Scalable &bull; 100% Client-Side Private Storage
+    </text>
+  </g>
+</svg>

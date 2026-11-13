@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-30-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Pitfall Gauntlet of Image Mistakes Hero",
+    "concept": "A dramatic visual metaphor showing common digital pitfalls and traps along an image deployment highway.",
+    "prompt": "Surrealistic conceptual photography: A glowing futuristic digital highway where data packets navigate past warning hazards (glowing red obstacle prisms labeled 'Bloated 24MP', 'Missing Dimensions', 'Excessive Noise'). Clean, optimized blue data packets cruise smoothly into a pristine digital horizon. 16:9 cinematic framing, dramatic high-contrast studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "image-compression-mistakes-pitfalls-hero.webp",
+    "altText": "Conceptual digital highway illustrating common image optimization traps and smooth optimized pathways",
+    "caption": "Navigating past the common pitfalls of image optimization protects your brand credibility and page speed.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-30-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 10 Most Damaging Image Optimization Mistakes Infographic",
+    "concept": "Infographic list detailing the 10 critical mistakes with their corresponding Core Web Vitals penalty.",
+    "prompt": "Structured comparison infographic detailing 10 critical mistakes paired with direct performance penalties: 1. Raw Camera Uploads (High LCP) -> 2. Missing Dimensions (Severe CLS) -> 3. Over-Compression (High Bounce Rate) -> 4. PNG for Photos (Bandwidth Waste) -> 5. No Lazy Loading (Slow Initial Load). High-contrast vector styling with red error and green solution pills.",
+    "aspectRatio": "16:9",
+    "filename": "top-10-image-optimization-mistakes-infographic.svg",
+    "altText": "Infographic listing the ten most damaging website image optimization mistakes and their solutions",
+    "caption": "Audit your website against these ten common image traps to ensure optimal user experience and search ranking.",
+    "placement": "Section 2: The 10 Critical Image Mistakes"
+  },
+  {
+    "id": "va-30-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Pre-Flight Web Image QA Inspection Checklist",
+    "concept": "Checklist workflow: Dimension Check -> Format Verification -> Compression Ratio Check -> HTML Attributes Check.",
+    "prompt": "Interactive checklist workflow graphic: Step 1: Max width capped at 1920px? [CHECK] -> Step 2: Formatted as WebP/AVIF? [CHECK] -> Step 3: File size under 180 KB? [CHECK] -> Step 4: Width and height attributes in HTML? [CHECK] -> Step 5: Loading='lazy' applied? [CHECK]. Clean SaaS interface styling.",
+    "aspectRatio": "16:9",
+    "filename": "pre-flight-image-qa-checklist-workflow.svg",
+    "altText": "Pre-flight website image QA checklist workflow ensuring zero optimization errors",
+    "caption": "Run every image through this pre-flight QA checklist before deploying to your production CMS.",
+    "placement": "Section 3: The Pre-Flight QA Protocol"
+  },
+  {
+    "id": "va-30-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Over-Compression Brand Damage: Muddy Sludge vs Crisp Luxury",
+    "concept": "Side-by-side comparison of a luxury watch photo: 35% quality (blurry, cheap-looking) vs 82% quality (crisp, premium).",
+    "prompt": "Side-by-side commercial product comparison of a luxury swiss chronograph watch. Left side: Over-compressed at 35% quality (ugly color blocking, muddy dial, blurry metal brushing - looks like a cheap counterfeit). Right side: Balanced WebP at 82% quality (crisp guilloché dial, sharp sapphire crystal reflections - looks prestigious and luxury).",
+    "aspectRatio": "16:9",
+    "filename": "over-compression-luxury-product-brand-damage.webp",
+    "altText": "Comparison showing how aggressive over-compression ruins perceived luxury product quality and hurts sales",
+    "caption": "Over-compression damages brand trust: The blurry watch on the left looks cheap, directly hurting sales conversions.",
+    "placement": "Section 4: The Hidden Cost of Over-Compression on Sales"
+  },
+  {
+    "id": "va-30-5",
+    "index": 5,
+    "type": "application",
+    "title": "Cumulative Layout Shift (CLS) Jump Demonstration",
+    "concept": "Screen recording visual of a mobile webpage jumping violently when an un-dimensioned image suddenly loads.",
+    "prompt": "Two-panel mobile screen sequence illustrating Cumulative Layout Shift (CLS). Panel 1: User attempts to tap an article link, but an un-dimensioned hero image suddenly loads, violently pushing the content down. Panel 2: User accidentally clicks an unwanted ad instead of the link due to layout shift. Red 'CLS Failed: 0.45' indicator badge.",
+    "aspectRatio": "16:9",
+    "filename": "cumulative-layout-shift-cls-demonstration.webp",
+    "altText": "Mobile screen sequence illustrating how images without width and height cause layout shifts and bad clicks",
+    "caption": "Omitting width and height attributes causes sudden layout shifts, frustrating users and failing Google CLS.",
+    "placement": "Section 5: Preventing Layout Shifts (CLS)"
+  }
+]

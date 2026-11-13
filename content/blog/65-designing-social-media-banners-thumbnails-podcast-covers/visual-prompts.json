@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-65-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Digital Feed Visual Domination & Thumbnail Psychology",
+    "concept": "3D render showing an array of floating smartphone feeds where a single high-contrast YouTube thumbnail and podcast cover magnetically draws all visual attention.",
+    "prompt": "High-tech social media visual ecosystem: multiple floating glass smartphone displays showing social video feeds. While surrounding video cards are muted and blurry, one commanding YouTube thumbnail (featuring an expressive facial cutout, neon yellow typography, and bold contrast) and an adjacent 3000x3000px podcast square glow with magnetic brilliance. Electric cyan and amber ambient lighting, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "social-media-banners-thumbnails-hero.webp",
+    "altText": "3D visual illustrating thumbnail psychology and visual dominance in mobile social feeds",
+    "caption": "High-contrast thumbnails with emotional facial cutouts command immediate attention in mobile feeds.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-65-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "YouTube Thumbnail Safe Zones & Timestamp Overlay",
+    "concept": "Technical diagram mapping out the 1280x720 canvas with danger zones (timestamp badge) and prime visual territory.",
+    "prompt": "Clean technical graphic design infographic on dark slate background: 1280x720px YouTube canvas annotated: Red Danger Zone in bottom-right labeled 'Duration Badge Overlay (DO NOT PLACE TEXT)', Left 60% labeled 'Prime Facial Focal Zone', Top-Right 40% labeled '3-Word Curiosity Hook Area'. High contrast callouts.",
+    "aspectRatio": "4:3",
+    "filename": "youtube-thumbnail-safe-zones-infographic.webp",
+    "altText": "Technical infographic showing safe zones and timestamp overlay danger zones for YouTube thumbnails",
+    "caption": "Never place text in the bottom-right corner where YouTube's duration timestamp overlay sits.",
+    "placement": "Under 3 Pillars Section"
+  },
+  {
+    "id": "va-65-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "From Raw Recording to Viral Thumbnail in FluxWebP",
+    "concept": "Step-by-step vector workflow showing frame capture, 1-click background removal, sticker stroke, bold text overlay, and export.",
+    "prompt": "Vector digital workflow: 1. Video frame grab, 2. AI background removal isolating creator face, 3. Toggling white sticker stroke + drop shadow, 4. Adding 3-word bold display text with yellow highlight box, 5. Instant 1280x720 WebP export. Clean modern aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "youtube-thumbnail-production-workflow.webp",
+    "altText": "Workflow showing how to create high-converting YouTube thumbnails in FluxWebP Studio",
+    "caption": "Create viral, click-worthy YouTube thumbnails and podcast covers in minutes using Poster Studio.",
+    "placement": "Under Curiosity Hook Section"
+  },
+  {
+    "id": "va-65-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "The Mobile Squint Test: Tiny Thumbnail Readability",
+    "concept": "Side-by-side comparison showing a cluttered thumbnail vanishing into mud vs bold thumbnail remaining razor-clear at 120px size.",
+    "prompt": "Side-by-side comparison simulated at tiny 120px mobile thumbnail scale: Left panel shows cluttered thumbnail with 12 small words that become an illegible gray smudge; Right panel shows bold 3-word hook and large expressive facial cutout that remains instantly readable and striking even when zoomed way out.",
+    "aspectRatio": "16:9",
+    "filename": "mobile-squint-test-thumbnail-comparison.webp",
+    "altText": "Comparison demonstrating the squint test on mobile: tiny cluttered thumbnail vs clear bold layout",
+    "caption": "Pass the 'Squint Test': ensure your thumbnail communicates its core hook even when scaled down to 120px on mobile.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-65-5",
+    "index": 5,
+    "type": "application",
+    "title": "Top-Charting Podcast on Apple & Spotify Directory",
+    "concept": "iPad displaying Apple Podcasts Top 10 chart showing a striking, professional cover art standing out above rivals.",
+    "prompt": "Photorealistic iPad Pro on a sound engineer's recording desk, displaying Apple Podcasts Top Charts. A bold, minimalist podcast cover with striking typography and clean facial photography dominates the screen with magnetic presence. Studio microphone and headphones in background.",
+    "aspectRatio": "16:9",
+    "filename": "podcast-cover-art-top-charts-showcase.webp",
+    "altText": "Apple Podcasts app displayed on iPad showcasing top-charting podcast cover design",
+    "caption": "Professional podcast cover art establishes credibility and drives subscriber conversions in app directories.",
+    "placement": "Conclusion Section"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-55-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Client-Side WebGPU vs Cloud AI Dataflow",
+    "concept": "3D architectural render contrasting a private local laptop executing AI in glowing green shield vs remote data packets crossing international cloud servers.",
+    "prompt": "Futuristic dual architecture visualization: on the left, a sleek modern laptop processes an image inside a glowing emerald cryptographic privacy sphere with zero outbound network traffic; on the right, data packets travel over miles of fiber optic cables to a dark server farm with red billing meter counters. Deep slate background, high-tech cybersecurity aesthetic, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "browser-ai-vs-cloud-api-hero.webp",
+    "altText": "3D architectural diagram comparing private client-side browser AI vs remote cloud server APIs",
+    "caption": "Client-side WebGPU executes AI inference locally with zero server upload latency or privacy risks.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-55-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Architecture Comparison Matrix",
+    "concept": "Infographic detailing privacy, speed, cost, and offline capabilities between WebGPU and Cloud APIs.",
+    "prompt": "Clean technical comparison infographic on dark navy background: Side-by-side evaluation across Privacy (100% vs 3rd Party), Latency (Zero upload vs 2-sec wait), Cost ($0 vs $40/1k calls), and Reliability (Works offline vs Requires 5G). High-contrast data badges and icons.",
+    "aspectRatio": "4:3",
+    "filename": "browser-ai-vs-cloud-matrix-infographic.webp",
+    "altText": "Technical infographic matrix comparing browser-based AI inference against cloud APIs",
+    "caption": "Comparing client-side WebAssembly/WebGPU with traditional remote cloud inference architectures.",
+    "placement": "Under Head-to-Head Table Section"
+  },
+  {
+    "id": "va-55-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Client-Side Neural Weight Caching Workflow",
+    "concept": "Flowchart showing one-time 25MB quantized model download into browser CacheStorage, followed by instantaneous offline execution.",
+    "prompt": "Technical browser dataflow diagram: 1. User visits site, 2. One-time background fetch of 25MB quantized ONNX model, 3. Saved to CacheStorage/IndexedDB, 4. Subsequent runs load model in 50ms from local disk with zero network requests. Modern developer aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "browser-model-caching-workflow.webp",
+    "altText": "Workflow diagram showing client-side neural network weight caching inside browser storage",
+    "caption": "Quantized neural models are cached locally in browser storage for instant, offline execution.",
+    "placement": "Under Hybrid Edge Section"
+  },
+  {
+    "id": "va-55-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Latency Breakdown: 20MB Camera File Processing",
+    "concept": "Stacked bar chart comparing 4.5 second cloud upload/download bottleneck vs 450 millisecond local WebGPU run.",
+    "prompt": "Data visualization bar chart on dark background: Top bar shows Cloud API breakdown: 2.1s upload + 0.8s inference + 1.2s download = 4.1s total; Bottom bar shows Local WebGPU: 0s upload + 0.45s inference + 0s download = 0.45s total. '9x Faster' callout badge in vibrant green.",
+    "aspectRatio": "16:9",
+    "filename": "cloud-latency-vs-local-webgpu-benchmark.webp",
+    "altText": "Bar chart comparing network upload latency of cloud APIs against instant local browser AI inference",
+    "caption": "Local WebGPU processing eliminates network upload and download bottlenecks entirely.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-55-5",
+    "index": 5,
+    "type": "application",
+    "title": "Enterprise Legal & Healthcare Compliance Deployment",
+    "concept": "Healthcare or legal office workstation processing confidential patient records and client photos with zero data egress.",
+    "prompt": "Professional healthcare data management office: a medical technician reviews patient clinical documentation and photos on a secure workstation. A prominent green security status indicator confirms: 'Local Processing Only - Zero External Data Transmission'. Modern corporate clinic setting.",
+    "aspectRatio": "16:9",
+    "filename": "healthcare-compliance-private-image-processing.webp",
+    "altText": "Secure healthcare workstation processing sensitive images locally with zero external server upload",
+    "caption": "Client-side AI provides airtight compliance for HIPAA, GDPR, and enterprise non-disclosure environments.",
+    "placement": "Conclusion Section"
+  }
+]

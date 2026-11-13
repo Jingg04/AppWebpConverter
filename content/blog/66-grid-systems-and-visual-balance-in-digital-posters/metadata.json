@@ -1,0 +1,59 @@
+{
+  "id": 66,
+  "title": "Grid Systems and Visual Balance: The Rule of Thirds in Digital Posters",
+  "slug": "grid-systems-and-visual-balance-in-digital-posters",
+  "folder": "66-grid-systems-and-visual-balance-in-digital-posters",
+  "category": "AI Poster Generation & Design",
+  "categorySlug": "ai-poster-generation-and-design",
+  "subcategory": "Composition & Grids",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Grid Systems & Visual Balance in Poster Design | FluxWebP Pro",
+    "metaDescription": "Master graphic design grid systems. Learn how modular grids, the Swiss 12-column system, and the Rule of Thirds create effortless visual balance in posters.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/grid-systems-and-visual-balance-in-digital-posters/",
+    "primaryKeyword": "grid systems for poster design",
+    "secondaryKeywords": [
+      "rule of thirds in graphic design",
+      "swiss grid poster layout",
+      "visual balance in poster composition",
+      "golden ratio in poster design"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/66-grid-systems-and-visual-balance-in-digital-posters/hero.svg",
+  "visualAssetsCount": 5
+}

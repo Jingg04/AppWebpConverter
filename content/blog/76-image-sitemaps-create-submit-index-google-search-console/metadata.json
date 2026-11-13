@@ -1,0 +1,59 @@
+{
+  "id": 76,
+  "title": "Image Sitemaps: How to Create, Submit, and Index Images in Google Search Console",
+  "slug": "image-sitemaps-create-submit-index-google-search-console",
+  "folder": "76-image-sitemaps-create-submit-index-google-search-console",
+  "category": "Website Image SEO & Performance",
+  "categorySlug": "image-seo-and-performance",
+  "subcategory": "Indexing & Sitemaps",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Image Sitemaps: Create, Submit & Index (GSC Guide) | FluxWebP Pro",
+    "metaDescription": "Ensure Google discovers and indexes every image on your website. Learn XML image sitemap syntax (<image:image>, <image:loc>), submission, and GSC tracking.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/image-sitemaps-create-submit-index-google-search-console/",
+    "primaryKeyword": "image sitemap google search console",
+    "secondaryKeywords": [
+      "how to create image sitemap",
+      "xml image sitemap generator",
+      "submit image sitemap to google",
+      "image indexing in search console"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/76-image-sitemaps-create-submit-index-google-search-console/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-56-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The E-Commerce Cutout Strategy Matrix",
+    "concept": "3D render of a luxury wristwatch hovering between a pure white marketplace card and a dark-mode transparent responsive card.",
+    "prompt": "Futuristic e-commerce design studio: a luxury chronograph watch suspended in the center. The left side rests against a flawless, luminous pure white background with subtle studio lighting (#FFFFFF); the right side seamlessly floats over a dark midnight-blue carbon-fiber textured theme with transparent alpha drop shadow. Sleek modern tech aesthetic, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-cutouts-white-vs-transparent-hero.webp",
+    "altText": "3D visual comparing product cutout on pure white background vs transparent dark mode background",
+    "caption": "Balancing pure white marketplace standards with transparent responsive branding.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-56-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Marketplace Rules vs Brand Experience Comparison",
+    "concept": "Infographic contrasting Amazon/Google Shopping strict white rules vs D2C Shopify responsive flexibility.",
+    "prompt": "Clean technical comparison infographic on dark slate background: Column A (Marketplace Channel) highlights Amazon, Walmart, Google Shopping requirements: Pure White #FFFFFF, JPG/WebP, Zero props; Column B (Direct Storefront) highlights Shopify, WooCommerce: Transparent WebP, Dark Mode Support, Interactive Parallax. High contrast badges.",
+    "aspectRatio": "4:3",
+    "filename": "marketplace-vs-d2c-background-strategy-infographic.webp",
+    "altText": "Infographic comparing marketplace white background rules with D2C transparent storefront benefits",
+    "caption": "Strategic comparison: marketplace compliance versus direct-to-consumer flexibility.",
+    "placement": "Under When to Use Pure White Section"
+  },
+  {
+    "id": "va-56-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Dual-Export Pipeline from One Master Cutout",
+    "concept": "Flowchart showing one master cutout being exported simultaneously as Amazon-ready white JPG and storefront transparent WebP.",
+    "prompt": "Vector e-commerce workflow diagram: 1. AI extracts master product cutout, 2. Dual export fork: Branch A adds #FFFFFF fill and exports amazon-main-1600.jpg; Branch B preserves alpha and exports shopify-hero.webp (65% lighter). Clean iconography and modern tech colors.",
+    "aspectRatio": "16:9",
+    "filename": "dual-export-ecommerce-cutout-workflow.webp",
+    "altText": "Workflow diagram showing dual export of white marketplace image and transparent WebP cutout",
+    "caption": "Generate both Amazon-compliant white images and storefront transparent WebPs from one master cutout.",
+    "placement": "Under When to Use Transparent WebP Section"
+  },
+  {
+    "id": "va-56-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "White Box Clashing in Dark Mode vs Flawless Transparent WebP",
+    "concept": "Side-by-side smartphone mockup showing ugly white rectangle in dark mode vs seamless transparent cutout.",
+    "prompt": "Side-by-side mobile app interface comparison in dark mode: Left phone shows an ugly bright white rectangular box around a sneaker clashing against dark gray theme (poor UX); Right phone shows transparent WebP cutout blending smoothly into the dark UI with an ambient shadow. Clear red and green UI badges.",
+    "aspectRatio": "16:9",
+    "filename": "white-box-clash-vs-transparent-dark-mode.webp",
+    "altText": "Comparison showing ugly white image box clashing in dark mode vs smooth transparent WebP cutout",
+    "caption": "Transparent WebP cutouts blend into modern dark mode interfaces, eliminating jarring white boxes.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-56-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-Growth D2C Apparel Brand Storefront",
+    "concept": "Designer desk showing responsive e-commerce storefront with smooth transparent product hovers and seasonal background banners.",
+    "prompt": "Contemporary design agency office: dual displays showing an ultra-modern D2C streetwear boutique. Product cutouts float dynamically over subtle textured pastel and dark stone backgrounds. Clean typography, luxury boutique aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "d2c-apparel-storefront-transparent-cutouts.webp",
+    "altText": "Modern D2C fashion boutique website utilizing transparent WebP product cutouts across dynamic themes",
+    "caption": "Transparent product imagery enables dynamic promotions and seamless interactive web design.",
+    "placement": "Conclusion Section"
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "id": 47,
+  "title": "Preparing Photos for Web Publishing: The 5-Step Editorial Checklist",
+  "slug": "preparing-photos-for-web-publishing-editorial-checklist",
+  "folder": "47-preparing-photos-for-web-publishing-editorial-checklist",
+  "category": "Image Editing & Creative Workflows",
+  "categorySlug": "editing-and-creative-workflows",
+  "subcategory": "Production Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-11",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Preparing Photos for the Web: 5-Step Checklist | FluxWebP Pro",
+    "metaDescription": "Follow this 5-step editorial checklist before publishing photos online. Master framing, color space (sRGB), dimension resizing, compression, and SEO metadata.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/preparing-photos-for-web-publishing-editorial-checklist/",
+    "primaryKeyword": "preparing photos for web publishing",
+    "secondaryKeywords": [
+      "website photo preparation checklist",
+      "how to prep images for blog",
+      "web image optimization steps",
+      "pre-publish photo optimization"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/47-preparing-photos-for-web-publishing-editorial-checklist/hero.svg",
+  "visualAssetsCount": 5
+}

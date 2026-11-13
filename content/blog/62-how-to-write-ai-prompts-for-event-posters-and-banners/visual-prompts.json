@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-62-1",
+    "index": 1,
+    "type": "hero",
+    "title": "AI Prompt Engineering & Generative Studio",
+    "concept": "3D render showing an intricate modular prompt formula floating like glowing cryptographic blocks and assembling a breathtaking poster artwork.",
+    "prompt": "Futuristic AI creative studio: glowing modular prompt syntax blocks ([Subject], [Art Style], [Negative Space], [Color Palette], [Lighting]) hover in mid-air connected by luminous fiber-optic cables. The prompt code projects into a vertical holographic canvas rendering a stunning, minimalist techno-music event poster with perfect negative space. Deep cobalt and amber lighting, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "ai-prompt-engineering-event-posters-hero.webp",
+    "altText": "3D visual of modular prompt engineering blocks generating minimalist event poster with negative space",
+    "caption": "Structured prompt formulas yield predictable, production-ready poster art with ample space for text.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-62-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 6-Part Prompt Architecture Formula",
+    "concept": "Infographic poster breaking down each of the 6 components of the master prompt syntax with concrete examples.",
+    "prompt": "Clean technical graphic design infographic on dark slate background: 6 horizontal cards detailing 1. Core Subject, 2. Style/Medium, 3. Negative Space Directive, 4. Color Palette, 5. Lighting Key, 6. Negative Constraints (no text, no clutter). High contrast typography and color-coded icons.",
+    "aspectRatio": "4:3",
+    "filename": "6-part-prompt-architecture-formula-infographic.webp",
+    "altText": "Technical infographic breaking down the 6-part prompt architecture for AI poster generation",
+    "caption": "The 6-part prompt architecture for generating commercial graphic assets.",
+    "placement": "Under 6-Part Formula Section"
+  },
+  {
+    "id": "va-62-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Two-Stage AI Poster Workflow: Art + Vector Typography",
+    "concept": "Flowchart showing Stage 1 (Generate clean art with negative space) and Stage 2 (Overlay crisp vector typography in Poster Studio).",
+    "prompt": "Vector production workflow: Stage 1: AI Diffusion engine generates pristine background artwork with negative space in upper third; Stage 2: Transferring canvas to FluxWebP Poster Studio to overlay vector typography, date badges, and QR codes. Clean UI badges.",
+    "aspectRatio": "16:9",
+    "filename": "two-stage-ai-poster-workflow.webp",
+    "altText": "Workflow diagram contrasting AI art generation with vector typography compositing",
+    "caption": "The professional two-stage workflow: generate pure art with AI, overlay clean vector typography in editor.",
+    "placement": "Under Production Prompt Section"
+  },
+  {
+    "id": "va-62-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Vague Amateur Prompt vs Engineered Negative Space Prompt",
+    "concept": "Side-by-side comparison showing cluttered mess with fake text vs pristine artwork with spacious headline area.",
+    "prompt": "Side-by-side image comparison: Left panel shows output from 'music concert poster' featuring garbled fake letters, cluttered center, and zero room for text; Right panel shows output from our engineered prompt featuring a sleek minimalist synthwave guitar in lower third with a gorgeous clean gradient sky ready for real typography.",
+    "aspectRatio": "16:9",
+    "filename": "vague-prompt-vs-engineered-negative-space.webp",
+    "altText": "Comparison showing cluttered vague prompt with broken text vs engineered prompt with clean negative space",
+    "caption": "Engineered negative-space prompts guarantee clean areas for real headline and event typography.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-62-5",
+    "index": 5,
+    "type": "application",
+    "title": "Music Festival Campaign Suite Rollout",
+    "concept": "Designer desk showing 5 distinct festival posters generated from unified prompt templates across various artists.",
+    "prompt": "Creative agency studio: high-res monitors displaying a complete visual identity for an electronic music festival: 5 cohesive artist posters, each with a unique surreal 3D instrument sculpture but identical layout grid and typographic system. Elegant studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "music-festival-ai-poster-campaign-suite.webp",
+    "altText": "Creative agency workstation displaying cohesive music festival poster campaign generated with AI",
+    "caption": "Consistent prompt formulas allow creators to generate entire unified poster campaigns in minutes.",
+    "placement": "Conclusion Section"
+  }
+]

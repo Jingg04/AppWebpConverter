@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-69-1",
+    "index": 1,
+    "type": "hero",
+    "title": "High-DPI Multiplier & Multi-Format Export Engine",
+    "concept": "3D render showing a vector poster canvas feeding into an optical data splitter that outputs a 300 DPI PDF, a lossless PNG, and an ultra-compressed WebP file.",
+    "prompt": "Futuristic digital manufacturing hub: a master graphic design poster suspended in an optical beam. The vector canvas passes through a glowing 4x resolution multiplier lens, splitting into three distinct, luminous export streams labeled: 'Vector PDF/X (Print)', 'Lossless PNG (Master)', and 'High-Efficiency WebP (Web 1.8MB)'. Dark sleek tech environment, electric cyan accents, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "exporting-vector-sharp-posters-hero.webp",
+    "altText": "3D visual of high-resolution poster export engine splitting into PDF, PNG, and WebP formats",
+    "caption": "Offscreen 4x render multipliers ensure vector text and graphics remain razor-sharp upon export.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-69-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Export Format Decision Matrix (PDF vs PNG vs WebP)",
+    "concept": "Infographic comparing File Size, Text Sharpness, Print Readiness, and Web Speed across the 3 formats.",
+    "prompt": "Clean technical comparison infographic on dark slate background: 3 format columns: Column 1: Print PDF (Vector text, CMYK support, large size); Column 2: Lossless PNG (Archival raster, Alpha support, 18MB); Column 3: WebP (90% compression, 4K crisp, 1.8MB, instant web loading). High contrast evaluation badges.",
+    "aspectRatio": "4:3",
+    "filename": "poster-export-formats-decision-matrix.webp",
+    "altText": "Technical infographic matrix comparing PDF, PNG, and WebP for poster export",
+    "caption": "Format decision matrix: choosing between print-ready PDF, archival PNG, and web-ready WebP.",
+    "placement": "Under Format Selection Section"
+  },
+  {
+    "id": "va-69-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "The Offscreen 4x Re-Rendering Pipeline",
+    "concept": "Technical dataflow diagram showing low-res screen preview triggering high-res vector offscreen canvas scale during export.",
+    "prompt": "Vector dataflow diagram: 1. User clicks 'Export 4K Poster', 2. Spawning Web Worker with OffscreenCanvas, 3. Scaling 2D transform matrix by 4x, 4. Re-rendering vector typography curves from mathematical glyphs, 5. Encoding WebP blob in 650ms. Clean developer UI aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "offscreen-4x-canvas-export-pipeline.webp",
+    "altText": "Workflow diagram of offscreen multi-threaded 4x canvas re-rendering pipeline",
+    "caption": "FluxWebP re-renders vector typography from mathematical definitions to guarantee sub-pixel sharpness.",
+    "placement": "Under High-DPI Multiplier Section"
+  },
+  {
+    "id": "va-69-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Screen Rasterized Blur vs 4x Scaled Vector Sharpness",
+    "concept": "Magnified 500% side-by-side comparison on fine typographic serif letterform.",
+    "prompt": "Magnified 500% macro comparison on typographic serif letter 'R': Left panel shows '1x Screen Dump' with blurry, pixelated stair-stepping and fuzzy edges; Right panel shows '4x Offscreen Vector Re-Render' with razor-sharp mathematical curves and pristine contrast. Clear visual fidelity badges.",
+    "aspectRatio": "16:9",
+    "filename": "screen-dump-vs-4x-vector-export-comparison.webp",
+    "altText": "Macro zoom comparison showing pixelated screen dump vs razor-sharp 4x vector re-rendered typography",
+    "caption": "Re-rendering at 4x resolution (right) eliminates pixelation and maintains crisp typography.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-69-5",
+    "index": 5,
+    "type": "application",
+    "title": "Commercial Exhibition Launch Ready in Minutes",
+    "concept": "Designer desk showing exported posters opening on mobile feeds, high-res 4K web landing pages, and commercial print proofs.",
+    "prompt": "High-end design agency office: multiple screens displaying a cohesive international product launch: a smartphone showing an Instagram Story, a 4K studio display showing the live website hero, and physical print proofs in a shipping tube. Everything is razor-sharp and color-consistent.",
+    "aspectRatio": "16:9",
+    "filename": "multi-channel-poster-deployment-showcase.webp",
+    "altText": "Design agency workstation showing multi-channel deployment of exported high-resolution posters",
+    "caption": "Exporting high-resolution assets ensures flawless presentation across web, mobile, and physical print.",
+    "placement": "Conclusion Section"
+  }
+]

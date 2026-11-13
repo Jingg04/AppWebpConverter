@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-14-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Universal Printing and Display Compatibility Hero",
+    "concept": "A digital photograph transmitting from a modern smartphone into a traditional physical photo printing kiosk.",
+    "prompt": "Warm editorial photography capturing a modern photographer's creative studio. A digital tablet displaying a landscape image connects via high-speed wireless transfer to an archival fine-art photo printer producing an identical full-color glossy print. Warm tungsten ambient light, natural depth of field, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "convert-webp-to-jpg-print-compatibility-hero.webp",
+    "altText": "Photographer's studio displaying photo transmission to a fine-art printer via universal JPG format",
+    "caption": "Converting WebP to JPG ensures seamless integration with hardware photo kiosks and commercial printers.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-14-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Alpha Compositing Pipeline: Matte Color Selection",
+    "concept": "Diagram showing transparent WebP pixels composited over White (#FFF), Black (#000), or Custom Matte for JPEG output.",
+    "prompt": "Diagram illustrating alpha channel compositing into JPEG: Input Transparent WebP -> Alpha Matte Selection Node (Choice of White, Black, or Custom Color) -> Flattened RGB Raster -> MozJPEG Quantizer -> Clean JPEG Output with no black box artifacts. Modern technical illustration with color sample swatches.",
+    "aspectRatio": "16:9",
+    "filename": "webp-to-jpg-alpha-matting-infographic.svg",
+    "altText": "Infographic demonstrating how transparent WebP pixels are composited onto matte colors for JPEG export",
+    "caption": "Because JPEG lacks alpha transparency, FluxWebP blends transparent areas over a pristine white matte.",
+    "placement": "Section 2: The Alpha Matting Architecture"
+  },
+  {
+    "id": "va-14-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "3-Click WebP to JPG Conversion Workflow",
+    "concept": "User workflow showing file drop -> target format 'JPG' -> quality slider 92% -> export.",
+    "prompt": "Step-by-step UI diagram: 1. Drag WebP into converter window -> 2. Select target format 'JPG' -> 3. Choose JPEG quality (92% recommended for print) -> 4. Click Download. Clean modern SaaS dashboard styling.",
+    "aspectRatio": "16:9",
+    "filename": "fluxwebp-webp-to-jpg-workflow.svg",
+    "altText": "Three-step visual workflow for converting WebP to JPG inside FluxWebP Pro",
+    "caption": "Set your JPEG output quality to 92% to preserve maximum photographic fidelity for print.",
+    "placement": "Section 3: Step-by-Step Conversion Walkthrough"
+  },
+  {
+    "id": "va-14-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Flawed Black Box Conversion vs FluxWebP White Matte",
+    "concept": "Side-by-side comparison of a transparent shoe cutout converted to JPEG: black box disaster vs clean white background.",
+    "prompt": "Side-by-side product cutout comparison. Left panel: 'Inferior Converter' flattens transparent shoe to an ugly pure black rectangular box. Right panel: 'FluxWebP Engine' cleanly composites transparent pixels over clean white studio backdrop with soft natural shadows preserved.",
+    "aspectRatio": "16:9",
+    "filename": "webp-to-jpeg-black-box-vs-white-matte-comparison.webp",
+    "altText": "Comparison showing flawed converter turning background black versus FluxWebP cleanly compositing onto white",
+    "caption": "Inferior converters turn transparent backgrounds pitch black; FluxWebP applies a clean, natural white studio matte.",
+    "placement": "Section 4: Avoiding the Dreaded Black Box Artifact"
+  },
+  {
+    "id": "va-14-5",
+    "index": 5,
+    "type": "application",
+    "title": "Retail Photo Print Kiosk and Digital Frame Display",
+    "concept": "Modern electronic photo kiosk terminal printing physical 4x6 photographic prints from a converted JPG file.",
+    "prompt": "Clean modern retail photo printing kiosk terminal in an upscale department store. The digital touchscreen displays a successful image upload from a USB thumb drive, while a freshly printed high-gloss 4x6 landscape photo drops smoothly into the output tray. Warm commercial ambient lighting.",
+    "aspectRatio": "16:9",
+    "filename": "retail-photo-kiosk-jpg-printing.webp",
+    "altText": "Retail photo print kiosk successfully printing a 4x6 glossy photograph from a converted JPG file",
+    "caption": "Commercial photo kiosks and legacy digital picture frames require standard JPEG files for hardware compatibility.",
+    "placement": "Section 5: Hardware and Printing Real-World Scenarios"
+  }
+]

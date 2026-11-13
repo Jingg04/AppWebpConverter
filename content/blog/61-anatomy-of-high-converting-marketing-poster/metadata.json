@@ -1,0 +1,59 @@
+{
+  "id": 61,
+  "title": "The Anatomy of a High-Converting Marketing Poster: Layout, Hierarchy, and Contrast",
+  "slug": "anatomy-of-high-converting-marketing-poster",
+  "folder": "61-anatomy-of-high-converting-marketing-poster",
+  "category": "AI Poster Generation & Design",
+  "categorySlug": "ai-poster-generation-and-design",
+  "subcategory": "Poster Fundamentals",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-05",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Anatomy of a High-Converting Marketing Poster | FluxWebP Pro",
+    "metaDescription": "Master the visual anatomy of high-converting marketing posters. Learn the 3-second rule, Z-pattern visual hierarchy, focal points, and typography contrast.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/anatomy-of-high-converting-marketing-poster/",
+    "primaryKeyword": "marketing poster design principles",
+    "secondaryKeywords": [
+      "visual hierarchy in posters",
+      "high converting promo banner design",
+      "poster layout rules",
+      "event poster composition guide"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/61-anatomy-of-high-converting-marketing-poster/hero.svg",
+  "visualAssetsCount": 5
+}

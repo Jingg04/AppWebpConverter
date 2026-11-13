@@ -1,0 +1,59 @@
+{
+  "id": 81,
+  "title": "E-Commerce Image Best Practices: Amazon, Shopify, Etsy, and WooCommerce Standards",
+  "slug": "ecommerce-image-best-practices-amazon-shopify-etsy",
+  "folder": "81-ecommerce-image-best-practices-amazon-shopify-etsy",
+  "category": "E-Commerce & Business Images",
+  "categorySlug": "ecommerce-and-business-images",
+  "subcategory": "Platform Standards",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-05",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "E-Commerce Image Best Practices: Amazon, Shopify & Etsy | FluxWebP Pro",
+    "metaDescription": "Master image specifications across Amazon, Shopify, Etsy, and WooCommerce. Learn exact resolutions, pure white rules, aspect ratios, and compression targets.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/ecommerce-image-best-practices-amazon-shopify-etsy/",
+    "primaryKeyword": "ecommerce image best practices",
+    "secondaryKeywords": [
+      "amazon product image requirements 2026",
+      "shopify optimal image size",
+      "etsy listing photo dimensions",
+      "woocommerce product image guide"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/81-ecommerce-image-best-practices-amazon-shopify-etsy/hero.svg",
+  "visualAssetsCount": 5
+}

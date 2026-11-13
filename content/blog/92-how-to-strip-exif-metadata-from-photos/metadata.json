@@ -1,0 +1,59 @@
+{
+  "id": 92,
+  "title": "How to Strip EXIF Metadata from Photos Before Sharing Online",
+  "slug": "how-to-strip-exif-metadata-from-photos",
+  "folder": "92-how-to-strip-exif-metadata-from-photos",
+  "category": "Privacy, Metadata & Troubleshooting",
+  "categorySlug": "privacy-metadata-and-troubleshooting",
+  "subcategory": "Privacy Utilities",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-06",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Strip EXIF Metadata from Photos (Free & Private) | FluxWebP Pro",
+    "metaDescription": "Learn how to remove GPS location, timestamps, and camera serial numbers from photos. 100% private in-browser metadata scrubbing with zero server uploads.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-strip-exif-metadata-from-photos/",
+    "primaryKeyword": "strip exif metadata from photos",
+    "secondaryKeywords": [
+      "how to remove gps from photos",
+      "free exif cleaner online",
+      "remove camera metadata mac windows",
+      "sanitize images for web"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/92-how-to-strip-exif-metadata-from-photos/hero.svg",
+  "visualAssetsCount": 5
+}

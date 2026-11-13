@@ -1,0 +1,42 @@
+---
+title: "Preventing Image Hotlinking and Bandwidth Theft with Server Headers"
+slug: "preventing-image-hotlinking-and-bandwidth-theft"
+id: 79
+category: "Website Image SEO & Performance"
+categorySlug: "image-seo-and-performance"
+publicationStatus: "published"
+publishedDate: "2026-11-13"
+updatedDate: "2026-11-14"
+author: "Marcus Vance"
+authorRole: "Principal Image Processing Engineer"
+readingTime: 7
+primaryKeyword: "prevent image hotlinking bandwidth theft"
+featuredImage: "/public/blog-assets/79-preventing-image-hotlinking-and-bandwidth-theft/hero.svg"
+---
+
+# Preventing Image Hotlinking and Bandwidth Theft with Server Headers
+
+<VisualAsset id="va-79-1" type="hero" src="/public/blog-assets/79-preventing-image-hotlinking-and-bandwidth-theft/hero.svg" alt="3D visual of cybersecurity firewall blocking image hotlinking and unauthorized bandwidth theft" />
+
+> **Summary:** Don't pay for other people's traffic. Learn how third parties hotlink your photos, and how to block bandwidth theft with HTTP Referer validation without hurting SEO.
+
+
+
+
+## Frequently Asked Questions
+
+### What is image hotlinking?
+
+Hotlinking (bandwidth theft) occurs when an external website embeds an image hosted on your server directly into their web pages using your URL (<code>&lt;img src='https://yourdomain.com/photo.webp'&gt;</code>). Every time their page loads, your server pays for the bandwidth.
+
+### Will anti-hotlink protection block Google Images from crawling?
+
+Not if configured correctly. Safe anti-hotlinking rules explicitly whitelist search engine crawler bots (Googlebot, Bingbot) and search referrers (google.com, bing.com), ensuring your SEO rankings are completely preserved.
+
+### What should you return when a hotlinked request is blocked?
+
+Return an HTTP 403 Forbidden status, or serve an informative branding image (e.g. 'Image hosted by YourBrand - Visit us at yourdomain.com') to convert unauthorized traffic into brand awareness.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

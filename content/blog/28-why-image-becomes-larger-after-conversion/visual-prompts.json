@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-28-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Compression Paradox Scale Hero",
+    "concept": "A digital scale tilting unexpectedly in reverse, illustrating the surprising phenomenon of file size inflation.",
+    "prompt": "Surrealistic conceptual art illustrating the compression paradox: A glowing digital balance scale where a smaller compact data packet paradoxically outweighs a larger one. Glowing mathematical formulas and frequency waves illuminate the scene. Deep indigo and dark charcoal atmosphere, 16:9 cinematic framing, razor-sharp focus.",
+    "aspectRatio": "16:9",
+    "filename": "why-image-becomes-larger-after-conversion-hero.webp",
+    "altText": "Conceptual digital scale illustrating the compression paradox where converted files become larger",
+    "caption": "The compression paradox occurs when an encoder attempts to faithfully preserve existing compression artifacts.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-28-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Artifact Amplification and Noise Encoding Diagram",
+    "concept": "Diagram showing how low-quality JPEG artifacts become interpreted as high-frequency textures in a new encoder.",
+    "prompt": "Technical infographic diagram: 1. Input: Low-Quality JPEG (Contains 8x8 block artifacts and ringing noise) -> 2. Raw Pixel Decompression in Memory -> 3. New WebP Encoder analyzes noisy pixels -> 4. Encoder attempts to preserve ringing as 'fine detail' -> 5. Result: 20% Byte Inflation. Red warning callout badges.",
+    "aspectRatio": "16:9",
+    "filename": "artifact-amplification-noise-inflation-diagram.svg",
+    "altText": "Infographic explaining how existing JPEG compression artifacts cause file size inflation in new encoders",
+    "caption": "Encoding existing compression artifacts forces the new encoder to waste bytes preserving digital noise.",
+    "placement": "Section 2: The Mechanism of Noise Amplification"
+  },
+  {
+    "id": "va-28-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "FluxWebP File Size Regression Guard Workflow",
+    "concept": "Flowchart showing FluxWebP's built-in safeguard: If Output Size > Input Size, notify user and suggest lower quality.",
+    "prompt": "Algorithm workflow flowchart: 1. Convert File -> 2. Compare Output Bytes vs Input Bytes -> 'Is Output > Original?' -> YES: Trigger Regression Guard -> Suggest Optimal Lower Setting (e.g. 74%) or Retain Original -> NO: Output Approved. Clean modern UI styling with green and amber badges.",
+    "aspectRatio": "16:9",
+    "filename": "file-size-regression-guard-workflow.svg",
+    "altText": "Flowchart showing FluxWebP's automated file size regression guard detecting inflated files",
+    "caption": "FluxWebP includes automated regression protection to alert you whenever a converted file exceeds original byte weight.",
+    "placement": "Section 3: Automated Safeguards in FluxWebP"
+  },
+  {
+    "id": "va-28-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Side-by-Side Test: 85% Quality Inflation vs 74% Quality Savings",
+    "concept": "Comparison of converting a low-quality 60KB JPEG: at 85% WebP (82KB, inflated) vs at 74% WebP (44KB, saved).",
+    "prompt": "Side-by-side test demonstration. Top panel: 60 KB low-res JPEG converted at 85% quality outputs an inflated 82 KB WebP (+36% larger!). Bottom panel: Same 60 KB JPEG converted at calibrated 74% quality outputs a lean 44 KB WebP (-26% smaller) with identical visual appearance. Bold comparison callouts.",
+    "aspectRatio": "16:9",
+    "filename": "quality-calibration-inflation-vs-savings-comparison.webp",
+    "altText": "Test comparison demonstrating how lower quality settings fix file size inflation on already-compressed images",
+    "caption": "Calibrating the quality slider down to 74% eliminated artifact encoding, reversing an 82 KB inflation into a 44 KB savings.",
+    "placement": "Section 4: Real-World Calibration Experiment"
+  },
+  {
+    "id": "va-28-5",
+    "index": 5,
+    "type": "application",
+    "title": "Web Performance Audit Detecting Inflated Assets",
+    "concept": "Developer console terminal highlighting network requests where converted files caused byte regression.",
+    "prompt": "Close-up of a developer workstation with Chrome DevTools Network tab displayed. A red warning highlight flags an asset where a converted WebP file transferred more bytes than the original JPEG. A tooltip suggests: 'Re-encode at 76% quality to save 32 KB'. Modern dark mode aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "devtools-network-audit-inflated-images.webp",
+    "altText": "Developer DevTools console identifying an inflated image asset and suggesting proper quality calibration",
+    "caption": "Auditing network transfers ensures that converted assets deliver real byte savings rather than accidental inflation.",
+    "placement": "Section 5: Auditing and Quality Assurance in Production"
+  }
+]

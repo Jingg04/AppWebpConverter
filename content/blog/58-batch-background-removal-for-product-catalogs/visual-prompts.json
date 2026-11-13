@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-58-1",
+    "index": 1,
+    "type": "hero",
+    "title": "High-Throughput Batch Background Removal Engine",
+    "concept": "3D render showing an array of dozens of disparate product photos entering a high-speed optical scanning portal and emerging as uniform white studio cutouts.",
+    "prompt": "Futuristic industrial automation visualization: dozens of product photos on floating conveyor belts enter a central optical scanning tunnel. An intense teal and violet neural scanning field strips cluttered warehouse backgrounds in mid-air, outputting pristine, uniformly aligned product cards onto pure white backdrops with soft contact shadows. Dark high-tech factory backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "batch-background-removal-engine-hero.webp",
+    "altText": "3D visual of high-throughput automated batch processing engine removing backgrounds from product catalog",
+    "caption": "Parallel multi-threading processes entire product catalogs in minutes without manual intervention.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-58-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Manual Editing vs Batch AI Productivity Matrix",
+    "concept": "Infographic contrasting 100 products taking 16 hours of manual pen-tool work vs 4 minutes with Batch AI.",
+    "prompt": "Clean technical productivity infographic on dark slate background: Column A (Manual Pen Tool) shows 100 products = 16 hours of tedious labor, $400 freelancer cost, inconsistent quality; Column B (FluxWebP Batch AI) shows 100 products = 3.5 minutes automated processing, $0 cost, 100% catalog uniformity. Bold green metric callouts.",
+    "aspectRatio": "4:3",
+    "filename": "manual-vs-batch-ai-productivity-infographic.webp",
+    "altText": "Infographic contrasting manual Photoshop pen tool time vs automated batch AI processing speed",
+    "caption": "Batch AI background removal slashes catalog preparation time by 99%.",
+    "placement": "Under Batch Automation Pipeline Section"
+  },
+  {
+    "id": "va-58-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Step-by-Step Batch Catalog Ingestion Flow",
+    "concept": "Vector UI workflow showing folder drop, batch parameter configuration, real-time multi-bar progress, and ZIP export.",
+    "prompt": "Vector tech workflow diagram: 1. Dragging folder of 75 shoe photos into dropzone, 2. Global preset modal selecting 1200x1200px square + pure white background, 3. Multi-threaded processing progress grid with green checkmarks, 4. 'Download All (ZIP)' button. Clean modern software aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "batch-catalog-ingestion-flow-workflow.webp",
+    "altText": "Workflow diagram for batch product photo background removal and catalog standardization",
+    "caption": "Configure global canvas and background rules once; process hundreds of SKUs automatically.",
+    "placement": "Under Step 4 Section"
+  },
+  {
+    "id": "va-58-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Mismatched Cluttered Catalog vs Harmonized Batch Catalog",
+    "concept": "Side-by-side comparison of an online store with mismatched backgrounds vs clean, uniform white grid.",
+    "prompt": "Side-by-side e-commerce store comparison: Left panel shows an amateur online store grid with chaotic backgrounds (some outdoor, some carpet, varying lighting); Right panel shows a professional storefront where every product is isolated on pure white with uniform scale and subtle contact shadows. High visual impact.",
+    "aspectRatio": "16:9",
+    "filename": "mismatched-vs-harmonized-catalog-comparison.webp",
+    "altText": "Comparison of messy mismatched catalog grid vs uniform professional white background collection",
+    "caption": "Catalog uniformity builds immediate brand authority and drives higher checkout conversions.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-58-5",
+    "index": 5,
+    "type": "application",
+    "title": "E-Commerce Operations Hub Processing New Inventory",
+    "concept": "E-commerce logistics and merchandising team using batch background removal to prepare 500 SKUs for holiday launch.",
+    "prompt": "Busy e-commerce fulfillment and marketing operations center: dual displays show hundreds of incoming product photos being converted into standardized WebP files. High-energy corporate tech environment, laptop and tablet workstations.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-operations-batch-catalog-launch.webp",
+    "altText": "E-commerce operations team using batch AI tools to rapidly launch hundreds of new product listings",
+    "caption": "Automated batch processing keeps online inventory updated in real-time as new shipments arrive.",
+    "placement": "Conclusion Section"
+  }
+]

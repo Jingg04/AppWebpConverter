@@ -1,0 +1,59 @@
+{
+  "id": 32,
+  "title": "Optimal Image Dimensions for Modern Websites: Hero, Cards, Thumbnails & Avatars",
+  "slug": "optimal-image-dimensions-for-modern-websites",
+  "folder": "32-optimal-image-dimensions-for-modern-websites",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Web Component Sizing",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-06",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Optimal Image Dimensions for Websites (2026 Guide) | FluxWebP Pro",
+    "metaDescription": "Master the exact image dimensions for website heroes, blog cards, avatars, and thumbnails. Complete resolution cheat sheet for desktop and mobile.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/optimal-image-dimensions-for-modern-websites/",
+    "primaryKeyword": "optimal image dimensions for websites",
+    "secondaryKeywords": [
+      "website image sizes guide",
+      "hero banner image dimensions",
+      "blog thumbnail size",
+      "responsive image resolution"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/32-optimal-image-dimensions-for-modern-websites/hero.svg",
+  "visualAssetsCount": 5
+}

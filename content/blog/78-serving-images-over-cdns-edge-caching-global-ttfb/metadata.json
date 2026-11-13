@@ -1,0 +1,59 @@
+{
+  "id": 78,
+  "title": "Serving Images Over CDNs: Edge Caching, Cloudflare Polish, and Global TTFB",
+  "slug": "serving-images-over-cdns-edge-caching-global-ttfb",
+  "folder": "78-serving-images-over-cdns-edge-caching-global-ttfb",
+  "category": "Website Image SEO & Performance",
+  "categorySlug": "image-seo-and-performance",
+  "subcategory": "Infrastructure & Delivery",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-12",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Serving Images Over CDNs: Edge Caching & Fast TTFB | FluxWebP Pro",
+    "metaDescription": "Accelerate global image delivery with Content Delivery Networks (CDNs). Learn edge caching, Cloudflare Polish, Cache-Control max-age, and sub-50ms TTFB.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/serving-images-over-cdns-edge-caching-global-ttfb/",
+    "primaryKeyword": "serving images over cdn",
+    "secondaryKeywords": [
+      "image cdn edge caching",
+      "cloudflare polish image optimization",
+      "reduce image ttfb",
+      "image delivery edge network"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/78-serving-images-over-cdns-edge-caching-global-ttfb/hero.svg",
+  "visualAssetsCount": 5
+}

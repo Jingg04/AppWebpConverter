@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-41-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Interactive Canvas Geometric Transformation Studio",
+    "concept": "3D render showing an image canvas floating in space surrounded by glowing rotation rings, crop handles, and mirror flip planes.",
+    "prompt": "Futuristic digital art workstation: a high-res lifestyle photograph suspended inside a circular glowing rotation dial. Holographic crop handles with corner coordinate guides frame the image, while translucent horizontal and vertical mirror planes show real-time flip previews. Electric cyan and violet lighting, dark modern interface backdrop, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "crop-rotate-flip-images-hero.webp",
+    "altText": "3D render of interactive digital canvas showing image crop handles, rotation dials, and flip planes",
+    "caption": "Interactive transformation controls allow instantaneous cropping, rotation, and flipping in memory.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-41-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Geometric Transformations Visual Guide",
+    "concept": "Infographic contrasting 90° Clockwise Rotate, 180° Inversion, Horizontal Flip (Mirror), and Vertical Flip.",
+    "prompt": "Clean technical infographic on dark slate background displaying 4 transformation quadrants: 1. Rotate 90° Clockwise with directional circular arrow, 2. Rotate 180° Inverted, 3. Flip Horizontal with vertical dashed mirror axis, 4. Flip Vertical with horizontal mirror axis. High-contrast vector icons and explanatory captions.",
+    "aspectRatio": "4:3",
+    "filename": "geometric-transformations-visual-guide.webp",
+    "altText": "Infographic demonstrating 90 degree rotation, 180 degree rotation, horizontal flip, and vertical flip",
+    "caption": "Comparing axial flips with rotational transformations in digital image coordinate space.",
+    "placement": "Under Coordinate Transformations Section"
+  },
+  {
+    "id": "va-41-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Quick Crop and Rotate Workflow in FluxWebP",
+    "concept": "Step-by-step vector UI diagram showing image import, crop grid adjustment, 90° orientation fix, and export.",
+    "prompt": "Flat isometric tech workflow illustrating: 1. Uploading sideways smartphone photo, 2. One-click 90° clockwise rotation button, 3. Dragging Rule-of-Thirds crop handles, 4. Instant WebP export button. Modern clean UI with blue and emerald accents.",
+    "aspectRatio": "16:9",
+    "filename": "quick-crop-rotate-ui-workflow.webp",
+    "altText": "Step-by-step UI workflow for rotating and cropping photos in FluxWebP Image Editor",
+    "caption": "Correct orientation and framing in 3 quick clicks directly within your browser.",
+    "placement": "Under Three Principles Section"
+  },
+  {
+    "id": "va-41-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Original Off-Center Shot vs Rule-of-Thirds Crop",
+    "concept": "Side-by-side comparison of an unfocused wide photo with background clutter vs a tight Rule-of-Thirds crop.",
+    "prompt": "Side-by-side photographic comparison: Left panel shows wide, cluttered coffee shop photo with distracting background patrons; Right panel shows tight, balanced 4:5 crop centered on the artisanal coffee cup aligned with the rule-of-thirds grid line. Clean comparison slider overlay.",
+    "aspectRatio": "16:9",
+    "filename": "cluttered-original-vs-rule-of-thirds-crop.webp",
+    "altText": "Comparison showing original cluttered photo versus tight rule-of-thirds cropped image",
+    "caption": "Cropping away peripheral clutter elevates visual impact and draws immediate focus to the hero subject.",
+    "placement": "Under Rule of Thirds Section"
+  },
+  {
+    "id": "va-41-5",
+    "index": 5,
+    "type": "application",
+    "title": "Product Photography Prep for E-Commerce Storefront",
+    "concept": "Creator desk displaying mirrored and cropped footwear photos ready for instant Shopify catalog upload.",
+    "prompt": "Photorealistic creative desk with a designer reviewing a clean pair of running sneakers on a calibrated screen. The shoe has been flipped to face right for catalog consistency and cropped to a crisp 1:1 square. Minimalist studio lighting, elegant atmosphere.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-product-crop-flip-showcase.webp",
+    "altText": "Designer desk showcasing flipped and cropped product photography ready for online store",
+    "caption": "Flipping and cropping ensures uniform product orientation across e-commerce collections.",
+    "placement": "Conclusion Section"
+  }
+]

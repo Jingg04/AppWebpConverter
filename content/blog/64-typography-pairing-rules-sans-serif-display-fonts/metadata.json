@@ -1,0 +1,59 @@
+{
+  "id": 64,
+  "title": "Typography Pairing Rules: Combining Modern Sans, Serifs, and Display Fonts",
+  "slug": "typography-pairing-rules-sans-serif-display-fonts",
+  "folder": "64-typography-pairing-rules-sans-serif-display-fonts",
+  "category": "AI Poster Generation & Design",
+  "categorySlug": "ai-poster-generation-and-design",
+  "subcategory": "Typography",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-08",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Typography Pairing Rules for Posters: Sans, Serif & Display | FluxWebP Pro",
+    "metaDescription": "Master font pairing for marketing posters and banners. Learn contrast vs harmony rules, pairing modern sans with expressive serifs, and kerning techniques.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/typography-pairing-rules-sans-serif-display-fonts/",
+    "primaryKeyword": "typography pairing for poster design",
+    "secondaryKeywords": [
+      "font combinations for posters",
+      "serif and sans serif pairing",
+      "display fonts for headlines",
+      "poster typography hierarchy rules"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/64-typography-pairing-rules-sans-serif-display-fonts/hero.svg",
+  "visualAssetsCount": 5
+}

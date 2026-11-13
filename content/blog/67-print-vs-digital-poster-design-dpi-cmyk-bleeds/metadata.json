@@ -1,0 +1,59 @@
+{
+  "id": 67,
+  "title": "Print vs Digital Poster Design: 300 DPI, CMYK, Bleeds vs 72 DPI sRGB WebP",
+  "slug": "print-vs-digital-poster-design-dpi-cmyk-bleeds",
+  "folder": "67-print-vs-digital-poster-design-dpi-cmyk-bleeds",
+  "category": "AI Poster Generation & Design",
+  "categorySlug": "ai-poster-generation-and-design",
+  "subcategory": "Production Specifications",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-11",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Print vs Digital Posters: DPI, CMYK, Bleeds & Formats | FluxWebP Pro",
+    "metaDescription": "Master technical differences between physical print and digital posters. Learn 300 DPI vs 72 DPI, CMYK color shifts, bleeds, and WebP vs PDF export.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/print-vs-digital-poster-design-dpi-cmyk-bleeds/",
+    "primaryKeyword": "print vs digital poster design",
+    "secondaryKeywords": [
+      "300 dpi vs 72 dpi poster",
+      "cmyk vs srgb color gamut",
+      "bleed and crop marks poster printing",
+      "how to prepare poster for print"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/67-print-vs-digital-poster-design-dpi-cmyk-bleeds/hero.svg",
+  "visualAssetsCount": 5
+}

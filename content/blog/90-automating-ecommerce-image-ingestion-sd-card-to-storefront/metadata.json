@@ -1,0 +1,59 @@
+{
+  "id": 90,
+  "title": "Automating E-Commerce Image Ingestion: From Camera SD Card to Live Storefront",
+  "slug": "automating-ecommerce-image-ingestion-sd-card-to-storefront",
+  "folder": "90-automating-ecommerce-image-ingestion-sd-card-to-storefront",
+  "category": "E-Commerce & Business Images",
+  "categorySlug": "ecommerce-and-business-images",
+  "subcategory": "Automation & Pipelines",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-14",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Automate Image Ingestion: SD Card to Live Storefront | FluxWebP Pro",
+    "metaDescription": "Streamline catalog photography. Learn how to automate product image ingestion from camera SD card to live Shopify catalog with AI cutouts, resizing, and WebP encoding.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/automating-ecommerce-image-ingestion-sd-card-to-storefront/",
+    "primaryKeyword": "automate ecommerce image ingestion pipeline",
+    "secondaryKeywords": [
+      "product photography automation workflow",
+      "automated image resizing ecommerce pipeline",
+      "batch upload shopify images api",
+      "sd card to web storefront automation"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/90-automating-ecommerce-image-ingestion-sd-card-to-storefront/hero.svg",
+  "visualAssetsCount": 5
+}

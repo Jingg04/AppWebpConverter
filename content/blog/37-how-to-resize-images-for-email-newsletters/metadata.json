@@ -1,0 +1,59 @@
+{
+  "id": 37,
+  "title": "How to Resize Images for Email Newsletters: Gmail, Outlook, and Apple Mail",
+  "slug": "how-to-resize-images-for-email-newsletters",
+  "folder": "37-how-to-resize-images-for-email-newsletters",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Email Marketing Optimization",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-11",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Email Newsletter Image Sizes: Gmail, Outlook & Apple Mail | FluxWebP Pro",
+    "metaDescription": "Master image sizing for email newsletters. Learn the 600px email layout rule, 2x Retina scaling (1200px), file weight limits, and how to fix Outlook DPI bugs.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-resize-images-for-email-newsletters/",
+    "primaryKeyword": "resize images for email newsletters",
+    "secondaryKeywords": [
+      "email image dimensions",
+      "newsletter banner size",
+      "outlook image resizing bug",
+      "mailchimp image size guide"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/37-how-to-resize-images-for-email-newsletters/hero.svg",
+  "visualAssetsCount": 5
+}

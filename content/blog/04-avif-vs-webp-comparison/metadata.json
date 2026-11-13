@@ -1,0 +1,59 @@
+{
+  "id": 4,
+  "title": "AVIF vs WebP: Which Image Format Should You Choose?",
+  "slug": "avif-vs-webp-comparison",
+  "folder": "04-avif-vs-webp-comparison",
+  "category": "Image Formats & Conversion",
+  "categorySlug": "formats-and-conversion",
+  "subcategory": "Next-Gen Formats",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "AVIF vs WebP: Which Format Should You Choose in 2026? | FluxWebP Pro",
+    "metaDescription": "In-depth engineering comparison between AVIF (AV1) and WebP (VP8). Compare compression ratios, CPU encoding speed, browser compatibility, and HDR color support.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/avif-vs-webp-comparison/",
+    "primaryKeyword": "avif vs webp",
+    "secondaryKeywords": [
+      "is avif better than webp",
+      "avif browser support",
+      "avif encoding speed vs webp",
+      "av1 image file format"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/04-avif-vs-webp-comparison/hero.svg",
+  "visualAssetsCount": 5
+}

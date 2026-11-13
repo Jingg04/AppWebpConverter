@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-84-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Catalog Design System & Grid Alignment Architecture",
+    "concept": "3D render showing an array of diverse products (camera, sneaker, sunglasses, perfume) aligned with laser-straight margin guidelines and uniform soft contact shadows.",
+    "prompt": "Futuristic e-commerce design system studio: four floating product items (a luxury camera, a sneaker, designer sunglasses, and a perfume bottle) hover in perfect alignment over an expansive white gallery floor. Glowing cyan bounding box guidelines and 10% margin padding indicators frame each item. All four cast identical, delicate 45-degree directional contact shadows. Clean studio lighting, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "standardizing-catalog-images-hero.webp",
+    "altText": "3D visual of catalog design system aligning products with uniform margins, padding, and shadows",
+    "caption": "Disciplined bounding margins and aligned shadows transform catalog grids into cohesive design systems.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-84-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 10% Bounding Box Rule Diagram",
+    "concept": "Technical diagram illustrating how 1:1 canvas applies 10% uniform padding around varied product silhouettes.",
+    "prompt": "Clean technical graphic design infographic on dark slate background: Shows 1000x1000px square canvas dissected: Outer 100px border labeled 'Safe Margin (10%)', Inner 800x800px box labeled 'Active Product Bounding Zone (80%)'. Shows three diverse silhouettes (tall bottle, wide handbag, square watch) fitting perfectly within boundaries.",
+    "aspectRatio": "4:3",
+    "filename": "10-percent-bounding-box-padding-rule.webp",
+    "altText": "Technical diagram showing the 10 percent bounding box padding rule for e-commerce products",
+    "caption": "The 10% bounding box rule ensures diverse product silhouettes fit naturally within uniform cards.",
+    "placement": "Under 3 Pillars Section"
+  },
+  {
+    "id": "va-84-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Automated Batch Alignment and Padding in FluxWebP",
+    "concept": "Vector workflow showing batch upload of mismatched photos, automated subject centering, 10% padding apply, and ZIP export.",
+    "prompt": "Vector software UI workflow diagram: 1. Dragging 50 mismatched product photos, 2. Selecting 'Standardize: 1:1 Square + 10% Padding + Auto-Center', 3. Applying synchronized contact shadow preset, 4. Instant ZIP export with verified grid alignment. Modern clean UI styling.",
+    "aspectRatio": "16:9",
+    "filename": "automated-batch-alignment-padding-workflow.webp",
+    "altText": "Workflow diagram showing automated batch product alignment and padding in FluxWebP",
+    "caption": "Batch standardize catalog margins and contact shadows in seconds with automated presets.",
+    "placement": "Under Directional Shadow Section"
+  },
+  {
+    "id": "va-84-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Chaotic Mismatched Catalog vs Harmonized Design System Grid",
+    "concept": "Side-by-side e-commerce grid comparison showing uneven product sizes and messy shadows vs crisp unified grid.",
+    "prompt": "Side-by-side e-commerce collection grid comparison: Left shows an amateur storefront with uneven product sizes, mismatched background grays, and clashing shadows (chaotic feel); Right shows a luxury storefront where every item is scaled to 85% frame height, centered, and cast over identical pure white with soft shadows. High contrast visual comparison.",
+    "aspectRatio": "16:9",
+    "filename": "chaotic-vs-harmonized-catalog-grid-comparison.webp",
+    "altText": "Comparison showing messy mismatched catalog grid vs harmonious standardized product collection",
+    "caption": "Catalog standardization transforms amateur storefronts into authoritative, luxury retail destinations.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-84-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-End Home Decor Storefront in Production",
+    "concept": "Contemporary luxury furniture and ceramics boutique displayed on desktop, showcasing flawless catalog alignment.",
+    "prompt": "Sleek designer desk with a 32-inch 4K monitor displaying a luxury home goods online store. The 4-column product grid features vases, lamps, and chairs perfectly proportioned with identical breathing room and subtle shadows. Warm minimalist interior setting.",
+    "aspectRatio": "16:9",
+    "filename": "luxury-home-decor-standardized-catalog.webp",
+    "altText": "Luxury home decor online store displaying flawlessly standardized product catalog grid",
+    "caption": "A unified catalog presentation commands higher price points and elevates brand equity.",
+    "placement": "Conclusion Section"
+  }
+]

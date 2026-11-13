@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-94-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Digital Bitstream Diagnostics & Hex Code Reconstruction",
+    "concept": "3D render showing a fractured, corrupted photograph floating inside a diagnostic chamber, being repaired by laser beams reconstructing missing binary hex code markers.",
+    "prompt": "Futuristic digital forensics laboratory: a damaged, partially fractured photograph floating in mid-air. Glowing green and cyan laser scanners read raw hexadecimal data streams (FF D8 FF E0, RIFF, WEBP) flowing across the fractured seams. Luminous binary bridges reconstruct missing header packets and damaged scanlines, restoring the image into full clarity. Deep slate backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "troubleshooting-corrupt-image-files-hero.webp",
+    "altText": "3D visual of digital forensics laboratory repairing damaged image file headers and hex bitstreams",
+    "caption": "Hex-level bitstream diagnostics repair corrupted headers and recover damaged photographic assets.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-94-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "File Format Magic Bytes Cheat Sheet",
+    "concept": "Infographic poster listing the hex magic bytes signatures for JPEG, PNG, WebP, GIF, and AVIF.",
+    "prompt": "Clean technical engineering infographic on dark slate background: 5 format cards detailing Magic Bytes: JPEG (FF D8 FF), PNG (89 50 4E 47), WebP (RIFF....WEBP), GIF (GIF89a), AVIF (ftypavif). Shows hex code offsets, byte lengths, and header validation rules. High contrast tech styling.",
+    "aspectRatio": "4:3",
+    "filename": "image-magic-bytes-hex-signatures-infographic.webp",
+    "altText": "Technical diagram detailing hex magic byte signatures for JPEG, PNG, WebP, GIF, and AVIF",
+    "caption": "Magic bytes identify true file formats regardless of misleading file extensions.",
+    "placement": "Under Magic Bytes Table Section"
+  },
+  {
+    "id": "va-94-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Hex Header Repair Workflow",
+    "concept": "Step-by-step vector workflow showing opening damaged file in hex editor, identifying corrupted SOI marker, pasting valid donor header, and saving recovered file.",
+    "prompt": "Vector developer workflow diagram: 1. Opening corrupted file in hex editor, 2. Spotting missing FF D8 JPEG start marker, 3. Pasting donor header block, 4. Saving repaired file and verifying clean rendering in browser. Clean modern software aesthetic with blue and emerald accents.",
+    "aspectRatio": "16:9",
+    "filename": "hex-header-repair-workflow.webp",
+    "altText": "Workflow diagram for repairing corrupted JPEG headers using hex editing techniques",
+    "caption": "Repairing corrupted start-of-image markers restores unreadable files without data loss.",
+    "placement": "Under 3 Diagnostic Steps Section"
+  },
+  {
+    "id": "va-94-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Truncated Grayed-Out Photo vs Reconstructed Full Image",
+    "concept": "Side-by-side comparison showing damaged photo cut off halfway with solid gray bottom vs recovered full photo.",
+    "prompt": "Side-by-side photographic comparison: Left shows 'Truncated JPEG File' where top 40% loads but bottom 60% is a solid flat gray block due to missing EOI marker; Right shows 'Reconstructed Bitstream' where entropy decoder recovered the missing macroblocks, displaying the full photograph. Clear visual recovery badges.",
+    "aspectRatio": "16:9",
+    "filename": "truncated-gray-photo-vs-recovered-image-comparison.webp",
+    "altText": "Comparison showing damaged photo truncated with gray bar vs fully recovered photographic image",
+    "caption": "Bitstream reconstruction recovers missing macroblocks in truncated or interrupted downloads.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-94-5",
+    "index": 5,
+    "type": "application",
+    "title": "Digital Data Recovery Station Salvaging Archival Memory Cards",
+    "concept": "Forensic data recovery engineer salvaging precious family memories and client shoots from a corrupted SD card.",
+    "prompt": "High-tech data recovery laboratory: an engineer uses specialized hardware and software tools to extract corrupted image bitstreams from an old camera flash memory card. Monitors display hex streams resolving into salvaged wedding and archival photographs. Ambient professional studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "data-recovery-salvaging-corrupted-photos.webp",
+    "altText": "Digital data recovery engineer salvaging corrupted wedding photos from damaged memory card",
+    "caption": "Hex diagnostics and resilient decoders salvage irreplaceable archival photographs from digital decay.",
+    "placement": "Conclusion Section"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-9-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Four Image Disciplines Hero",
+    "concept": "Clean editorial layout showing photography, vector logo, cutout, and UI animation samples.",
+    "prompt": "Elegant modern studio composition showcasing four curated graphic types: a high-res portrait photograph, an ultra-clean vector geometric logo, a floating transparent perfume cutout, and a looping graphic wave. Soft museum gallery lighting, immaculate 16:9 composition, sophisticated SaaS aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "how-to-choose-right-image-format-hero.webp",
+    "altText": "Four graphic types illustrating proper image format selection across web projects",
+    "caption": "Matching format compression mathematics to your image content guarantees peak web performance.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-9-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Master Image Selection Cheat Sheet",
+    "concept": "Visual quick-reference table matching asset types to recommended formats and quality settings.",
+    "prompt": "Clean modern cheat sheet card graphic mapping Asset Type -> Recommended Format -> Ideal Quality Range -> Target File Size (e.g. Hero Photo -> WebP 80% -> <150KB; Logo -> SVG -> <10KB; Cutout -> WebP Alpha -> <80KB). High-contrast typography with intuitive icons.",
+    "aspectRatio": "16:9",
+    "filename": "image-format-selection-cheat-sheet.svg",
+    "altText": "Cheat sheet graphic matching website asset types to recommended image formats and quality targets",
+    "caption": "Keep this cheat sheet handy to set the ideal format and quality threshold for every site asset.",
+    "placement": "Section 2: Selection Cheat Sheet"
+  },
+  {
+    "id": "va-9-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Pre-Publishing Asset Optimization Audit Workflow",
+    "concept": "5-step verification checklist workflow prior to deploying assets to production.",
+    "prompt": "Checklist workflow diagram showing 5 quality gates: 1. Format Selection -> 2. Dimension Resizing -> 3. Target Compression Tuning -> 4. Metadata Sanitization -> 5. Picture Tag Markup. Modern UI elements with checkmark badges.",
+    "aspectRatio": "16:9",
+    "filename": "pre-publishing-image-audit-workflow.svg",
+    "altText": "Pre-publishing 5-step image optimization checklist workflow diagram",
+    "caption": "Run your assets through these five quality gates before pushing to production servers.",
+    "placement": "Section 3: The 5-Step Optimization Workflow"
+  },
+  {
+    "id": "va-9-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "SVG vs PNG vs WebP for High-Resolution Retina Logos",
+    "concept": "Comparison of a corporate logo at 300% zoom across SVG, PNG, and WebP.",
+    "prompt": "Magnified 300% zoom comparison of a corporate vector logo. Left shows SVG maintaining infinitely crisp mathematical vector contours. Center shows PNG with slight pixel grid fuzziness at 300%. Right shows WebP with clean anti-aliasing but raster limits. Size badges indicate SVG (3KB) vs PNG (48KB).",
+    "aspectRatio": "16:9",
+    "filename": "svg-vs-png-webp-retina-logo-comparison.webp",
+    "altText": "300% zoom comparison of a logo showing SVG vector sharpness against PNG and WebP raster pixels",
+    "caption": "For logos and vector icons, SVG provides infinite resolution scaling at a fraction of raster PNG weight.",
+    "placement": "Section 4: Vectors vs Rasters for Brand Marks"
+  },
+  {
+    "id": "va-9-5",
+    "index": 5,
+    "type": "application",
+    "title": "Enterprise Web App Media Asset Architecture",
+    "concept": "Full-stack web application asset folder structure and automated build pipeline.",
+    "prompt": "Modern developer IDE workstation screenshot mockup displaying a clean production assets folder structure: /public/images/heroes/ (WebP), /public/icons/ (SVG), /public/avatars/ (WebP), /public/marketing/ (AVIF). Clean syntax highlighting on dark mode theme, elegant developer desk environment.",
+    "aspectRatio": "16:9",
+    "filename": "enterprise-web-app-media-structure.webp",
+    "altText": "Developer IDE workspace displaying optimized production web app image asset structure",
+    "caption": "Structuring your asset repository by format and role streamlines build pipelines and caching rules.",
+    "placement": "Section 5: Enterprise Asset Architecture"
+  }
+]

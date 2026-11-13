@@ -1,0 +1,59 @@
+{
+  "id": 60,
+  "title": "Troubleshooting AI Background Removal: Complex Backgrounds, Reflections, and Shadows",
+  "slug": "troubleshooting-ai-background-removal-reflections-shadows",
+  "folder": "60-troubleshooting-ai-background-removal-reflections-shadows",
+  "category": "AI Background Removal",
+  "categorySlug": "ai-background-removal",
+  "subcategory": "Troubleshooting & Edge Cases",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-14",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Troubleshoot AI Background Removal: Fix Reflections & Glitches | FluxWebP Pro",
+    "metaDescription": "Fix common background removal failures. Learn how to handle low contrast, transparent glass, chrome reflections, and restore accidentally erased subject areas.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/troubleshooting-ai-background-removal-reflections-shadows/",
+    "primaryKeyword": "troubleshoot ai background removal",
+    "secondaryKeywords": [
+      "fix transparent background cutout errors",
+      "background removal reflective objects",
+      "how to cut out glass photos",
+      "restore missing parts after background removal"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/60-troubleshooting-ai-background-removal-reflections-shadows/hero.svg",
+  "visualAssetsCount": 5
+}

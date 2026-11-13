@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-18-1",
+    "index": 1,
+    "type": "hero",
+    "title": "From Museum Archive to Web Speed Hero",
+    "concept": "A vintage high-resolution archival flatbed scanner outputting high-tech optical WebP streams.",
+    "prompt": "High-end archival photography studio featuring a professional museum-grade flatbed scanner digitizing a priceless historical illuminated manuscript. The scanned golden page radiates outward into streamlined blue fiber-optic data bands displaying WebP compression. Dramatic studio lighting, rich textures, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "prepare-tiff-for-web-archive-hero.webp",
+    "altText": "Museum archival scanner digitizing rare manuscript into lightweight web-ready WebP files",
+    "caption": "Convert heavy 80 MB museum scanner TIFFs into crisp 350 KB WebP assets for instant public viewing.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-18-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "CMYK to sRGB Color Space Transformation Pipeline",
+    "concept": "Technical color conversion chart showing CMYK 4-channel subtractive space mapped to sRGB 3-channel additive space.",
+    "prompt": "Color science infographic diagram: Left: CMYK 4-channel subtractive print gamut (Cyan, Magenta, Yellow, Black) -> Color Transformation Matrix (ICC Profile application) -> Right: sRGB 3-channel additive digital web gamut (Red, Green, Blue). Vector chromatic color wheel graphics.",
+    "aspectRatio": "16:9",
+    "filename": "cmyk-to-srgb-color-space-pipeline.svg",
+    "altText": "Infographic demonstrating CMYK print color space transformation into sRGB web color space",
+    "caption": "Converting print TIFFs requires mapping CMYK color coordinates into standard sRGB web space to prevent color shift.",
+    "placement": "Section 2: Color Space Conversion Engineering"
+  },
+  {
+    "id": "va-18-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "TIFF to WebP Conversion and Downsampling Sequence",
+    "concept": "Step-by-step workflow: Ingest Heavy TIFF -> Parse IFD Tags -> Downsample DPI -> Encode WebP.",
+    "prompt": "Technical workflow diagram: Step 1: Drag in 65 MB .TIFF -> Step 2: In-browser TIFF parser reads IFD tags -> Step 3: Resample from 1200 DPI to 144 DPI web resolution -> Step 4: Encode WebP at 82% quality -> Step 5: Output 280 KB web file. Clean modern blueprint style.",
+    "aspectRatio": "16:9",
+    "filename": "tiff-to-webp-downsampling-workflow.svg",
+    "altText": "Flowchart showing the downsampling and compression of heavy TIFF files into web-ready WebP",
+    "caption": "Resampling print-resolution TIFFs from 1200 DPI to screen resolution cuts 99.5% of file bulk.",
+    "placement": "Section 3: Downsampling and Optimization Workflow"
+  },
+  {
+    "id": "va-18-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "File Size and Quality: 68 MB TIFF vs 240 KB WebP",
+    "concept": "Side-by-side photographic comparison showing a scanned fine-art painting with 99.6% file size reduction.",
+    "prompt": "Side-by-side comparison of a detailed oil painting scan. Left side: Heavy 68 MB uncompressed TIFF. Right side: Optimized 240 KB WebP. A magnifying loupe crop reveals identical brushstroke texture, canvas weave, and oil glaze highlights. Clear file size pill indicators.",
+    "aspectRatio": "16:9",
+    "filename": "fine-art-oil-painting-tiff-vs-webp-comparison.webp",
+    "altText": "Comparison of an oil painting scan showing 68MB TIFF against 240KB WebP with identical visual brushstroke fidelity",
+    "caption": "A 68 MB archival painting scan compresses into a 240 KB WebP with 100% preservation of canvas weave details.",
+    "placement": "Section 4: Visual Fidelity and Byte Savings Analysis"
+  },
+  {
+    "id": "va-18-5",
+    "index": 5,
+    "type": "application",
+    "title": "Online Museum Art Gallery Interactive Viewer",
+    "concept": "Tablet interface displaying an online fine-art museum exhibition gallery with deep-zoom capabilities.",
+    "prompt": "High-resolution tablet resting on a modern polished concrete gallery bench. The screen displays an interactive museum exhibition featuring deep-zoom high-resolution artwork that loads instantaneously over 4G mobile without lag. Sophisticated cultural institution atmosphere.",
+    "aspectRatio": "16:9",
+    "filename": "museum-art-gallery-webp-deep-zoom.webp",
+    "altText": "Tablet in a modern art gallery displaying an interactive online exhibition powered by WebP assets",
+    "caption": "Online art galleries and cultural institutions use WebP to serve thousands of museum scans to mobile users globally.",
+    "placement": "Section 5: Cultural and Museum Digital Archives"
+  }
+]

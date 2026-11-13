@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-47-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The 5-Step Editorial Web Optimization Pipeline",
+    "concept": "3D render of an image traveling through 5 illuminated inspection gates: Crop, Color Space, Resize, Compress, and SEO.",
+    "prompt": "Futuristic digital assembly line: a raw camera photograph travels along a glowing conveyor track through 5 high-tech optical processing gates labeled: 1. Crop, 2. sRGB, 3. Resize, 4. WebP, 5. SEO Metadata. Glowing blue and emerald laser beams, clean modern tech aesthetic, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "web-photo-preparation-checklist-hero.webp",
+    "altText": "3D render of 5-step digital image optimization pipeline for web publishing",
+    "caption": "A 5-step editorial pipeline guarantees fast loading, accurate colors, and peak search visibility.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-47-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 5-Step Web Photo Preparation Checklist",
+    "concept": "Infographic poster listing the 5 steps with actionable guidelines, checklist badges, and benchmark targets.",
+    "prompt": "Clean technical checklist infographic on dark navy background: 5 vertical cards detailing Step 1 (Crop & Frame), Step 2 (sRGB Gamut), Step 3 (Downscale to 1200px), Step 4 (WebP 80% compression < 100KB), Step 5 (Semantic File Naming & Alt Text). Crisp checkmark icons, high contrast text.",
+    "aspectRatio": "4:3",
+    "filename": "5-step-web-photo-preparation-infographic.webp",
+    "altText": "Technical checklist infographic detailing 5 steps to prepare photos for website publishing",
+    "caption": "Complete 5-step pre-publish checklist for web developers and content editors.",
+    "placement": "Under Checklist Section"
+  },
+  {
+    "id": "va-47-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Automated Ingestion to Published Web Asset",
+    "concept": "Flowchart showing raw 18MB camera asset being converted to a 95KB SEO-ready WebP asset in under 2 seconds.",
+    "prompt": "Horizontal production flowchart: Raw 18MB DSLR file entered on left -> FluxWebP automated pipeline (crop, sRGB, Lanczos scale, WebP encode) -> 95KB output file on right with verified Google PageSpeed 100 badge. Sleek vector layout.",
+    "aspectRatio": "16:9",
+    "filename": "automated-web-asset-pipeline-workflow.webp",
+    "altText": "Flowchart showing automated transformation from heavy raw photo to lightweight web asset",
+    "caption": "Transform heavy camera files into lightning-fast, SEO-friendly web assets in seconds.",
+    "placement": "Under Step 4 Section"
+  },
+  {
+    "id": "va-47-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Raw Upload vs Optimized Web Publishing",
+    "concept": "Side-by-side performance comparison: 15MB slow loading page vs 80KB instant render with green Core Web Vitals.",
+    "prompt": "Data comparison visual: Left shows a mobile phone with red loading spinner, high bounce rate, and 4.2s LCP penalty; Right shows instant render with 0.4s LCP, green Lighthouse 100 score, and smooth user reading experience.",
+    "aspectRatio": "16:9",
+    "filename": "raw-upload-vs-optimized-web-performance.webp",
+    "altText": "Comparison showing performance impact of raw uncompressed photos vs optimized WebP images",
+    "caption": "Pre-publish optimization reduces Largest Contentful Paint (LCP) from 4.2 seconds to under 0.5 seconds.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-47-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-Traffic Digital Publishing Editorial Room",
+    "concept": "Publishing newsroom workspace with editors using FluxWebP to standardize article imagery across a media network.",
+    "prompt": "Modern editorial office: multiple monitors displaying high-traffic digital news articles. Images across all articles are razor-sharp, uniform in aspect ratio, and load instantaneously. Contemporary media workstation setting.",
+    "aspectRatio": "16:9",
+    "filename": "digital-publishing-newsroom-editorial-team.webp",
+    "altText": "Digital newsroom editorial team preparing and publishing optimized web images",
+    "caption": "Standardizing the 5-step checklist ensures fast-loading, beautiful imagery across large publishing teams.",
+    "placement": "Conclusion Section"
+  }
+]

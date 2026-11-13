@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-98-1",
+    "index": 1,
+    "type": "hero",
+    "title": "High Dynamic Range Luminance & Gain Map Architecture",
+    "concept": "3D render showing an image splitting into a standard 8-bit SDR layer and an auxiliary glowing luminance Gain Map channel projecting 1000 nits of real light.",
+    "prompt": "Futuristic display technology laboratory: a dramatic night cityscape photograph suspended in mid-air. The image decomposes into two parallel floating glass planes: Bottom: standard 8-bit SDR baseline; Top: an illuminated monochrome Gain Map channel emitting intense, radiant beams of pure physical light (1,500 nits) on neon signs and car headlights. Luminous BT.2100 PQ transfer curves, dark slate backdrop, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "high-dynamic-range-hdr-gain-maps-hero.webp",
+    "altText": "3D visual of High Dynamic Range HDR gain map architecture boosting peak display luminance",
+    "caption": "HDR gain maps allow browsers to display dazzling 1000-nit highlights while preserving SDR compatibility.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-98-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Gain Map Multiplier Mechanics",
+    "concept": "Technical diagram illustrating Base SDR Image (100 nits) + Gain Map Channel = True HDR Output (1000+ nits).",
+    "prompt": "Clean technical engineering infographic on dark slate background: Mathematical decomposition diagram: Base SDR JPEG (Standard 8-bit) + Auxiliary Embedded Gain Map (Luminance Scaling Factor) = Displayed Output on HDR OLED (Peak 1,000 nits, BT.2100 Gamut, Zero Banding). Clear luminance ramp scales from 0 to 1000 nits.",
+    "aspectRatio": "4:3",
+    "filename": "gain-map-multiplier-mechanics-infographic.webp",
+    "altText": "Technical diagram explaining mathematical gain map multiplier mechanics for web HDR",
+    "caption": "How browsers combine standard base images with gain maps to render true HDR lighting.",
+    "placement": "Under Gain Map Revolution Section"
+  },
+  {
+    "id": "va-98-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "CSS @media (dynamic-range: high) Delivery Pipeline",
+    "concept": "Vector dataflow diagram showing browser evaluating dynamic-range media query and pulling 10-bit AVIF HDR or 8-bit SDR WebP.",
+    "prompt": "Vector web development dataflow diagram: 1. Browser checks hardware display capability via CSS @media (dynamic-range: high), 2. If High Dynamic Range OLED: Fetch 10-bit AVIF with PQ curve, 3. If Standard SDR display: Fetch optimized 8-bit WebP, 4. Flawless rendering without washed out colors. Clean modern code aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "css-dynamic-range-hdr-pipeline-workflow.webp",
+    "altText": "Workflow diagram for delivering HDR vs SDR images using CSS dynamic-range media queries",
+    "caption": "CSS dynamic-range media queries allow selective delivery of HDR assets to compatible devices.",
+    "placement": "Under CSS Detection Section"
+  },
+  {
+    "id": "va-98-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Flat Clamped SDR vs Radiant High Dynamic Range (HDR)",
+    "concept": "Side-by-side comparison showing flat blown-out sunset highlights in SDR vs rich, luminous sun rays in HDR.",
+    "prompt": "Side-by-side visual comparison on modern OLED display mockup: Left panel shows 'Standard SDR' with flat, clipped white sunlight and dull muddy shadows (clamped at 100 nits); Right panel shows 'Ultra HDR Gain Map' displaying true physical radiant sunlight, rich gradients across the solar disc, and deep visible detail in shadowed forest valleys. High contrast visual comparison.",
+    "aspectRatio": "16:9",
+    "filename": "clamped-sdr-vs-radiant-hdr-comparison.webp",
+    "altText": "Comparison showing flat clipped SDR photo vs radiant high-luminance HDR image with deep dynamic range",
+    "caption": "HDR expands peak luminance and shadow depth, bringing photographs alive with genuine physical light.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-98-5",
+    "index": 5,
+    "type": "application",
+    "title": "Automotive Luxury Brand Displaying HDR Visuals",
+    "concept": "Automotive showroom website displayed on Apple XDR Pro Display showing luxury electric hypercar with dazzling HDR reflections.",
+    "prompt": "Ultra-luxury automotive design studio: a 32-inch Apple Pro Display XDR showcasing a sleek electric hypercar at dusk. Chrome reflections and LED laser headlights sparkle with dazzling physical brightness, while carbon fiber body contours retain rich texture. Minimalist contemporary studio setting.",
+    "aspectRatio": "16:9",
+    "filename": "luxury-automotive-hdr-car-showcase.webp",
+    "altText": "Luxury automotive brand website showcasing radiant HDR vehicle photography on XDR display",
+    "caption": "True HDR web imagery delivers unparalleled emotional impact for luxury, automotive, and fashion brands.",
+    "placement": "Conclusion Section"
+  }
+]

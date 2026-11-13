@@ -1,0 +1,59 @@
+{
+  "id": 77,
+  "title": "Modern Responsive Images: HTML5 <picture>, <source type='image/webp'>, and Fallbacks",
+  "slug": "modern-responsive-images-picture-tag-webp-fallbacks",
+  "folder": "77-modern-responsive-images-picture-tag-webp-fallbacks",
+  "category": "Website Image SEO & Performance",
+  "categorySlug": "image-seo-and-performance",
+  "subcategory": "Responsive Delivery",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-11",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "HTML5 <picture> Tag: WebP, AVIF & Fallbacks Guide | FluxWebP Pro",
+    "metaDescription": "Master progressive enhancement with HTML5 <picture>. Serve next-gen AVIF and WebP to modern browsers while providing seamless JPEG fallbacks for legacy devices.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/modern-responsive-images-picture-tag-webp-fallbacks/",
+    "primaryKeyword": "modern responsive images html5 picture tag",
+    "secondaryKeywords": [
+      "source type image webp picture tag",
+      "html5 responsive images fallback",
+      "next-gen format progressive enhancement",
+      "picture tag vs img srcset"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/77-modern-responsive-images-picture-tag-webp-fallbacks/hero.svg",
+  "visualAssetsCount": 5
+}

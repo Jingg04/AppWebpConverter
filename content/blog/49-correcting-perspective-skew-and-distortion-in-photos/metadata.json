@@ -1,0 +1,59 @@
+{
+  "id": 49,
+  "title": "Correcting Perspective, Skew, and Distortion in Architecture Photos",
+  "slug": "correcting-perspective-skew-and-distortion-in-photos",
+  "folder": "49-correcting-perspective-skew-and-distortion-in-photos",
+  "category": "Image Editing & Creative Workflows",
+  "categorySlug": "editing-and-creative-workflows",
+  "subcategory": "Geometric Correction",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-13",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Correct Perspective, Skew & Keystoning in Photos | FluxWebP Pro",
+    "metaDescription": "Straighten tilted buildings and fix keystoning in architectural photos online. Learn 4-point perspective warp and barrel distortion correction algorithms.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/correcting-perspective-skew-and-distortion-in-photos/",
+    "primaryKeyword": "correct perspective distortion photos",
+    "secondaryKeywords": [
+      "fix keystoning architecture photos",
+      "straighten skewed buildings",
+      "perspective warp online",
+      "lens barrel distortion correction"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/49-correcting-perspective-skew-and-distortion-in-photos/hero.svg",
+  "visualAssetsCount": 5
+}

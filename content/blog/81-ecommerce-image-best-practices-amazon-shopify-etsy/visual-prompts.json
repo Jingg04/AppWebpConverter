@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-81-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Omni-Channel E-Commerce Visual Standards Studio",
+    "concept": "3D render showing an artisan leather messenger bag hovering between 4 floating marketplace portal cards: Amazon, Shopify, Etsy, and WooCommerce.",
+    "prompt": "Futuristic e-commerce retail studio: a luxury handcrafted leather messenger bag suspended in the center of an expansive minimalist gallery. Four illuminated floating portal glass cards flank the product: Amazon (pure white #FFFFFF), Shopify (responsive square WebP card), Etsy (warm 4:3 lifestyle setting), and WooCommerce (optimized catalog grid). Studio spotlighting, razor-sharp textures, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-image-best-practices-hero.webp",
+    "altText": "3D render of luxury product photo formatted for Amazon, Shopify, Etsy, and WooCommerce standards",
+    "caption": "Standardizing product assets across multi-channel marketplaces maximizes conversions and prevents suppressed listings.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-81-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Multi-Platform E-Commerce Image Cheat Sheet",
+    "concept": "Infographic poster comparing Amazon, Shopify, Etsy, and WooCommerce specifications, dimensions, and rules.",
+    "prompt": "Clean technical retail infographic on dark slate background: 4 platform columns (Amazon, Shopify, Etsy, WooCommerce) detailing: Ideal Pixels, Aspect Ratio, Zoom Threshold, Background Mandate, and Max File Size. High-contrast checkmarks and clear vector dimension badges.",
+    "aspectRatio": "4:3",
+    "filename": "ecommerce-platform-specs-cheatsheet-infographic.webp",
+    "altText": "Infographic cheat sheet detailing product photo specifications for Amazon, Shopify, Etsy, and WooCommerce",
+    "caption": "Master specification cheat sheet across the top four global e-commerce platforms.",
+    "placement": "Under Multi-Platform Matrix Section"
+  },
+  {
+    "id": "va-81-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Single Master Asset Multi-Marketplace Adaptation",
+    "concept": "Flowchart showing one 3000px master photo adapted automatically into Amazon white JPG, Shopify square WebP, and Etsy 4:3 banner.",
+    "prompt": "Vector retail production workflow: 1. High-res 3000px raw product photo, 2. AI background removal with contact shadow, 3. Branch A: Amazon White 2000px JPG, Branch B: Shopify 2048px WebP (110KB), Branch C: Etsy 2000x1500px lifestyle crop. Royal blue and green modern aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "single-asset-multichannel-ecommerce-workflow.webp",
+    "altText": "Workflow showing how one master product photo is adapted for Amazon, Shopify, and Etsy",
+    "caption": "Repurpose a single high-resolution master photograph into platform-compliant formats in seconds.",
+    "placement": "Under Amazon Rules Section"
+  },
+  {
+    "id": "va-81-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Suppressed Listing (Off-White Background) vs Approved Listing (Pure White)",
+    "concept": "Side-by-side Amazon seller dashboard comparison showing suppressed listing warning vs approved live listing.",
+    "prompt": "Side-by-side Amazon Seller Central interface comparison: Left panel shows 'Listing Suppressed' with red warning alert caused by dirty gray background (#F0F0F0) and text badge; Right panel shows 'Active / Buy Box Eligible' with pure white (#FFFFFF) background and 85% frame fill. Clear commercial callouts.",
+    "aspectRatio": "16:9",
+    "filename": "suppressed-vs-approved-amazon-listing-comparison.webp",
+    "altText": "Comparison showing Amazon listing suppressed due to gray background vs approved listing with pure white",
+    "caption": "Dirty gray backgrounds trigger automated Amazon listing suppression; pure white (#FFFFFF) keeps listings live.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-81-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-Volume Multi-Channel Merchant Command Center",
+    "concept": "E-commerce merchant desk showing active multi-channel inventory syncing to Amazon, Shopify, and Walmart seamlessly.",
+    "prompt": "Contemporary multi-channel e-commerce operations desk: an entrepreneur manages an omnichannel store on dual 4K monitors. Over 500 SKUs are synced across Shopify, Amazon, and Etsy with standardized, fast-loading imagery. Contemporary loft office setting with sample products.",
+    "aspectRatio": "16:9",
+    "filename": "omnichannel-ecommerce-merchant-command-center.webp",
+    "altText": "Omnichannel e-commerce merchant workstation managing standardized product catalogs across platforms",
+    "caption": "Unified image pipelines streamline catalog management across multiple marketplaces simultaneously.",
+    "placement": "Conclusion Section"
+  }
+]

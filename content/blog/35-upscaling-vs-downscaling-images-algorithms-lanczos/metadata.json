@@ -1,0 +1,59 @@
+{
+  "id": 35,
+  "title": "Upscaling vs Downscaling Images: Algorithms, Bilinear, Bicubic, and Lanczos",
+  "slug": "upscaling-vs-downscaling-images-algorithms-lanczos",
+  "folder": "35-upscaling-vs-downscaling-images-algorithms-lanczos",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Resampling Algorithms",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-09",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 9,
+  "seo": {
+    "metaTitle": "Image Resampling Algorithms: Bilinear, Bicubic & Lanczos | FluxWebP Pro",
+    "metaDescription": "Master the mathematics of image resizing algorithms. Learn how Nearest Neighbor, Bilinear, Bicubic, and Lanczos interpolation affect sharpness and artifacts.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/upscaling-vs-downscaling-images-algorithms-lanczos/",
+    "primaryKeyword": "image resampling algorithms",
+    "secondaryKeywords": [
+      "lanczos vs bicubic resampling",
+      "bilinear interpolation",
+      "upscaling vs downscaling images",
+      "image resizing algorithms explained"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/35-upscaling-vs-downscaling-images-algorithms-lanczos/hero.svg",
+  "visualAssetsCount": 5
+}

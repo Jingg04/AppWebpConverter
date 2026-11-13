@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-16-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Secure Vector to Raster Synthesis Hero",
+    "concept": "A digital security shield filtering glowing vector code lines into razor-sharp crystal raster pixels.",
+    "prompt": "High-tech cybersecurity visual metaphor: An illuminated crystalline shield filtering raw floating XML vector code lines (glowing orange) into pristine, safe geometric crystal pixels (sapphire blue). Dark reflective environment, laser focus, 16:9 cinematic framing, high-end commercial tech aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "convert-svg-to-png-safely-hero.webp",
+    "altText": "Cybersecurity shield filtering XML vector code lines into safe, sanitized raster pixels",
+    "caption": "FluxWebP strips executable scripts and external XML entities before rasterizing vectors to PNG.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-16-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "SVG XML Security Vulnerabilities and Sanitization Filter",
+    "concept": "Technical diagram detailing XSS, XXE, and script injection vectors stripped by FluxWebP.",
+    "prompt": "Cybersecurity architecture diagram: Input SVG Code containing red highlighted danger tags (<script>, onload=, ENTITY xxe) -> FluxWebP DOMParser Sanitization Gate -> Clean Vector DOM -> Safe OffscreenCanvas -> High-Res PNG. Red strike-through badges over dangerous nodes.",
+    "aspectRatio": "16:9",
+    "filename": "svg-security-sanitization-pipeline.svg",
+    "altText": "Infographic detailing how FluxWebP sanitizes malicious XML script tags and XXE vulnerabilities",
+    "caption": "Our client-side sanitizer neutralizes script execution vectors before passing geometry to the canvas renderer.",
+    "placement": "Section 2: SVG Security and Attack Vectors"
+  },
+  {
+    "id": "va-16-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "High-Resolution Scale Factor Selection Workflow",
+    "concept": "UI workflow showing vector resolution multipliers: 1x (Original), 2x (Retina), 4x (Print/4K).",
+    "prompt": "UI workflow graphic displaying the resolution scale factor picker in FluxWebP: User uploads vector logo -> Selects scale multiplier pills: 1× (72 DPI Web), 2× (Retina 144 DPI), 4× (Ultra 4K Print) -> Instant render with anti-aliasing. Clean modern SaaS dashboard styling.",
+    "aspectRatio": "16:9",
+    "filename": "svg-to-png-resolution-multiplier-workflow.svg",
+    "altText": "Visual workflow showing resolution scaling options (1x, 2x, 4x) when rasterizing SVG to PNG",
+    "caption": "Scale your vector graphics to 2×, 4×, or custom 4K dimensions with crisp anti-aliased curves.",
+    "placement": "Section 3: Rasterizing at High Resolution"
+  },
+  {
+    "id": "va-16-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Vector Rasterization Quality: 1x Blurry vs 4x Razor-Sharp",
+    "concept": "Side-by-side comparison of vector converted at default 72 DPI vs 4x oversampled 300 DPI.",
+    "prompt": "Side-by-side 400% zoom comparison of an intricate geometric emblem logo. Left side: Default 1× conversion (72 DPI) showing jagged pixelated curves and blurry diagonal lines. Right side: 4× oversampled conversion (300 DPI) showing razor-sharp smooth anti-aliased mathematical curves.",
+    "aspectRatio": "16:9",
+    "filename": "svg-rasterization-1x-vs-4x-comparison.webp",
+    "altText": "Comparison of SVG logo rasterized at 1x showing blurriness versus 4x oversampling showing sharp curves",
+    "caption": "Always apply a 2× or 4× multiplier when converting SVG to PNG to avoid low-resolution pixelation.",
+    "placement": "Section 4: Resolution and Anti-Aliasing Benchmarks"
+  },
+  {
+    "id": "va-16-5",
+    "index": 5,
+    "type": "application",
+    "title": "Print Merchandise Mockup with Rasterized Vector Graphics",
+    "concept": "Premium corporate merchandise mockup (hoodie, mug, business cards) displaying converted high-res PNG logo.",
+    "prompt": "Aesthetic overhead studio flat-lay of luxury corporate branded merchandise: a charcoal matte ceramic mug, a textured cotton black hoodie, and heavyweight debossed business cards. The converted high-res PNG logo appears crisp and sharp across all physical textures. Elegant studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "corporate-merchandise-svg-to-png-branding.webp",
+    "altText": "Corporate merchandise flat-lay showcasing crisp high-resolution PNG logos rasterized from vector SVG",
+    "caption": "Exporting high-resolution PNGs from vector SVGs allows seamless branding across physical merchandise.",
+    "placement": "Section 5: Real-World Print and Merchandise Workflows"
+  }
+]

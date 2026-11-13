@@ -1,0 +1,59 @@
+{
+  "id": 5,
+  "title": "JPEG vs PNG vs WebP vs AVIF: A Practical Comparison",
+  "slug": "jpeg-vs-png-vs-webp-vs-avif",
+  "folder": "05-jpeg-vs-png-vs-webp-vs-avif",
+  "category": "Image Formats & Conversion",
+  "categorySlug": "formats-and-conversion",
+  "subcategory": "Master Guide",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "JPEG vs PNG vs WebP vs AVIF: Complete Practical Comparison | FluxWebP Pro",
+    "metaDescription": "The definitive guide comparing JPEG, PNG, WebP, and AVIF across file sizes, browser support, transparency, animation, and real-world website performance.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/jpeg-vs-png-vs-webp-vs-avif/",
+    "primaryKeyword": "jpeg vs png vs webp vs avif",
+    "secondaryKeywords": [
+      "image formats compared",
+      "best image format for web",
+      "png vs jpeg vs webp",
+      "modern web image codecs"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/05-jpeg-vs-png-vs-webp-vs-avif/hero.svg",
+  "visualAssetsCount": 5
+}

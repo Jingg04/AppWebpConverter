@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-73-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Structured Data Schema & Rich Search Snippet Engine",
+    "concept": "3D render showing an image asset enveloped in glowing golden JSON-LD code brackets, projecting into Google Images with an official 'Licensable' badge.",
+    "prompt": "Futuristic digital web architecture: an elegant photograph of an architectural villa encased in floating, glowing golden JSON-LD syntax brackets ({ '@type': 'ImageObject' }). Luminous code streams project into a holographic Google Images search result card featuring a prominent, glowing cyan 'Licensable' badge and creator attribution. Deep slate background, high-tech SEO aesthetic, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "schema-imageobject-rich-snippets-hero.webp",
+    "altText": "3D visual of Schema.org ImageObject structured data unlocking Google Licensable badge",
+    "caption": "Schema.org ImageObject structured data unlocks Google Licensable badges and rich search cards.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-73-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Anatomy of ImageObject JSON-LD Properties",
+    "concept": "Infographic poster breaking down contentUrl, license, acquireLicensePage, creator, and creditText.",
+    "prompt": "Clean technical graphic design infographic on dark slate background: Code breakdown schematic highlighting 6 essential JSON-LD properties: 1. contentUrl, 2. license (URL to legal terms), 3. acquireLicensePage (Direct checkout link), 4. creator (Person/Org), 5. copyrightNotice, 6. caption. High contrast callouts and validation checkmarks.",
+    "aspectRatio": "4:3",
+    "filename": "imageobject-jsonld-properties-breakdown.webp",
+    "altText": "Technical diagram detailing mandatory properties for Schema.org ImageObject JSON-LD markup",
+    "caption": "Mandatory and recommended properties for Google image license structured data.",
+    "placement": "Under JSON-LD Template Section"
+  },
+  {
+    "id": "va-73-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Testing Schema with Google Rich Results Test",
+    "concept": "Vector workflow showing code creation, testing in Google Rich Results tool, fixing warnings, and verifying live badge.",
+    "prompt": "Vector developer workflow diagram: 1. Embedding JSON-LD block in page HTML, 2. Submitting URL to Google Rich Results Test, 3. Receiving green status: '1 Valid Item Detected: Image Metadata', 4. Visual verification of Licensable pill on Google Images. Sleek developer UI aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "google-rich-results-validation-workflow.webp",
+    "altText": "Workflow showing validation of ImageObject structured data in Google Rich Results Test tool",
+    "caption": "Validate your structured data using Google's official Rich Results Test before deploying.",
+    "placement": "Under Production-Ready Section"
+  },
+  {
+    "id": "va-73-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Plain Image Search Result vs Rich Licensable Snippet",
+    "concept": "Side-by-side comparison showing ordinary image result vs rich result with creator credit and Licensable button.",
+    "prompt": "Side-by-side search card comparison on Google Images interface: Left shows plain image thumbnail with zero metadata; Right shows enhanced rich card featuring prominent 'Licensable' badge, verified photographer credit, copyright notice, and direct link to licensing checkout page. Clear conversion value callouts.",
+    "aspectRatio": "16:9",
+    "filename": "plain-vs-licensable-rich-snippet-comparison.webp",
+    "altText": "Comparison showing plain image search result vs rich result with Licensable badge and creator credit",
+    "caption": "Rich Licensable badges dramatically boost credibility and inbound licensing inquiries.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-73-5",
+    "index": 5,
+    "type": "application",
+    "title": "Commercial Photo Agency Licensable Ingestion Suite",
+    "concept": "Stock photography agency managing a catalog of 50,000 images with automated JSON-LD generation for Google Search.",
+    "prompt": "Contemporary digital licensing agency office: dual displays show thousands of commercial photography assets syncing with Google's visual index. Every photo has verified ImageObject metadata, generating automated licensing leads directly from Google Image searchers. Professional corporate tech setting.",
+    "aspectRatio": "16:9",
+    "filename": "commercial-photo-agency-schema-dashboard.webp",
+    "altText": "Photo agency dashboard managing automated ImageObject structured data across commercial catalog",
+    "caption": "Structured data turns public photo catalogs into direct licensing and revenue funnels.",
+    "placement": "Conclusion Section"
+  }
+]

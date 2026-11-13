@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-24-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Molecular Compression of PNG Hero",
+    "concept": "Macro conceptual visualization of high-density color pixel crystals condensing into an organized lightweight palette.",
+    "prompt": "Futuristic scientific visualization of digital pixel compression: A dense, chaotic 3D cube of millions of glowing color crystals (representing 24-bit PNG) being neatly sampled and organized into a sleek, streamlined 256-color palette index floating above a dark glass surface. Cyan and emerald reflections, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "compress-png-images-effectively-hero.webp",
+    "altText": "Conceptual 3D visualization of millions of color pixels condensing into an optimized PNG-8 palette index",
+    "caption": "Color palette indexing reduces 32-bit PNG file sizes by up to 75% with zero perceptible loss in graphic logos.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-24-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "PNG-24 (True Color) vs PNG-8 (Indexed Palette) Diagram",
+    "concept": "Technical architecture comparison between 32-bit RGBA direct color and 8-bit palette indexing.",
+    "prompt": "Infographic diagram comparing: 1. PNG-24 (Each pixel stores 4 bytes: Red, Green, Blue, Alpha = 32 bits/pixel = Large file) vs 2. PNG-8 (Each pixel stores 1 byte referencing a 256-color look-up table with alpha = 8 bits/pixel = 75% smaller). Crisp vector graphics with clear color-coded tables.",
+    "aspectRatio": "16:9",
+    "filename": "png24-vs-png8-architecture-diagram.svg",
+    "altText": "Technical diagram comparing PNG-24 direct 32-bit color against PNG-8 indexed 8-bit color lookup tables",
+    "caption": "PNG-8 replaces heavy 32-bit pixel bytes with lightweight 8-bit lookup references to a 256-color palette.",
+    "placement": "Section 2: Color Quantization Architecture"
+  },
+  {
+    "id": "va-24-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "The 3-Step PNG Optimization Workflow",
+    "concept": "Workflow showing: Ingest PNG -> Select Strategy (Lossless DEFLATE vs PNG-8 Palette vs WebP) -> Instant Export.",
+    "prompt": "Decision flowchart diagram: 1. User drops PNG -> 2. FluxWebP analyzes color count -> 'More than 1,000 colors with alpha?' -> Branch A: Convert to WebP Alpha (70% savings) -> 'Simple logo with <256 colors?' -> Branch B: Quantize to PNG-8 -> 3. Export optimized file. Clean modern UI aesthetics.",
+    "aspectRatio": "16:9",
+    "filename": "png-optimization-decision-workflow.svg",
+    "altText": "Flowchart showing decision logic for optimizing PNG images via palette reduction or WebP conversion",
+    "caption": "FluxWebP analyzes color distribution to recommend either lossless DEFLATE, PNG-8, or WebP alpha conversion.",
+    "placement": "Section 3: Step-by-Step Optimization Workflow"
+  },
+  {
+    "id": "va-24-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Vector Illustration Test: 1.8 MB PNG-24 vs 320 KB PNG-8 vs 180 KB WebP",
+    "concept": "Three-way comparison of a colorful mascot illustration across unoptimized PNG-24, PNG-8, and WebP.",
+    "prompt": "Three-panel side-by-side comparison of a complex colorful vector mascot illustration with transparency. Panel 1: Original PNG-24 (1.8 MB). Panel 2: Quantized PNG-8 (320 KB). Panel 3: Lossless WebP (180 KB). High-resolution zoom crops verify identical line sharpness, vibrant colors, and transparent edges across all three.",
+    "aspectRatio": "16:9",
+    "filename": "vector-illustration-png24-png8-webp-comparison.webp",
+    "altText": "Three-panel comparison of a vector illustration showing file sizes across PNG-24, PNG-8, and WebP",
+    "caption": "Converting this vector mascot from PNG-24 to WebP cut file weight by 90% while keeping lines razor-sharp.",
+    "placement": "Section 4: Visual Quality & Byte Savings Comparison"
+  },
+  {
+    "id": "va-24-5",
+    "index": 5,
+    "type": "application",
+    "title": "Mobile App Onboarding Flow with 10 Animated PNGs",
+    "concept": "Smartphone screen displaying a fluid mobile app onboarding carousel loading optimized transparent graphics.",
+    "prompt": "Perspective shot of an iPhone 16 Pro held in hand displaying a sleek fintech onboarding walkthrough. High-resolution transparent illustrations swipe seamlessly at 120Hz ProMotion without stutter or memory spikes. Subtle office studio ambient background.",
+    "aspectRatio": "16:9",
+    "filename": "mobile-app-onboarding-compressed-png.webp",
+    "altText": "Smartphone displaying a mobile app onboarding carousel powered by compressed transparent PNG assets",
+    "caption": "Optimizing PNG assets ensures smooth 120Hz ProMotion scrolling across mobile onboarding carousels.",
+    "placement": "Section 5: Mobile App UI Performance"
+  }
+]

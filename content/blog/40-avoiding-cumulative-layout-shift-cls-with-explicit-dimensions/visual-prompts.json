@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-40-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Cumulative Layout Shift Elimination Mechanics",
+    "concept": "3D visualization showing content jumping due to missing image bounds versus rock-solid pre-allocated layout boxes.",
+    "prompt": "Futuristic 3D visualization of a responsive web layout. On one side, wireframe text blocks jump downward erratically with motion blur (Layout Shift). On the other side, a stable pre-reserved bounding box in glowing cyan holds the exact space, allowing text to remain perfectly steady as the image renders. Sleek high-tech UI design, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "avoiding-cls-image-dimensions-hero.webp",
+    "altText": "3D visualization illustrating how reserving image layout space eliminates Cumulative Layout Shift",
+    "caption": "Pre-allocating image boxes using aspect ratio attributes ensures rock-solid layout stability.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-40-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Zero-Height Placeholder vs Aspect-Ratio Box",
+    "concept": "Technical diagram illustrating how the browser calculates layout before and after image download with and without dimensions.",
+    "prompt": "Clean technical timeline infographic on dark slate background: Timeline A (No Dimensions) shows 0px initial height jumping to 400px upon download, triggering 0.28 CLS penalty; Timeline B (Explicit Dimensions) shows 400px reserved box from millisecond zero with 0.00 CLS score. High contrast metrics in red and green.",
+    "aspectRatio": "4:3",
+    "filename": "cls-zero-height-vs-reserved-box-infographic.webp",
+    "altText": "Technical diagram contrasting layout shift with zero-height image vs stable pre-allocated box",
+    "caption": "Providing width and height attributes lets the browser reserve vertical space prior to asset download.",
+    "placement": "Under The Root Cause Section"
+  },
+  {
+    "id": "va-40-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Auditing and Fixing Image CLS with Lighthouse",
+    "concept": "Step-by-step workflow showing DevTools Lighthouse audit identifying unsized image elements and applying dimension attributes.",
+    "prompt": "Vector developer workflow: 1. Chrome Lighthouse report highlighting 'Image elements do not have explicit width and height', 2. Inspecting element in source, 3. Adding width and height attributes in code, 4. Re-running audit achieving 100% Core Web Vitals score. Clean developer interface styling.",
+    "aspectRatio": "16:9",
+    "filename": "auditing-and-fixing-image-cls-workflow.webp",
+    "altText": "Workflow showing how to identify and resolve image CLS issues using Chrome Lighthouse audits",
+    "caption": "Audit pages in Lighthouse to catch un-dimensioned images and achieve a perfect CLS score of 0.00.",
+    "placement": "Under Modern Browser Aspect Ratio Fix Section"
+  },
+  {
+    "id": "va-40-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Mobile User Experience: Layout Jump vs Rock-Solid Reading",
+    "concept": "Side-by-side animated-style phone screens showing frustrating layout jump mid-tap vs stable smooth experience.",
+    "prompt": "Side-by-side smartphone mockup: Left phone screen illustrates user attempting to tap a link when an unconstrained image pops in, causing a mis-click (bad UX); Right phone screen shows instant reserved placeholder box, smooth scrolling, and perfect tap accuracy. Clean UI comparison indicators.",
+    "aspectRatio": "16:9",
+    "filename": "mobile-user-experience-cls-comparison.webp",
+    "altText": "Visual comparison of frustrating layout jump during reading versus stable pre-allocated image box",
+    "caption": "Eliminating layout shifts prevents accidental clicks, bounce rates, and user frustration.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-40-5",
+    "index": 5,
+    "type": "application",
+    "title": "Production Core Web Vitals Monitoring Dashboard",
+    "concept": "Google Search Console and CrUX dashboard showing all green 100% Core Web Vitals metrics across high-traffic site.",
+    "prompt": "Modern analytics workstation display showing Google Search Console Core Web Vitals report: 100% of URLs marked as 'Good', with CLS flatlined at 0.00 across 5 million mobile pageviews. High-tech monitoring center atmosphere, crisp glowing graphs.",
+    "aspectRatio": "16:9",
+    "filename": "core-web-vitals-dashboard-perfect-cls.webp",
+    "altText": "Google Search Console Core Web Vitals dashboard showing perfect zero CLS across millions of visits",
+    "caption": "A zero CLS score protects organic search visibility and maximizes user engagement across mobile devices.",
+    "placement": "Conclusion Section"
+  }
+]

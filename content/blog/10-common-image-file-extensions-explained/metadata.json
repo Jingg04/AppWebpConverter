@@ -1,0 +1,59 @@
+{
+  "id": 10,
+  "title": "Common Image File Extensions Explained",
+  "slug": "common-image-file-extensions-explained",
+  "folder": "10-common-image-file-extensions-explained",
+  "category": "Image Formats & Conversion",
+  "categorySlug": "formats-and-conversion",
+  "subcategory": "Technical Reference",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Common Image File Extensions Explained: Web, Print & RAW | FluxWebP Pro",
+    "metaDescription": "Demystify image file extensions. Understand the difference between .jpg, .jpeg, .png, .webp, .avif, .heic, and DSLR camera RAW formats (.arw, .cr2, .nef).",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/common-image-file-extensions-explained/",
+    "primaryKeyword": "image file extensions explained",
+    "secondaryKeywords": [
+      "image formats list",
+      "difference between jpg jpeg png webp",
+      "raw camera extensions",
+      "graphic file types"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/10-common-image-file-extensions-explained/hero.svg",
+  "visualAssetsCount": 5
+}

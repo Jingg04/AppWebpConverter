@@ -1,0 +1,59 @@
+{
+  "id": 15,
+  "title": "How to Convert AVIF to WebP",
+  "slug": "how-to-convert-avif-to-webp",
+  "folder": "15-how-to-convert-avif-to-webp",
+  "category": "Image Conversion Tutorials",
+  "categorySlug": "conversion-tutorials",
+  "subcategory": "Next-Gen Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Convert AVIF to WebP Online (Universal Support) | FluxWebP Pro",
+    "metaDescription": "Step-by-step tutorial on converting AVIF images to WebP. Restore compatibility with older mobile browsers, desktop applications, and social media platforms.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-convert-avif-to-webp/",
+    "primaryKeyword": "convert avif to webp",
+    "secondaryKeywords": [
+      "avif to webp converter",
+      "change avif to webp",
+      "why convert avif to webp",
+      "avif compatibility issues"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/15-how-to-convert-avif-to-webp/hero.svg",
+  "visualAssetsCount": 5
+}

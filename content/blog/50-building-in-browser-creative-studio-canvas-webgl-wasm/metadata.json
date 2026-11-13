@@ -1,0 +1,59 @@
+{
+  "id": 50,
+  "title": "Building an In-Browser Creative Studio: Canvas API, WebGL, and WebAssembly",
+  "slug": "building-in-browser-creative-studio-canvas-webgl-wasm",
+  "folder": "50-building-in-browser-creative-studio-canvas-webgl-wasm",
+  "category": "Image Editing & Creative Workflows",
+  "categorySlug": "editing-and-creative-workflows",
+  "subcategory": "Web Architecture",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-14",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 9,
+  "seo": {
+    "metaTitle": "In-Browser Creative Studio: Canvas, WebGL & WASM | FluxWebP Pro",
+    "metaDescription": "Explore the modern architecture of in-browser image editors. Learn how HTML5 Canvas, WebGL fragment shaders, and WebAssembly SIMD achieve desktop-class speed.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/building-in-browser-creative-studio-canvas-webgl-wasm/",
+    "primaryKeyword": "browser creative studio architecture",
+    "secondaryKeywords": [
+      "webgl image processing",
+      "webassembly image editing",
+      "html5 canvas photo editor architecture",
+      "client side image manipulation engine"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/50-building-in-browser-creative-studio-canvas-webgl-wasm/hero.svg",
+  "visualAssetsCount": 5
+}

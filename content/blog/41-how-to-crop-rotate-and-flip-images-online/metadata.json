@@ -1,0 +1,59 @@
+{
+  "id": 41,
+  "title": "How to Crop, Rotate, and Flip Images Online in Seconds",
+  "slug": "how-to-crop-rotate-and-flip-images-online",
+  "folder": "41-how-to-crop-rotate-and-flip-images-online",
+  "category": "Image Editing & Creative Workflows",
+  "categorySlug": "editing-and-creative-workflows",
+  "subcategory": "Geometric Transformations",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-05",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "Crop, Rotate & Flip Images Online (Free & Private) | FluxWebP Pro",
+    "metaDescription": "Easily crop, rotate 90°, and flip images horizontally or vertically in your browser. Fast, lossless transformations with zero server uploads.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-crop-rotate-and-flip-images-online/",
+    "primaryKeyword": "crop rotate and flip images online",
+    "secondaryKeywords": [
+      "online photo orientation changer",
+      "flip image horizontally",
+      "rotate photo 90 degrees",
+      "free image cropping tool"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/41-how-to-crop-rotate-and-flip-images-online/hero.svg",
+  "visualAssetsCount": 5
+}

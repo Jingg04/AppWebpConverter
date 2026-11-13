@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-76-1",
+    "index": 1,
+    "type": "hero",
+    "title": "XML Image Sitemap Indexing & Googlebot Pipeline",
+    "concept": "3D render showing an illuminated XML sitemap blueprint emitting glowing image nodes that Googlebot indexes into its global visual database.",
+    "prompt": "Futuristic digital search index visualization: a glowing, semi-transparent XML blueprint tablet floating in mid-air displaying valid <image:image> tags. Luminous neon blue and emerald fiber-optic nodes connect each image URL directly into a holographic Google index database sphere. Deep charcoal tech backdrop, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "image-sitemap-google-search-console-hero.webp",
+    "altText": "3D visual of XML image sitemap architecture feeding image URLs into Google search index",
+    "caption": "XML image sitemaps guarantee Googlebot discovers and indexes every visual asset on your site.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-76-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The XML Image Sitemap Schema Architecture",
+    "concept": "Technical infographic poster detailing the XML namespace, urlset, loc, and image:loc hierarchy.",
+    "prompt": "Clean technical code infographic on dark slate background: Tree diagram illustrating XML structure: Root <urlset> with Google image namespace -> Parent <url> (Page URL) -> Child <image:image> (Image Container) -> Child <image:loc> (Absolute Image URL on CDN). Clear syntax annotations and validation rules.",
+    "aspectRatio": "4:3",
+    "filename": "xml-image-sitemap-hierarchy-infographic.webp",
+    "altText": "Technical diagram detailing XML image sitemap tags and schema hierarchy",
+    "caption": "Hierarchical XML structure required for Google image sitemap validation.",
+    "placement": "Under XML Syntax Section"
+  },
+  {
+    "id": "va-76-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "From Code to GSC Verification Workflow",
+    "concept": "Step-by-step vector workflow showing automated sitemap generation, robots.txt ping, GSC submission, and indexing status check.",
+    "prompt": "Vector developer workflow diagram: 1. Build script generating sitemap.xml, 2. Referencing sitemap in robots.txt, 3. Submitting URL in Google Search Console Sitemaps tool, 4. Green 'Success' status pill showing 2,400 images discovered. Royal blue and green modern aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "gsc-sitemap-submission-workflow.webp",
+    "altText": "Workflow diagram for generating and submitting image sitemaps in Google Search Console",
+    "caption": "Submit your sitemap directly in Google Search Console to expedite image discovery.",
+    "placement": "Under Submission Section"
+  },
+  {
+    "id": "va-76-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Un-Indexed Hidden JavaScript Images vs 100% Indexed via Sitemap",
+    "concept": "Side-by-side comparison showing 12% crawl rate on JavaScript site vs 99% crawl rate with XML image sitemap.",
+    "prompt": "Data comparison infographic: Left panel shows 'Without Image Sitemap' where client-side JavaScript masks images, resulting in only 14% indexing rate; Right panel shows 'With XML Image Sitemap' where 99.4% of catalog images are discovered and indexed within 48 hours. High contrast metrics.",
+    "aspectRatio": "16:9",
+    "filename": "unindexed-javascript-vs-sitemap-indexed-comparison.webp",
+    "altText": "Comparison showing low indexing of JavaScript images vs 99% index rate with XML sitemap",
+    "caption": "Image sitemaps solve discovery issues for JavaScript frameworks and dynamic lazy loaders.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-76-5",
+    "index": 5,
+    "type": "application",
+    "title": "Google Search Console Sitemaps Dashboard in Production",
+    "concept": "SEO specialist monitoring green sitemap verification across a high-traffic media publishing network.",
+    "prompt": "SEO operations workstation: dual high-resolution displays showing Google Search Console Sitemaps report for a major publishing publication. The status displays a crisp green 'Success' badge with thousands of discovered images driving organic impressions. Modern office setting.",
+    "aspectRatio": "16:9",
+    "filename": "gsc-sitemaps-successful-indexing-dashboard.webp",
+    "altText": "Google Search Console sitemaps dashboard showing successful submission and image indexing",
+    "caption": "Regular sitemap audits in Search Console ensure new content is indexed within hours of publishing.",
+    "placement": "Conclusion Section"
+  }
+]

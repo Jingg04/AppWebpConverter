@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-90-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Automated Zero-Touch E-Commerce Ingestion Pipeline",
+    "concept": "3D render showing raw camera memory cards ejecting data streams through automated AI processing chambers and deploying live onto digital storefront catalog screens.",
+    "prompt": "Futuristic digital logistics and automation hub: a camera SD card inserted into an illuminated intake dock streams raw photograph data packets through four glowing optical processing chambers: 1. Barcode SKU OCR scanner; 2. Neural AI background removal chamber; 3. Auto-centering and sRGB calibration nexus; 4. High-speed API deployment transmitter. Processed product cards appear live on floating smartphone and desktop displays. Deep slate tech backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "automating-ecommerce-image-ingestion-hero.webp",
+    "altText": "3D visual of automated e-commerce image ingestion pipeline from camera SD card to live storefront",
+    "caption": "Automated ingestion pipelines transform raw camera files into live storefront assets in minutes.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-90-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 4-Stage Zero-Touch Ingestion Architecture",
+    "concept": "Infographic poster illustrating Stage 1 (Barcode Pairing), Stage 2 (AI Segmentation), Stage 3 (Auto-Bounding), and Stage 4 (API Push).",
+    "prompt": "Clean technical architecture infographic on dark slate background: 4 sequential processing blocks: 1. SD Card & Barcode OCR Pairing (Assigns SKU); 2. Neural Background Removal (#FFFFFF + Contact Shadow); 3. Auto-Bounding & WebP Encoding (10% margins, sRGB); 4. Direct REST API Catalog Deployment. High contrast vector flow.",
+    "aspectRatio": "4:3",
+    "filename": "4-stage-image-ingestion-architecture-infographic.webp",
+    "altText": "Technical diagram detailing the four stages of an automated e-commerce image ingestion pipeline",
+    "caption": "The end-to-end architecture connecting studio cameras directly to live e-commerce databases.",
+    "placement": "Under 4-Stage Architecture Section"
+  },
+  {
+    "id": "va-90-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Local Automated Ingestion with FluxWebP Engine",
+    "concept": "Vector workflow showing drag-and-drop folder from SD card, local multi-worker batch processing, and 1-click Shopify CSV/ZIP export.",
+    "prompt": "Vector developer UI diagram: 1. Dragging 100 raw DSLR photos directly from SD card into browser dropzone, 2. Spawning 8 parallel WebAssembly workers, 3. Automatic renaming by SKU, 4. Generating ready-to-import Shopify CSV and optimized WebP ZIP archive in 45 seconds. Clean royal blue UI aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "local-automated-ingestion-workflow.webp",
+    "altText": "Workflow diagram for local automated image ingestion and Shopify catalog preparation",
+    "caption": "Execute complete catalog ingestion locally inside your browser with multi-threaded WebAssembly workers.",
+    "placement": "Under Stage 3 Section"
+  },
+  {
+    "id": "va-90-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Manual 4-Hour Editing Bottleneck vs 4-Minute Automated Pipeline",
+    "concept": "Comparative productivity infographic showing 240 minutes of Photoshop labor vs 4 minutes of automated processing.",
+    "prompt": "Comparative productivity chart on dark background: Left bar shows 'Traditional Manual Workflow' taking 240 minutes of tedious manual cropping, background removal, and uploading; Right bar shows 'Automated Zero-Touch Ingestion' taking exactly 3.8 minutes for 50 SKUs. Bold '60x Faster' callout badge in neon green.",
+    "aspectRatio": "16:9",
+    "filename": "manual-bottleneck-vs-automated-ingestion-comparison.webp",
+    "altText": "Comparison showing 4 hours of manual photo editing vs 4 minutes of automated ingestion pipeline",
+    "caption": "Automated pipelines eliminate editing backlogs and get new inventory in front of buyers 60x faster.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-90-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-Volume Fashion Studio Operating Zero-Touch Automation",
+    "concept": "Commercial fashion studio with model shooting on turntable and photos instantly appearing live in online catalog.",
+    "prompt": "Fast-fashion commercial studio: a photographer shoots apparel on a model while automated monitors display images being processed in real-time. Photos are instantly segmented, padded, and queued for catalog launch with zero human editing intervention. Clean contemporary photography studio setting.",
+    "aspectRatio": "16:9",
+    "filename": "commercial-fashion-studio-zero-touch-automation.webp",
+    "altText": "High-volume commercial fashion studio operating automated real-time image ingestion pipeline",
+    "caption": "Zero-touch automation allows commercial studios to launch hundreds of new products daily with minimal overhead.",
+    "placement": "Conclusion Section"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-68-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Multi-Layer Dimensional Poster Compositing Studio",
+    "concept": "3D render showing an intricate music poster exploded into floating suspended glass layers: base photo, color scrim, typography, badges, and top grain texture.",
+    "prompt": "Futuristic graphic design laboratory: a sophisticated techno-poster exploded into 5 suspended floating glass panes: Bottom: dark 3D abstract sculpture; Second: glowing violet gradient scrim; Third: bold architectural typography; Fourth: die-cut sponsor badges and holographic QR code; Top: a translucent vintage paper grain texture overlay. Volumetric studio lighting, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "multi-layer-poster-compositing-hero.webp",
+    "altText": "3D render of exploded multi-layer poster composition showing text, badges, and texture overlays",
+    "caption": "Exploded view of a 5-layer poster composition combining photography, typography, and tactile textures.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-68-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Blend Modes Mathematical Cheat Sheet",
+    "concept": "Infographic demonstrating Multiply (Darkens/Drops White), Screen (Lightens/Drops Black), and Overlay (Contrasts).",
+    "prompt": "Clean technical infographic on dark slate background: 3 blend mode demonstration quadrants: 1. Multiply (Formula: A*B/255, Drops white, perfect for paper textures); 2. Screen (Formula: 1-(1-A)*(1-B), Drops black, perfect for lighting flares); 3. Overlay (Combines Multiply & Screen for high-contrast punch). Clear photographic specimen badges.",
+    "aspectRatio": "4:3",
+    "filename": "blend-modes-mathematical-cheat-sheet.webp",
+    "altText": "Technical diagram explaining the mathematics and applications of Multiply, Screen, and Overlay blend modes",
+    "caption": "Understanding blend modes allows you to blend textures, lighting, and typography effortlessly.",
+    "placement": "Under 5 Layers Section"
+  },
+  {
+    "id": "va-68-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Layer Management & Z-Index Reordering in FluxWebP",
+    "concept": "Vector UI workflow showing dragging layers in the side panel, changing blend modes, and adjusting opacity sliders.",
+    "prompt": "Vector software UI diagram: Layer panel showing draggable layer items (Paper Grain, Headline Text, Badge, Base Photo) with eye icons for visibility, padlock icons for locking, and blend mode dropdown set to 'Overlay 15%'. Clean modern software aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "layer-management-blend-mode-workflow.webp",
+    "altText": "Workflow showing layer management and blend mode adjustments inside FluxWebP Poster Studio",
+    "caption": "Reorder layers, adjust opacities, and assign blend modes with real-time hardware-accelerated feedback.",
+    "placement": "Under Layer 5 Section"
+  },
+  {
+    "id": "va-68-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Sterile Flat Digital Vector vs Tactile Paper-Textured Poster",
+    "concept": "Side-by-side macro comparison showing sterile flat digital design vs organic vintage tactile print texture.",
+    "prompt": "Side-by-side macro zoom comparison: Left shows a sterile, completely flat digital poster with harsh computer edges; Right shows the identical design unified by a subtle 15% risograph paper grain texture, giving it warm analog tactile depth and boutique print appeal. High contrast visual comparison.",
+    "aspectRatio": "16:9",
+    "filename": "sterile-digital-vs-tactile-paper-texture-comparison.webp",
+    "altText": "Comparison showing sterile flat digital graphics vs warm organic textured analog poster design",
+    "caption": "Adding a subtle grain texture unifies synthetic digital layers into an authentic physical print look.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-68-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-End Music and Arts Festival Poster Wall",
+    "concept": "Contemporary arts venue brick wall adorned with multi-layered, textured event posters for indie music acts.",
+    "prompt": "Atmospheric street photography scene outside a trendy underground concert hall: an exposed brick wall covered with artistic music posters. The posters feature rich multi-layer compositing, distressed paper textures, bold geometric typography, and vibrant die-cut promo stickers. Warm streetlamp lighting at dusk.",
+    "aspectRatio": "16:9",
+    "filename": "underground-concert-hall-poster-wall.webp",
+    "altText": "Concert hall brick wall adorned with multi-layered artistic music festival posters",
+    "caption": "Multi-layer compositing creates timeless, collectible event art that resonates with fans.",
+    "placement": "Conclusion Section"
+  }
+]

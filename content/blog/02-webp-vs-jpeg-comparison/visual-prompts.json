@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-2-1",
+    "index": 1,
+    "type": "hero",
+    "title": "WebP vs JPEG Battle Arena Hero",
+    "concept": "High-tech studio battle representing the technological shift from legacy JPEG to modern WebP.",
+    "prompt": "Dramatic split-screen studio photography concept showing two technological image cores facing off on an obsidian reflective surface. Left side: Warm golden amber lighting representing legacy JPEG. Right side: Futuristic electric blue (#2563EB) laser-lit core representing WebP. Clean cinematic 16:9 composition, ultra-fine focus, high-end commercial tech aesthetic, no tacky cartoon figures, no text artifacts.",
+    "aspectRatio": "16:9",
+    "filename": "webp-vs-jpeg-editorial-hero.webp",
+    "altText": "Conceptual graphic comparing the legacy JPEG codec with the modern WebP format",
+    "caption": "The evolution from JPEG to WebP represents a 30-year leap in digital image compression mathematics.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-2-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "SSIM Quality vs File Size Curve (JPEG vs WebP)",
+    "concept": "Benchmark graph plotting Structural Similarity Index (SSIM) against file size in kilobytes.",
+    "prompt": "Clean minimalist XY chart graphic showing Structural Similarity Index (SSIM from 0.85 to 1.0) plotted against file size (KB). WebP curve in vivid blue demonstrates consistently higher SSIM at lower byte weights compared to the red JPEG curve. Exact data points and crisp labels rendered with crisp vector typography.",
+    "aspectRatio": "16:9",
+    "filename": "webp-vs-jpeg-ssim-curve-infographic.svg",
+    "altText": "Benchmark graph comparing SSIM quality curves between WebP and JPEG across varying file sizes",
+    "caption": "Data benchmarks reveal WebP maintains an SSIM above 0.95 at file sizes 30% lower than standard JPEG.",
+    "placement": "Section 2: Empirical Compression Benchmarks"
+  },
+  {
+    "id": "va-2-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Automated Website Image Negotiation Pipeline",
+    "concept": "HTTP Accept header content negotiation flow between browser and web server.",
+    "prompt": "Technical architecture flowchart showing HTTP request with 'Accept: image/webp' header sent from browser to CDN edge -> Edge checks cache -> Delivers optimized WebP -> Fallback JPEG served only to ancient legacy clients. Clean vector diagram with rounded pill containers and subtle drop shadows.",
+    "aspectRatio": "16:9",
+    "filename": "webp-content-negotiation-cdn-workflow.svg",
+    "altText": "Diagram of browser HTTP Accept header content negotiation for WebP image delivery",
+    "caption": "Content negotiation pipeline: Modern browsers automatically receive WebP without breaking legacy clients.",
+    "placement": "Section 3: Browser Negotiation and Fallback Strategies"
+  },
+  {
+    "id": "va-2-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Artifact Zoom Comparison: Blockiness vs Deblocking Filter",
+    "concept": "400% zoomed crop highlighting JPEG mosquito noise versus WebP edge smoothing.",
+    "prompt": "400% magnified macro crop of high-contrast typography and hair strands. Left side shows JPEG compression noise with harsh 8x8 block artifacts. Right side shows WebP with smooth deblocking filter contours and intact edges. Clear magnifying glass loupe graphic framing the comparison.",
+    "aspectRatio": "16:9",
+    "filename": "jpeg-mosquito-noise-vs-webp-deblocking-comparison.webp",
+    "altText": "Macro 400% crop comparison highlighting JPEG blocking noise against smooth WebP edge filtering",
+    "caption": "At low bitrates, JPEG breaks into harsh 8×8 block artifacts while WebP's deblocking filter maintains clean contours.",
+    "placement": "Section 4: Visual Artifact Analysis"
+  },
+  {
+    "id": "va-2-5",
+    "index": 5,
+    "type": "application",
+    "title": "Online Photography Portfolio Gallery Speed Test",
+    "concept": "High-end photography portfolio grid loading 24 full-frame gallery images.",
+    "prompt": "Aesthetic overhead flat-lay workspace showing a designer's desk with an ultra-wide monitor rendering a luxury photography portfolio. Floating performance metrics show page weight reduced from 18.4 MB (JPEG) to 5.8 MB (WebP) with instant smooth scrolling. Warm natural daylight, elegant minimalist studio atmosphere.",
+    "aspectRatio": "16:9",
+    "filename": "photography-portfolio-webp-bandwidth-savings.webp",
+    "altText": "Photography portfolio website demonstrating seamless gallery performance after converting from JPEG to WebP",
+    "caption": "A 24-image high-resolution photo gallery drops from 18.4 MB down to 5.8 MB when served in WebP.",
+    "placement": "Section 5: Real-World Photography Case Study"
+  }
+]

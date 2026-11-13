@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-78-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Global CDN Edge Network & Sub-Millisecond TTFB",
+    "concept": "3D render showing a global holographic Earth grid with luminous Edge PoP nodes caching and streaming image assets to users in Tokyo, London, and New York.",
+    "prompt": "Futuristic global network architecture visualization: a glowing 3D holographic digital globe floating in space. Luminous interconnected optical fiber paths link 300 edge nodes (PoPs). Glowing translucent WebP image cubes hover above Tokyo, London, Frankfurt, and San Francisco, streaming data to mobile devices with sub-20ms latency. Deep navy and electric cyan palette, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "serving-images-over-cdn-edge-hero.webp",
+    "altText": "3D visual of global CDN edge caching network delivering images across international points of presence",
+    "caption": "Edge CDNs cache static images across hundreds of global PoPs, slashing TTFB under 25ms.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-78-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Origin Server Bottleneck vs Distributed Edge Caching",
+    "concept": "Infographic contrasting single origin server in Virginia lagging global users vs edge CDN delivering locally.",
+    "prompt": "Clean technical architecture infographic on dark slate background: Diagram A shows Single Origin Server (Virginia) with red lag lines reaching Sydney (320ms TTFB), London (110ms), and Tokyo (240ms); Diagram B shows Global Edge CDN with green lightning bolts delivering cached assets from local edge nodes in <25ms globally. High contrast tech styling.",
+    "aspectRatio": "4:3",
+    "filename": "origin-vs-edge-cdn-latency-infographic.webp",
+    "altText": "Technical diagram contrasting slow centralized origin server vs lightning-fast distributed edge CDN",
+    "caption": "Serving from local edge nodes eliminates cross-continental network latency.",
+    "placement": "Under Anatomy of Global Edge Section"
+  },
+  {
+    "id": "va-78-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Edge Cache Hit vs Cache Miss Lifecycle",
+    "concept": "Vector dataflow diagram tracing user request checking local edge cache, fetching on miss, and caching with max-age immutable.",
+    "prompt": "Vector dataflow diagram: 1. Client browser issues GET /hero.webp, 2. Edge node checks SSD cache, 3. [Cache Hit] -> Returns 304/200 in 18ms, 4. [Cache Miss] -> Fetches from Origin (180ms) + Stores with Cache-Control: max-age=31536000. Clean modern software aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "cdn-cache-hit-miss-lifecycle-workflow.webp",
+    "altText": "Workflow diagram illustrating CDN edge cache hit and miss lifecycle for static image assets",
+    "caption": "Cache-Control immutable headers keep assets cached at the edge for an entire year.",
+    "placement": "Under Bulletproof HTTP Caching Section"
+  },
+  {
+    "id": "va-78-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Global TTFB Latency Benchmark: Origin vs Edge CDN",
+    "concept": "Comparative bar chart showing Time to First Byte across 5 continents with origin vs CDN.",
+    "prompt": "Comparative latency bar chart on dark background: Testing TTFB in Sydney, Tokyo, São Paulo, and Frankfurt: Red bars (Origin Server) show 220ms - 380ms; Green bars (Edge CDN) show flatlined 15ms - 22ms across all locations. Bold '94% Latency Reduction' callout badge.",
+    "aspectRatio": "16:9",
+    "filename": "global-ttfb-latency-cdn-benchmark.webp",
+    "altText": "Benchmark chart showing 94% TTFB latency reduction using global CDN edge caching",
+    "caption": "Edge caching reduces global Time to First Byte (TTFB) by up to 94% across all continents.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-78-5",
+    "index": 5,
+    "type": "application",
+    "title": "Enterprise Global Cloudflare Edge Monitoring Center",
+    "concept": "Cloud infrastructure operations room monitoring 99.8% cache hit ratios and terabytes of saved bandwidth.",
+    "prompt": "Modern DevOps monitoring room: curved high-resolution monitors displaying Cloudflare and Fastly edge traffic analytics. Charts display 99.8% edge cache hit ratio, petabytes of bandwidth offloaded from origin, and flawless 20ms global response times. Ambient moody tech lighting.",
+    "aspectRatio": "16:9",
+    "filename": "devops-cdn-edge-monitoring-center.webp",
+    "altText": "DevOps operations center monitoring global edge CDN cache hit ratios and image traffic metrics",
+    "caption": "Edge caching handles massive traffic spikes effortlessly while shielding origin infrastructure.",
+    "placement": "Conclusion Section"
+  }
+]

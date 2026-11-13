@@ -1,0 +1,59 @@
+{
+  "id": 42,
+  "title": "Mastering Image Brightness, Contrast, and Saturation Adjustments",
+  "slug": "mastering-brightness-contrast-saturation-adjustments",
+  "folder": "42-mastering-brightness-contrast-saturation-adjustments",
+  "category": "Image Editing & Creative Workflows",
+  "categorySlug": "editing-and-creative-workflows",
+  "subcategory": "Color Correction",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-06",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Mastering Brightness, Contrast & Saturation | FluxWebP Pro",
+    "metaDescription": "Learn how to color correct photos online. Master brightness, tonal contrast, saturation, and exposure curves to rescue dark and washed-out images.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/mastering-brightness-contrast-saturation-adjustments/",
+    "primaryKeyword": "adjust brightness contrast saturation",
+    "secondaryKeywords": [
+      "photo color correction online",
+      "how to fix dark underexposed photos",
+      "image contrast adjustment explained",
+      "color saturation vs vibrance"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/42-mastering-brightness-contrast-saturation-adjustments/hero.svg",
+  "visualAssetsCount": 5
+}

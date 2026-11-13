@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-91-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Digital Image Anatomy & Embedded EXIF Geolocation",
+    "concept": "3D render showing an everyday smartphone photograph dissecting into an optical photograph on the front, while the back reveals a glowing matrix of GPS coordinates, satellite tracking vectors, and camera telemetry.",
+    "prompt": "Futuristic cybersecurity concept: a high-res smartphone photograph of a casual living room interior floating in mid-air. One half displays the peaceful photographic image; the reverse side peels open to reveal a glowing holographic matrix of digital EXIF telemetry: pulsing satellite GPS coordinates (latitude/longitude), exact military timestamps, and device serial numbers projecting into a 3D Google Earth globe pin. Deep slate backdrop, cyan and crimson laser alerts, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "what-is-exif-metadata-privacy-risks-hero.webp",
+    "altText": "3D visual of photograph peeling open to reveal hidden EXIF metadata and GPS satellite coordinates",
+    "caption": "Raw photographs embed precise GPS coordinates and device serial numbers within their binary headers.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-91-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Anatomy of an EXIF Header: What Is Being Recorded",
+    "concept": "Infographic poster breaking down Geolocation, Hardware Specs, Timestamp, and Optical Settings.",
+    "prompt": "Clean technical cybersecurity infographic on dark slate background: 4 data clusters extracted from a photo header: 1. Geolocation (GPS Lat/Long, Altitude, Compass Heading); 2. Device Identity (Phone Model, OS Version, Serial Number); 3. Optical Settings (ISO, Shutter, Focal Length, Flash); 4. Temporal Data (Sub-second timestamp, Timezone). High contrast warning indicators.",
+    "aspectRatio": "4:3",
+    "filename": "exif-header-data-clusters-infographic.webp",
+    "altText": "Technical diagram detailing the data categories stored inside digital photo EXIF headers",
+    "caption": "EXIF headers record sensitive location, temporal, and hardware fingerprinting data.",
+    "placement": "Under Hidden Payload Section"
+  },
+  {
+    "id": "va-91-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "How Attackers Extract GPS Coordinates from Raw Photos",
+    "concept": "Flowchart showing attacker downloading photo from forum, running ExifTool in terminal, extracting GPS, and opening exact home address in Google Maps.",
+    "prompt": "Vector cybersecurity dataflow diagram: 1. Public photo downloaded from classifieds site, 2. Attacker runs terminal command 'exiftool photo.jpg', 3. Extracting raw GPS coordinates, 4. Mapping coordinates to exact suburban street address in Google Street View. Modern cybersecurity aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "exif-gps-extraction-attack-workflow.webp",
+    "altText": "Workflow diagram demonstrating how bad actors extract GPS coordinates from un-sanitized photos",
+    "caption": "Bad actors use basic command-line tools to extract exact home addresses from un-sanitized photos.",
+    "placement": "Under Physical Stalking Section"
+  },
+  {
+    "id": "va-91-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Raw EXIF-Laden Photo vs Sanitized WebP Asset",
+    "concept": "Side-by-side binary header comparison showing 12KB of private personal telemetry vs clean, stripped WebP bitmap.",
+    "prompt": "Side-by-side terminal code comparison: Left panel shows 'Raw Camera File' containing 14KB of private GPS coordinates, serial numbers, and camera metadata (red privacy hazard); Right panel shows 'FluxWebP Sanitized File' containing pure compressed image pixels and zero personal metadata (green verified privacy shield). High contrast UI badges.",
+    "aspectRatio": "16:9",
+    "filename": "raw-exif-vs-sanitized-webp-comparison.webp",
+    "altText": "Comparison showing raw photo packed with private metadata vs clean sanitized WebP file",
+    "caption": "Sanitizing images strips all private metadata while reducing file weight by 10-15KB.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-91-5",
+    "index": 5,
+    "type": "application",
+    "title": "Cybersecurity Analyst Sanitizing Sensitive Investigative Files",
+    "concept": "Investigative journalist or privacy researcher stripping EXIF metadata before publishing whistleblower photographs.",
+    "prompt": "Contemporary investigative journalism newsroom at night: a digital security specialist reviews sensitive whistleblower photographs on calibrated monitors. An automated script scrubs all camera fingerprints and GPS coordinates before publication, with an airtight security badge displayed. Moody atmospheric studio light.",
+    "aspectRatio": "16:9",
+    "filename": "investigative-journalism-metadata-sanitization.webp",
+    "altText": "Investigative journalist using privacy tools to strip metadata from sensitive photos before publishing",
+    "caption": "Metadata sanitization is a mandatory protocol for journalists, researchers, and privacy-conscious users.",
+    "placement": "Conclusion Section"
+  }
+]

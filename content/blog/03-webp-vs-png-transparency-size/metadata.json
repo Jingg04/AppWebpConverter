@@ -1,0 +1,59 @@
+{
+  "id": 3,
+  "title": "WebP vs PNG: Quality, Transparency and File Size",
+  "slug": "webp-vs-png-transparency-size",
+  "folder": "03-webp-vs-png-transparency-size",
+  "category": "Image Formats & Conversion",
+  "categorySlug": "formats-and-conversion",
+  "subcategory": "Head-to-Head Comparisons",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "WebP vs PNG: Transparency, Quality & Byte Size Compared | FluxWebP Pro",
+    "metaDescription": "Learn how WebP handles 8-bit alpha transparency compared to PNG. See why lossless WebP is 26% smaller while preserving pixel-perfect graphics and cutouts.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/webp-vs-png-transparency-size/",
+    "primaryKeyword": "webp vs png",
+    "secondaryKeywords": [
+      "png vs webp transparency",
+      "convert png to webp",
+      "webp smaller than png",
+      "lossless webp"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/03-webp-vs-png-transparency-size/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,42 @@
+---
+title: "Lazy Loading Done Right: loading='lazy', IntersectionObserver, and LCP Optimization"
+slug: "lazy-loading-done-right-intersectionobserver-lcp"
+id: 74
+category: "Website Image SEO & Performance"
+categorySlug: "image-seo-and-performance"
+publicationStatus: "published"
+publishedDate: "2026-11-08"
+updatedDate: "2026-11-14"
+author: "Dr. Sarah Chen"
+authorRole: "Head of Web Performance Architecture"
+readingTime: 8
+primaryKeyword: "lazy loading images done right"
+featuredImage: "/public/blog-assets/74-lazy-loading-done-right-intersectionobserver-lcp/hero.svg"
+---
+
+# Lazy Loading Done Right: loading='lazy', IntersectionObserver, and LCP Optimization
+
+<VisualAsset id="va-74-1" type="hero" src="/public/blog-assets/74-lazy-loading-done-right-intersectionobserver-lcp/hero.svg" alt="3D visualization of intelligent lazy loading showing eager hero load and just-in-time offscreen loading" />
+
+> **Summary:** Lazy loading done wrong is the #1 cause of failing Google LCP scores. Learn native browser loading='lazy', intersection thresholds, and the above-the-fold rule.
+
+
+
+
+## Frequently Asked Questions
+
+### Why is putting loading='lazy' on hero images disastrous?
+
+The Largest Contentful Paint (LCP) element is almost always your hero image. Adding <code>loading='lazy'</code> forces the browser to delay requesting the image until layout calculations finish, delaying LCP by 1 to 2 full seconds and destroying your Core Web Vitals score.
+
+### Which images SHOULD be lazy loaded?
+
+Every image positioned below the initial viewport fold (e.g. blog post body illustrations, footer logos, product review galleries) should have <code>loading='lazy'</code> to save bandwidth.
+
+### How far from the screen does native lazy loading trigger?
+
+Browsers use dynamic thresholds based on network speed (e.g. Chrome triggers loading ~1,250px before entering the viewport on fast 4G, or ~2,500px on slow 3G) ensuring images finish rendering before the user scrolls them into view.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

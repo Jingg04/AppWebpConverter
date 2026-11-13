@@ -1,0 +1,59 @@
+{
+  "id": 57,
+  "title": "Edge Feathering, Matte Defringing, and Spill Suppression Techniques",
+  "slug": "edge-feathering-matte-defringing-spill-suppression",
+  "folder": "57-edge-feathering-matte-defringing-spill-suppression",
+  "category": "AI Background Removal",
+  "categorySlug": "ai-background-removal",
+  "subcategory": "Edge Post-Processing",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-11",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Matte Defringing, Spill Suppression & Edge Feathering | FluxWebP Pro",
+    "metaDescription": "Eliminate ugly halos and color fringing on cutouts. Master edge feathering, matte choking, and mathematical spill suppression shaders for clean compositing.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/edge-feathering-matte-defringing-spill-suppression/",
+    "primaryKeyword": "matte defringing and spill suppression",
+    "secondaryKeywords": [
+      "edge feathering background removal",
+      "remove green screen color spill",
+      "alpha matte edge defringe",
+      "choke and feather matte technique"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/57-edge-feathering-matte-defringing-spill-suppression/hero.svg",
+  "visualAssetsCount": 5
+}

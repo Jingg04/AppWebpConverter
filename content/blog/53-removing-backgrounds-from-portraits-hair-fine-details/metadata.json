@@ -1,0 +1,59 @@
+{
+  "id": 53,
+  "title": "Removing Backgrounds from Portraits, Hair, and Fine Details Accurately",
+  "slug": "removing-backgrounds-from-portraits-hair-fine-details",
+  "folder": "53-removing-backgrounds-from-portraits-hair-fine-details",
+  "category": "AI Background Removal",
+  "categorySlug": "ai-background-removal",
+  "subcategory": "Complex Subject Matting",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-07",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Remove Backgrounds from Hair & Portraits Accurately | FluxWebP Pro",
+    "metaDescription": "Master AI background removal for complex portraits, curly hair, and fine fur. Learn edge refinement, matte defringing, and hair strand transparency algorithms.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/removing-backgrounds-from-portraits-hair-fine-details/",
+    "primaryKeyword": "remove background from hair portrait",
+    "secondaryKeywords": [
+      "ai hair matting online",
+      "cut out curly hair without green screen",
+      "fine detail background removal",
+      "portrait alpha matte extraction"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/53-removing-backgrounds-from-portraits-hair-fine-details/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,59 @@
+{
+  "id": 79,
+  "title": "Preventing Image Hotlinking and Bandwidth Theft with Server Headers",
+  "slug": "preventing-image-hotlinking-and-bandwidth-theft",
+  "folder": "79-preventing-image-hotlinking-and-bandwidth-theft",
+  "category": "Website Image SEO & Performance",
+  "categorySlug": "image-seo-and-performance",
+  "subcategory": "Security & Protection",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-13",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Prevent Image Hotlinking & Bandwidth Theft | FluxWebP Pro",
+    "metaDescription": "Stop third-party websites from stealing your hosting bandwidth. Learn how to configure anti-hotlinking rules in Nginx, Apache, and Cloudflare safely.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/preventing-image-hotlinking-and-bandwidth-theft/",
+    "primaryKeyword": "prevent image hotlinking bandwidth theft",
+    "secondaryKeywords": [
+      "anti hotlinking server headers",
+      "stop hotlinking nginx cloudflare",
+      "protect image bandwidth theft",
+      "referrer policy hotlink protection"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/79-preventing-image-hotlinking-and-bandwidth-theft/hero.svg",
+  "visualAssetsCount": 5
+}

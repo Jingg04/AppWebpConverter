@@ -1,0 +1,59 @@
+{
+  "id": 62,
+  "title": "How to Write High-Yield AI Prompts for Event Posters and Banners",
+  "slug": "how-to-write-ai-prompts-for-event-posters-and-banners",
+  "folder": "62-how-to-write-ai-prompts-for-event-posters-and-banners",
+  "category": "AI Poster Generation & Design",
+  "categorySlug": "ai-poster-generation-and-design",
+  "subcategory": "Prompt Engineering",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-06",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Write High-Yield AI Prompts for Event Posters & Banners | FluxWebP Pro",
+    "metaDescription": "Master AI prompt engineering for posters and banners. Learn prompt formulas, style modifiers, lighting keys, and how to force negative space for text overlays.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-write-ai-prompts-for-event-posters-and-banners/",
+    "primaryKeyword": "ai prompts for event posters",
+    "secondaryKeywords": [
+      "midjourney poster prompts",
+      "how to prompt ai for banners",
+      "prompt engineering graphic design",
+      "ai art prompt structure for posters"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/62-how-to-write-ai-prompts-for-event-posters-and-banners/hero.svg",
+  "visualAssetsCount": 5
+}

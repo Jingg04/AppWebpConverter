@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-38-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Smart Focal-Point Cropping Dynamics",
+    "concept": "3D render showing an environmental portrait with dynamic glowing focal point brackets shifting across mobile and desktop frames.",
+    "prompt": "Cinematic 3D design studio setting: a master wide editorial photograph of a model in an architectural space. Holographic bounding boxes dynamically track the model's face and posture, showing adaptive framing for a wide desktop display and a tight vertical smartphone display. Royal blue and amber laser lines, sleek tech minimalism, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "smart-cropping-focal-point-hero.webp",
+    "altText": "3D illustration of smart focal point detection tracking subject across responsive crops",
+    "caption": "Smart cropping anchors to the subject's focal point, ensuring maximum impact on any screen size.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-38-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Art Direction vs Naive Scaling Matrix",
+    "concept": "Infographic contrasting naive downscaling where the subject shrinks versus art direction where the subject stays large.",
+    "prompt": "Clean technical comparison infographic on dark slate background: Column A (Naive Scaling) shows a wide desert landscape with a hiker shrinking into an invisible dot on mobile; Column B (Art Direction) shows the camera cropping in tightly on the hiker on mobile, maintaining emotional connection. Crisp callouts and eye-tracking vectors.",
+    "aspectRatio": "4:3",
+    "filename": "art-direction-vs-scaling-infographic.webp",
+    "altText": "Infographic contrasting naive image downscaling against art-directed responsive focal cropping",
+    "caption": "Art direction maintains subject scale on small screens rather than shrinking the entire canvas.",
+    "placement": "Under Scaling vs Smart Cropping Section"
+  },
+  {
+    "id": "va-38-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "HTML5 Picture Art Direction Workflow",
+    "concept": "Visual code schematic showing picture tag routing different aspect crops to mobile, tablet, and desktop.",
+    "prompt": "Vector code and architecture diagram illustrating the HTML5 picture element: browser evaluates media query (max-width: 640px) and loads mobile vertical crop, or loads wide 16:9 for desktop. Clean glowing data streams, modern web development visual style.",
+    "aspectRatio": "16:9",
+    "filename": "html5-picture-art-direction-workflow.webp",
+    "altText": "Diagram illustrating how the HTML5 picture tag serves distinct cropped images by screen width",
+    "caption": "The HTML5 picture element delivers tailored visual crops without requiring JavaScript.",
+    "placement": "Under Implementing Art Direction Section"
+  },
+  {
+    "id": "va-38-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "CSS object-position: center vs focal point offset",
+    "concept": "Side-by-side comparison of an off-center subject cut in half by default center crop vs saved by object-position.",
+    "prompt": "Side-by-side visual comparison inside mobile browser mockup: Left panel shows 'object-position: 50% 50%' cutting off the subject's head; Right panel shows 'object-position: 75% 20%' framing the subject's face with golden ratio balance. Clear red 'Poor Framing' and green 'Perfect Framing' badges.",
+    "aspectRatio": "16:9",
+    "filename": "css-object-position-focal-offset-comparison.webp",
+    "altText": "Comparison showing default center cropping cutting off subject vs custom focal point positioning",
+    "caption": "Configuring object-position locks framing onto off-center subjects in responsive cards.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-38-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-Fashion Editorial Art Direction in Production",
+    "concept": "A responsive fashion magazine website running seamlessly on an ultra-wide desktop and an iPhone.",
+    "prompt": "Sophisticated editorial workspace: a 34-inch curved monitor displaying an expansive widescreen fashion editorial banner, alongside an iPhone Pro displaying the same article with an intimate, tight vertical portrait crop. Warm minimalist interior, high-end design publication aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "fashion-editorial-art-direction-showcase.webp",
+    "altText": "High-end fashion editorial website showcasing adaptive responsive art direction on desktop and phone",
+    "caption": "Responsive art direction delivers magazine-grade visual polish across both mobile and desktop viewports.",
+    "placement": "Conclusion Section"
+  }
+]

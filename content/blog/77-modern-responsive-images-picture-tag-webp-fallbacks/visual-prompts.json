@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-77-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Progressive Format Negotiation & The Picture Element",
+    "concept": "3D render showing an incoming browser request filtering through an optical format decision gate: AVIF -> WebP -> JPEG fallback.",
+    "prompt": "Futuristic web architecture visualization: an optical browser request enters a tiered three-stage format selector gate. Tier 1 (AVIF): neon violet laser gate; Tier 2 (WebP): radiant cyan laser gate; Tier 3 (Legacy JPEG): solid amber fallback gate. The system routes the lightest compatible file with zero wasted bandwidth. Dark high-tech environment, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "modern-responsive-picture-tag-hero.webp",
+    "altText": "3D architectural render of HTML5 picture element negotiating AVIF, WebP, and JPEG formats",
+    "caption": "The HTML5 picture element negotiates the lightest compatible format for each user's device.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-77-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The HTML5 Picture Evaluation Waterfall",
+    "concept": "Infographic poster illustrating how the browser evaluates MIME types from top to bottom.",
+    "prompt": "Clean technical infographic on dark slate background: Flowchart showing browser decision algorithm: Start -> Can decode image/avif? (YES -> Fetch 35KB AVIF and Stop; NO -> Can decode image/webp? (YES -> Fetch 55KB WebP and Stop; NO -> Fetch 180KB JPG fallback)). High contrast vector branches.",
+    "aspectRatio": "4:3",
+    "filename": "picture-tag-evaluation-flowchart-infographic.webp",
+    "altText": "Technical flowchart illustrating how web browsers evaluate picture tag sources top to bottom",
+    "caption": "Browsers evaluate source tags sequentially, downloading only the first supported format.",
+    "placement": "Under Universal Progressive Enhancement Section"
+  },
+  {
+    "id": "va-77-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Automated Multi-Format Asset Generation Pipeline",
+    "concept": "Flowchart showing master photo processed into AVIF, WebP, and JPG files with ready-to-paste HTML picture code.",
+    "prompt": "Vector tech workflow diagram: 1. High-res master photo, 2. FluxWebP processing engine encoding AVIF, WebP, and JPG tiers, 3. Auto-generating valid <picture> HTML code snippet, 4. Instant copy button. Modern clean UI styling with blue and emerald accents.",
+    "aspectRatio": "16:9",
+    "filename": "multiformat-picture-tag-pipeline-workflow.webp",
+    "altText": "Workflow showing automated multi-format image encoding and picture tag markup generation",
+    "caption": "Generate all three format tiers and clean HTML markup in a single automated step.",
+    "placement": "Under Why the img Tag is Mandatory Section"
+  },
+  {
+    "id": "va-77-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Bandwidth Savings: Legacy JPG vs WebP vs Next-Gen AVIF",
+    "concept": "Comparative bar chart showing file weights: 240KB JPG vs 72KB WebP vs 44KB AVIF.",
+    "prompt": "Comparative data chart on dark background: Bar 1: Legacy JPEG (240KB, 100% baseline); Bar 2: Modern WebP (72KB, 70% savings); Bar 3: Next-Gen AVIF (44KB, 82% savings). Crisp vector data bars with vibrant neon green savings callouts.",
+    "aspectRatio": "16:9",
+    "filename": "jpeg-vs-webp-vs-avif-file-size-comparison.webp",
+    "altText": "Chart comparing file size savings between legacy JPEG, WebP, and next-gen AVIF formats",
+    "caption": "Progressive enhancement with AVIF and WebP reduces image payloads by up to 82%.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-77-5",
+    "index": 5,
+    "type": "application",
+    "title": "Cross-Device Cross-Browser Production Verification",
+    "concept": "Developer testing picture tag fallback behavior across modern Safari on iPhone and legacy Android emulator.",
+    "prompt": "Professional frontend developer workstation: an iPad Pro running modern Safari and an older ThinkPad running legacy Chromium. Network tab logs verify the iPad seamlessly receives AVIF while the older machine seamlessly receives WebP. Sleek ambient studio setup.",
+    "aspectRatio": "16:9",
+    "filename": "cross-browser-picture-tag-verification.webp",
+    "altText": "Frontend developer verifying responsive picture tag fallback behavior across multiple devices",
+    "caption": "Progressive picture elements ensure 100% universal device compatibility with zero speed compromises.",
+    "placement": "Conclusion Section"
+  }
+]

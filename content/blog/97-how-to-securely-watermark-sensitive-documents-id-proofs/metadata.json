@@ -1,0 +1,59 @@
+{
+  "id": 97,
+  "title": "How to Securely Watermark Sensitive Documents and ID Proofs Online",
+  "slug": "how-to-securely-watermark-sensitive-documents-id-proofs",
+  "folder": "97-how-to-securely-watermark-sensitive-documents-id-proofs",
+  "category": "Privacy, Metadata & Troubleshooting",
+  "categorySlug": "privacy-metadata-and-troubleshooting",
+  "subcategory": "Identity Security",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-11",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Securely Watermark Sensitive Documents & IDs Online | FluxWebP Pro",
+    "metaDescription": "Protect your identity from loan fraud and account takeover. Learn how to apply semi-transparent purposeful watermarks to passport and ID scans with zero uploads.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-securely-watermark-sensitive-documents-id-proofs/",
+    "primaryKeyword": "watermark sensitive documents id proofs online",
+    "secondaryKeywords": [
+      "how to protect passport scan from fraud",
+      "watermark drivers license for verification",
+      "prevent identity theft document watermark",
+      "secure kyc document watermark tool"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/97-how-to-securely-watermark-sensitive-documents-id-proofs/hero.svg",
+  "visualAssetsCount": 5
+}

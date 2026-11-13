@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-57-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Sub-Pixel Edge Refinement & Spill Neutralization",
+    "concept": "3D render showing an extracted subject silhouette surrounded by microscopic laser calipers measuring edge softness and neutralizing color spill.",
+    "prompt": "Futuristic digital visual effects studio: a high-res portrait cutout floating inside a holographic calibration chamber. Laser calipers in cyan and gold measure sub-pixel alpha gradients along the subject's shoulder and hair. A glowing green color halo dissolves into neutral tones through an optical spill suppression field. Dark VFX studio backdrop, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "matte-defringing-spill-suppression-hero.webp",
+    "altText": "3D render of edge refinement calibration measuring alpha gradient and neutralizing color fringing",
+    "caption": "Sub-pixel edge feathering and spill suppression remove unsightly boundary halos.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-57-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 3-Stage Edge Refinement Pipeline",
+    "concept": "Infographic illustrating Choke (Erosion), Feather (Blur), and Despill (Color clamp) in sequential order.",
+    "prompt": "Clean technical infographic on dark slate background showing 3 sequential microscopic edge cross-sections: 1. Raw Edge with green halo; 2. Choke (mask contracted 1px inward); 3. Feather (0.8px sub-pixel blur applied); 4. Despill (mathematical green clamping). High contrast vector callouts.",
+    "aspectRatio": "4:3",
+    "filename": "edge-refinement-stages-infographic.webp",
+    "altText": "Technical diagram illustrating matte choke, edge feathering, and spill suppression stages",
+    "caption": "The three-stage pipeline for producing seamless, halo-free image cutouts.",
+    "placement": "Under 3-Step Pipeline Section"
+  },
+  {
+    "id": "va-57-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Interactive Defringe Controls in FluxWebP",
+    "concept": "Vector UI workflow showing user adjusting Choke slider, Feather slider, and Color Spill eyedropper.",
+    "prompt": "Modern vector software UI: portrait preview canvas with zoom-in box on hair edge. Control panel shows 'Edge Shift (-1px)', 'Feather (0.5px)', and 'Spill Suppression (Active)'. Clean toggle switches, dark mode styling with cyan accents.",
+    "aspectRatio": "16:9",
+    "filename": "interactive-defringe-controls-workflow.webp",
+    "altText": "Workflow showing interactive edge refinement and defringe controls in FluxWebP",
+    "caption": "Fine-tune edge contraction and spill suppression with real-time interactive previews.",
+    "placement": "Under Spill Suppression Section"
+  },
+  {
+    "id": "va-57-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Green Spill Halo vs Clean Defringed Edge on Black",
+    "concept": "Side-by-side macro comparison showing green fringed hair on black background vs neutralized clean hair.",
+    "prompt": "Macro zoom comparison of a subject placed onto a pure black background: Left panel shows 'Unprocessed Cutout' with an ugly glowing green boundary halo around hair and jacket; Right panel shows 'Defringed & Despilled' with clean, rich natural tones and zero color contamination.",
+    "aspectRatio": "16:9",
+    "filename": "green-halo-vs-clean-defringed-edge-comparison.webp",
+    "altText": "Comparison showing ugly green halo around cutout vs clean defringed edge on dark background",
+    "caption": "Without spill suppression, background colors bleed through; with defringing, edges are pure and natural.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-57-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-End Visual Effects & Advertising Compositing Suite",
+    "concept": "VFX artist workstation finalizing a commercial billboard composite with seamless subject integration.",
+    "prompt": "High-end Hollywood visual effects suite: an artist reviews an expansive billboard composite on a calibrated 4K OLED monitor. The model, extracted from an on-location green screen, blends with photographic realism into a futuristic city backdrop. Ambient moody studio lighting.",
+    "aspectRatio": "16:9",
+    "filename": "vfx-artist-compositing-suite-billboard.webp",
+    "altText": "Professional VFX artist workstation finalizing high-end commercial photo composite",
+    "caption": "Professional edge post-processing ensures cutouts integrate seamlessly into any commercial scene.",
+    "placement": "Conclusion Section"
+  }
+]

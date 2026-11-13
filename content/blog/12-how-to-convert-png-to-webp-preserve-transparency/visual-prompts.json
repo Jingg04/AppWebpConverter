@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-12-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Transparent Layer Separation Hero",
+    "concept": "Exploded 3D isometric view showing the separation and preservation of RGB color channels and alpha transparency.",
+    "prompt": "Exploded 3D isometric view of a digital graphic asset separating into two floating glass planes: the top plane displays vibrant RGB product colors, and the bottom plane displays an immaculate monochrome 8-bit alpha transparency mask hovering over a dark checkerboard surface. Laser illumination in cyan and cobalt blue, razor-sharp architectural tech aesthetic, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "convert-png-to-webp-transparency-hero.webp",
+    "altText": "Exploded isometric view showing RGB color channels separating cleanly from the 8-bit alpha transparency layer",
+    "caption": "FluxWebP isolates and protects the alpha channel during conversion to guarantee zero background discoloration.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-12-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Alpha Channel Preservation Architecture Diagram",
+    "concept": "Technical diagram contrasting flawed converters (which flatten alpha to black) with FluxWebP's dual-stream pipeline.",
+    "prompt": "Comparison flowchart diagram: Top path shows 'Broken Converter' flattening RGBA to RGB -> Result: ugly black background. Bottom path shows 'FluxWebP Engine' splitting RGBA -> Quantizing RGB + Lossless ALPH Chunk -> Result: pristine transparent WebP cutout. High-contrast vector styling with red fail and green pass badges.",
+    "aspectRatio": "16:9",
+    "filename": "alpha-channel-preservation-pipeline-diagram.svg",
+    "altText": "Diagram comparing broken converters flattening alpha channels versus FluxWebP dual-stream alpha preservation",
+    "caption": "Flawed tools strip the alpha channel; FluxWebP encodes transparency independently in a dedicated ALPH chunk.",
+    "placement": "Section 2: The Alpha Encoding Architecture"
+  },
+  {
+    "id": "va-12-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "FluxWebP Transparent Batch PNG Conversion Workflow",
+    "concept": "Screen walkthrough of dropping 10 transparent PNG icons, toggling 'Preserve Alpha', and downloading ZIP.",
+    "prompt": "UI walkthrough graphic displaying 4 stages: 1. Drag in 10 PNG logos -> 2. Transparency toggle checked 'Preserve 8-Bit Alpha' -> 3. Real-time preview confirms checkerboard backdrop -> 4. Click 'Download Converted ZIP'. Clean modern web interface with purple and blue accent cards.",
+    "aspectRatio": "16:9",
+    "filename": "fluxwebp-transparent-png-conversion-workflow.svg",
+    "altText": "Four-step visual workflow for converting transparent PNG files to WebP in FluxWebP Pro",
+    "caption": "Batch process transparent icons and logos with instant real-time checkerboard verification.",
+    "placement": "Section 3: Step-by-Step Conversion Walkthrough"
+  },
+  {
+    "id": "va-12-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Drop Shadow Feathering Test: PNG vs WebP over Dynamic Colors",
+    "concept": "A floating glass card with feathered drop shadow tested over white, dark, and vibrant gradient backdrops.",
+    "prompt": "Triple-backdrop comparison testing a floating glass card with a feathered semi-transparent drop shadow. Left side: Original 2.4 MB PNG-24. Right side: Converted 380 KB WebP. Both cards are positioned across three vertical background stripes (pure white, charcoal black, vibrant gradient) verifying identical smooth shadow blending with zero fringing.",
+    "aspectRatio": "16:9",
+    "filename": "feathered-drop-shadow-png-vs-webp-comparison.webp",
+    "altText": "Drop shadow test verifying identical smooth shadow blending over white, dark, and gradient backgrounds",
+    "caption": "Testing complex feathered shadows over dark and light backgrounds proves WebP matches PNG's alpha fidelity.",
+    "placement": "Section 4: Drop Shadow and Edge Verification"
+  },
+  {
+    "id": "va-12-5",
+    "index": 5,
+    "type": "application",
+    "title": "SaaS App Navigation Header with Transparent Logos and Avatars",
+    "concept": "Modern web application header displaying transparent brand logo, navigation icons, and user avatars.",
+    "prompt": "Crisp mockup view of a modern SaaS navigation header resting over an interactive dynamic gradient hero background. All transparent WebP brand logos, SVG navigation icons, and user avatar cutouts blend cleanly without rectangular white outlines. Clean modern minimalist tech aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "saas-header-transparent-webp-integration.webp",
+    "altText": "SaaS navigation header displaying transparent WebP logos and icons blending over a dynamic gradient backdrop",
+    "caption": "Transparent WebP assets integrate seamlessly into modern dynamic web headers and dark mode interfaces.",
+    "placement": "Section 5: Production Web Integration"
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "id": 63,
+  "title": "Color Theory and Palette Selection for Striking Poster Designs",
+  "slug": "color-theory-and-palette-selection-for-posters",
+  "folder": "63-color-theory-and-palette-selection-for-posters",
+  "category": "AI Poster Generation & Design",
+  "categorySlug": "ai-poster-generation-and-design",
+  "subcategory": "Color Theory",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-07",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Color Theory for Poster Design: Palettes & Contrast | FluxWebP Pro",
+    "metaDescription": "Master color theory for posters and banners. Learn the 60-30-10 rule, complementary and analogous palettes, color psychology, and high-impact contrast.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/color-theory-and-palette-selection-for-posters/",
+    "primaryKeyword": "color theory for poster design",
+    "secondaryKeywords": [
+      "poster color palette generator",
+      "complementary colors in graphic design",
+      "60-30-10 color rule",
+      "psychology of color in advertising"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/63-color-theory-and-palette-selection-for-posters/hero.svg",
+  "visualAssetsCount": 5
+}

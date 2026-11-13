@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-87-1",
+    "index": 1,
+    "type": "hero",
+    "title": "High-Converting Promotional Banner & Urgency Engine",
+    "concept": "3D render of a luxury flash sale homepage banner floating in space with dimensional typography ('FLASH SALE 40% OFF'), floating extracted product hero, and glowing high-contrast CTA button.",
+    "prompt": "Futuristic digital advertising studio: a massive 3D e-commerce promotional banner floating in mid-air. Left side features bold architectural typography: 'FLASH SALE / 40% OFF STOREWIDE' with an illuminated crimson urgency badge ('48 HOURS ONLY'); Right side showcases a razor-sharp extracted designer handbag floating with volumetric lighting. A high-contrast glowing amber pill button ('SHOP NOW') anchors the composition. Dark luxury studio backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "promotional-banner-design-flash-sale-hero.webp",
+    "altText": "3D visual of high-converting flash sale homepage banner with clear discount typography and CTA",
+    "caption": "Promotional banners pair bold discount hooks with high-contrast CTA buttons to maximize conversions.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-87-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Anatomy of a High-Converting Promo Banner",
+    "concept": "Technical diagram breaking down a 1920x600 banner: Offer Hook, Product Cutout, Urgency Badge, and CTA Button.",
+    "prompt": "Clean technical graphic design infographic on dark slate background: 1920x600px promotional banner layout schematic: Left 50% mapped into Bold Headline (40% OFF) + Urgency Pill + High-Contrast Button; Right 50% allocated to High-Impact Extracted Product Hero with subtle depth shadow. High contrast modern styling.",
+    "aspectRatio": "4:3",
+    "filename": "promo-banner-layout-anatomy-infographic.webp",
+    "altText": "Technical diagram illustrating layout zones and hierarchy for high-converting promotional banners",
+    "caption": "Anatomical layout breakdown for high-converting seasonal promotional banners.",
+    "placement": "Under 4 Pillars Section"
+  },
+  {
+    "id": "va-87-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Flash Sale Creative Assembly in FluxWebP Studio",
+    "concept": "Step-by-step vector workflow showing product cutout drop, adding 40% OFF badge, setting brand colors, and exporting responsive sizes.",
+    "prompt": "Vector design workflow diagram: 1. Extracted product hero placed on canvas, 2. Adding bold display typography layer 'BLACK FRIDAY', 3. Toggling urgency badge preset ('Ending Tonight'), 4. Exporting responsive desktop 1920px and mobile 800px WebP files. Modern clean UI styling.",
+    "aspectRatio": "16:9",
+    "filename": "flash-sale-banner-assembly-workflow.webp",
+    "altText": "Workflow showing how to assemble seasonal promotional banners in FluxWebP Poster Studio",
+    "caption": "Create multi-breakpoint flash sale banners in minutes using pre-configured promotional templates.",
+    "placement": "Under Urgency & Scarcity Section"
+  },
+  {
+    "id": "va-87-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Confusing Cluttered Banner vs High-Converting Focus",
+    "concept": "Side-by-side comparison showing weak banner with 5 tiny paragraphs and no button vs bold, punchy, high-converting banner.",
+    "prompt": "Side-by-side banner comparison: Top shows cluttered amateur banner with tiny text, confusing discount codes, and no clear button (low clicks); Bottom shows professional high-converting banner with commanding '50% OFF' display headline, stunning single product visual, and unmissable glowing 'Shop Now' button. High contrast visual comparison.",
+    "aspectRatio": "16:9",
+    "filename": "cluttered-vs-high-converting-banner-comparison.webp",
+    "altText": "Comparison showing confusing cluttered banner vs high-converting focused promotional design",
+    "caption": "Simplifying your message and amplifying the CTA button eliminates hesitation and accelerates purchases.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-87-5",
+    "index": 5,
+    "type": "application",
+    "title": "Black Friday Cyber Monday Live Storefront Launch",
+    "concept": "Marketing team monitoring live Cyber Monday sales surge across mobile and desktop storefronts.",
+    "prompt": "High-energy e-commerce marketing command room on Black Friday: multiple large monitors show real-time Shopify sales dashboards surging with hundreds of orders per minute. A sleek desktop and mobile phone mockup display the live promotional banner in pristine WebP fidelity. Ambient celebration lighting.",
+    "aspectRatio": "16:9",
+    "filename": "black-friday-promotional-launch-command-center.webp",
+    "altText": "E-commerce marketing command center monitoring live sales surge during Black Friday promotional launch",
+    "caption": "High-impact promotional graphics drive peak performance during critical seasonal revenue windows.",
+    "placement": "Conclusion Section"
+  }
+]

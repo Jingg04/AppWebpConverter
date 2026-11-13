@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-74-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Intelligent Lazy Loading & Viewport Scroll Dynamics",
+    "concept": "3D render showing a continuous web page scrolling through an illuminated viewport threshold, with above-the-fold hero preloading eagerly while below-the-fold assets load lazily just in time.",
+    "prompt": "Futuristic web performance visualization: a translucent responsive web page flowing vertically through an illuminated glass mobile viewport frame. Above the fold: the hero banner blazes with instant cyan light (labeled 'fetchpriority=high'). Below the fold: offscreen images remain asleep as dim wireframe placeholders until crossing a glowing dynamic green distance threshold, where they instantly materialize into vibrant WebP photographs. Dark high-tech environment, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "lazy-loading-viewport-dynamics-hero.webp",
+    "altText": "3D visualization of intelligent lazy loading showing eager hero load and just-in-time offscreen loading",
+    "caption": "Eagerly load above-the-fold heroes while lazily fetching offscreen assets just in time.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-74-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Above-the-Fold vs Below-the-Fold Loading Matrix",
+    "concept": "Infographic contrasting above-the-fold hero strategies (eager, fetchpriority high) vs below-the-fold (loading lazy, decoding async).",
+    "prompt": "Clean technical graphic design infographic on dark slate background: Split diagram of a webpage: Upper Zone (Above the Fold) marked with green checkmark: 'fetchpriority=high', 'loading=eager', LCP target < 1.2s; Lower Zone (Below the Fold) marked with blue checkmark: 'loading=lazy', 'decoding=async', zero initial network penalty. High contrast callouts.",
+    "aspectRatio": "4:3",
+    "filename": "above-vs-below-fold-loading-matrix.webp",
+    "altText": "Technical infographic contrasting above-the-fold eager loading against below-the-fold lazy loading",
+    "caption": "Clear separation between above-the-fold eager loading and below-the-fold lazy loading.",
+    "placement": "Under Golden Rules Section"
+  },
+  {
+    "id": "va-74-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Browser Network Waterfall: Lazy vs Eager Execution",
+    "concept": "DevTools waterfall timeline showing eager hero downloading at 0ms while lazy images only trigger requests at 1800ms upon scroll.",
+    "prompt": "Vector developer waterfall chart: Timeline showing HTML parse. Blue bar 1: Hero Banner begins downloading at 15ms (instant LCP); Scroll event occurs at 1800ms; Blue bars 2-5: Lazy images begin downloading on-demand. Clean Chrome DevTools UI aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "network-waterfall-lazy-vs-eager-timeline.webp",
+    "altText": "Waterfall chart showing immediate hero image download vs deferred lazy requests upon scrolling",
+    "caption": "Network waterfalls demonstrate how deferred requests free up bandwidth for critical assets.",
+    "placement": "Under Native HTML Section"
+  },
+  {
+    "id": "va-74-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "LCP Disaster (Lazy Hero) vs LCP Perfection (fetchpriority='high')",
+    "concept": "Side-by-side performance audit comparison showing 3.8s red LCP with lazy hero vs 0.8s green LCP with fetchpriority high.",
+    "prompt": "Side-by-side Google Lighthouse audit comparison: Left panel shows 'Lazy Hero Anti-Pattern' with deep red 3.8s LCP, red performance score (58), and delayed request warning; Right panel shows 'Optimized Priority' with bright green 0.8s LCP, 100 Performance score, and zero warnings. High visual contrast.",
+    "aspectRatio": "16:9",
+    "filename": "lazy-hero-disaster-vs-high-priority-lcp.webp",
+    "altText": "Comparison showing failing red LCP score with lazy hero vs perfect green score with high priority",
+    "caption": "Removing loading='lazy' from your hero banner cuts LCP time by up to 75%.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-74-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-Traffic Content Portal Operating at 100% Core Web Vitals",
+    "concept": "Engineering team monitoring live site traffic across millions of mobile visitors with flawless Core Web Vitals.",
+    "prompt": "Contemporary web engineering headquarters: dual large curved displays show real-time Datadog and Google CrUX user metrics. 100% of URLs are passing Core Web Vitals with median LCP at 0.9s and zero network congestion. High-energy engineering room at night.",
+    "aspectRatio": "16:9",
+    "filename": "web-engineering-realtime-lcp-monitoring.webp",
+    "altText": "Web engineering operations center monitoring real-time Core Web Vitals and low LCP metrics",
+    "caption": "Proper lazy loading architecture guarantees sub-second LCP scores across millions of mobile sessions.",
+    "placement": "Conclusion Section"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-43-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Modern Typography & Visual Contrast Studio",
+    "concept": "3D render of floating typographic letterforms interacting with architectural photography and luminous gradient scrims.",
+    "prompt": "Striking 3D graphic design composition: bold geometric serif typography ('ELEGANCE') floating effortlessly above an architectural photograph. A subtle smoky gradient scrim flows beneath the letters, while soft directional spotlights create dramatic depth and shadow. Electric violet and warm gold accents, minimalist gallery aesthetic, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "typography-overlays-on-images-hero.webp",
+    "altText": "3D render showcasing bold typography overlaying photography with smooth gradient scrim",
+    "caption": "Combining bold typography with gradient scrims ensures flawless legibility over photographic backgrounds.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-43-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Four Readability Techniques Compared",
+    "concept": "Infographic demonstrating the 4 core text overlay methods: Solid Box, Gradient Scrim, Frosted Glass, and Soft Shadow.",
+    "prompt": "Clean 4-panel infographic diagram on dark slate background: Panel 1: Solid Accent Box; Panel 2: Smooth Gradient Scrim; Panel 3: Frosted Glass (backdrop blur); Panel 4: Dual Soft Drop Shadow. Each panel uses the same photo and white text to contrast readability effectiveness.",
+    "aspectRatio": "4:3",
+    "filename": "text-readability-techniques-infographic.webp",
+    "altText": "Infographic comparing four graphic design techniques for making text readable over photos",
+    "caption": "Comparing the four most effective techniques for separating text from complex background images.",
+    "placement": "Under 4 Techniques Section"
+  },
+  {
+    "id": "va-43-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "FluxWebP Poster Studio Typography Pipeline",
+    "concept": "Step-by-step vector workflow showing text layer addition, font selection, scrim application, and export.",
+    "prompt": "Horizontal vector graphic design workflow: 1. Background image canvas, 2. Text tool adding headline and subhead, 3. Selecting paired Google Fonts (Playfair Display + Inter), 4. Enabling smart scrim slider, 5. High-res WebP export. Clean UI icons with royal blue theme.",
+    "aspectRatio": "16:9",
+    "filename": "typography-overlay-creation-workflow.webp",
+    "altText": "Workflow diagram for adding professional typography overlays in FluxWebP Poster Studio",
+    "caption": "FluxWebP Poster Studio simplifies font pairing and contrast scrims into a fast, intuitive workflow.",
+    "placement": "Under Gradient Scrim Section"
+  },
+  {
+    "id": "va-43-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Unreadable White Text vs Scrim-Backed Typography",
+    "concept": "Side-by-side comparison of white text vanishing into bright snow clouds vs crystal-clear scrim typography.",
+    "prompt": "Side-by-side visual comparison over a bright alpine mountain photo: Left side shows raw white text that is completely invisible against snow clouds (0.9:1 fail); Right side shows the identical text backed by a subtle 40% vertical scrim, rendering the headline razor-sharp (7.2:1 pass).",
+    "aspectRatio": "16:9",
+    "filename": "illegible-text-vs-scrim-overlay-comparison.webp",
+    "altText": "Comparison of illegible text on bright photo vs high-contrast scrim backed typography",
+    "caption": "Without a scrim, text vanishes into light backgrounds; with a scrim, every character remains legible.",
+    "placement": "Under WCAG Section"
+  },
+  {
+    "id": "va-43-5",
+    "index": 5,
+    "type": "application",
+    "title": "Marketing Campaign Banner in Production",
+    "concept": "A digital marketing agency desk showing promotional social media banner ads with crisp, high-converting typography.",
+    "prompt": "High-end marketing agency workstation: dual displays showing a seasonal sale campaign banner across Instagram Stories and LinkedIn Feed ads. The typography is commanding, elegant, and perfectly readable. Ambient studio desk with espresso cup and tablet.",
+    "aspectRatio": "16:9",
+    "filename": "marketing-campaign-typography-showcase.webp",
+    "altText": "Marketing campaign banners featuring high-converting typography overlays across multiple devices",
+    "caption": "Polished typography overlays drive brand authority and higher click-through rates on social ads.",
+    "placement": "Conclusion Section"
+  }
+]

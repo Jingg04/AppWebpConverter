@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-35-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Mathematical Sinc Interpolation Filter",
+    "concept": "3D visualization of a mathematical sinc wave kernel re-sampling discrete image pixel grids.",
+    "prompt": "Abstract 3D digital signal processing visualization showing a glowing mathematical wave (Lanczos sinc kernel) curving across a 3D grid of luminescent data voxels. Cobalt blue and emerald green energy lines illustrate weighted pixel averaging. High-tech laboratory simulation aesthetic, razor-sharp geometric precision, 8k render.",
+    "aspectRatio": "16:9",
+    "filename": "image-resampling-algorithms-sinc-hero.webp",
+    "altText": "3D visualization of mathematical sinc wave filter sampling pixels on a digital grid",
+    "caption": "Lanczos interpolation uses a windowed sinc kernel to mathematically reconstruct continuous signals.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-35-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Algorithm Sampling Kernel Size Comparison",
+    "concept": "Technical infographic comparing the pixel sampling footprints of Nearest (1), Bilinear (4), Bicubic (16), and Lanczos (64).",
+    "prompt": "Clean technical infographic diagram on dark slate background showing 4 grid overlays: Nearest Neighbor (1x1 square), Bilinear (2x2 grid), Bicubic (4x4 matrix), and Lanczos-3 (8x8 weighted kernel). Colorful circle nodes indicate sampling weight distribution. High precision engineering layout.",
+    "aspectRatio": "4:3",
+    "filename": "resampling-kernel-footprint-comparison.webp",
+    "altText": "Diagram illustrating pixel sampling footprints for Nearest Neighbor, Bilinear, Bicubic, and Lanczos",
+    "caption": "Footprint comparison: larger kernels sample more neighbor context to prevent aliasing.",
+    "placement": "Under Interpolation Spectrum Section"
+  },
+  {
+    "id": "va-35-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Hardware-Accelerated WebAssembly Resizing Pipeline",
+    "concept": "Dataflow diagram illustrating browser-based parallel chunking and Lanczos resampling.",
+    "prompt": "Vector architecture schematic illustrating client-side image processing: Raw RGBA buffer streamed into WebAssembly SIMD worker threads executing horizontal and vertical Lanczos convolutions in parallel, outputting pristine downscaled pixels. Clean glowing node connectors, modern dark mode UI styling.",
+    "aspectRatio": "16:9",
+    "filename": "wasm-lanczos-resampling-pipeline.webp",
+    "altText": "Workflow diagram of WebAssembly parallel Lanczos resampling pipeline inside modern browsers",
+    "caption": "FluxWebP executes SIMD-accelerated Lanczos filtering client-side in under 50 milliseconds.",
+    "placement": "Under Lanczos Resampling Section"
+  },
+  {
+    "id": "va-35-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Nearest Neighbor vs Bilinear vs Lanczos Magnified",
+    "concept": "Triple-split macro zoom comparing edge sharpness on high-contrast text and curved shapes.",
+    "prompt": "Magnified 400% side-by-side comparison of a downscaled typographic logo: Left: Nearest Neighbor with severe jagged pixel blocks; Center: Bilinear with soft blurry halo; Right: Lanczos-3 with razor-sharp clean edges and high micro-contrast. Sleek dark mode split comparison UI.",
+    "aspectRatio": "16:9",
+    "filename": "interpolation-edge-sharpness-macro-comparison.webp",
+    "altText": "Macro zoom comparison showing edge artifacts of Nearest Neighbor and Bilinear vs crisp Lanczos",
+    "caption": "Lanczos-3 (right) preserves sharp micro-contrast without the jagged aliasing of Nearest Neighbor.",
+    "placement": "Under Bilinear Section"
+  },
+  {
+    "id": "va-35-5",
+    "index": 5,
+    "type": "application",
+    "title": "High-End Photo Archival Downscaling in Production",
+    "concept": "Professional photo gallery website displaying downscaled fine art photographs with pristine detail.",
+    "prompt": "Photorealistic scene of a gallery curator examining high-end architectural and wildlife photographs on a calibrated EIZO monitor. The downscaled web previews retain intricate feather details and brick textures with zero moire patterns or aliasing. Elegant studio setting.",
+    "aspectRatio": "16:9",
+    "filename": "fine-art-photo-downscaling-gallery-display.webp",
+    "altText": "Professional photo gallery website displaying pristine fine-detail downscaled images",
+    "caption": "Lanczos downscaling preserves subtle textures in fine-art and commercial product photography.",
+    "placement": "Conclusion Section"
+  }
+]

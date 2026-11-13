@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-85-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Interactive Micro-Detail Magnification Engine",
+    "concept": "3D render showing an interactive magnifying glass hovering over a luxury mechanical watch, revealing razor-sharp gears, jewels, and metallic brushing.",
+    "prompt": "Futuristic digital horology laboratory: a luxury skeletonized tourbillon mechanical watch suspended in mid-air. An illuminated floating magnifying glass hovers over the movement, projecting an ultra-sharp holographic 4x zoom detail of gold gears, ruby jewels, and circular grain brushing. Luminous vector coordinate grids and sub-pixel data streams, dark moody studio backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "interactive-product-zoom-architecture-hero.webp",
+    "altText": "3D visual of interactive magnifying glass zoom revealing micro-details of mechanical watch movement",
+    "caption": "Interactive hover zoom lets shoppers inspect material craftsmanship and build quality.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-85-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Single WebP vs Deep Zoom Tile Pyramid Architecture",
+    "concept": "Infographic contrasting single 2048px WebP file on-demand vs pyramid of 256x256px tile blocks across zoom levels.",
+    "prompt": "Clean technical architecture infographic on dark slate background: Architecture A shows Single Progressive WebP (2048px, 120KB, 1 HTTP request, <80ms load); Architecture B shows Deep Zoom Pyramid (Level 0 to Level 4, hundreds of 256x256 tiles, complex server required). High-contrast comparison metrics.",
+    "aspectRatio": "4:3",
+    "filename": "webp-zoom-vs-tile-pyramid-architecture.webp",
+    "altText": "Technical diagram comparing single 2048px WebP zoom file vs multi-resolution tile pyramid",
+    "caption": "Comparing lightweight single-file WebP zoom with multi-tiered image tile pyramids.",
+    "placement": "Under Two Zoom Architectures Section"
+  },
+  {
+    "id": "va-85-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Progressive On-Demand Hover Zoom Workflow",
+    "concept": "Vector dataflow diagram: 1. User sees 600px preview, 2. Mouse enters image container, 3. Preload 2048px WebP in background, 4. Smooth 60fps lens magnification.",
+    "prompt": "Vector developer UX workflow: 1. Default product card loads 600px WebP (28KB), 2. 'mouseenter' event triggers background fetch of high-res 2048px WebP (110KB), 3. Cursor movement updates CSS background-position at 60fps, 4. Instant crystal-clear detail with zero UI stutter. Royal blue modern aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "progressive-hover-zoom-javascript-workflow.webp",
+    "altText": "Workflow diagram of progressive on-demand product hover zoom implementation in JavaScript",
+    "caption": "Fetching high-res zoom files only on hover keeps initial catalog page load blazing fast.",
+    "placement": "Under Architecture A Section"
+  },
+  {
+    "id": "va-85-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Pixelated 1080p Zoom vs Razor-Sharp 2048px WebP Zoom",
+    "concept": "Magnified side-by-side comparison on fine woven fabric texture.",
+    "prompt": "Magnified 300% macro comparison on fine tweed fabric: Left panel shows '1080p Asset Zoomed' with blurry pixelated threads and fuzzy compression artifacts; Right panel shows '2048px WebP Zoomed' with individual crisp wool fibers and realistic micro-contrast. Clear visual fidelity badges.",
+    "aspectRatio": "16:9",
+    "filename": "blurry-1080p-vs-sharp-2048p-zoom-comparison.webp",
+    "altText": "Macro comparison showing blurry 1080p zoom vs razor-sharp 2048px WebP hover zoom",
+    "caption": "2048px WebP assets provide the pixel density required for razor-sharp macro magnification.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-85-5",
+    "index": 5,
+    "type": "application",
+    "title": "Luxury Jewelry E-Commerce Storefront in Production",
+    "concept": "High-end jewelry boutique website showing shopper zooming into diamond engagement ring with buttery smoothness.",
+    "prompt": "Photorealistic scene of a luxury online jewelry boutique displayed on an Apple Studio Display. A shopper hovers over a platinum diamond solitaire ring; the magnifying glass reveals flawless diamond cut facets and mirror-polished metal with zero lag. Ambient luxury retail aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "luxury-jewelry-interactive-zoom-showcase.webp",
+    "altText": "Luxury jewelry online boutique showcasing interactive high-resolution hover zoom on diamond ring",
+    "caption": "Flawless interactive zoom builds buyer confidence for high-ticket online purchases.",
+    "placement": "Conclusion Section"
+  }
+]

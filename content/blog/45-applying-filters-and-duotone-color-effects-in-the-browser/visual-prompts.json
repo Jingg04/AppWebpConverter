@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-45-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Duotone Gradient Mapping Visual Engine",
+    "concept": "3D render showing a portrait photograph splitting into vivid duotone color waves in neon magenta and electric cyan.",
+    "prompt": "Ultra-stylish 3D digital art studio: a high-fashion portrait seamlessly transforming into a vivid duotone masterpiece. Neon magenta light bathes the highlights while deep indigo shadows form rich sculptural contrast. Glowing gradient spectrum bands swirl around the canvas, sleek minimalist UI, 8k resolution, Spotify editorial aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "duotone-color-effects-hero.webp",
+    "altText": "3D visual showing portrait transforming into neon magenta and deep indigo duotone styling",
+    "caption": "Duotone gradient mapping transforms standard photographs into stylized brand assets.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-45-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Luminance-to-Duotone Color Mapping Mechanics",
+    "concept": "Technical diagram illustrating how 0-255 grayscale values map into a two-color interpolation spectrum.",
+    "prompt": "Clean technical infographic on dark slate background: Shows input grayscale ramp (0% black to 100% white) mapped via mathematical linear interpolation into dual color endpoints (Deep Navy #0A192F to Neon Coral #FF6B6B). Detailed step-by-step vector annotations.",
+    "aspectRatio": "4:3",
+    "filename": "duotone-luminance-mapping-mechanics.webp",
+    "altText": "Technical diagram explaining the mathematical color mapping from grayscale to duotone",
+    "caption": "The duotone algorithm maps grayscale luminosity values into a 2-color brand gradient.",
+    "placement": "Under Mathematical Pipeline Section"
+  },
+  {
+    "id": "va-45-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "1-Click Duotone Preset Selection in FluxWebP",
+    "concept": "Vector UI showing preset picker (Cyberpunk, Sunset, Monochrome, Forest) updating a photo in real-time.",
+    "prompt": "Sleek software UI mockup: photo canvas with a floating preset palette showing 6 curated duotone swatches. Clicking 'Neon Cyberpunk' instantly updates the preview canvas with zero rendering lag. Modern dark mode aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "duotone-preset-picker-workflow.webp",
+    "altText": "Workflow showing one-click duotone preset selection inside FluxWebP Creative Studio",
+    "caption": "Experiment with curated duotone color combinations with real-time WebGL previews.",
+    "placement": "Under Popular Presets Section"
+  },
+  {
+    "id": "va-45-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Standard Full-Color Photo vs Modern Duotone Treatment",
+    "concept": "Side-by-side comparison showing ordinary stock photo vs high-fashion duotone album cover style.",
+    "prompt": "Side-by-side visual comparison: Left shows an everyday stock photo of an athlete; Right shows the identical image transformed into a high-energy Spotify-style duotone in electric cobalt and vibrant orange with bold typographic overlay. High visual contrast.",
+    "aspectRatio": "16:9",
+    "filename": "standard-photo-vs-duotone-stylization-comparison.webp",
+    "altText": "Comparison showing ordinary stock photo versus bold stylized duotone marketing asset",
+    "caption": "Duotone treatments turn standard stock photography into iconic, high-impact marketing visuals.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-45-5",
+    "index": 5,
+    "type": "application",
+    "title": "Music Streaming & Podcast Cover Art Deployment",
+    "concept": "Smartphone displaying Spotify-style playlist covers and podcast art featuring unified duotone palettes.",
+    "prompt": "Photorealistic scene of a flagship smartphone lying on a designer desk, displaying a music streaming app playlist grid. Every playlist cover features a distinct, vibrant duotone portrait. Sleek wireless earbuds beside the phone, contemporary aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "music-streaming-duotone-playlist-covers.webp",
+    "altText": "Music streaming app interface showcasing cohesive duotone album and playlist cover designs",
+    "caption": "Duotone styles create instantly recognizable album art, podcast covers, and campaign banners.",
+    "placement": "Conclusion Section"
+  }
+]

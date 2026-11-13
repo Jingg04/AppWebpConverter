@@ -1,0 +1,42 @@
+---
+title: "Serving Images Over CDNs: Edge Caching, Cloudflare Polish, and Global TTFB"
+slug: "serving-images-over-cdns-edge-caching-global-ttfb"
+id: 78
+category: "Website Image SEO & Performance"
+categorySlug: "image-seo-and-performance"
+publicationStatus: "published"
+publishedDate: "2026-11-12"
+updatedDate: "2026-11-14"
+author: "Dr. Sarah Chen"
+authorRole: "Head of Web Performance Architecture"
+readingTime: 8
+primaryKeyword: "serving images over cdn"
+featuredImage: "/public/blog-assets/78-serving-images-over-cdns-edge-caching-global-ttfb/hero.svg"
+---
+
+# Serving Images Over CDNs: Edge Caching, Cloudflare Polish, and Global TTFB
+
+<VisualAsset id="va-78-1" type="hero" src="/public/blog-assets/78-serving-images-over-cdns-edge-caching-global-ttfb/hero.svg" alt="3D visual of global CDN edge caching network delivering images across international points of presence" />
+
+> **Summary:** Don't force international visitors to fetch images from an origin server thousands of miles away. Master image CDN edge caching, stale-while-revalidate, and TTFB.
+
+
+
+
+## Frequently Asked Questions
+
+### What is Time to First Byte (TTFB) and why does physical distance matter?
+
+TTFB measures the latency between when a browser requests an image and when the first byte arrives. If your origin server is in New York and a visitor is in Tokyo, packets must cross undersea cables, adding 200ms+ of physical latency. CDNs cache assets in Tokyo, slashing TTFB under 25ms.
+
+### What is the optimal Cache-Control header for static images?
+
+For versioned static assets: <code>Cache-Control: public, max-age=31536000, immutable</code>. This instructs browsers and edge proxies to cache the image for a full year without making revalidation requests.
+
+### What does Cloudflare Polish or Fastly Image Optimizer do?
+
+Specialized edge CDNs inspect the incoming browser's 'Accept' request header. If the browser supports WebP or AVIF, the CDN transcode the image on the fly at the edge server closest to the user.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

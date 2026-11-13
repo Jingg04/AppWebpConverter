@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-53-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Sub-Pixel Hair Matting & Boundary Decomposition",
+    "concept": "3D render showing an ethereal portrait surrounded by microscopic glowing laser tracer lines mapping thousands of individual hair strands.",
+    "prompt": "Cinematic 3D concept of high-precision portrait matting: a stunning close-up of a model with voluminous curly hair against a dark studio background. Microscopic glowing cyan and gold laser contour lines trace individual flyaway hair strands with sub-pixel accuracy. Translucent holographic alpha matte planes float beside the subject, ultra-sharp detail, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "portrait-hair-background-removal-hero.webp",
+    "altText": "3D visual of high-precision computer vision mapping individual hair strands in a portrait cutout",
+    "caption": "Sub-pixel neural matting extracts delicate hair strands and flyaways without harsh borders.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-53-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Dual-Branch Portrait Matting Architecture",
+    "concept": "Technical architecture diagram showing Low-Frequency Semantic Branch and High-Frequency Boundary Refinement Branch.",
+    "prompt": "Clean technical infographic on dark slate background showing dual-branch neural architecture: Input Portrait splits into: Top Branch (Semantic Segmentation - Body & Head Macro Shape); Bottom Branch (Bilateral High-Resolution Detail Filter - Individual Hairs & Lace); Merging at Fusion Block to output flawless 8-bit Alpha Matte. High contrast tech flow.",
+    "aspectRatio": "4:3",
+    "filename": "dual-branch-portrait-matting-infographic.webp",
+    "altText": "Technical diagram of dual-branch neural network for portrait semantic and detail matting",
+    "caption": "Dual-branch neural networks separate semantic shape understanding from fine edge texture extraction.",
+    "placement": "Under High-Frequency Boundary Section"
+  },
+  {
+    "id": "va-53-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Portrait Extraction and Background Replacement Workflow",
+    "concept": "Step-by-step vector workflow showing raw selfie uploaded, AI hair matting, edge defringe, and placement into urban landscape.",
+    "prompt": "Vector tech workflow: 1. Raw outdoor portrait with distracting park background, 2. AI neural extraction preserving wispy hair curls, 3. Edge defringe filter removing green foliage color cast, 4. Placement onto sleek minimalist architectural backdrop. Modern UI icons and royal blue accents.",
+    "aspectRatio": "16:9",
+    "filename": "portrait-extraction-defringe-workflow.webp",
+    "altText": "Workflow showing portrait extraction, defringing, and placement onto new background",
+    "caption": "Extract portraits and eliminate environmental color fringing in a seamless automated workflow.",
+    "placement": "Under Step 2 Section"
+  },
+  {
+    "id": "va-53-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Blunt Helmet Edge vs Natural Flyaway Hair Strand Alpha",
+    "concept": "Macro side-by-side comparison on fine blonde curls against dark background showing old cutout vs modern AI.",
+    "prompt": "Macro zoom comparison on delicate blonde hair strands: Left panel labeled 'Legacy Thresholding' shows chopped-off hair clumps with harsh green fringing and jagged blocky edges; Right panel labeled 'FluxWebP Neural Matting' shows pristine individual translucent hair strands blending naturally over dark background.",
+    "aspectRatio": "16:9",
+    "filename": "blunt-cut-vs-natural-hair-matting-comparison.webp",
+    "altText": "Macro comparison showing harsh cut-off hair vs natural translucent strands extracted by AI",
+    "caption": "Neural matting (right) captures every hair strand without ugly fringing or unnatural blunt edges.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-53-5",
+    "index": 5,
+    "type": "application",
+    "title": "Executive Headshot & Creative Agency Production",
+    "concept": "Corporate design workstation generating executive leadership headshots with standardized corporate gradient backdrops.",
+    "prompt": "Modern corporate branding studio: high-res monitors displaying a directory of executive headshots. Each executive has been cleanly extracted, hair perfectly intact, and composited onto unified navy corporate gradient backdrops. Contemporary office environment.",
+    "aspectRatio": "16:9",
+    "filename": "executive-headshot-production-studio.webp",
+    "altText": "Corporate creative agency workstation producing unified executive headshots with AI background removal",
+    "caption": "Uniform headshots with natural hair matting create authoritative corporate team directories.",
+    "placement": "Conclusion Section"
+  }
+]

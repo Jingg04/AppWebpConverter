@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-26-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Precision Calibration Dial Hero",
+    "concept": "An illuminated high-precision metallic control knob calibrating WebP compression from 0 to 100%.",
+    "prompt": "Ultra-sharp macro photography of a brushed aluminum rotary dial glowing with calibrated numbers from 0 to 100. The dial is perfectly dialed into '82', illuminated by a vivid sapphire blue LED ring (#2563EB). Dark textured carbon fiber background, shallow depth of field, high-tech luxury studio aesthetic, 16:9 cinematic framing.",
+    "aspectRatio": "16:9",
+    "filename": "choose-right-webp-quality-dial-hero.webp",
+    "altText": "Precision aluminum calibration dial set to 82 representing the optimal WebP quality threshold",
+    "caption": "Calibrating your WebP quality threshold balances bandwidth reduction with uncompromising visual fidelity.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-26-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "WebP Quality Slider Spectrum & File Size Curve",
+    "concept": "Visual spectrum bar mapping 0-100% with categorical zones: Aggressive (60-70%), Sweet Spot (75-84%), Archival (85-92%), Inefficient (95-100%).",
+    "prompt": "Data infographic showing a horizontal spectrum bar from 0 to 100% divided into 4 color-coded zones: 60-72% (Aggressive Mobile Savings), 75-84% (Recommended Web Sweet Spot), 85-92% (High-End Archival & Photography), 93-100% (Inefficient Bloat Zone). Clear callout notes on each tier.",
+    "aspectRatio": "16:9",
+    "filename": "webp-quality-slider-spectrum-infographic.svg",
+    "altText": "Visual spectrum bar detailing recommended WebP quality slider ranges for different website use cases",
+    "caption": "The WebP spectrum: The 75–84% range delivers 80% of potential byte savings with zero visible distortion.",
+    "placement": "Section 2: The Non-Linear Quality Spectrum"
+  },
+  {
+    "id": "va-26-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Category-Specific Quality Selection Workflow",
+    "concept": "Flowchart matching asset roles (Hero Banner, Product Photo, Blog Graphic, Avatar) to exact quality numbers.",
+    "prompt": "Matrix flowchart matching asset roles to quality targets: 1. Hero Banners: 80% Quality (Target: <180KB) -> 2. E-Commerce Product Thumbnails: 76% Quality (Target: <60KB) -> 3. User Avatars: 72% Quality (Target: <25KB) -> 4. Editorial Blog Photos: 82% Quality (Target: <120KB). Clean modern vector styling.",
+    "aspectRatio": "16:9",
+    "filename": "category-specific-webp-quality-workflow.svg",
+    "altText": "Workflow matrix matching website asset roles to specific recommended WebP quality settings",
+    "caption": "Tailor your WebP quality slider based on the asset's display size and prominence on the page.",
+    "placement": "Section 3: Category-by-Category Quality Guide"
+  },
+  {
+    "id": "va-26-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "4-Way Quality Comparison: 65% vs 75% vs 82% vs 95%",
+    "concept": "4-quadrant photo comparison displaying a landscape scene compressed at 65%, 75%, 82%, and 95%.",
+    "prompt": "Four-quadrant comparison of a stunning mountain landscape with autumn foliage and clear blue lake. Top Left: 65% (180 KB - faint compression artifacts in trees). Top Right: 75% (280 KB - clean edges). Bottom Left: 82% (390 KB - flawless detail, identical to original). Bottom Right: 95% (840 KB - over 2x file size with zero visible gain).",
+    "aspectRatio": "16:9",
+    "filename": "webp-quality-four-quadrant-comparison.webp",
+    "altText": "Four-quadrant photographic comparison showing visual differences between 65%, 75%, 82%, and 95% WebP quality",
+    "caption": "Comparing 82% (390 KB) to 95% (840 KB): Notice how 95% more than doubles the file size without any visible benefit.",
+    "placement": "Section 4: Visual Multi-Quality Benchmarks"
+  },
+  {
+    "id": "va-26-5",
+    "index": 5,
+    "type": "application",
+    "title": "E-Commerce Category Grid Optimized at 78% Quality",
+    "concept": "Online fashion store category page displaying 24 apparel models loading under 1 second.",
+    "prompt": "Photorealistic perspective view of a sleek desktop display showing a luxury fashion apparel catalog. 24 model photos compressed at 78% quality render with natural fabric textures and skin tones while keeping total page weight under 1.8 MB. Natural studio lighting, elegant clean layout.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-apparel-catalog-78-percent-webp.webp",
+    "altText": "Online apparel catalog loading 24 fashion model photos compressed at 78% WebP quality",
+    "caption": "E-commerce stores achieve sub-second category page loads by setting product thumbnails to 76–78% WebP.",
+    "placement": "Section 5: Real-World E-Commerce Optimization"
+  }
+]

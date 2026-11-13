@@ -1,0 +1,59 @@
+{
+  "id": 98,
+  "title": "High Dynamic Range (HDR) Images for the Web: AVIF, Ultra HDR, and Gain Maps",
+  "slug": "high-dynamic-range-hdr-images-web-avif-gain-maps",
+  "folder": "98-high-dynamic-range-hdr-images-web-avif-gain-maps",
+  "category": "Privacy, Metadata & Troubleshooting",
+  "categorySlug": "privacy-metadata-and-troubleshooting",
+  "subcategory": "Next-Gen Codecs",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-12",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "HDR Images for the Web: AVIF, Ultra HDR & Gain Maps | FluxWebP Pro",
+    "metaDescription": "Master High Dynamic Range (HDR) web imaging. Learn how Google Ultra HDR JPEG gain maps, AVIF 10-bit BT.2100 PQ/HLG, and CSS dynamic range queries work.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/high-dynamic-range-hdr-images-web-avif-gain-maps/",
+    "primaryKeyword": "hdr images for the web",
+    "secondaryKeywords": [
+      "ultra hdr jpeg gain maps",
+      "avif hdr 10 bit web",
+      "high dynamic range web photography",
+      "gain map hdr progressive display"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/98-high-dynamic-range-hdr-images-web-avif-gain-maps/hero.svg",
+  "visualAssetsCount": 5
+}

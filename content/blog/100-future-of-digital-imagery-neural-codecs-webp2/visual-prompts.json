@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-100-1",
+    "index": 1,
+    "type": "hero",
+    "title": "The Next-Generation Neural Visual Computing Paradigm",
+    "concept": "3D render showing an ethereal digital photograph dissolving into a luminous neural neural latent space network, regenerating as an infinite-resolution holographic visual.",
+    "prompt": "Spectacular futuristic visual computing laboratory: an ultra-high-definition landscape photograph floating in the center of an expansive quantum computing chamber. The photo seamlessly dissolves into a luminous 3D neural latent space lattice glowing with billions of interconnected synaptic tensor nodes in royal cobalt, emerald green, and radiant violet. High-speed optical data streams labeled 'WebP 2', 'Neural VAE', and 'Generative NPU' project into an infinite-resolution holographic display. Cinematic studio lighting, 8k masterpiece resolution.",
+    "aspectRatio": "16:9",
+    "filename": "future-of-digital-imagery-neural-codecs-hero.webp",
+    "altText": "3D visual of neural latent space network and next-generation WebP 2 visual computing architecture",
+    "caption": "Neural codecs and generative super-resolution represent the next fifty years of digital visual communication.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-100-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Evolution of Digital Image Compression (1992 to 2030)",
+    "concept": "Infographic timeline tracing JPEG (1992) -> PNG (1996) -> WebP (2010) -> AVIF (2019) -> WebP 2 & Neural Codecs (2026-2030).",
+    "prompt": "Clean technical timeline infographic on dark slate background: Horizontal chronological roadmap: 1. JPEG (1992, DCT 8x8 blocks); 2. PNG (1996, Lossless DEFLATE); 3. WebP (2010, VP8 Intra-prediction, -35%); 4. AVIF (2019, AV1 Tiles, -50%); 5. WebP 2 & Neural Autoencoders (2026-2030, Latent Diffusion, -85% data weight). High contrast glowing milestones.",
+    "aspectRatio": "4:3",
+    "filename": "evolution-of-image-codecs-timeline-infographic.webp",
+    "altText": "Technical timeline infographic tracing the evolution of digital image codecs from JPEG to neural compression",
+    "caption": "The fifty-year evolutionary roadmap of digital image compression technologies.",
+    "placement": "Under 3 Pillars Section"
+  },
+  {
+    "id": "va-100-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Generative On-Device Super-Resolution Pipeline",
+    "concept": "Vector dataflow diagram showing tiny 12KB semantic seed downloaded over 5G, processed by on-device NPU, and rendered at razor-sharp 4K.",
+    "prompt": "Vector dataflow architecture diagram: 1. Server delivers microscopic 12KB semantic latent packet over mobile network in 20ms, 2. Smartphone NPU (Neural Processing Unit) executes generative upscaling shader, 3. Synthesizing photorealistic micro-textures in real-time, 4. Instant 4K rendering with zero cellular data drain. Clean modern tech aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "generative-super-resolution-npu-workflow.webp",
+    "altText": "Workflow diagram of generative on-device super-resolution pipeline powered by neural hardware",
+    "caption": "On-device NPUs will reconstruct full 4K visual detail from tiny 12KB network payloads.",
+    "placement": "Under Generative Client-Side Section"
+  },
+  {
+    "id": "va-100-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Classical Mathematical Artifacts vs Neural Semantic Reconstruction",
+    "concept": "Magnified side-by-side macro comparison showing blocky JPEG/DCT compression artifacts at 0.1 bpp vs clean neural reconstruction.",
+    "prompt": "Magnified macro comparison at ultra-low bitrate (0.1 bits per pixel): Left panel shows 'Classical DCT Codec' with severe muddy blockiness, ringing halos, and loss of facial features; Right panel shows 'Learned Neural Codec' where generative latent priors reconstruct sharp skin pores, natural eyelashes, and crisp fabric weave with zero ringing. High contrast visual comparison.",
+    "aspectRatio": "16:9",
+    "filename": "classical-artifacts-vs-neural-reconstruction-comparison.webp",
+    "altText": "Macro comparison showing blocky artifacts of classical codecs vs clean semantic detail of neural codecs",
+    "caption": "Learned neural codecs reconstruct photorealistic semantic textures where classical math codecs collapse into mud.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-100-5",
+    "index": 5,
+    "type": "application",
+    "title": "The Spatial & Holographic Web of Tomorrow",
+    "concept": "User wearing lightweight spatial augmented reality glasses viewing photorealistic, instant-loading 3D digital imagery in physical space.",
+    "prompt": "Photorealistic scene of an architect wearing sleek spatial computing glasses in a modern studio. In the physical air around them, ultra-high-resolution photorealistic architectural imagery and holographic material samples render with instantaneous speed and dimensional depth. Warm contemporary studio daylight, visionary aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "spatial-computing-future-digital-imagery.webp",
+    "altText": "Spatial computing user inspecting instant-loading photorealistic digital imagery in physical space",
+    "caption": "Next-generation codecs will power the spatial web, delivering photorealistic imagery at instant speeds.",
+    "placement": "Conclusion Section"
+  }
+]

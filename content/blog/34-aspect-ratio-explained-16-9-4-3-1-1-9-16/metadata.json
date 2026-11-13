@@ -1,0 +1,59 @@
+{
+  "id": 34,
+  "title": "Aspect Ratio Explained: 16:9, 4:3, 1:1, 9:16 and How to Choose the Right One",
+  "slug": "aspect-ratio-explained-16-9-4-3-1-1-9-16",
+  "folder": "34-aspect-ratio-explained-16-9-4-3-1-1-9-16",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Aspect Ratio Fundamentals",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-08",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Aspect Ratio Explained: 16:9, 4:3, 1:1, 9:16 (Complete Guide) | FluxWebP Pro",
+    "metaDescription": "Understand image aspect ratios completely. Learn how 16:9, 4:3, 1:1, and 9:16 work, how to calculate pixel dimensions, and how to choose the right ratio.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/aspect-ratio-explained-16-9-4-3-1-1-9-16/",
+    "primaryKeyword": "aspect ratio explained",
+    "secondaryKeywords": [
+      "16 9 vs 4 3 aspect ratio",
+      "image aspect ratios guide",
+      "how to calculate aspect ratio",
+      "common photo aspect ratios"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/34-aspect-ratio-explained-16-9-4-3-1-1-9-16/hero.svg",
+  "visualAssetsCount": 5
+}

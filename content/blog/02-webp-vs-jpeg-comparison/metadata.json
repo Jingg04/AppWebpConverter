@@ -1,0 +1,59 @@
+{
+  "id": 2,
+  "title": "WebP vs JPEG: Which Image Format Is Better for Websites?",
+  "slug": "webp-vs-jpeg-comparison",
+  "folder": "02-webp-vs-jpeg-comparison",
+  "category": "Image Formats & Conversion",
+  "categorySlug": "formats-and-conversion",
+  "subcategory": "Head-to-Head Comparisons",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "WebP vs JPEG: Which Format Is Better for Websites? (2026 Test) | FluxWebP Pro",
+    "metaDescription": "Comprehensive benchmark comparison between WebP and JPEG. Compare compression efficiency, visual artifacts, decoding CPU speed, and Core Web Vitals impact.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/webp-vs-jpeg-comparison/",
+    "primaryKeyword": "webp vs jpeg",
+    "secondaryKeywords": [
+      "webp vs jpg quality",
+      "is webp better than jpeg",
+      "jpeg to webp compression ratio",
+      "webp website speed"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/02-webp-vs-jpeg-comparison/hero.svg",
+  "visualAssetsCount": 5
+}

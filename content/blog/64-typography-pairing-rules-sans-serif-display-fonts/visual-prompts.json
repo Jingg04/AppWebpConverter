@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-64-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Typographic Architecture & Font Harmony Spectrum",
+    "concept": "3D render showing sculptural, architectural letterforms ('A', '&', 'Q') carved from marble, glass, and dark chrome, interacting in harmonious balance.",
+    "prompt": "Sophisticated 3D typographic museum installation: massive architectural 3D letterforms floating in an expansive minimalist gallery. A towering high-contrast serif ampersand ('&') crafted from polished white Carrara marble stands beside a sleek, monolithic geometric sans-serif 'A' made of smoked glass with neon internal edge illumination. Royal blue and gold spotlighting, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "typography-pairing-poster-rules-hero.webp",
+    "altText": "3D visual of architectural letterforms showing harmony between serif and geometric sans typography",
+    "caption": "Pairing expressive display headlines with neutral sans-serif body copy creates balanced visual tension.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-64-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Three Classic Winning Font Pairings",
+    "concept": "Infographic poster showcasing specimen sheets for Editorial Luxury, Swiss Modernist, and Kinetic Tech pairings.",
+    "prompt": "Clean technical graphic design specimen sheet on dark slate background: 3 specimen columns: Column 1: 'Editorial Luxury' (Playfair Display + Inter); Column 2: 'Swiss Modernist' (Montserrat Black + JetBrains Mono); Column 3: 'Kinetic Tech' (Clash Display + Plus Jakarta Sans). Shows specimen alphabet, sample headlines, and tracking values.",
+    "aspectRatio": "4:3",
+    "filename": "winning-font-pairing-formulas-infographic.webp",
+    "altText": "Technical typography specimen infographic demonstrating 3 classic font pairing formulas",
+    "caption": "Three field-tested font pairing formulas for cultural, tech, and retail marketing posters.",
+    "placement": "Under 3 Classic Winning Formulas Section"
+  },
+  {
+    "id": "va-64-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Typographic Hierarchy Setup in FluxWebP Studio",
+    "concept": "Vector UI workflow showing selecting H1 Display font, setting -2% tight tracking, choosing H2 Sans, and adding loose +15% tracking on dates.",
+    "prompt": "Vector software UI diagram: typography editing panel with live sliders for Font Size, Line Height, Tracking (Letter-spacing), and Weight. A poster preview updates in real-time showing tight headline tracking and airy, spaced-out uppercase subheadings. Modern dark mode aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "typography-hierarchy-tracking-workflow.webp",
+    "altText": "Workflow diagram for configuring typographic hierarchy and tracking in FluxWebP Poster Studio",
+    "caption": "Fine-tuning weight and letter tracking turns basic words into sculpted graphic design elements.",
+    "placement": "Under Tracking Section"
+  },
+  {
+    "id": "va-64-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Clashing Similar Fonts vs Deliberate High Contrast",
+    "concept": "Side-by-side comparison showing weak clash of Helvetica + Arial vs stunning synergy of Playfair Display + Inter.",
+    "prompt": "Side-by-side typographical comparison: Left panel labeled 'Weak Conflict' shows Helvetica paired with Arial, creating an awkward, discordant feeling of almost-identical fonts; Right panel labeled 'Deliberate Contrast' shows high-contrast Serif Display headline paired with clean Geometric Sans body, delivering undeniable clarity and poise.",
+    "aspectRatio": "16:9",
+    "filename": "font-conflict-vs-intentional-contrast-comparison.webp",
+    "altText": "Comparison showing conflicting similar fonts vs intentional high-contrast font pairing",
+    "caption": "Never pair fonts that look almost identical; choose deliberate, confident contrast between families.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-64-5",
+    "index": 5,
+    "type": "application",
+    "title": "International Film Festival Poster Identity",
+    "concept": "Exhibition gallery showcasing an award-winning film festival poster series utilizing flawless typography pairing.",
+    "prompt": "Contemporary art gallery: a series of 3 large framed film festival posters mounted on concrete walls. The typography is commanding, poetic, and razor-sharp, pairing bold European neo-grotesque display headers with delicate monospaced director credits. Ambient gallery spotlights.",
+    "aspectRatio": "16:9",
+    "filename": "film-festival-poster-typography-exhibition.webp",
+    "altText": "Art gallery exhibition displaying film festival posters with award-winning typography pairing",
+    "caption": "Award-winning posters let typography take center stage to communicate tone, drama, and authority.",
+    "placement": "Conclusion Section"
+  }
+]

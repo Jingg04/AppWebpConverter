@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-54-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Dynamic Background Replacement & Scene Compositing",
+    "concept": "3D render showing an extracted subject poised between three swappable backdrop cards: solid pastel, radial gradient, and photorealistic architectural interior.",
+    "prompt": "Futuristic digital design studio: an extracted fashion model standing on a floating glass platform. Behind her, three giant translucent backdrop panels slide seamlessly: Panel 1: sleek minimalist warm beige; Panel 2: radiant radial violet gradient; Panel 3: blurred modern architectural loft interior. Volumetric rim lighting, clean high-end commercial aesthetic, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "background-replacement-scenes-hero.webp",
+    "altText": "3D visual showing extracted fashion model with interchangeable solid, gradient, and architectural backdrops",
+    "caption": "Swapping backdrops enables instant adaptation of a single cutout across multiple marketing campaigns.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-54-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Three Pillars of Believable Compositing",
+    "concept": "Infographic breaking down Color Harmony, Depth Blur, and Grounding Shadows with visual examples.",
+    "prompt": "Clean technical infographic on dark slate background: Pillar 1: Color Cast Matching (Warm vs Cool temperature adjustments); Pillar 2: Focal Depth (f/1.8 Bokeh blur simulation); Pillar 3: Ambient Occlusion Contact Shadow. Each pillar accompanied by clear photographic demonstration badges.",
+    "aspectRatio": "4:3",
+    "filename": "believable-compositing-pillars-infographic.webp",
+    "altText": "Infographic explaining color harmony, depth blur, and contact shadows for realistic compositing",
+    "caption": "Mastering color harmony, lens blur, and contact shadows creates believable, photorealistic composites.",
+    "placement": "Under 3 Pillars Section"
+  },
+  {
+    "id": "va-54-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "1-Click Backdrop Swap in FluxWebP",
+    "concept": "UI workflow showing transparent subject, clicking gradient palette, selecting radial spotlight, and instant WebP export.",
+    "prompt": "Modern vector UI diagram: 1. Transparent portrait cutout on checkerboard canvas, 2. Backdrop selection tray showing solid colors, gradients, and custom photo uploads, 3. Clicking 'Radial Slate Spotlight', 4. Instant composite render with export button. Royal blue and emerald accents.",
+    "aspectRatio": "16:9",
+    "filename": "one-click-backdrop-swap-workflow.webp",
+    "altText": "Workflow showing one-click background replacement inside FluxWebP Studio",
+    "caption": "Swap between transparent cutouts, solid colors, and radial gradients in a single click.",
+    "placement": "Under Radial Gradient Section"
+  },
+  {
+    "id": "va-54-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Sharp Flat Background vs Realistic Bokeh Depth Blur",
+    "concept": "Side-by-side comparison showing subject looking flat against razor-sharp background vs popping with realistic f/2.0 blur.",
+    "prompt": "Side-by-side portrait comparison: Left panel shows 'Distracting Flat Composite' where background cafe is razor sharp, competing with subject; Right panel shows 'DSLR Depth Blur' where cafe background has gorgeous creamy 12px bokeh blur, making the portrait pop dramatically with depth.",
+    "aspectRatio": "16:9",
+    "filename": "flat-background-vs-bokeh-depth-blur-comparison.webp",
+    "altText": "Comparison showing flat distracting background vs creamy bokeh lens blur separating subject",
+    "caption": "Simulating shallow depth of field (bokeh) directs the viewer's eye straight to the primary subject.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-54-5",
+    "index": 5,
+    "type": "application",
+    "title": "Multi-Channel Social Media Campaign Rollout",
+    "concept": "Marketing team desk displaying a single model cutout placed on 4 different seasonal campaign backgrounds for global markets.",
+    "prompt": "Creative marketing agency studio: multiple displays showcasing one model cutout deployed across 4 distinct seasonal promotional ads: Spring pastel pink, Summer beach gradient, Autumn terracotta, and Winter navy. Clean graphic design layouts with matching typography.",
+    "aspectRatio": "16:9",
+    "filename": "omni-channel-campaign-background-swap.webp",
+    "altText": "Marketing campaign showcase displaying single extracted model across multiple branded backgrounds",
+    "caption": "Re-contextualizing a single high-quality cutout across multiple branded backdrops saves immense production budget.",
+    "placement": "Conclusion Section"
+  }
+]

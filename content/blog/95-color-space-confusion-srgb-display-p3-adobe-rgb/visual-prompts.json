@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-95-1",
+    "index": 1,
+    "type": "hero",
+    "title": "CIE Chromaticity Diagram & Nested Color Gamut Boundaries",
+    "concept": "3D render of the horseshoe-shaped CIE 1931 Chromaticity diagram floating in space, showing nested glowing triangular boundaries for sRGB, Display P3, and Adobe RGB.",
+    "prompt": "Futuristic colorimetry laboratory: a giant 3D holographic CIE 1931 chromaticity tongue diagram suspended in mid-air, glowing with the entire visible electromagnetic spectrum of human vision. Inside the spectral envelope, three nested geometric laser triangles glow in distinct neon lines: inner sRGB triangle (cyan), mid Display P3 triangle (radiant violet), and wide Adobe RGB triangle (emerald green). Dark high-tech studio backdrop, 8k crisp resolution.",
+    "aspectRatio": "16:9",
+    "filename": "color-space-confusion-gamuts-hero.webp",
+    "altText": "3D render of CIE chromaticity diagram showing nested triangles for sRGB, Display P3, and Adobe RGB",
+    "caption": "The CIE chromaticity diagram maps the visible color spectrum and nested device gamuts.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-95-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "sRGB vs Display P3 vs Adobe RGB Comparison Matrix",
+    "concept": "Infographic poster comparing Gamut Size, Target Medium, Browser Support, and Safe Web Usage across the 3 gamuts.",
+    "prompt": "Clean technical color science infographic on dark slate background: 3 color space columns: 1. sRGB (100% Web Baseline, Universal, Safe); 2. Display P3 (+25% Gamut, Modern OLED/Apple, Richer Reds/Greens); 3. Adobe RGB (Wide CMYK range, Print only, Washes out on web). High contrast vector comparison matrix.",
+    "aspectRatio": "4:3",
+    "filename": "color-spaces-comparison-matrix-infographic.webp",
+    "altText": "Technical infographic matrix comparing sRGB, Display P3, and Adobe RGB color spaces",
+    "caption": "Comparing gamut coverage, device targets, and web safety across the top three color spaces.",
+    "placement": "Under 3 Major Digital Color Gamuts Section"
+  },
+  {
+    "id": "va-95-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Color Space Conversion Pipeline (Transform vs Assign)",
+    "concept": "Flowchart showing difference between destructive 'Assign Profile' (causes color shift) vs mathematical 'Convert to Profile' (preserves visual appearance).",
+    "prompt": "Vector color management workflow diagram: Shows Input Display P3 image entering two forks: Path A (Assign sRGB) -> Coordinates un-remapped -> Catastrophic desaturation; Path B (Convert to sRGB with Perceptual Rendering Intent) -> Coordinates re-mapped mathematically -> Visual appearance preserved. Modern clean UI styling.",
+    "aspectRatio": "16:9",
+    "filename": "color-space-conversion-pipeline-workflow.webp",
+    "altText": "Workflow diagram illustrating mathematical conversion vs naive profile assignment",
+    "caption": "Always 'Convert to Profile' rather than 'Assign Profile' to remap color coordinates accurately.",
+    "placement": "Under Color Conversion Section"
+  },
+  {
+    "id": "va-95-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Washed-Out Adobe RGB on Web vs Converted True sRGB",
+    "concept": "Side-by-side comparison showing sunset photo looking flat and pale vs rich, saturated, and warm.",
+    "prompt": "Side-by-side photographic comparison: Left shows an Adobe RGB photograph uploaded to standard browser, rendering with washed-out, pale chalky orange sunset and flat dull clouds; Right shows the identical photograph properly converted to sRGB IEC61966-2.1, displaying rich glowing amber rays and deep dramatic violet skies. Clear visual fidelity badges.",
+    "aspectRatio": "16:9",
+    "filename": "washed-out-adobe-rgb-vs-true-srgb-comparison.webp",
+    "altText": "Comparison showing washed-out Adobe RGB photo in web browser vs vibrant converted sRGB image",
+    "caption": "Untransformed Adobe RGB images look pale and chalky; proper sRGB conversion preserves full warmth.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-95-5",
+    "index": 5,
+    "type": "application",
+    "title": "Color-Calibrated Creative Studio Workspace",
+    "concept": "Digital colorist and photographer using hardware colorimeter on calibrated studio monitors to verify web asset consistency.",
+    "prompt": "High-end digital photography studio: an editor calibrates dual EIZO ColorEdge monitors using an X-Rite i1Display Pro colorimeter. Test charts show perfect delta-E < 1.0 color accuracy, with both P3 wide-gamut masters and sRGB web exports displaying side-by-side in harmony. Moody ambient studio setting.",
+    "aspectRatio": "16:9",
+    "filename": "color-calibrated-photography-studio-workspace.webp",
+    "altText": "Digital photography studio using hardware colorimeter to calibrate monitors for accurate web color",
+    "caption": "Rigorous color management ensures creative visual intent survives across millions of end-user screens.",
+    "placement": "Conclusion Section"
+  }
+]

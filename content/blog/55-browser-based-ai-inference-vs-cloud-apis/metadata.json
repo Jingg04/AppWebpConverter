@@ -1,0 +1,59 @@
+{
+  "id": 55,
+  "title": "Browser-Based AI Inference vs Cloud APIs: Privacy, Latency, and Costs",
+  "slug": "browser-based-ai-inference-vs-cloud-apis",
+  "folder": "55-browser-based-ai-inference-vs-cloud-apis",
+  "category": "AI Background Removal",
+  "categorySlug": "ai-background-removal",
+  "subcategory": "AI Architecture",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-09",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Browser AI vs Cloud APIs: Privacy, Speed & Cost | FluxWebP Pro",
+    "metaDescription": "Compare client-side in-browser AI inference (WebGPU/WASM) with cloud APIs. Analyze privacy compliance (GDPR), network latency, and infrastructure costs.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/browser-based-ai-inference-vs-cloud-apis/",
+    "primaryKeyword": "browser ai inference vs cloud api",
+    "secondaryKeywords": [
+      "webgpu onnx background removal",
+      "client side ai image processing",
+      "private ai background removal",
+      "cloud api vs local machine learning"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/55-browser-based-ai-inference-vs-cloud-apis/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,59 @@
+{
+  "id": 11,
+  "title": "How to Convert JPG to WebP Without Unnecessary Quality Loss",
+  "slug": "how-to-convert-jpg-to-webp-without-quality-loss",
+  "folder": "11-how-to-convert-jpg-to-webp-without-quality-loss",
+  "category": "Image Conversion Tutorials",
+  "categorySlug": "conversion-tutorials",
+  "subcategory": "JPEG Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Convert JPG to WebP Without Quality Loss (Step-by-Step) | FluxWebP Pro",
+    "metaDescription": "Step-by-step tutorial on converting JPEG photos to WebP. Learn optimal quality thresholds (80-85%), how to avoid generational compression loss, and save 30% file size.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-convert-jpg-to-webp-without-quality-loss/",
+    "primaryKeyword": "convert jpg to webp without quality loss",
+    "secondaryKeywords": [
+      "jpg to webp quality settings",
+      "lossless jpeg to webp",
+      "best webp quality threshold",
+      "convert photo to webp"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/11-how-to-convert-jpg-to-webp-without-quality-loss/hero.svg",
+  "visualAssetsCount": 5
+}

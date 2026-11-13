@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-72-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Multimodal AI Vision & Algorithmic Image Ranking",
+    "concept": "3D render showing an image being dissected by a neural vision transformer into multi-dimensional vector embeddings, semantic tags, and search result ranking positions.",
+    "prompt": "Futuristic search engine algorithm laboratory: a high-res photograph of a modern architecture pavilion suspended inside a holographic optical scanner. The scanner radiates multi-colored laser beams, decomposing the image into 3D vector embeddings, semantic category nodes ('Modern Architecture', 'Timber Pavilions', 'Minimalism'), and search authority scores. Glowing data rings, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "how-google-images-ranks-photos-hero.webp",
+    "altText": "3D render of neural computer vision algorithm analyzing image vector embeddings and search ranking factors",
+    "caption": "Google uses multimodal vision embeddings to analyze the actual visual content of images.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-72-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Google Image Ranking Algorithm Architecture",
+    "concept": "Infographic poster illustrating the 4 major signal buckets: Visual AI, Page Relevance, Technical Speed, and User Engagement.",
+    "prompt": "Clean technical architecture infographic on dark slate background: 4 interconnected signal clusters converging into 'Google Image Top #1 Ranking': 1. Vision Embeddings (Lens Object Detection), 2. Host Page Signals (Domain Authority, Surrounding H2/H3 text), 3. Technical Performance (WebP, LCP < 1.2s), 4. Behavioral Signals (CTR, Dwell Time). High contrast layout.",
+    "aspectRatio": "4:3",
+    "filename": "google-image-ranking-signals-infographic.webp",
+    "altText": "Technical diagram detailing the 4 core ranking signals of the Google Image search algorithm",
+    "caption": "The interconnected ranking signals governing Google Image Search placement.",
+    "placement": "Under 4 Core Signals Section"
+  },
+  {
+    "id": "va-72-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Google Lens Reverse Visual Search Pipeline",
+    "concept": "Dataflow diagram tracing user smartphone snapshot -> vector hash calculation -> matching product database -> commercial result card.",
+    "prompt": "Vector dataflow diagram: 1. Smartphone camera snaps photo of a designer chair, 2. Google Lens extracts feature vectors and perceptual hash, 3. Real-time vector search across billions of indexed web images, 4. Displaying exact product match with live shopping price tags. Clean modern UI icons.",
+    "aspectRatio": "16:9",
+    "filename": "google-lens-reverse-search-pipeline.webp",
+    "altText": "Workflow diagram illustrating Google Lens reverse image search matching products to web pages",
+    "caption": "Google Lens matches physical world photos to web products via multi-dimensional vector search.",
+    "placement": "Under Multimodal Section"
+  },
+  {
+    "id": "va-72-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Generic Stock Photo vs Original Authentic Photography Ranking",
+    "concept": "Side-by-side search results comparison showing 100 identical stock photos buried on page 5 vs unique authentic shot ranking #1.",
+    "prompt": "Side-by-side Google search results comparison: Left panel shows generic stock photo found on 1,400 other websites, buried on page 5 of Google Images; Right panel shows original, high-resolution authentic client photo ranking in Position #1 with rich snippet badge and high organic click share. High contrast UI badges.",
+    "aspectRatio": "16:9",
+    "filename": "duplicate-stock-vs-original-photo-ranking.webp",
+    "altText": "Comparison showing duplicate generic stock photo buried in search vs unique original photo ranking #1",
+    "caption": "Google's perceptual hashing penalizes overused stock photos, prioritizing original imagery.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-72-5",
+    "index": 5,
+    "type": "application",
+    "title": "E-Commerce Category Organic Visual Search Triumph",
+    "concept": "E-commerce SEO director celebrating #1 Google Image rankings driving massive referral revenue.",
+    "prompt": "Contemporary enterprise SEO operations room: large wall display showing Google Search Console visual search traffic data. Organic image clicks for luxury furniture listings have surpassed standard web search clicks by 150%, generating record direct revenue. Modern corporate tech aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "ecommerce-image-search-revenue-dashboard.webp",
+    "altText": "Enterprise marketing dashboard displaying record-breaking visual search referral revenue from Google Images",
+    "caption": "Dominating Google Image rankings creates a sustainable, high-converting organic revenue stream.",
+    "placement": "Conclusion Section"
+  }
+]

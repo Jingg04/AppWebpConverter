@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-42-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Color Grading and Tonal Spectrum Engine",
+    "concept": "3D render showing an image dissecting into luminescent color channels and histogram waveform curves.",
+    "prompt": "Futuristic digital colorist studio: an architectural photograph floating amidst luminous 3D RGB waveform graphs and glowing histogram curves. Sleek glass sliders adjusting brightness, contrast, and saturation radiate vibrant spectrum beams in amber, cyan, and magenta. Deep navy studio environment, razor-sharp technical UI, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "brightness-contrast-saturation-mastery-hero.webp",
+    "altText": "3D render of color grading workstation with glowing histogram curves and tonal sliders",
+    "caption": "Fine-tuning brightness, contrast, and saturation balances dynamic range and color vibrancy.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-42-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Histogram Behavior Under Tonal Adjustments",
+    "concept": "Infographic demonstrating how histograms react when brightness is raised, contrast is boosted, and saturation is altered.",
+    "prompt": "Clean technical diagram on dark slate background showing 3 histogram transformations: 1. Brightness shift (bell curve moves right), 2. High contrast (histogram stretches toward 0 and 255 boundaries), 3. Low contrast (histogram bunches tightly in the center). High contrast graphs with clear annotations.",
+    "aspectRatio": "4:3",
+    "filename": "histogram-tonal-adjustments-infographic.webp",
+    "altText": "Technical diagram illustrating histogram shifts under brightness and contrast adjustments",
+    "caption": "Histograms reveal how tonal adjustments stretch and redistribute pixel luminosity values.",
+    "placement": "Under Tonal Trinity Section"
+  },
+  {
+    "id": "va-42-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Step-by-Step Underexposure Rescue Workflow",
+    "concept": "Visual progression showing dark underexposed photo being corrected: 1. Raw dark shot, 2. Exposure bump, 3. Contrast restoration, 4. Saturation polish.",
+    "prompt": "4-stage horizontal photographic progression: 1. Muddy underexposed forest photo, 2. Brightness raised revealing shadow detail, 3. Contrast restored preventing washed-out haze, 4. Lush emerald green saturation boosted. Professional photo editing layout with slider value indicators.",
+    "aspectRatio": "16:9",
+    "filename": "underexposed-photo-rescue-workflow.webp",
+    "altText": "Step-by-step workflow showing restoration of a dark underexposed photo using tonal controls",
+    "caption": "A 4-step workflow to rescue underexposed photos while preserving natural shadow depth.",
+    "placement": "Under Contrast Section"
+  },
+  {
+    "id": "va-42-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Dull Flat Raw vs Color-Corrected Web Graphic",
+    "concept": "Split-screen comparison showing flat washed-out raw photo on left vs vibrant punchy color-graded image on right.",
+    "prompt": "Interactive split slider visual: Left side shows a flat, hazy, desaturated urban street scene; Right side shows the identical scene with punchy deep blacks, bright clean highlights, and rich warm neon signs. High contrast divider line with 'Before' and 'After' badges.",
+    "aspectRatio": "16:9",
+    "filename": "flat-raw-vs-vibrant-color-graded-comparison.webp",
+    "altText": "Before and after comparison of flat washed-out photo vs vibrant punchy color-graded visual",
+    "caption": "Proper contrast and saturation adjustments bring depth, texture, and emotional resonance to images.",
+    "placement": "Under Saturation Section"
+  },
+  {
+    "id": "va-42-5",
+    "index": 5,
+    "type": "application",
+    "title": "Editorial Food Photography Color Correction in Production",
+    "concept": "Food blog workspace showing delicious bakery photography polished with warm golden saturation and contrast.",
+    "prompt": "Commercial food styling workstation: a large color-calibrated display showing a gourmet pastry photoshoot. The colors are rich, highlights on the glaze glisten with high contrast, and warm tones look mouthwatering. Ambient coffee shop lighting, professional studio desk.",
+    "aspectRatio": "16:9",
+    "filename": "editorial-food-photography-color-correction.webp",
+    "altText": "Commercial food photography website showcasing warm color-corrected imagery",
+    "caption": "Color accuracy and vibrant saturation make product imagery irresistible to online consumers.",
+    "placement": "Conclusion Section"
+  }
+]

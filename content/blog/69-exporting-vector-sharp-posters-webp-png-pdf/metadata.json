@@ -1,0 +1,59 @@
+{
+  "id": 69,
+  "title": "Exporting Vector-Sharp Posters to High-Resolution WebP, PNG, and PDF",
+  "slug": "exporting-vector-sharp-posters-webp-png-pdf",
+  "folder": "69-exporting-vector-sharp-posters-webp-png-pdf",
+  "category": "AI Poster Generation & Design",
+  "categorySlug": "ai-poster-generation-and-design",
+  "subcategory": "Export Optimization",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-13",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Export Vector-Sharp Posters: WebP, PNG & PDF Guide | FluxWebP Pro",
+    "metaDescription": "Export posters with razor-sharp vector text and uncompressed fidelity. Compare WebP, PNG, and PDF exports for web publishing, social feeds, and commercial printing.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/exporting-vector-sharp-posters-webp-png-pdf/",
+    "primaryKeyword": "export vector sharp posters webp png pdf",
+    "secondaryKeywords": [
+      "how to export high res posters",
+      "raster vs vector pdf poster",
+      "export 4k poster from browser",
+      "lossless webp poster export"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/69-exporting-vector-sharp-posters-webp-png-pdf/hero.svg",
+  "visualAssetsCount": 5
+}

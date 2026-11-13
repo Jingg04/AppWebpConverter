@@ -1,0 +1,42 @@
+---
+title: "Edge Feathering, Matte Defringing, and Spill Suppression Techniques"
+slug: "edge-feathering-matte-defringing-spill-suppression"
+id: 57
+category: "AI Background Removal"
+categorySlug: "ai-background-removal"
+publicationStatus: "published"
+publishedDate: "2026-11-11"
+updatedDate: "2026-11-14"
+author: "Marcus Vance"
+authorRole: "Principal Image Processing Engineer"
+readingTime: 8
+primaryKeyword: "matte defringing and spill suppression"
+featuredImage: "/public/blog-assets/57-edge-feathering-matte-defringing-spill-suppression/hero.svg"
+---
+
+# Edge Feathering, Matte Defringing, and Spill Suppression Techniques
+
+<VisualAsset id="va-57-1" type="hero" src="/public/blog-assets/57-edge-feathering-matte-defringing-spill-suppression/hero.svg" alt="3D render of edge refinement calibration measuring alpha gradient and neutralizing color fringing" />
+
+> **Summary:** Say goodbye to embarrassing green halos and white edge fringes. Master post-segmentation edge refinement: matte contraction (choke), feathering, and spill suppression.
+
+
+
+
+## Frequently Asked Questions
+
+### What is color fringe or halo on an image cutout?
+
+Color fringe occurs when pixels along the perimeter of the subject are partially mixed with the original background color during photography. When placed onto a new background, those border pixels form a noticeable, distracting halo.
+
+### What does 'choking' a matte mean?
+
+Choking (contracting) an alpha matte erodes the outer boundary by 1 or 2 pixels inward. This strips away contaminated border pixels before applying a soft fractional sub-pixel feather.
+
+### How does mathematical green/blue spill suppression work?
+
+Spill suppression clamps the offending color channel based on surrounding channels. For green spill: <code>G' = min(G, (R + B) / 2)</code>. This neutralizes green light bounce without altering natural skin and hair colors.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

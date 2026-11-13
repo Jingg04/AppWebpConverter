@@ -1,0 +1,59 @@
+{
+  "id": 75,
+  "title": "Improving Largest Contentful Paint (LCP) by Preloading Critical Hero Images",
+  "slug": "improving-lcp-by-preloading-critical-hero-images",
+  "folder": "75-improving-lcp-by-preloading-critical-hero-images",
+  "category": "Website Image SEO & Performance",
+  "categorySlug": "image-seo-and-performance",
+  "subcategory": "LCP Optimization",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-09",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Improve LCP: Preload Critical Hero Images | FluxWebP Pro",
+    "metaDescription": "Fix poor Google Core Web Vitals. Learn how to preload critical hero images using <link rel='preload'> and fetchpriority='high' to slash LCP times below 1.5s.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/improving-lcp-by-preloading-critical-hero-images/",
+    "primaryKeyword": "preload critical hero image lcp",
+    "secondaryKeywords": [
+      "how to improve largest contentful paint",
+      "fetchpriority high hero image",
+      "rel preload image responsive",
+      "fix slow lcp google search console"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/75-improving-lcp-by-preloading-critical-hero-images/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-79-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Cryptographic Hotlink Firewall & Bandwidth Shield",
+    "concept": "3D render showing an image asset protected behind an optical firewall shield, blocking unauthorized foreign domain leechers while granting passage to verified requests.",
+    "prompt": "Futuristic cybersecurity concept: a high-res digital image floating behind an impenetrable hexagonal energy firewall shield. Legitimate user requests and Googlebot crawlers pass smoothly through a glowing green gate; unauthorized third-party scraper requests trigger an intense red deflection shield with '403 Forbidden - Bandwidth Theft Blocked' alert holograms. Dark slate tech backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "prevent-image-hotlinking-bandwidth-theft-hero.webp",
+    "altText": "3D visual of cybersecurity firewall blocking image hotlinking and unauthorized bandwidth theft",
+    "caption": "Anti-hotlink firewalls block unauthorized bandwidth leeches while allowing Googlebot passage.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-79-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "How Image Hotlinking Steals Your Server Bandwidth",
+    "concept": "Infographic poster illustrating third-party scraper website displaying image while origin server pays the bills.",
+    "prompt": "Clean technical architecture infographic on dark slate background: Shows Scraper Website (Site B) embedding <img src='site-a.com/hero.webp'>. Unsuspecting user visits Site B -> Origin Server (Site A) transmits 50GB of data -> Site A receives $500 cloud invoice; Site B pays $0. Clear red warning icons and financial data callouts.",
+    "aspectRatio": "4:3",
+    "filename": "image-hotlinking-bandwidth-theft-mechanics.webp",
+    "altText": "Technical diagram illustrating how third party websites steal server bandwidth through hotlinking",
+    "caption": "Hotlinking forces your origin server to pay for bandwidth consumed on external third-party sites.",
+    "placement": "Under How Hotlink Detection Works Section"
+  },
+  {
+    "id": "va-79-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "HTTP Referer Header Validation Pipeline",
+    "concept": "Flowchart showing incoming image request, checking Referer header against whitelist, and branching to 200 OK or 403 Forbidden.",
+    "prompt": "Vector dataflow diagram: 1. Incoming HTTP GET /photo.webp, 2. Server inspects Referer header, 3. Does Referer match yourdomain.com OR google.com? -> YES: Stream 200 OK image -> NO: Terminate with 403 Forbidden. Clean modern developer aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "http-referer-validation-pipeline-workflow.webp",
+    "altText": "Workflow diagram illustrating HTTP referer header validation and hotlink blocking logic",
+    "caption": "Validating the HTTP Referer header stops unauthorized leechers at the network edge.",
+    "placement": "Under Production Nginx Rule Section"
+  },
+  {
+    "id": "va-79-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Unprotected Server Bandwidth Spike vs Protected Controlled Egress",
+    "concept": "Data chart comparison showing 800% bandwidth spike from viral scraper vs flat steady traffic under hotlink shield.",
+    "prompt": "Data chart comparison: Left chart shows 'Unprotected Server' with massive red bandwidth spike reaching 12 Terabytes after a viral reddit post embeds image; Right chart shows 'Hotlink Protected' where unauthorized traffic is rejected at edge in 0ms, saving $1,200 in egress fees. High contrast visual styling.",
+    "aspectRatio": "16:9",
+    "filename": "unprotected-spike-vs-protected-egress-comparison.webp",
+    "altText": "Chart comparison showing massive bandwidth spike on unprotected server vs flat bandwidth with protection",
+    "caption": "Hotlink protection shields your infrastructure from unexpected viral traffic spikes and runaway bills.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-79-5",
+    "index": 5,
+    "type": "application",
+    "title": "Cloudflare WAF Hotlink Protection in Production",
+    "concept": "Security engineer configuring ScrapeShield and WAF rules in Cloudflare dashboard across enterprise web properties.",
+    "prompt": "Cybersecurity operations desk: a security architect manages Cloudflare WAF and ScrapeShield rules on high-res monitors. Live logs show thousands of unauthorized hotlink requests blocked in real-time, preserving bandwidth and protecting proprietary assets. High-tech corporate environment.",
+    "aspectRatio": "16:9",
+    "filename": "cloudflare-waf-hotlink-protection-dashboard.webp",
+    "altText": "Cybersecurity engineer configuring WAF hotlink protection rules in Cloudflare dashboard",
+    "caption": "Enabling edge hotlink protection in Cloudflare drops unauthorized image requests with zero server overhead.",
+    "placement": "Conclusion Section"
+  }
+]

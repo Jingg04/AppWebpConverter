@@ -1,0 +1,59 @@
+{
+  "id": 85,
+  "title": "Interactive Product Zoom: High-Res Tiling vs Lightweight WebP Optimization",
+  "slug": "interactive-product-zoom-tiling-vs-webp-optimization",
+  "folder": "85-interactive-product-zoom-tiling-vs-webp-optimization",
+  "category": "E-Commerce & Business Images",
+  "categorySlug": "ecommerce-and-business-images",
+  "subcategory": "Interactive UX",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-09",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Interactive Product Zoom: Tiling vs WebP Optimization | FluxWebP Pro",
+    "metaDescription": "Master high-resolution e-commerce product zoom. Compare Deep Zoom image tiling with optimized single-file WebP architectures for instant, lag-free zoom.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/interactive-product-zoom-tiling-vs-webp-optimization/",
+    "primaryKeyword": "interactive product zoom ecommerce",
+    "secondaryKeywords": [
+      "deep zoom image tiling",
+      "shopify product zoom best practices",
+      "high res product image hover zoom",
+      "webp image zoom optimization"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/85-interactive-product-zoom-tiling-vs-webp-optimization/hero.svg",
+  "visualAssetsCount": 5
+}

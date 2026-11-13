@@ -1,0 +1,42 @@
+---
+title: "Upscaling vs Downscaling Images: Algorithms, Bilinear, Bicubic, and Lanczos"
+slug: "upscaling-vs-downscaling-images-algorithms-lanczos"
+id: 35
+category: "Resizing & Dimensions"
+categorySlug: "resizing-and-dimensions"
+publicationStatus: "published"
+publishedDate: "2026-11-09"
+updatedDate: "2026-11-14"
+author: "Marcus Vance"
+authorRole: "Principal Image Processing Engineer"
+readingTime: 9
+primaryKeyword: "image resampling algorithms"
+featuredImage: "/public/blog-assets/35-upscaling-vs-downscaling-images-algorithms-lanczos/hero.svg"
+---
+
+# Upscaling vs Downscaling Images: Algorithms, Bilinear, Bicubic, and Lanczos
+
+<VisualAsset id="va-35-1" type="hero" src="/public/blog-assets/35-upscaling-vs-downscaling-images-algorithms-lanczos/hero.svg" alt="3D visualization of mathematical sinc wave filter sampling pixels on a digital grid" />
+
+> **Summary:** Explore the computer graphics algorithms behind image resizing. Compare Nearest Neighbor, Bilinear, Bicubic, and Lanczos-3 for downscaling and upscaling.
+
+
+
+
+## Frequently Asked Questions
+
+### Why shouldn't I use Nearest Neighbor for photo resizing?
+
+Nearest Neighbor simply duplicates or drops adjacent pixels without calculating weighted averages. This produces severe jagged edges ('pixelation') on curves and diagonals. It is only suitable for retro pixel art.
+
+### Which algorithm is best for web downscaling?
+
+Lanczos-3 resampling is widely regarded as the gold standard for downscaling photos. By applying a sinc window function across an 8×8 kernel, it preserves micro-contrast and edge sharpness far better than Bilinear or Bicubic.
+
+### What is the ringing artifact in Lanczos filtering?
+
+Because Lanczos uses a sinc filter with negative lobes, high-contrast borders (such as dark text on a pure white background) can exhibit a faint halo or 'ringing' line if oversharpened.
+
+---
+
+*Written by the **FluxWebP Engineering Team**. All conversions, image parsing, and edits are executed 100% locally in your browser.*

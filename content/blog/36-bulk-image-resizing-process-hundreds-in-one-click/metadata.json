@@ -1,0 +1,59 @@
+{
+  "id": 36,
+  "title": "Bulk Image Resizing: How to Process Hundreds of Images in One Click",
+  "slug": "bulk-image-resizing-process-hundreds-in-one-click",
+  "folder": "36-bulk-image-resizing-process-hundreds-in-one-click",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Batch Processing",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "Bulk Image Resizing: How to Resize Hundreds of Images in 1 Click",
+    "metaDescription": "Learn how to batch resize hundreds of images simultaneously. Standardize widths, maintain aspect ratios, and download a single ZIP in seconds.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/bulk-image-resizing-process-hundreds-in-one-click/",
+    "primaryKeyword": "bulk image resizing",
+    "secondaryKeywords": [
+      "batch resize photos online",
+      "resize multiple images at once",
+      "bulk image resizer free",
+      "mass photo dimension changer"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/36-bulk-image-resizing-process-hundreds-in-one-click/hero.svg",
+  "visualAssetsCount": 5
+}

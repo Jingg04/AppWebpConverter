@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-32-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Responsive Web Component Dimension Architecture",
+    "concept": "A clean 3D isometric wireframe of a modern website displaying labeled bounding boxes for hero, cards, avatars, and sidebars.",
+    "prompt": "Futuristic 3D isometric model of a glass-morphic responsive web page floating in mid-air. Glowing measurement overlays in electric blue and amber highlight the hero banner (1920x1080), grid product cards (800x800), and circular avatar badges (160x160). Clean studio gradient background, high-tech engineering aesthetic, crisp vector typography, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "optimal-website-image-dimensions-hero.webp",
+    "altText": "3D architectural mockup showing standard image component dimensions across a web layout",
+    "caption": "Matching asset resolutions to target UI containers balances crisp rendering with lightweight page weight.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-32-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Website Image Sizing Cheat Sheet",
+    "concept": "Comprehensive cheat sheet graphic showing recommended pixel dimensions for the top 6 web components.",
+    "prompt": "Clean modern design infographic on a dark navy (#0B0F19) canvas. 6 organized cards display component names, aspect ratios, pixel dimensions (1920x1080, 1200x630, 800x800, 160x160), and recommended file weights in WebP. Modern sans-serif typography, vibrant accent indicators, highly structured layout.",
+    "aspectRatio": "4:3",
+    "filename": "web-component-image-dimensions-cheatsheet.webp",
+    "altText": "Infographic cheat sheet listing exact pixel sizes and aspect ratios for all key website components",
+    "caption": "Standardized dimension cheat sheet for web designers and frontend engineers.",
+    "placement": "Under Master Web Dimension Table"
+  },
+  {
+    "id": "va-32-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "From Raw Camera Asset to Responsive Web Sizes",
+    "concept": "Visual flowchart showing how a 24MP raw photograph is downscaled into multiple targeted responsive breakpoints.",
+    "prompt": "Horizontal tech diagram showing a single high-res 6000x4000 camera asset being processed through the FluxWebP engine into three distinct output tiers: Desktop 1920px (140KB), Tablet 1200px (80KB), Mobile 640px (35KB). Clean directional arrows, data metrics, glossy modern iconography.",
+    "aspectRatio": "16:9",
+    "filename": "responsive-image-breakpoint-pipeline.webp",
+    "altText": "Flowchart illustrating multi-breakpoint asset generation from a single high-resolution image",
+    "caption": "Generating tailored breakpoints ensures mobile users never download desktop-sized assets.",
+    "placement": "Under Retina Displays Section"
+  },
+  {
+    "id": "va-32-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "1x Standard Display vs 2x Retina Display Rendering",
+    "concept": "Side-by-side zoom comparison showing fuzzy 1x image rendering versus crisp 2x image rendering on high-DPI screens.",
+    "prompt": "Magnified side-by-side macro view of a circular user avatar on a Retina display: Left side labeled '1x Asset (Blurry on DPR 2.0)' showing visible sub-pixel softness around edges; Right side labeled '2x WebP Asset (Ultra-Sharp)' showing perfectly defined typography and crisp borders. Sleek comparison slider graphic overlay.",
+    "aspectRatio": "16:9",
+    "filename": "retina-display-1x-vs-2x-comparison.webp",
+    "altText": "Comparison showing standard resolution blurriness versus 2x high-DPI sharpness on modern displays",
+    "caption": "Exporting 2x resolution guarantees crisp rendering on high-DPI mobile and Apple Retina displays.",
+    "placement": "Under Automating Dimensions Section"
+  },
+  {
+    "id": "va-32-5",
+    "index": 5,
+    "type": "application",
+    "title": "Responsive Multi-Device Layout Verification",
+    "concept": "Desktop, tablet, and mobile devices grouped together displaying seamless, proportion-accurate image rendering.",
+    "prompt": "Aesthetic desktop setup with a studio monitor, iPad Pro, and iPhone 16 running a cohesive editorial lifestyle blog. Images on all three screens are razor-sharp, perfectly proportioned to their viewports, and visually synchronized. Warm ambient lighting, architectural desk environment.",
+    "aspectRatio": "16:9",
+    "filename": "multi-device-responsive-layout-showcase.webp",
+    "altText": "Multi-device presentation demonstrating responsive image sizing across desktop, tablet, and mobile",
+    "caption": "Consistent responsive sizing creates an effortless, premium browsing experience across all form factors.",
+    "placement": "Conclusion Section"
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-51-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Neural Vision Transformer & Alpha Matte Dissection",
+    "concept": "3D render of a portrait photograph dissecting into a multi-layered neural attention tensor grid, continuous grayscale alpha matte, and transparent cutout.",
+    "prompt": "Futuristic computer vision laboratory visualization: a high-res portrait floating in mid-air. One half displays the photographic subject; the center reveals a luminous 3D neural network tensor lattice with glowing attention heatmaps; the other half dissolves into a pristine floating grayscale alpha matte and transparent PNG cutout. Deep navy and electric cyan palette, high-tech scientific computing aesthetic, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "neural-segmentation-alpha-matte-hero.webp",
+    "altText": "3D render illustrating neural network segmentation separating image into foreground, background, and alpha matte",
+    "caption": "Neural vision networks predict continuous alpha mattes to separate complex foregrounds from backgrounds.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-51-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Matting Equation Decomposition",
+    "concept": "Infographic breaking down Image I = alpha * Foreground + (1 - alpha) * Background into visual component layers.",
+    "prompt": "Clean technical infographic on dark slate background: Mathematical formula decomposed visually: Composite Input (I) = Alpha Matte (0.0-1.0 continuous grayscale) × Pure Extracted Subject (F) + Inverted Alpha Matte × Background (B). High contrast vector callouts and mathematical formulas.",
+    "aspectRatio": "4:3",
+    "filename": "matting-equation-decomposition-infographic.webp",
+    "altText": "Technical infographic breaking down the computer vision matting equation components",
+    "caption": "Decomposition of the fundamental computer vision matting equation.",
+    "placement": "Under Matting Equation Section"
+  },
+  {
+    "id": "va-51-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "WebGPU In-Browser Inference Pipeline",
+    "concept": "Technical flowchart showing image buffer loaded into WebGPU compute pipeline executing ONNX model in browser.",
+    "prompt": "Dataflow diagram illustrating client-side AI: Browser WebGPU canvas -> 512x512 tensor normalization -> ONNX Runtime Web execution on local GPU cores (450ms) -> Bilateral edge refinement -> WebP transparent export. Modern cyan and purple tech aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "webgpu-client-side-inference-pipeline.webp",
+    "altText": "Workflow diagram of client-side WebGPU background removal inference inside the browser",
+    "caption": "WebGPU enables hardware-accelerated neural inference directly on the user's device in under 500ms.",
+    "placement": "Under Evolutionary Stages Section"
+  },
+  {
+    "id": "va-51-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Binary Masking vs Continuous Alpha Matte on Fine Hair",
+    "concept": "Macro zoom comparison showing chunky blocky edges of binary thresholding vs ultra-soft hair strand extraction.",
+    "prompt": "Magnified macro side-by-side comparison on curly human hair: Left panel shows 'Hard Binary Mask' with jagged pixel artifacts, cut-off hairs, and green background halo; Right panel shows 'Continuous Alpha Matte' with individual translucent hair fibers floating seamlessly over a transparent checkerboard. Clear visual fidelity badges.",
+    "aspectRatio": "16:9",
+    "filename": "binary-mask-vs-alpha-matte-hair-comparison.webp",
+    "altText": "Macro comparison showing jagged edges of binary mask vs delicate strands of continuous alpha matte",
+    "caption": "Continuous alpha matting preserves individual hair strands and semi-transparent edges flawlessly.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-51-5",
+    "index": 5,
+    "type": "application",
+    "title": "Live E-Commerce Automation Pipeline in Production",
+    "concept": "E-commerce studio automated conveyor photographing products and streaming cutouts directly into digital storefront catalog.",
+    "prompt": "High-tech commercial photography studio: automated motorized turntable capturing luxury footwear. Real-time monitors display instant background removal output, replacing warehouse backgrounds with pure studio white and transparent WebP in under a second.",
+    "aspectRatio": "16:9",
+    "filename": "automated-ecommerce-studio-bg-removal.webp",
+    "altText": "Commercial photography automation studio using AI background removal for instant catalog updates",
+    "caption": "Instant AI background removal cuts e-commerce product staging time from hours to seconds.",
+    "placement": "Conclusion Section"
+  }
+]

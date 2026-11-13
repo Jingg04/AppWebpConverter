@@ -1,0 +1,59 @@
+{
+  "id": 33,
+  "title": "Social Media Image Sizes Guide 2026: Instagram, Facebook, LinkedIn, X & YouTube",
+  "slug": "social-media-image-sizes-guide-2026",
+  "folder": "33-social-media-image-sizes-guide-2026",
+  "category": "Resizing & Dimensions",
+  "categorySlug": "resizing-and-dimensions",
+  "subcategory": "Social Media Optimization",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-07",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Elena Rostova",
+    "role": "Senior UI/UX Creative Director",
+    "avatar": "/authors/elena-rostova.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Social Media Image Sizes 2026: The Complete Guide | FluxWebP Pro",
+    "metaDescription": "The up-to-date 2026 cheat sheet for social media image sizes. Dimensions, aspect ratios, and export specs for Instagram, LinkedIn, YouTube, X, and Facebook.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/social-media-image-sizes-guide-2026/",
+    "primaryKeyword": "social media image sizes 2026",
+    "secondaryKeywords": [
+      "instagram post dimensions",
+      "linkedin banner size",
+      "youtube thumbnail dimensions",
+      "facebook cover photo size 2026"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/33-social-media-image-sizes-guide-2026/hero.svg",
+  "visualAssetsCount": 5
+}

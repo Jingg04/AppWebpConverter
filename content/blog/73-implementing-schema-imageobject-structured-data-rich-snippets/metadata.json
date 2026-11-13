@@ -1,0 +1,59 @@
+{
+  "id": 73,
+  "title": "Implementing Schema.org ImageObject and Structured Data for Google Rich Snippets",
+  "slug": "implementing-schema-imageobject-structured-data-rich-snippets",
+  "folder": "73-implementing-schema-imageobject-structured-data-rich-snippets",
+  "category": "Website Image SEO & Performance",
+  "categorySlug": "image-seo-and-performance",
+  "subcategory": "Structured Data",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-07",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Dr. Sarah Chen",
+    "role": "Head of Web Performance Architecture",
+    "avatar": "/authors/sarah-chen.png"
+  },
+  "readingTime": 8,
+  "seo": {
+    "metaTitle": "Schema.org ImageObject: JSON-LD for Rich Snippets | FluxWebP Pro",
+    "metaDescription": "Master Schema.org ImageObject markup. Learn how to write valid JSON-LD structured data for Google Rich Snippets, licensing metadata, and creator credits.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/implementing-schema-imageobject-structured-data-rich-snippets/",
+    "primaryKeyword": "schema org imageobject structured data",
+    "secondaryKeywords": [
+      "json ld image structured data",
+      "google rich snippets for images",
+      "imageobject license and creator schema",
+      "how to add schema to images"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/73-implementing-schema-imageobject-structured-data-rich-snippets/hero.svg",
+  "visualAssetsCount": 5
+}

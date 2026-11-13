@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-70-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Unified Brand Identity System Architecture",
+    "concept": "3D render showing a cohesive brand design system: floating brand token spheres (colors, typography specimens, logo marks) feeding into a synchronized grid of marketing posters.",
+    "prompt": "Futuristic corporate design identity studio: a centralized holographic brand core containing floating 3D color spheres (charcoal, electric violet, champagne gold), typographic specimen monoliths ('Syne' and 'Inter'), and geometric logo vectors. Luminous data streams radiate outward into four synchronized marketing posters of varying formats (16:9, 1:1, 9:16, 3:4), each displaying flawless visual continuity. Elegant dark studio aesthetic, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "cohesive-brand-identity-templates-hero.webp",
+    "altText": "3D visual of unified brand identity design system feeding synchronized multi-format marketing posters",
+    "caption": "A unified brand kit links color tokens, typography, and AI templates into a cohesive visual system.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-70-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Four Anchors of Brand Consistency",
+    "concept": "Infographic poster breaking down Style Anchor, Color Tokens, Typography Tokens, and Layout Coordinates.",
+    "prompt": "Clean technical graphic design infographic on dark slate background: 4 pillar cards: 1. Visual Style Anchor (Locked rendering medium); 2. Color Tokens (Hex-defined 60-30-10 palette); 3. Typography Tokens (Locked H1, H2, body); 4. Layout Coordinates (Fixed margin and logo anchor). Modern high contrast tech styling.",
+    "aspectRatio": "4:3",
+    "filename": "four-anchors-of-brand-consistency-infographic.webp",
+    "altText": "Technical diagram detailing the four anchors of consistent brand identity design",
+    "caption": "The four anchors required to maintain visual cohesion across large creative marketing teams.",
+    "placement": "Under 4 Anchors Section"
+  },
+  {
+    "id": "va-70-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Brand Kit Template Propagation Workflow",
+    "concept": "Vector workflow showing changing a brand color token in master settings, which instantly updates 10 active campaign posters.",
+    "prompt": "Vector software UI diagram: Master Brand Settings panel updating 'Accent Color' from Amber to Electric Violet. Instantly, 6 adjacent poster thumbnail cards update their buttons, highlights, and scrim tints automatically. Modern clean UI styling.",
+    "aspectRatio": "16:9",
+    "filename": "brand-token-propagation-workflow.webp",
+    "altText": "Workflow showing brand kit design token propagation across multiple poster templates",
+    "caption": "Updating a master brand token propagates changes across all active templates instantly.",
+    "placement": "Under Fixed Typographic Hierarchy Section"
+  },
+  {
+    "id": "va-70-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Disjointed Random Posters vs Cohesive Branded Identity",
+    "concept": "Side-by-side comparison showing 4 posters with random clashing styles vs 4 posters with unmistakably unified branding.",
+    "prompt": "Side-by-side brand campaign comparison: Left panel shows 'Random Creative Chaos' featuring 4 posters with totally different fonts, clashing palettes, and mismatched illustration styles (zero brand recall); Right panel shows 'Cohesive Brand System' featuring 4 distinct creative subjects executed with identical color tokens, typography rules, and grid margins, projecting massive brand power.",
+    "aspectRatio": "16:9",
+    "filename": "disjointed-chaos-vs-cohesive-brand-system.webp",
+    "altText": "Comparison showing disjointed random marketing posters vs cohesive disciplined brand system",
+    "caption": "Disciplined brand templates build compound recognition that random ad-hoc graphics cannot match.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-70-5",
+    "index": 5,
+    "type": "application",
+    "title": "Global Brand Launch Suite Across All Channels",
+    "concept": "Executive boardroom presentation displaying complete multi-channel brand launch: billboard, web app, mobile ads, and merchandise.",
+    "prompt": "Sleek contemporary tech boardroom: an expansive ultra-wide display showcases a complete product launch campaign: digital highway billboard, responsive web app hero, Instagram Story ads, and product packaging. Every touchpoint looks impeccably cohesive, polished, and authoritative. Minimalist luxury setting.",
+    "aspectRatio": "16:9",
+    "filename": "global-brand-launch-identity-showcase.webp",
+    "altText": "Executive boardroom presentation showcasing cohesive global brand identity launch across all channels",
+    "caption": "A robust brand kit empowers teams to launch complex global campaigns with flawless consistency.",
+    "placement": "Conclusion Section"
+  }
+]

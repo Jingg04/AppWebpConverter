@@ -1,0 +1,59 @@
+{
+  "id": 51,
+  "title": "How AI Background Removal Works: Neural Segmentation Models Explained",
+  "slug": "how-ai-background-removal-works-neural-segmentation",
+  "folder": "51-how-ai-background-removal-works-neural-segmentation",
+  "category": "AI Background Removal",
+  "categorySlug": "ai-background-removal",
+  "subcategory": "Computer Vision Fundamentals",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-05",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "Marcus Vance",
+    "role": "Principal Image Processing Engineer",
+    "avatar": "/authors/marcus-vance.png"
+  },
+  "readingTime": 9,
+  "seo": {
+    "metaTitle": "How AI Background Removal Works: Segmentation Models Explained | FluxWebP Pro",
+    "metaDescription": "Understand the computer vision models powering modern background removal. Explore U-Net, BiRefNet, alpha matting, and WebGPU client-side inference.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-ai-background-removal-works-neural-segmentation/",
+    "primaryKeyword": "how ai background removal works",
+    "secondaryKeywords": [
+      "image segmentation neural networks",
+      "u-net background removal",
+      "birefnet segmentation model",
+      "deep learning matte extraction"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/51-how-ai-background-removal-works-neural-segmentation/hero.svg",
+  "visualAssetsCount": 5
+}

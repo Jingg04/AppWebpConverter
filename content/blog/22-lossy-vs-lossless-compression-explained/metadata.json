@@ -1,0 +1,59 @@
+{
+  "id": 22,
+  "title": "Lossy vs Lossless Image Compression Explained",
+  "slug": "lossy-vs-lossless-compression-explained",
+  "folder": "22-lossy-vs-lossless-compression-explained",
+  "category": "Compression & Optimization",
+  "categorySlug": "compression-and-optimization",
+  "subcategory": "Compression Science",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 7,
+  "seo": {
+    "metaTitle": "Lossy vs Lossless Compression Explained: Complete Guide | FluxWebP Pro",
+    "metaDescription": "Understand the mathematical differences between lossy and lossless image compression. Learn discrete cosine transforms, entropy coding, and when to use each.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/lossy-vs-lossless-compression-explained/",
+    "primaryKeyword": "lossy vs lossless compression",
+    "secondaryKeywords": [
+      "difference between lossy and lossless",
+      "lossy image formats",
+      "lossless image formats",
+      "compression algorithms explained"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/22-lossy-vs-lossless-compression-explained/hero.svg",
+  "visualAssetsCount": 5
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-96-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Upload Gateway & Protocol Error Resolution",
+    "concept": "3D render showing an image encountering an error barrier ('413 Payload Too Large') being restructured and compressed by an optical optimizer to pass through smoothly.",
+    "prompt": "Futuristic digital web gateway visualization: an image file blocked at a server intake port by glowing red holographic error banners ('HTTP 413 Payload Too Large', 'MIME Type Invalid'). An adjacent illuminated optimizer turbine compresses the file from 18MB down to a featherweight 250KB JPEG/WebP diamond, which glides smoothly through an emerald green 'Upload Successful' checkpoint. Dark tech backdrop, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "fixing-image-upload-errors-hero.webp",
+    "altText": "3D visual of digital gateway resolving image upload errors and compressing files to pass server limits",
+    "caption": "Automated compression and format standardization resolves upload errors instantly.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-96-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Big 3 Upload Errors and Quick Fixes",
+    "concept": "Infographic poster detailing File Too Large (HTTP 413), Unsupported HEIC, and MIME Mismatch with solutions.",
+    "prompt": "Clean technical troubleshooting infographic on dark slate background: 3 problem-and-solution cards: 1. File Too Large (Cause: 15MB camera file; Fix: WebP/JPG resize to <500KB); 2. Unsupported HEIC (Cause: iPhone camera; Fix: Convert to JPG); 3. MIME Mismatch (Cause: Renaming extension manually; Fix: True binary re-encode). High contrast status icons.",
+    "aspectRatio": "4:3",
+    "filename": "big-three-upload-errors-and-fixes-infographic.webp",
+    "altText": "Technical diagram detailing the top three image upload errors and their immediate fixes",
+    "caption": "Cheat sheet for diagnosing and resolving web form image upload errors.",
+    "placement": "Under Big 3 Upload Errors Section"
+  },
+  {
+    "id": "va-96-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Strict File Size Target Compression Workflow",
+    "concept": "Vector workflow showing user dropping photo, typing exact target limit '500 KB', and engine auto-iterating to 480KB.",
+    "prompt": "Vector software UI workflow diagram: 1. Uploading 12MB photo, 2. Setting 'Target Size Ceiling: 500 KB' in FluxWebP, 3. Multi-pass compression engine running binary search on quality factor, 4. Output file lands at exactly 482 KB with verified quality. Royal blue and green clean UI aesthetic.",
+    "aspectRatio": "16:9",
+    "filename": "target-size-compression-workflow.webp",
+    "altText": "Workflow showing how to compress images to an exact target file size ceiling in FluxWebP",
+    "caption": "Target-size compression automatically iterates quality parameters to satisfy rigid upload limits.",
+    "placement": "Under HTTP 413 Section"
+  },
+  {
+    "id": "va-96-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Red Upload Failed Modal vs Green Upload Successful Confirmation",
+    "concept": "Side-by-side web form comparison showing frustrating red error alert vs clean green upload checkmark.",
+    "prompt": "Side-by-side web portal interface comparison: Left shows frustrating red error dialogue box: 'Error: The file you uploaded (14.2 MB) exceeds the maximum allowed size of 2 MB'; Right shows clean green success confirmation: 'File accepted: passport-photo.jpg (184 KB) - Ready to Submit'. High contrast visual impact.",
+    "aspectRatio": "16:9",
+    "filename": "upload-failed-error-vs-success-comparison.webp",
+    "altText": "Comparison showing frustrating file upload error alert vs green upload success confirmation",
+    "caption": "Proper pre-upload optimization guarantees your documents pass strict portal intake filters.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-96-5",
+    "index": 5,
+    "type": "application",
+    "title": "Government Portal Document Submission at Home",
+    "concept": "User successfully submitting visa and passport documentation from home laptop without stressful upload errors.",
+    "prompt": "Home office desk scene: a user reviews a government visa application portal on an ultrabook. The photo upload card displays a crisp green checkmark with 'Document Accepted: 380 KB'. Relaxed, successful atmosphere with coffee and passport on desk.",
+    "aspectRatio": "16:9",
+    "filename": "successful-government-portal-photo-upload.webp",
+    "altText": "User successfully submitting passport and visa application photos online without upload errors",
+    "caption": "Pre-optimizing images eliminates upload stress during time-sensitive applications.",
+    "placement": "Conclusion Section"
+  }
+]

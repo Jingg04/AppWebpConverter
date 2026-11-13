@@ -1,0 +1,59 @@
+{
+  "id": 13,
+  "title": "How to Convert WebP to PNG",
+  "slug": "how-to-convert-webp-to-png",
+  "folder": "13-how-to-convert-webp-to-png",
+  "category": "Image Conversion Tutorials",
+  "categorySlug": "conversion-tutorials",
+  "subcategory": "Reverse Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 5,
+  "seo": {
+    "metaTitle": "How to Convert WebP to PNG Online (Free & Instant) | FluxWebP Pro",
+    "metaDescription": "Step-by-step tutorial on converting WebP images back to PNG format. Recover universal compatibility for desktop editors, presentations, and design tools.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-convert-webp-to-png/",
+    "primaryKeyword": "convert webp to png",
+    "secondaryKeywords": [
+      "save webp as png",
+      "webp to png converter",
+      "turn webp into png",
+      "webp to png transparency"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/13-how-to-convert-webp-to-png/hero.svg",
+  "visualAssetsCount": 5
+}

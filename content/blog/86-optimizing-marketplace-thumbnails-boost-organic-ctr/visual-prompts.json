@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-86-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Marketplace Search Visual Dominance & Eye-Tracking",
+    "concept": "3D render showing an Amazon search grid where a single high-occupancy, dynamic-angled product thumbnail magnetically captures all visual eye-tracking heatmaps.",
+    "prompt": "Futuristic e-commerce search ecosystem: an expansive 3D floating marketplace search results grid. While surrounding competitor product cards are flat, dull, and poorly cropped, one commanding product card (an artisan coffee grinder at a dynamic 45-degree angle, occupying 88% of the frame with crisp highlights) blazes with magnetic prominence. Glowing red eye-tracking heatmaps converge upon it. Dark sleek studio setting, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "marketplace-thumbnail-ctr-optimization-hero.webp",
+    "altText": "3D visual of marketplace search grid showing high-CTR product thumbnail capturing eye-tracking focus",
+    "caption": "Dynamic angles and high frame occupancy win the battle for visual priority in search grids.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-86-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 4 Laws of High-CTR Thumbnails Breakdown",
+    "concept": "Infographic poster illustrating 85% Frame Occupancy, 45° Angle, Micro-Contrast, and Visual Disruption.",
+    "prompt": "Clean technical retail infographic on dark slate background: 4 pillar cards: 1. Frame Occupancy (85-90% fill vs 50% timid fill); 2. 45-Degree Dimensional Angle; 3. Micro-Contrast & Specular Highlights; 4. Visual Color Disruption against competitors. High contrast vector callouts.",
+    "aspectRatio": "4:3",
+    "filename": "4-laws-of-high-ctr-thumbnails-infographic.webp",
+    "altText": "Technical diagram illustrating the four laws of high-converting marketplace product thumbnails",
+    "caption": "Actionable visual tactics to differentiate your product thumbnail in crowded marketplace grids.",
+    "placement": "Under 4 Laws Section"
+  },
+  {
+    "id": "va-86-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Thumbnail Optimization and A/B Testing Workflow",
+    "concept": "Vector workflow showing testing 2 main image variants, measuring CTR in Amazon Manage Your Experiments, and locking in winner.",
+    "prompt": "Vector retail workflow diagram: 1. Creating Variant A (Flat front shot) and Variant B (45° angle with 88% crop), 2. Launching experiment in Amazon Manage Your Experiments tool, 3. Measuring 7-day data (+31% CTR lift for Variant B), 4. Deploying winning thumbnail sitewide. Clean modern UI icons.",
+    "aspectRatio": "16:9",
+    "filename": "thumbnail-ab-testing-workflow.webp",
+    "altText": "Workflow showing how to A/B test product thumbnails to maximize search click-through rate",
+    "caption": "Systematic A/B testing reveals which thumbnail angles generate the highest organic click-through rates.",
+    "placement": "Under Micro-Contrast Section"
+  },
+  {
+    "id": "va-86-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Timid 50% Frame Fill vs Commanding 88% Frame Occupancy",
+    "concept": "Side-by-side search card comparison showing tiny product lost in white space vs bold, close-up product demanding clicks.",
+    "prompt": "Side-by-side Amazon search card comparison on mobile screen: Left shows competitor product filling only 50% of the box, looking tiny, distant, and unappealing; Right shows optimized product filling 88% of the frame with razor-sharp micro-contrast, looking premium, commanding, and impossible to overlook. High contrast UI badges.",
+    "aspectRatio": "16:9",
+    "filename": "timid-fill-vs-commanding-occupancy-comparison.webp",
+    "altText": "Comparison showing timid 50 percent product frame fill vs commanding 88 percent frame occupancy",
+    "caption": "Cropping to 88% frame occupancy makes products look larger and more valuable on mobile screens.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-86-5",
+    "index": 5,
+    "type": "application",
+    "title": "Amazon Seller Central Sales Surge Dashboard",
+    "concept": "Amazon FBA merchant reviewing Business Reports showing organic traffic and unit sales doubling after thumbnail optimization.",
+    "prompt": "Amazon FBA seller command center: dual monitors displaying Amazon Seller Central Business Reports. A dramatic surge chart shows Page Views and Units Ordered jumping by 54% following a main image optimization test. Clean contemporary workstation with sample inventory.",
+    "aspectRatio": "16:9",
+    "filename": "amazon-seller-sales-surge-dashboard.webp",
+    "altText": "Amazon Seller Central sales dashboard showing 54% increase in sales after thumbnail optimization",
+    "caption": "Optimized main thumbnails directly improve organic search rank, session traffic, and gross revenue.",
+    "placement": "Conclusion Section"
+  }
+]

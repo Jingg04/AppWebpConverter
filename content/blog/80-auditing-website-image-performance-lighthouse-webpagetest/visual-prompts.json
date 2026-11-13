@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-80-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Full-Spectrum Image Performance Audit Laboratory",
+    "concept": "3D render showing an image asset undergoing deep optical inspection under a holographic tripartite diagnostic scanner: Lighthouse, PageSpeed Insights, and WebPageTest.",
+    "prompt": "Futuristic web performance laboratory: a digital image canvas analyzed inside a high-tech tripartite diagnostic chamber. Three glowing inspection rings project analytical metrics: Ring 1 (Lighthouse Performance Score 100 in bright emerald); Ring 2 (PageSpeed Insights Core Web Vitals green pass badges); Ring 3 (WebPageTest waterfall timeline filmstrip). Dark slate background, razor-sharp technical UI, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "auditing-image-performance-lighthouse-hero.webp",
+    "altText": "3D render of web performance auditing laboratory analyzing images with Lighthouse and WebPageTest",
+    "caption": "Rigorous performance auditing across Lighthouse and WebPageTest turns red metrics green.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-80-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The Big 4 Lighthouse Image Warnings Decoded",
+    "concept": "Infographic poster breaking down 'Properly size', 'Defer offscreen', 'Efficiently encode', and 'Explicit width/height' with fixes.",
+    "prompt": "Clean technical diagnostic infographic on dark slate background: 4 warning quadrants: 1. Properly Size Images (Fix: srcset); 2. Defer Offscreen Images (Fix: loading='lazy'); 3. Efficiently Encode Images (Fix: WebP 80%); 4. Explicit Dimensions (Fix: width/height attributes). High contrast warning icons and green solution checkmarks.",
+    "aspectRatio": "4:3",
+    "filename": "lighthouse-image-audits-decoded-infographic.webp",
+    "altText": "Technical diagram decoding the four major Google Lighthouse image performance warnings and fixes",
+    "caption": "The four critical Lighthouse image audits and their direct technical solutions.",
+    "placement": "Under Top 4 Lighthouse Diagnostics Section"
+  },
+  {
+    "id": "va-80-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Comprehensive 4-Step Image Audit Workflow",
+    "concept": "Flowchart showing running Lighthouse lab audit, checking GSC CrUX field data, analyzing WebPageTest filmstrip, and deploying fixes.",
+    "prompt": "Vector developer workflow diagram: 1. Chrome DevTools Lighthouse audit run, 2. Reviewing CrUX real-world field data in Search Console, 3. Running throttled mobile test in WebPageTest, 4. Applying WebP compression and preload tags. Modern clean developer interface.",
+    "aspectRatio": "16:9",
+    "filename": "comprehensive-image-audit-workflow.webp",
+    "altText": "Workflow diagram for conducting comprehensive website image performance audits",
+    "caption": "Follow a structured 4-step auditing workflow to resolve visual performance bottlenecks permanently.",
+    "placement": "Under WebPageTest Superiority Section"
+  },
+  {
+    "id": "va-80-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Failing 42 Lighthouse Score vs Flawless 100 Performance",
+    "concept": "Side-by-side audit report comparison showing failing red scores vs all-green 100% Core Web Vitals.",
+    "prompt": "Side-by-side Google Lighthouse score comparison: Left panel shows 'Unoptimized Site' with red Performance Score 42, 4 image warnings, and 4.8s LCP; Right panel shows 'Post-Optimization' with glowing green Performance Score 100, zero diagnostics warnings, and 0.7s LCP. Clear high contrast visual impact.",
+    "aspectRatio": "16:9",
+    "filename": "failing-vs-perfect-lighthouse-report-comparison.webp",
+    "altText": "Comparison showing failing red Lighthouse performance report vs perfect green 100 score",
+    "caption": "Resolving image performance warnings transforms slow websites into 100/100 speed leaders.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-80-5",
+    "index": 5,
+    "type": "application",
+    "title": "Enterprise Web Performance Engineering Center",
+    "concept": "Performance engineering team monitoring automated daily CI/CD Lighthouse budget tests across corporate web apps.",
+    "prompt": "State-of-the-art software performance operations center: engineers review automated CI/CD performance budget dashboards. Continuous automated Lighthouse checks run on every pull request, ensuring zero image performance regressions reach production. Clean modern tech office.",
+    "aspectRatio": "16:9",
+    "filename": "enterprise-performance-engineering-center.webp",
+    "altText": "Performance engineering operations room monitoring automated Lighthouse CI/CD image budgets",
+    "caption": "Automated performance budgets ensure visual optimization remains locked in across every code release.",
+    "placement": "Conclusion Section"
+  }
+]

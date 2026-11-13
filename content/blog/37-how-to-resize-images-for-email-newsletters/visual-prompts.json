@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-37-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Responsive Email Newsletter Sizing Anatomy",
+    "concept": "Clean 3D render of an email newsletter floating above mobile and desktop viewports with dimension annotations.",
+    "prompt": "Clean 3D visualization of a modern lifestyle newsletter floating between an iPhone screen and a MacBook desktop email client. Glowing measurement tags highlight the 600px layout width, 1200px 2x Retina hero asset, and sub-100KB file badge. Elegant gradient studio background, razor-sharp typography, minimalist UI elements.",
+    "aspectRatio": "16:9",
+    "filename": "email-newsletter-image-dimensions-hero.webp",
+    "altText": "3D diagram illustrating email newsletter layout width, Retina scaling, and client compatibility",
+    "caption": "Designing at 600px with 1200px 2x Retina assets ensures crisp rendering across all email apps.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-37-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "The 600px Email Layout Architecture",
+    "concept": "Infographic diagram breaking down header, hero banner, 2-column product grid, and footer dimensions.",
+    "prompt": "Detailed technical email layout schematic on dark navy background: Shows 600px wide container broken into 1200x600px Hero Banner, two 560x400px product card columns, and 1200x200px footer. Dimension callouts, recommended file sizes in KB, and mobile responsive stack behavior illustrated with clean vector lines.",
+    "aspectRatio": "4:3",
+    "filename": "email-template-dimension-architecture-infographic.webp",
+    "altText": "Technical diagram of standard 600px email newsletter layout with component dimensions",
+    "caption": "Standardized email component dimension architecture for desktop and mobile responsiveness.",
+    "placement": "Under Golden Rules Section"
+  },
+  {
+    "id": "va-37-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "Email Asset Production and Compression Workflow",
+    "concept": "Flowchart showing high-res asset resizing to 1200px, compression to under 100KB, and HTML code integration.",
+    "prompt": "Horizontal production workflow: 1. High-res creative banner, 2. Resizing to 1200px width with aspect lock, 3. FluxWebP lossy compression reaching 85KB target, 4. Copying bulletproof HTML img tag snippet. Modern tech aesthetic, cyan accents.",
+    "aspectRatio": "16:9",
+    "filename": "email-banner-production-workflow.webp",
+    "altText": "Workflow for sizing and compressing email newsletter banners for fast delivery",
+    "caption": "Compressing 1200px Retina banners below 100KB guarantees fast inbox loading without clipping.",
+    "placement": "Under Bulletproofing Section"
+  },
+  {
+    "id": "va-37-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Broken Outlook Layout vs Bulletproof HTML Rendering",
+    "concept": "Side-by-side comparison showing an email blown out of its table in Outlook vs clean constrained rendering.",
+    "prompt": "Split-screen software comparison: Left panel labeled 'Missing HTML width attribute' showing Outlook breaking horizontal layout with an enormous blown-up image; Right panel labeled 'Bulletproof inline width' showing perfectly constrained 600px layout with crisp typography. Clear red and green UI indicator badges.",
+    "aspectRatio": "16:9",
+    "filename": "outlook-email-rendering-bug-comparison.webp",
+    "altText": "Side-by-side comparison of Outlook rendering bug with unconstrained image vs bulletproof code",
+    "caption": "Explicit HTML width attributes prevent Microsoft Outlook from blowing up oversized Retina images.",
+    "placement": "Under Bulletproofing Section"
+  },
+  {
+    "id": "va-37-5",
+    "index": 5,
+    "type": "application",
+    "title": "Real-World Inbox Delivery Across Multiple Email Clients",
+    "concept": "Side-by-side view of an e-commerce promotional newsletter rendering cleanly in Gmail, Apple Mail, and Outlook.",
+    "prompt": "Triple mockup showcasing an elegant coffee brand newsletter displayed simultaneously in Apple Mail on an iPad, Gmail on an iPhone, and Outlook on a ThinkPad. Perfect typography, zero layout shifts, vibrant product imagery. Warm studio desk setup.",
+    "aspectRatio": "16:9",
+    "filename": "cross-client-email-newsletter-test.webp",
+    "altText": "Real-world test showing consistent email newsletter rendering across Gmail, Outlook, and Apple Mail",
+    "caption": "Testing across Gmail, Apple Mail, and Outlook ensures consistent inbox delivery and high click rates.",
+    "placement": "Conclusion Section"
+  }
+]

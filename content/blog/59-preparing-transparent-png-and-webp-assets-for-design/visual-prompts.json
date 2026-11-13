@@ -1,0 +1,67 @@
+[
+  {
+    "id": "va-59-1",
+    "index": 1,
+    "type": "hero",
+    "title": "Digital Sticker & Graphic Asset Production Studio",
+    "concept": "3D render showing multiple glossy die-cut sticker assets (portrait, sneaker, coffee cup) floating with crisp white outlines and drop shadows.",
+    "prompt": "Playful, high-end 3D graphic design composition: several vibrant die-cut vinyl stickers (a laughing portrait, a retro sneaker, a tropical monstera leaf) peeling slightly off a dark slate drafting table. Each sticker features a clean, glossy white contour stroke and a realistic soft shadow beneath. Electric pastel lighting, ultra-sharp detail, 8k resolution.",
+    "aspectRatio": "16:9",
+    "filename": "transparent-png-stickers-graphic-design-hero.webp",
+    "altText": "3D visual of glossy die-cut stickers with white contour outlines floating above drafting table",
+    "caption": "Turning photo cutouts into die-cut stickers with white contour strokes and drop shadows.",
+    "placement": "Hero Section"
+  },
+  {
+    "id": "va-59-2",
+    "index": 2,
+    "type": "infographic",
+    "title": "Sticker Effect Layer Breakdown",
+    "concept": "Infographic decomposing sticker into 4 layers: Subject, White Dilated Stroke, Ambient Shadow, Canvas.",
+    "prompt": "Clean technical infographic on dark slate background showing exploded 4-layer diagram: Layer 1 (Top): Photographic Cutout; Layer 2: Dilated 15px White Contour Stroke; Layer 3: Soft Grounding Drop Shadow; Layer 4: Transparent Checkerboard Canvas. Clean dimensional callouts.",
+    "aspectRatio": "4:3",
+    "filename": "sticker-effect-layer-breakdown-infographic.webp",
+    "altText": "Technical infographic breaking down the layer stack of a digital die-cut sticker effect",
+    "caption": "Exploded layer breakdown of a die-cut sticker effect.",
+    "placement": "Under Anatomy of a Sticker Section"
+  },
+  {
+    "id": "va-59-3",
+    "index": 3,
+    "type": "workflow",
+    "title": "From Photo to Printed Die-Cut Sticker in 4 Steps",
+    "concept": "Vector workflow showing photo upload, AI cutout, 1-click sticker stroke toggle, and print-ready 300 DPI export.",
+    "prompt": "Vector tech workflow: 1. Smartphone selfie uploaded, 2. AI background removal, 3. Toggling 'Sticker Outline (White 15px)', 4. Exporting 300 DPI high-res WebP/PNG ready for print fulfillment. Modern clean vector aesthetic with cyan accents.",
+    "aspectRatio": "16:9",
+    "filename": "photo-to-die-cut-sticker-workflow.webp",
+    "altText": "Workflow showing how to transform photo into print-ready die-cut sticker in four steps",
+    "caption": "Create custom digital stickers and print-ready merchandise assets in four easy steps.",
+    "placement": "Under Step 4 Section"
+  },
+  {
+    "id": "va-59-4",
+    "index": 4,
+    "type": "comparison",
+    "title": "Standard Cutout vs High-Impact Sticker Stroke on Busy Thumbnail",
+    "concept": "Side-by-side comparison showing raw cutout blending into busy background vs popping with white sticker outline.",
+    "prompt": "Side-by-side YouTube thumbnail mockup comparison: Left panel shows an extracted YouTuber portrait getting lost against a busy gaming background (low contrast); Right panel shows the same portrait with a bold 16px white sticker outline, instantly popping with commanding visual presence.",
+    "aspectRatio": "16:9",
+    "filename": "raw-cutout-vs-sticker-outline-thumbnail-comparison.webp",
+    "altText": "Comparison showing raw cutout getting lost in background vs popping with bold white sticker outline",
+    "caption": "White sticker outlines dramatically boost contrast and click-through rates on busy social media thumbnails.",
+    "placement": "Under FAQ Section"
+  },
+  {
+    "id": "va-59-5",
+    "index": 5,
+    "type": "application",
+    "title": "Physical Merchandise & Creator Branding Showcase",
+    "concept": "Creator desk displaying physical printed stickers on laptops, water bottles, and smartphone cases.",
+    "prompt": "Aesthetic creator workstation: a MacBook lid, Hydro Flask water bottle, and iPad case adorned with custom printed vinyl die-cut stickers. The stickers look glossy, tactile, and professional with crisp white borders. Warm ambient studio light.",
+    "aspectRatio": "16:9",
+    "filename": "physical-merchandise-die-cut-stickers-showcase.webp",
+    "altText": "Creator workspace showing physical merchandise and laptop decorated with custom die-cut stickers",
+    "caption": "High-resolution transparent assets bridge digital design and physical merchandise printing.",
+    "placement": "Conclusion Section"
+  }
+]

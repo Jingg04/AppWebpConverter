@@ -1,0 +1,59 @@
+{
+  "id": 17,
+  "title": "How to Convert GIF to WebP and Understand Animation Limitations",
+  "slug": "how-to-convert-gif-to-webp-animation-limits",
+  "folder": "17-how-to-convert-gif-to-webp-animation-limits",
+  "category": "Image Conversion Tutorials",
+  "categorySlug": "conversion-tutorials",
+  "subcategory": "Animation Workflows",
+  "publicationStatus": "published",
+  "publishedDate": "2026-11-10",
+  "updatedDate": "2026-11-14",
+  "author": {
+    "name": "FluxWebP Engineering Team",
+    "role": "Image Processing & Web Performance Specialists",
+    "avatar": "/authors/fluxwebp-team.png"
+  },
+  "readingTime": 6,
+  "seo": {
+    "metaTitle": "How to Convert GIF to WebP (Save 60% File Size) | FluxWebP Pro",
+    "metaDescription": "Step-by-step guide to converting bulky animated GIFs to lightweight animated WebP. Eliminate 256-color banding, reduce byte weight by 60%, and maintain smooth motion.",
+    "canonicalUrl": "https://app-webp-converter.vercel.app/blog/how-to-convert-gif-to-webp-animation-limits/",
+    "primaryKeyword": "convert gif to webp",
+    "secondaryKeywords": [
+      "animated gif to webp",
+      "reduce gif file size webp",
+      "animated webp converter",
+      "gif to webp quality"
+    ]
+  },
+  "internalLinks": [
+    {
+      "text": "FluxWebP Converter",
+      "url": "/#/"
+    },
+    {
+      "text": "Online Image Editor",
+      "url": "/editor/"
+    },
+    {
+      "text": "AI Background Remover",
+      "url": "/background-remover/"
+    },
+    {
+      "text": "AI Poster Studio",
+      "url": "/poster-studio/"
+    },
+    {
+      "text": "Knowledge Center",
+      "url": "/blog/"
+    }
+  ],
+  "externalReferences": [
+    "https://developers.google.com/speed/webp",
+    "https://www.w3.org/TR/PNG/",
+    "https://web.dev/fast/"
+  ],
+  "featuredImage": "/public/blog-assets/17-how-to-convert-gif-to-webp-animation-limits/hero.svg",
+  "visualAssetsCount": 5
+}
