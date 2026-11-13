@@ -3,7 +3,7 @@
  * Caches core static application shell for fast offline launches.
  * Bypasses in-memory Blobs, user files, and analytics.
  */
-const CACHE_NAME = "fluxwebp-shell-v2";
+const CACHE_NAME = "fluxwebp-shell-v3";
 const CORE_ASSETS = [
   "/",
   "/index.html",
@@ -12,7 +12,11 @@ const CORE_ASSETS = [
   "/manifest.json",
   "/robots.txt",
   "/sitemap.xml",
-  "/screenshot-desktop.png"
+  "/screenshot-desktop.png",
+  "/editor/",
+  "/editor/index.html",
+  "/editor/editor.css",
+  "/editor/editor.js"
 ];
 
 self.addEventListener("install", (evt) => {

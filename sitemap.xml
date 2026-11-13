@@ -8,6 +8,14 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Integrated In-Browser Image Editor -->
+  <url>
+    <loc>https://app-webp-converter.vercel.app/editor/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- High-Intent Dedicated Conversion Landing Pages -->
   <url>
     <loc>https://app-webp-converter.vercel.app/jpg-to-webp/</loc>

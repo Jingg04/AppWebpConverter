@@ -307,6 +307,7 @@ const dom = {
   toggleCompareMode: document.getElementById("toggleCompareMode"),
   toggleCheckerboard: document.getElementById("toggleCheckerboard"),
   openFullscreenPreview: document.getElementById("openFullscreenPreview"),
+  editSelectedInEditor: document.getElementById("editSelectedInEditor"),
   downloadSelected: document.getElementById("downloadSelected"),
   comparisonStage: document.getElementById("comparisonStage"),
   comparisonWrapper: document.getElementById("comparisonWrapper"),
@@ -427,6 +428,7 @@ const dom = {
   modalZoomLevel: document.getElementById("modalZoomLevel"),
   modalZoomIn: document.getElementById("modalZoomIn"),
   modalZoomReset: document.getElementById("modalZoomReset"),
+  modalEditInEditorBtn: document.getElementById("modalEditInEditorBtn"),
   modalImageViewport: document.getElementById("modalImageViewport"),
   modalInspectImage: document.getElementById("modalInspectImage"),
   modalExifBar: document.getElementById("modalExifBar"),
@@ -475,6 +477,7 @@ renderHistory();
 syncCompare();
 render();
 runDiagnostics();
+checkTransferredImage();
 
 // Register Service Worker for Offline PWA Resilience
 if ("serviceWorker" in navigator) {
@@ -871,6 +874,10 @@ function bindAllEvents() {
   dom.toggleCompareMode?.addEventListener("click", toggleCompareMode);
   dom.toggleCheckerboard?.addEventListener("click", toggleCheckerboard);
   dom.openFullscreenPreview?.addEventListener("click", openFullscreenInspector);
+  dom.editSelectedInEditor?.addEventListener("click", () => {
+    const selected = findItem(state.selectedId);
+    if (selected) openItemInEditor(selected);
+  });
   dom.downloadSelected?.addEventListener("click", downloadSelected);
 
   // Fullscreen Inspector Navigation & Zoom
@@ -879,6 +886,10 @@ function bindAllEvents() {
   dom.modalZoomIn?.addEventListener("click", () => adjustModalZoom(25));
   dom.modalZoomOut?.addEventListener("click", () => adjustModalZoom(-25));
   dom.modalZoomReset?.addEventListener("click", () => setModalZoom(100));
+  dom.modalEditInEditorBtn?.addEventListener("click", () => {
+    const selected = findItem(state.selectedId);
+    if (selected) openItemInEditor(selected);
+  });
 
   // Batch Queue Actions
   dom.selectAllBtn?.addEventListener("click", toggleSelectAllQueue);
@@ -1008,6 +1019,34 @@ function runDiagnostics() {
         dom.diagAvif.className = "text-secondary";
       }
     }
+  }
+}
+
+// --- Imported Images from FluxWebP Editor ---
+function checkTransferredImage() {
+  try {
+    const raw = sessionStorage.getItem("fluxwebp_transfer_image");
+    if (!raw) return;
+    sessionStorage.removeItem("fluxwebp_transfer_image");
+    const parsed = JSON.parse(raw);
+    if (!parsed || !parsed.dataUrl) return;
+
+    const parts = parsed.dataUrl.split(",");
+    const mimeMatch = parts[0].match(/:(.*?);/);
+    const mime = mimeMatch ? mimeMatch[1] : "image/webp";
+    const bstr = atob(parts[1]);
+    let n = bstr.length;
+    const u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    const blob = new Blob([u8arr], { type: mime });
+    const file = new File([blob], parsed.name || "edited-photo.webp", { type: mime, lastModified: Date.now() });
+
+    addFiles([file]);
+    showToast(`Imported "${file.name}" from Image Editor`);
+  } catch (err) {
+    console.warn("Could not import transferred image from Image Editor:", err);
   }
 }
 
@@ -2588,6 +2627,9 @@ function renderQueue() {
           <div class="progress-bar" style="--progress: ${item.progress}%"><span></span></div>
         </div>
         <div class="queue-item-actions">
+          <button class="icon-btn text-blue" type="button" data-action="edit" title="Edit in Image Editor" aria-label="Edit ${escapeHtml(item.name)} in Image Editor">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </button>
           <button class="icon-btn" type="button" data-action="preview" title="Inspect / Compare" aria-label="Inspect ${escapeHtml(item.name)}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
           </button>
@@ -2671,6 +2713,10 @@ function bindQueueRow(row) {
     const button = event.target.closest("button");
     if (button) {
       const action = button.dataset.action;
+      if (action === "edit") {
+        const item = findItem(id);
+        if (item) openItemInEditor(item);
+      }
       if (action === "download") {
         const item = findItem(id);
         if (item) downloadItem(item);
@@ -2736,6 +2782,7 @@ function renderPreview() {
     dom.emptyState.classList.remove("hidden");
     dom.downloadSelected.disabled = true;
     dom.openFullscreenPreview.disabled = true;
+    if (dom.editSelectedInEditor) dom.editSelectedInEditor.disabled = true;
 
     dom.selectedOriginal.textContent = "0 KB";
     dom.selectedOrigDim.textContent = "0 × 0";
@@ -2748,6 +2795,7 @@ function renderPreview() {
 
   dom.emptyState.classList.add("hidden");
   dom.comparisonStage.classList.remove("empty");
+  if (dom.editSelectedInEditor) dom.editSelectedInEditor.disabled = false;
   dom.previewTitle.textContent = selected.name;
 
   const ext = getExtension(selected.name).toUpperCase() || "IMG";
@@ -3113,6 +3161,31 @@ function downloadItem(item) {
     customPrefix: dom.customPrefixInput.value
   });
   downloadBlob(item.outputBlob, filename);
+}
+
+function openItemInEditor(item) {
+  if (!item) return;
+  const blob = item.outputBlob || item.originalBlob || item.file;
+  if (!blob) {
+    showToast("Unable to load image for editing.");
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      sessionStorage.setItem("fluxwebp_edit_source", JSON.stringify({
+        name: item.name || "image",
+        dataUrl: reader.result
+      }));
+      window.location.href = "/editor/";
+    } catch (err) {
+      showToast("Image too large to pass automatically. Please open directly in the Editor.");
+    }
+  };
+  reader.onerror = () => {
+    showToast("Failed to read image data.");
+  };
+  reader.readAsDataURL(blob);
 }
 
 async function downloadAllAsZip() {

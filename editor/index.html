@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Online Image Editor — Crop, Resize, Adjust &amp; Annotate | FluxWebP Pro</title>
+    <meta
+      name="description"
+      content="Free, professional online image editor. Non-destructive cropping, resizing, color adjustments, text overlays, vector shapes, watermark, and multi-layer editing. 100% private in-browser processing."
+    />
+    <meta name="keywords" content="online image editor, photo editor, crop image, resize image, photo filters, add text to image, watermark photo, non-destructive image editor, client-side photo editor" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://app-webp-converter.vercel.app/editor/" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FluxWebP Pro" />
+    <meta property="og:url" content="https://app-webp-converter.vercel.app/editor/" />
+    <meta property="og:title" content="Online Image Editor — Professional In-Browser Creative Suite | FluxWebP Pro" />
+    <meta property="og:description" content="Non-destructive image editing with layers, crop, resize, exposure adjustments, filters, typography, and export to WebP, PNG, JPEG, and AVIF." />
+    <meta property="og:image" content="https://app-webp-converter.vercel.app/screenshot-desktop.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="editor.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://app-webp-converter.vercel.app/editor/#webapp",
+          "name": "FluxWebP Pro Image Editor",
+          "url": "https://app-webp-converter.vercel.app/editor/",
+          "applicationCategory": "DesignApplication",
+          "operatingSystem": "All modern browsers",
+          "description": "Professional non-destructive client-side image editor with layers, crop, resize, color adjustments, typography, and watermark tools."
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <div class="editor-shell" id="editorShell">
+      <!-- Global Top Bar -->
+      <header class="editor-header" role="banner">
+        <div class="editor-header-left">
+          <a href="/" class="brand-link" aria-label="Return to FluxWebP Home">
+            <span class="brand-logo" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="26" height="26">
+                <rect width="32" height="32" rx="8" fill="#2563EB"></rect>
+                <path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path>
+                <circle cx="23" cy="9" r="3" fill="#F97316"></circle>
+              </svg>
+            </span>
+            <span class="brand-name-wrap">
+              <span class="brand-title">FluxWebP</span>
+              <span class="brand-badge">EDITOR</span>
+            </span>
+          </a>
+
+          <div class="divider-v"></div>
+
+          <input type="text" id="projectTitleInput" class="editor-project-title-input" value="Untitled Project" aria-label="Project Title" title="Click to rename project" />
+          <span class="editor-dim-pill" id="docDimPill">1920 × 1080</span>
+        </div>
+
+        <div class="editor-header-center">
+          <button class="icon-btn" id="undoBtn" type="button" title="Undo (Ctrl+Z)" aria-label="Undo" disabled>
+            <svg viewBox="0 0 24 24"><polyline points="9 14 4 9 9 4"></polyline><path d="M20 20v-7a4 4 0 0 0-4-4H4"></path></svg>
+          </button>
+          <button class="icon-btn" id="redoBtn" type="button" title="Redo (Ctrl+Shift+Z)" aria-label="Redo" disabled>
+            <svg viewBox="0 0 24 24"><polyline points="15 14 20 9 15 4"></polyline><path d="M4 20v-7a4 4 0 0 1 4-4h12"></path></svg>
+          </button>
+          <button class="icon-btn" id="resetAllBtn" type="button" title="Reset All Edits" aria-label="Reset All">
+            <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+          </button>
+          <button class="icon-btn" id="compareOriginalBtn" type="button" title="Hold to Compare with Original" aria-label="Compare Original">
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </button>
+        </div>
+
+        <div class="editor-header-right">
+          <button class="btn btn-sm btn-ghost" id="openImageBtn" type="button">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+            <span>Open</span>
+          </button>
+          <button class="btn btn-sm btn-outline" id="saveProjBtn" type="button" title="Save Project locally (.fluxproj)">
+            <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+            <span>Save</span>
+          </button>
+          <button class="btn btn-sm btn-primary" id="headerExportBtn" type="button">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Export</span>
+          </button>
+          <button class="icon-btn theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Toggle theme">
+            <svg viewBox="0 0 24 24" class="theme-icon-light"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line></svg>
+            <svg viewBox="0 0 24 24" class="theme-icon-dark"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Workspace (3 Panes) -->
+      <div class="editor-workspace" id="editorWorkspace">
+        <!-- 1. Left Primary Tools Palette -->
+        <nav class="editor-primary-tools" aria-label="Editor Tools">
+          <button class="tool-icon-btn active" data-tool="select" id="toolBtnSelect" title="Select &amp; Move (V)">
+            <svg viewBox="0 0 24 24"><polygon points="3 3 10.07 19.97 12.58 12.58 19.97 10.07 3 3"></polygon></svg>
+            <span>Select</span>
+          </button>
+
+          <button class="tool-icon-btn" data-tool="crop" id="toolBtnCrop" title="Crop Canvas (C)">
+            <svg viewBox="0 0 24 24"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg>
+            <span>Crop</span>
+          </button>
+
+          <button class="tool-icon-btn" data-tool="resize" id="toolBtnResize" title="Resize Image (R)">
+            <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            <span>Resize</span>
+          </button>
+
+          <button class="tool-icon-btn" data-tool="transform" id="toolBtnTransform" title="Rotate &amp; Flip">
+            <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+            <span>Rotate</span>
+          </button>
+
+          <div class="tools-divider"></div>
+
+          <button class="tool-icon-btn" data-tool="adjust" id="toolBtnAdjust" title="Color &amp; Light Adjustments">
+            <svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+            <span>Adjust</span>
+          </button>
+
+          <button class="tool-icon-btn" data-tool="filter" id="toolBtnFilter" title="Filters &amp; Color Grading">
+            <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+            <span>Filters</span>
+          </button>
+
+          <div class="tools-divider"></div>
+
+          <button class="tool-icon-btn" data-tool="text" id="toolBtnText" title="Add Text Overlay (T)">
+            <svg viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            <span>Text</span>
+          </button>
+
+          <button class="tool-icon-btn" data-tool="shapes" id="toolBtnShapes" title="Shapes &amp; Arrows (S)">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+            <span>Shapes</span>
+          </button>
+
+          <button class="tool-icon-btn" data-tool="draw" id="toolBtnDraw" title="Freehand Drawing Brush (B)">
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+            <span>Draw</span>
+          </button>
+
+          <button class="tool-icon-btn" data-tool="watermark" id="toolBtnWatermark" title="Logo &amp; Text Watermark">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Watermark</span>
+          </button>
+
+          <button class="tool-icon-btn" data-tool="background" id="toolBtnBackground" title="Canvas Background Color &amp; Alpha">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <span>Canvas</span>
+          </button>
+        </nav>
+
+        <!-- 2. Secondary Subpanel (Tool Configuration) -->
+        <aside class="editor-subpanel" id="editorSubpanel" aria-label="Tool Options">
+          <!-- Subpanel: Select / Transform Info -->
+          <div class="subpanel-content" id="subpanelSelect">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><polygon points="3 3 10.07 19.97 12.58 12.58 19.97 10.07 3 3"></polygon></svg> Selection &amp; Canvas</h3>
+            </div>
+            <div class="subpanel-body">
+              <p class="text-secondary text-xs">Click any layer on the canvas to move, rotate, scale, or edit properties.</p>
+              <div class="input-grid-2">
+                <button class="btn btn-sm btn-outline" id="bringForwardBtn" type="button">Bring Forward</button>
+                <button class="btn btn-sm btn-outline" id="sendBackwardBtn" type="button">Send Backward</button>
+              </div>
+              <button class="btn btn-sm btn-outline text-red" id="deleteSelectedLayerBtn" type="button">Delete Selected Object</button>
+            </div>
+          </div>
+
+          <!-- Subpanel: Crop -->
+          <div class="subpanel-content hidden" id="subpanelCrop">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path></svg> Crop Image</h3>
+            </div>
+            <div class="subpanel-body">
+              <label class="form-label-xs">Aspect Ratio Presets</label>
+              <div class="aspect-ratio-grid">
+                <button class="aspect-btn active" data-aspect="free">Free</button>
+                <button class="aspect-btn" data-aspect="1:1">1:1 Square</button>
+                <button class="aspect-btn" data-aspect="4:3">4:3 Standard</button>
+                <button class="aspect-btn" data-aspect="3:2">3:2 Classic</button>
+                <button class="aspect-btn" data-aspect="16:9">16:9 Cinema</button>
+                <button class="aspect-btn" data-aspect="9:16">9:16 Story</button>
+              </div>
+              <div class="input-grid-2 mt-2">
+                <div class="form-group">
+                  <label for="cropWidthInput" class="form-label-xs">Crop Width</label>
+                  <input type="number" id="cropWidthInput" class="form-input" min="10" />
+                </div>
+                <div class="form-group">
+                  <label for="cropHeightInput" class="form-label-xs">Crop Height</label>
+                  <input type="number" id="cropHeightInput" class="form-input" min="10" />
+                </div>
+              </div>
+              <div class="flex-align-center gap-2 mt-4">
+                <button class="btn btn-sm btn-primary flex-1" id="applyCropBtn" type="button">Apply Crop</button>
+                <button class="btn btn-sm btn-outline" id="cancelCropBtn" type="button">Cancel</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subpanel: Resize -->
+          <div class="subpanel-content hidden" id="subpanelResize">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline></svg> Image Dimensions</h3>
+            </div>
+            <div class="subpanel-body">
+              <div class="form-group">
+                <label for="resizePresetSelect" class="form-label-xs">Preset Resolution</label>
+                <select id="resizePresetSelect" class="form-select">
+                  <option value="custom" selected>Custom Dimensions</option>
+                  <option value="1920x1080">Website Hero (1920 × 1080)</option>
+                  <option value="1200x630">Blog Social Share (1200 × 630)</option>
+                  <option value="1080x1080">Instagram Square (1080 × 1080)</option>
+                  <option value="1080x1920">Instagram Story / TikTok (1080 × 1920)</option>
+                  <option value="1280x720">YouTube Thumbnail (1280 × 720)</option>
+                  <option value="800x800">E-Commerce Product (800 × 800)</option>
+                  <option value="400x400">Avatar / Profile (400 × 400)</option>
+                </select>
+              </div>
+              <div class="input-grid-2">
+                <div class="form-group">
+                  <label for="resizeWInput" class="form-label-xs">Width (px)</label>
+                  <input type="number" id="resizeWInput" class="form-input" min="16" max="16000" />
+                </div>
+                <div class="form-group">
+                  <label for="resizeHInput" class="form-label-xs">Height (px)</label>
+                  <input type="number" id="resizeHInput" class="form-input" min="16" max="16000" />
+                </div>
+              </div>
+              <label class="checkbox-label mt-2">
+                <input type="checkbox" id="resizeAspectLock" checked />
+                <span>Lock Aspect Ratio</span>
+              </label>
+              <button class="btn btn-sm btn-primary mt-4" id="applyResizeBtn" type="button">Apply Resize</button>
+            </div>
+          </div>
+
+          <!-- Subpanel: Rotate & Flip -->
+          <div class="subpanel-content hidden" id="subpanelTransform">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg> Rotate &amp; Flip</h3>
+            </div>
+            <div class="subpanel-body">
+              <label class="form-label-xs">Step Rotation</label>
+              <div class="input-grid-2">
+                <button class="btn btn-sm btn-outline" id="rotateCcwBtn" type="button">⟲ 90° CCW</button>
+                <button class="btn btn-sm btn-outline" id="rotateCwBtn" type="button">⟳ 90° CW</button>
+              </div>
+              <label class="form-label-xs mt-3">Flip Axis</label>
+              <div class="input-grid-2">
+                <button class="btn btn-sm btn-outline" id="flipHorizontalBtn" type="button">Flip Horizontal</button>
+                <button class="btn btn-sm btn-outline" id="flipVerticalBtn" type="button">Flip Vertical</button>
+              </div>
+              <div class="form-group mt-3">
+                <div class="adjust-label-row">
+                  <label for="freeRotateRange" class="form-label-xs">Free Angle (°)</label>
+                  <input type="number" id="freeRotateVal" class="adjust-val-input" min="-180" max="180" value="0" />
+                </div>
+                <input type="range" id="freeRotateRange" class="slider" min="-180" max="180" value="0" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Subpanel: Adjustments -->
+          <div class="subpanel-content hidden" id="subpanelAdjust">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="12" y1="21" x2="12" y2="12"></line></svg> Color &amp; Light</h3>
+              <button class="btn btn-xs btn-ghost text-red" id="resetAdjustmentsBtn" type="button">Reset</button>
+            </div>
+            <div class="subpanel-body">
+              <!-- Brightness -->
+              <div class="adjust-slider-group">
+                <div class="adjust-label-row">
+                  <span>Brightness</span>
+                  <input type="number" id="adjBrightnessVal" class="adjust-val-input" min="0" max="200" value="100" />
+                </div>
+                <input type="range" id="adjBrightness" class="slider" min="0" max="200" value="100" />
+              </div>
+              <!-- Contrast -->
+              <div class="adjust-slider-group">
+                <div class="adjust-label-row">
+                  <span>Contrast</span>
+                  <input type="number" id="adjContrastVal" class="adjust-val-input" min="0" max="200" value="100" />
+                </div>
+                <input type="range" id="adjContrast" class="slider" min="0" max="200" value="100" />
+              </div>
+              <!-- Exposure -->
+              <div class="adjust-slider-group">
+                <div class="adjust-label-row">
+                  <span>Exposure</span>
+                  <input type="number" id="adjExposureVal" class="adjust-val-input" min="-100" max="100" value="0" />
+                </div>
+                <input type="range" id="adjExposure" class="slider" min="-100" max="100" value="0" />
+              </div>
+              <!-- Saturation -->
+              <div class="adjust-slider-group">
+                <div class="adjust-label-row">
+                  <span>Saturation</span>
+                  <input type="number" id="adjSaturationVal" class="adjust-val-input" min="0" max="200" value="100" />
+                </div>
+                <input type="range" id="adjSaturation" class="slider" min="0" max="200" value="100" />
+              </div>
+              <!-- Temperature -->
+              <div class="adjust-slider-group">
+                <div class="adjust-label-row">
+                  <span>Warmth / Temp</span>
+                  <input type="number" id="adjTempVal" class="adjust-val-input" min="-100" max="100" value="0" />
+                </div>
+                <input type="range" id="adjTemp" class="slider" min="-100" max="100" value="0" />
+              </div>
+              <!-- Tint -->
+              <div class="adjust-slider-group">
+                <div class="adjust-label-row">
+                  <span>Tint</span>
+                  <input type="number" id="adjTintVal" class="adjust-val-input" min="-100" max="100" value="0" />
+                </div>
+                <input type="range" id="adjTint" class="slider" min="-100" max="100" value="0" />
+              </div>
+              <!-- Sharpness -->
+              <div class="adjust-slider-group">
+                <div class="adjust-label-row">
+                  <span>Sharpness</span>
+                  <input type="number" id="adjSharpnessVal" class="adjust-val-input" min="0" max="100" value="0" />
+                </div>
+                <input type="range" id="adjSharpness" class="slider" min="0" max="100" value="0" />
+              </div>
+              <!-- Blur -->
+              <div class="adjust-slider-group">
+                <div class="adjust-label-row">
+                  <span>Blur</span>
+                  <input type="number" id="adjBlurVal" class="adjust-val-input" min="0" max="50" value="0" />
+                </div>
+                <input type="range" id="adjBlur" class="slider" min="0" max="50" value="0" />
+              </div>
+              <!-- Vignette -->
+              <div class="adjust-slider-group">
+                <div class="adjust-label-row">
+                  <span>Vignette</span>
+                  <input type="number" id="adjVignetteVal" class="adjust-val-input" min="0" max="100" value="0" />
+                </div>
+                <input type="range" id="adjVignette" class="slider" min="0" max="100" value="0" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Subpanel: Filters -->
+          <div class="subpanel-content hidden" id="subpanelFilter">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg> Presets &amp; Color Grading</h3>
+            </div>
+            <div class="subpanel-body">
+              <div class="adjust-slider-group mb-3">
+                <div class="adjust-label-row">
+                  <label for="filterIntensityRange" class="form-label-xs">Filter Intensity (%)</label>
+                  <input type="number" id="filterIntensityVal" class="adjust-val-input" min="0" max="100" value="100" />
+                </div>
+                <input type="range" id="filterIntensityRange" class="slider" min="0" max="100" value="100" />
+              </div>
+
+              <div class="filters-grid">
+                <div class="filter-preset-card active" data-filter="none">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #64748B, #94A3B8);"></div>
+                  <span>Original</span>
+                </div>
+                <div class="filter-preset-card" data-filter="natural">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #0EA5E9, #38BDF8);"></div>
+                  <span>Natural</span>
+                </div>
+                <div class="filter-preset-card" data-filter="warm">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);"></div>
+                  <span>Warm</span>
+                </div>
+                <div class="filter-preset-card" data-filter="cool">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);"></div>
+                  <span>Cool</span>
+                </div>
+                <div class="filter-preset-card" data-filter="vivid">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #EC4899, #F43F5E);"></div>
+                  <span>Vivid</span>
+                </div>
+                <div class="filter-preset-card" data-filter="soft">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #A855F7, #C084FC);"></div>
+                  <span>Soft</span>
+                </div>
+                <div class="filter-preset-card" data-filter="grayscale">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #475569, #94A3B8);"></div>
+                  <span>Grayscale</span>
+                </div>
+                <div class="filter-preset-card" data-filter="bw">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #000000, #FFFFFF);"></div>
+                  <span>B&amp;W Contrast</span>
+                </div>
+                <div class="filter-preset-card" data-filter="sepia">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #78350F, #D97706);"></div>
+                  <span>Sepia</span>
+                </div>
+                <div class="filter-preset-card" data-filter="vintage">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #713F12, #CA8A04);"></div>
+                  <span>Vintage</span>
+                </div>
+                <div class="filter-preset-card" data-filter="cinematic">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #0F766E, #EA580C);"></div>
+                  <span>Cinematic</span>
+                </div>
+                <div class="filter-preset-card" data-filter="high_contrast">
+                  <div class="filter-thumb-preview" style="background: linear-gradient(135deg, #1E1B4B, #E11D48);"></div>
+                  <span>Punchy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subpanel: Text -->
+          <div class="subpanel-content hidden" id="subpanelText">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><polyline points="4 7 4 4 20 4 20 7"></polyline></svg> Typography</h3>
+            </div>
+            <div class="subpanel-body">
+              <button class="btn btn-sm btn-primary w-full" id="addTextLayerBtn" type="button">+ Add Text Overlay</button>
+              
+              <div class="form-group mt-3">
+                <label for="textLayerInput" class="form-label-xs">Text Content</label>
+                <textarea id="textLayerInput" class="form-input" rows="2" placeholder="Your text here..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="textFontSelect" class="form-label-xs">Font Family</label>
+                <select id="textFontSelect" class="form-select">
+                  <option value="Inter, sans-serif" selected>Inter (Sans)</option>
+                  <option value="Roboto, sans-serif">Roboto</option>
+                  <option value="Arial, sans-serif">Arial</option>
+                  <option value="Georgia, serif">Georgia (Serif)</option>
+                  <option value="'Playfair Display', serif">Playfair Display</option>
+                  <option value="Impact, sans-serif">Impact (Bold Title)</option>
+                  <option value="'Courier New', monospace">Courier New (Mono)</option>
+                </select>
+              </div>
+
+              <div class="input-grid-2">
+                <div class="form-group">
+                  <label for="textSizeInput" class="form-label-xs">Size (px)</label>
+                  <input type="number" id="textSizeInput" class="form-input" min="8" max="300" value="48" />
+                </div>
+                <div class="form-group">
+                  <label for="textColorInput" class="form-label-xs">Color</label>
+                  <input type="color" id="textColorInput" class="color-swatch-input w-full" value="#FFFFFF" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label-xs">Style &amp; Alignment</label>
+                <div class="btn-group w-full">
+                  <button class="btn btn-sm btn-outline flex-1" id="textBoldBtn" type="button"><b>B</b></button>
+                  <button class="btn btn-sm btn-outline flex-1" id="textItalicBtn" type="button"><i>I</i></button>
+                  <button class="btn btn-sm btn-outline flex-1 active" id="textAlignLeftBtn" type="button">Left</button>
+                  <button class="btn btn-sm btn-outline flex-1" id="textAlignCenterBtn" type="button">Center</button>
+                  <button class="btn btn-sm btn-outline flex-1" id="textAlignRightBtn" type="button">Right</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subpanel: Shapes -->
+          <div class="subpanel-content hidden" id="subpanelShapes">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="3" width="18" height="18" rx="2"></rect></svg> Shapes &amp; Callouts</h3>
+            </div>
+            <div class="subpanel-body">
+              <label class="form-label-xs">Click Shape to Insert</label>
+              <div class="shapes-grid">
+                <button class="shape-btn" data-shape="rectangle" title="Rectangle"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="5" width="18" height="14" fill="currentColor"></rect></svg></button>
+                <button class="shape-btn" data-shape="rounded" title="Rounded Rectangle"><svg viewBox="0 0 24 24" width="20" height="20"><rect x="3" y="5" width="18" height="14" rx="4" fill="currentColor"></rect></svg></button>
+                <button class="shape-btn" data-shape="circle" title="Circle"><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" fill="currentColor"></circle></svg></button>
+                <button class="shape-btn" data-shape="arrow" title="Arrow"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.5"></line><polyline points="12 5 19 12 12 19" stroke="currentColor" stroke-width="2.5" fill="none"></polyline></svg></button>
+              </div>
+
+              <div class="input-grid-2 mt-3">
+                <div class="form-group">
+                  <label for="shapeFillColor" class="form-label-xs">Fill Color</label>
+                  <input type="color" id="shapeFillColor" class="color-swatch-input w-full" value="#2563EB" />
+                </div>
+                <div class="form-group">
+                  <label for="shapeStrokeColor" class="form-label-xs">Stroke Color</label>
+                  <input type="color" id="shapeStrokeColor" class="color-swatch-input w-full" value="#FFFFFF" />
+                </div>
+              </div>
+
+              <div class="form-group mt-2">
+                <label for="shapeStrokeWidth" class="form-label-xs">Stroke Width (px)</label>
+                <input type="range" id="shapeStrokeWidth" class="slider" min="0" max="30" value="2" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Subpanel: Freehand Brush -->
+          <div class="subpanel-content hidden" id="subpanelDraw">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 19l7-7 3 3-7 7-3-3z"></path></svg> Freehand Brush</h3>
+            </div>
+            <div class="subpanel-body">
+              <div class="btn-group w-full mb-3">
+                <button class="btn btn-sm btn-primary flex-1" id="brushModeBtn" type="button">Paint Brush</button>
+                <button class="btn btn-sm btn-outline flex-1" id="eraserModeBtn" type="button">Eraser</button>
+              </div>
+
+              <div class="form-group">
+                <label for="brushSizeInput" class="form-label-xs">Brush Size (px)</label>
+                <input type="range" id="brushSizeInput" class="slider" min="2" max="100" value="12" />
+              </div>
+
+              <div class="form-group">
+                <label for="brushColorInput" class="form-label-xs">Brush Color</label>
+                <input type="color" id="brushColorInput" class="color-swatch-input w-full" value="#E53935" />
+              </div>
+
+              <button class="btn btn-sm btn-outline text-red w-full mt-3" id="clearDrawingBtn" type="button">Clear Drawing Strokes</button>
+            </div>
+          </div>
+
+          <!-- Subpanel: Watermark -->
+          <div class="subpanel-content hidden" id="subpanelWatermark">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Watermark</h3>
+            </div>
+            <div class="subpanel-body">
+              <div class="form-group">
+                <label for="watermarkTextInput" class="form-label-xs">Watermark Text</label>
+                <input type="text" id="watermarkTextInput" class="form-input" placeholder="© 2026 FluxWebP" value="© FluxWebP Pro" />
+              </div>
+
+              <label class="form-label-xs">Position Anchor</label>
+              <div class="aspect-ratio-grid">
+                <button class="aspect-btn" data-anchor="top-left">Top-L</button>
+                <button class="aspect-btn" data-anchor="top-center">Top-C</button>
+                <button class="aspect-btn" data-anchor="top-right">Top-R</button>
+                <button class="aspect-btn" data-anchor="center">Center</button>
+                <button class="aspect-btn" data-anchor="bottom-left">Bot-L</button>
+                <button class="aspect-btn active" data-anchor="bottom-right">Bot-R</button>
+              </div>
+
+              <div class="form-group mt-3">
+                <label for="watermarkOpacityRange" class="form-label-xs">Watermark Opacity (%)</label>
+                <input type="range" id="watermarkOpacityRange" class="slider" min="10" max="100" value="70" />
+              </div>
+
+              <button class="btn btn-sm btn-primary w-full mt-3" id="applyWatermarkBtn" type="button">+ Insert Watermark Layer</button>
+            </div>
+          </div>
+
+          <!-- Subpanel: Background -->
+          <div class="subpanel-content hidden" id="subpanelBackground">
+            <div class="subpanel-header">
+              <h3 class="subpanel-title"><svg viewBox="0 0 24 24" width="16" height="16"><rect x="3" y="3" width="18" height="18" rx="2"></rect></svg> Canvas Background</h3>
+            </div>
+            <div class="subpanel-body">
+              <div class="form-group">
+                <label for="bgTypeSelect" class="form-label-xs">Background Fill</label>
+                <select id="bgTypeSelect" class="form-select">
+                  <option value="transparent" selected>Transparent (Alpha Channel)</option>
+                  <option value="color">Solid Color</option>
+                  <option value="gradient">Linear Gradient</option>
+                </select>
+              </div>
+
+              <div class="form-group hidden" id="bgColorGroup">
+                <label for="bgColorInput" class="form-label-xs">Solid Color</label>
+                <input type="color" id="bgColorInput" class="color-swatch-input w-full" value="#FFFFFF" />
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- 3. Center Canvas Viewport -->
+        <main class="editor-viewport" id="editorViewport" role="main" aria-label="Interactive Canvas Viewport">
+          <div class="canvas-stage canvas-checkerboard" id="canvasStage">
+            <canvas id="editorCanvas" width="1920" height="1080"></canvas>
+            
+            <!-- Transform Bounding Box for Selected Layer -->
+            <div class="transform-bounding-box hidden" id="transformBox">
+              <div class="handle rotate-stem" data-handle="rotate" title="Rotate"></div>
+              <div class="handle tl" data-handle="tl"></div>
+              <div class="handle tm" data-handle="tm"></div>
+              <div class="handle tr" data-handle="tr"></div>
+              <div class="handle ml" data-handle="ml"></div>
+              <div class="handle mr" data-handle="mr"></div>
+              <div class="handle bl" data-handle="bl"></div>
+              <div class="handle bm" data-handle="bm"></div>
+              <div class="handle br" data-handle="br"></div>
+            </div>
+
+            <!-- Crop Box Overlay -->
+            <div class="crop-overlay-wrap hidden" id="cropOverlay">
+              <div class="crop-box" id="cropBox">
+                <div class="crop-rule-of-thirds">
+                  <div class="crop-grid-cell"></div><div class="crop-grid-cell"></div><div class="crop-grid-cell"></div>
+                  <div class="crop-grid-cell"></div><div class="crop-grid-cell"></div><div class="crop-grid-cell"></div>
+                  <div class="crop-grid-cell"></div><div class="crop-grid-cell"></div><div class="crop-grid-cell"></div>
+                </div>
+                <div class="crop-handle tl" data-crop-handle="tl"></div>
+                <div class="crop-handle tr" data-crop-handle="tr"></div>
+                <div class="crop-handle bl" data-crop-handle="bl"></div>
+                <div class="crop-handle br" data-crop-handle="br"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Viewport Zoom & Fit Controls -->
+          <div class="floating-viewport-controls">
+            <button class="icon-btn" id="zoomOutBtn" type="button" title="Zoom Out (Ctrl -)">
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <span class="viewport-zoom-label" id="zoomLabel">100%</span>
+            <button class="icon-btn" id="zoomInBtn" type="button" title="Zoom In (Ctrl +)">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <div class="toolbar-divider"></div>
+            <button class="btn btn-xs btn-ghost" id="zoomFitBtn" type="button" title="Fit to Screen (Ctrl 0)">Fit</button>
+            <button class="btn btn-xs btn-ghost" id="zoomResetBtn" type="button" title="100% Actual Size">1:1</button>
+          </div>
+        </main>
+
+        <!-- 4. Right Inspector Panel (Properties, Layers, History, Export) -->
+        <aside class="editor-right-panel" id="editorRightPanel" aria-label="Inspector &amp; Layers">
+          <div class="panel-tab-bar" role="tablist">
+            <button class="panel-tab-btn active" data-tab="properties" role="tab" aria-selected="true">Properties</button>
+            <button class="panel-tab-btn" data-tab="layers" role="tab" aria-selected="false">Layers <span class="badge badge-subtle" id="layerCountBadge">1</span></button>
+            <button class="panel-tab-btn" data-tab="history" role="tab" aria-selected="false">History</button>
+            <button class="panel-tab-btn" data-tab="export" role="tab" aria-selected="false">Export</button>
+          </div>
+
+          <!-- Tab Content: Properties -->
+          <div class="panel-tab-content active" id="tabProperties">
+            <div id="selectedLayerProps">
+              <h4 class="text-sm font-semibold mb-2">Layer Properties</h4>
+              <div class="form-group mb-3">
+                <label class="form-label-xs">Layer Name</label>
+                <input type="text" id="propLayerName" class="form-input" value="Base Image" />
+              </div>
+              <div class="input-grid-2 mb-3">
+                <div class="form-group">
+                  <label class="form-label-xs">Position X</label>
+                  <input type="number" id="propPosX" class="form-input" value="0" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label-xs">Position Y</label>
+                  <input type="number" id="propPosY" class="form-input" value="0" />
+                </div>
+              </div>
+              <div class="adjust-slider-group mb-3">
+                <div class="adjust-label-row">
+                  <span>Layer Opacity (%)</span>
+                  <input type="number" id="propOpacityVal" class="adjust-val-input" min="0" max="100" value="100" />
+                </div>
+                <input type="range" id="propOpacity" class="slider" min="0" max="100" value="100" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Content: Layers Management -->
+          <div class="panel-tab-content" id="tabLayers">
+            <div class="layers-header-actions">
+              <span class="text-xs font-semibold text-secondary">Document Layers</span>
+              <div class="flex-align-center gap-1">
+                <button class="icon-btn" id="addBlankLayerBtn" type="button" title="Add Layer"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+                <button class="icon-btn" id="duplicateLayerBtn" type="button" title="Duplicate Layer"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+              </div>
+            </div>
+            <div class="layers-list" id="layersList">
+              <!-- Populated dynamically by editor.js -->
+            </div>
+          </div>
+
+          <!-- Tab Content: Linear History Stack -->
+          <div class="panel-tab-content" id="tabHistory">
+            <div class="history-stack-list" id="historyStackList">
+              <!-- Populated dynamically by editor.js -->
+            </div>
+          </div>
+
+          <!-- Tab Content: Export & Conversion Integration -->
+          <div class="panel-tab-content" id="tabExport">
+            <h4 class="text-sm font-semibold mb-3">Export &amp; Optimization</h4>
+            
+            <div class="form-group mb-3">
+              <label for="exportFormatSelect" class="form-label-xs">Target File Format</label>
+              <select id="exportFormatSelect" class="form-select">
+                <option value="webp" selected>WebP (Recommended)</option>
+                <option value="png">PNG (Lossless Alpha)</option>
+                <option value="jpeg">JPEG (Photographic)</option>
+                <option value="avif">AVIF (Next-Gen)</option>
+              </select>
+            </div>
+
+            <div class="adjust-slider-group mb-3" id="exportQualityGroup">
+              <div class="adjust-label-row">
+                <label for="exportQualityRange" class="form-label-xs">Quality (%)</label>
+                <input type="number" id="exportQualityVal" class="adjust-val-input" min="5" max="100" value="85" />
+              </div>
+              <input type="range" id="exportQualityRange" class="slider" min="5" max="100" value="85" />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="exportTargetSize" class="form-label-xs">Target File Size limit (KB)</label>
+              <input type="number" id="exportTargetSize" class="form-input" placeholder="e.g. 500 (Empty = Unconstrained)" min="10" />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="exportFilenameInput" class="form-label-xs">File Name</label>
+              <input type="text" id="exportFilenameInput" class="form-input" value="flux-edited-photo" />
+            </div>
+
+            <div class="divider mb-4"></div>
+
+            <button class="btn btn-primary w-full mb-2" id="downloadExportedBtn" type="button">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Download Image</span>
+            </button>
+            <button class="btn btn-outline w-full mb-2" id="openInConverterBtn" type="button">
+              <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+              <span>Send to Batch Converter</span>
+            </button>
+            <button class="btn btn-ghost w-full" id="copyClipboardBtn" type="button">Copy to Clipboard</button>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Empty State Landing Screen Overlay -->
+      <div class="editor-empty-overlay" id="editorEmptyOverlay">
+        <div class="editor-landing-card">
+          <div class="brand mb-2">
+            <span class="brand-logo" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="36" height="36">
+                <rect width="32" height="32" rx="8" fill="#2563EB"></rect>
+                <path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path>
+                <circle cx="23" cy="9" r="3" fill="#F97316"></circle>
+              </svg>
+            </span>
+          </div>
+          <h1 class="text-xl font-bold mb-1">Universal In-Browser Image Editor</h1>
+          <p class="text-secondary text-sm">Professional non-destructive editing, layers, filters, and optimization. 100% private on-device execution.</p>
+
+          <div class="editor-drop-zone" id="editorDropZone">
+            <svg viewBox="0 0 24 24" width="40" height="40" class="text-blue"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            <div>
+              <strong class="text-main">Drag &amp; drop an image here</strong>
+              <div class="text-secondary text-xs mt-1">Supports JPEG, PNG, WebP, AVIF, SVG, TIFF, PSD, HEIC, and Camera RAW</div>
+            </div>
+            <button class="btn btn-sm btn-primary" id="landingBrowseBtn" type="button">Browse Files</button>
+            <input type="file" id="editorFileInput" class="hidden" accept="image/*,.raw,.arw,.cr2,.cr3,.nef,.dng,.psd,.svg,.tiff,.tif,.heic" />
+          </div>
+
+          <div class="quick-samples-row">
+            <button class="btn btn-xs btn-outline" id="loadSampleLandscapeBtn" type="button">Sample Landscape</button>
+            <button class="btn btn-xs btn-outline" id="loadSamplePortraitBtn" type="button">Sample Portrait</button>
+            <button class="btn btn-xs btn-ghost" id="pasteClipboardLandingBtn" type="button">Paste from Clipboard</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Bottom Navigation Bar (<= 768px) -->
+      <nav class="editor-mobile-nav" aria-label="Mobile Navigation">
+        <button class="mobile-nav-btn active" data-mobile-tab="tools" id="mNavTools">
+          <svg viewBox="0 0 24 24" width="18" height="18"><polygon points="3 3 10.07 19.97 12.58 12.58 19.97 10.07 3 3"></polygon></svg>
+          <span>Tools</span>
+        </button>
+        <button class="mobile-nav-btn" data-mobile-tab="adjust" id="mNavAdjust">
+          <svg viewBox="0 0 24 24" width="18" height="18"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="12" y1="21" x2="12" y2="12"></line></svg>
+          <span>Adjust</span>
+        </button>
+        <button class="mobile-nav-btn" data-mobile-tab="text" id="mNavText">
+          <svg viewBox="0 0 24 24" width="18" height="18"><polyline points="4 7 4 4 20 4 20 7"></polyline></svg>
+          <span>Text</span>
+        </button>
+        <button class="mobile-nav-btn" data-mobile-tab="layers" id="mNavLayers">
+          <svg viewBox="0 0 24 24" width="18" height="18"><rect x="9" y="9" width="13" height="13" rx="2"></rect></svg>
+          <span>Layers</span>
+        </button>
+        <button class="mobile-nav-btn" data-mobile-tab="export" id="mNavExport">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline></svg>
+          <span>Export</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="editor.js"></script>
+  </body>
+</html>
