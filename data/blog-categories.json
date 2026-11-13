@@ -1,0 +1,102 @@
+[
+  {
+    "id": "formats-conversion",
+    "name": "Image Formats & Conversion",
+    "slug": "formats-and-conversion",
+    "description": "Deep dives into WebP, AVIF, PNG, JPEG, and next-gen codecs, browser compatibility, and format selection.",
+    "icon": "layers",
+    "color": "#2563EB",
+    "articleRange": [1, 10],
+    "count": 10
+  },
+  {
+    "id": "conversion-tutorials",
+    "name": "Image Conversion Tutorials",
+    "slug": "conversion-tutorials",
+    "description": "Step-by-step practical guides to converting camera RAW, vector SVG, TIFF, HEIC, and batch conversions.",
+    "icon": "refresh-cw",
+    "color": "#0284C7",
+    "articleRange": [11, 20],
+    "count": 10
+  },
+  {
+    "id": "compression-optimization",
+    "name": "Compression & Optimization",
+    "slug": "compression-and-optimization",
+    "description": "Lossy vs lossless compression, target file size tuning, quality thresholds, and avoiding common bloat traps.",
+    "icon": "minimize-2",
+    "color": "#0D9488",
+    "articleRange": [21, 30],
+    "count": 10
+  },
+  {
+    "id": "resizing-dimensions",
+    "name": "Resizing & Dimensions",
+    "slug": "resizing-and-dimensions",
+    "description": "Aspect ratios, responsive responsive images (srcset), DPI vs pixels, and banner/social dimension formulas.",
+    "icon": "maximize-2",
+    "color": "#16A34A",
+    "articleRange": [31, 40],
+    "count": 10
+  },
+  {
+    "id": "editing-workflows",
+    "name": "Image Editing & Creative Workflows",
+    "slug": "editing-and-creative-workflows",
+    "description": "Non-destructive adjustments, straightening, watermarks, typography overlays, and professional asset preparation.",
+    "icon": "edit-3",
+    "color": "#D97706",
+    "articleRange": [41, 50],
+    "count": 10
+  },
+  {
+    "id": "ai-background-removal",
+    "name": "AI Background Removal",
+    "slug": "ai-background-removal",
+    "description": "Segmentation mechanics, hair edge matting, transparent vs white cutouts, and batch eCommerce workflows.",
+    "icon": "scissors",
+    "color": "#9333EA",
+    "articleRange": [51, 60],
+    "count": 10
+  },
+  {
+    "id": "ai-poster-design",
+    "name": "AI Poster Generation & Design",
+    "slug": "ai-poster-generation-and-design",
+    "description": "Commercial advertising design, FLUX.1 generative prompts, multi-layer graphic layout, and brand kit systems.",
+    "icon": "layout",
+    "color": "#E11D48",
+    "articleRange": [61, 70],
+    "count": 10
+  },
+  {
+    "id": "image-seo-performance",
+    "name": "Website Image SEO & Performance",
+    "slug": "image-seo-and-performance",
+    "description": "Core Web Vitals (LCP/CLS), descriptive alt text writing, image sitemaps, lazy loading, and Google ranking factors.",
+    "icon": "trending-up",
+    "color": "#EA580C",
+    "articleRange": [71, 80],
+    "count": 10
+  },
+  {
+    "id": "ecommerce-business",
+    "name": "E-Commerce & Business Images",
+    "slug": "ecommerce-and-business-images",
+    "description": "Catalog consistency, marketplace requirements, industrial machinery photography, and retina display crispness.",
+    "icon": "shopping-bag",
+    "color": "#4F46E5",
+    "articleRange": [81, 90],
+    "count": 10
+  },
+  {
+    "id": "privacy-troubleshooting",
+    "name": "Privacy, Metadata & Troubleshooting",
+    "slug": "privacy-metadata-and-troubleshooting",
+    "description": "Client-side vs cloud security, EXIF GPS sanitization, corrupted uploads, color profile shifts, and memory limits.",
+    "icon": "shield-check",
+    "color": "#475569",
+    "articleRange": [91, 100],
+    "count": 10
+  }
+]

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title id="metaTitle">Client-Side Image Conversion: 100% Private (Zero Uploads) | FluxWebP Pro</title>
+    <meta id="metaDesc" name="description" content="Learn how client-side WebAssembly converts images directly in your browser. Zero server uploads, zero cloud data storage, and complete GDPR/HIPAA compliance." />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link id="canonicalLink" rel="canonical" href="https://app-webp-converter.vercel.app/blog/why-client-side-browser-conversion-is-100-percent-private/" />
+
+    <meta id="ogType" property="og:type" content="article" />
+    <meta property="og:site_name" content="FluxWebP Pro" />
+    <meta id="ogTitle" property="og:title" content="Client-Side Image Conversion: 100% Private (Zero Uploads) | FluxWebP Pro" />
+    <meta id="ogDesc" property="og:description" content="Learn how client-side WebAssembly converts images directly in your browser. Zero server uploads, zero cloud data storage, and complete GDPR/HIPAA compliance." />
+    <meta id="ogUrl" property="og:url" content="https://app-webp-converter.vercel.app/blog/why-client-side-browser-conversion-is-100-percent-private/" />
+    <meta property="og:image" content="https://app-webp-converter.vercel.app/screenshot-desktop.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- Structured Data Script Holder -->
+    <script type="application/ld+json" id="structuredDataScript">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://app-webp-converter.vercel.app/blog/why-client-side-browser-conversion-is-100-percent-private/#article",
+      "headline": "Why Client-Side In-Browser Conversion is 100% Private (Zero Server Uploads)",
+      "description": "Learn how client-side WebAssembly converts images directly in your browser. Zero server uploads, zero cloud data storage, and complete GDPR/HIPAA compliance.",
+      "author": {
+        "@type": "Person",
+        "name": "Marcus Vance"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FluxWebP Pro"
+      },
+      "datePublished": "2026-11-07",
+      "dateModified": "2026-11-14",
+      "mainEntityOfPage": "https://app-webp-converter.vercel.app/blog/why-client-side-browser-conversion-is-100-percent-private/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://app-webp-converter.vercel.app/blog/why-client-side-browser-conversion-is-100-percent-private/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://app-webp-converter.vercel.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Knowledge Center",
+          "item": "https://app-webp-converter.vercel.app/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why Client-Side In-Browser Conversion is 100% Private (Zero Server Uploads)",
+          "item": "https://app-webp-converter.vercel.app/blog/why-client-side-browser-conversion-is-100-percent-private/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://app-webp-converter.vercel.app/blog/why-client-side-browser-conversion-is-100-percent-private/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do traditional online converters handle my uploaded files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Legacy converters require your browser to upload the entire image file to their remote cloud servers. Those servers execute ImageMagick or FFmpeg, save the output to temporary cloud storage buckets, and generate a download link. Your private files sit on foreign hard drives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does FluxWebP convert images without uploading them?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FluxWebP compiles native C++ and Rust image codecs (like libwebp and mozjpeg) into WebAssembly (WASM). When you drop an image, the WebAssembly engine runs locally inside your browser's V8 JavaScript engine. Data never leaves your device's local memory."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I independently prove that FluxWebP does not upload my files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Chrome DevTools (F12) → go to the <strong>Network</strong> tab. Convert a 10MB photo. You will see exactly ZERO outbound HTTP POST or PUT requests carrying image data. The processing works even if you disconnect your Wi-Fi entirely."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+    <style>
+      .brand-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+      .brand-logo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+      .brand-logo svg {
+        width: 32px;
+        height: 32px;
+        display: block;
+      }
+      .brand-name-wrap {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .brand-title {
+        font-weight: 800;
+        font-size: 1.25rem;
+        color: var(--text-main, #0F172A);
+        letter-spacing: -0.02em;
+      }
+      .brand-badge {
+        font-size: 0.6875rem;
+        font-weight: 800;
+        padding: 2px 6px;
+        background: #2563EB;
+        color: #FFF;
+        border-radius: 4px;
+        letter-spacing: 0.05em;
+      }
+      .global-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-light, #E2E8F0);
+      }
+      .header-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header-brand-group {
+        display: flex;
+        align-items: center;
+      }
+      .primary-nav ul.nav-link-list {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .primary-nav .nav-item {
+        text-decoration: none;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-secondary, #475569);
+        transition: color 0.15s ease;
+      }
+      .primary-nav .nav-item:hover, .primary-nav .nav-item.active {
+        color: #2563EB;
+      }
+      .article-page-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 32px 24px 80px;
+      }
+      .article-breadcrumbs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        font-size: 0.8125rem;
+        color: var(--text-muted, #94A3B8);
+        margin-bottom: 24px;
+      }
+      .article-breadcrumbs a {
+        color: var(--text-secondary, #64748B);
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+      .article-breadcrumbs a:hover {
+        color: var(--primary-blue, #2563EB);
+      }
+      .article-breadcrumbs span.sep {
+        opacity: 0.5;
+      }
+
+      .article-header {
+        margin-bottom: 36px;
+      }
+      .article-category-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 4px 12px;
+        border-radius: 9999px;
+        background: #EFF6FF;
+        color: #2563EB;
+        margin-bottom: 16px;
+      }
+      .article-h1 {
+        font-size: clamp(2rem, 3.8vw, 3rem);
+        font-weight: 800;
+        line-height: 1.2;
+        color: var(--text-main, #0F172A);
+        margin-bottom: 20px;
+        letter-spacing: -0.02em;
+      }
+      .article-meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+        padding: 16px 0;
+        border-top: 1px solid var(--border-light, #E2E8F0);
+        border-bottom: 1px solid var(--border-light, #E2E8F0);
+        font-size: 0.875rem;
+        color: var(--text-secondary, #64748B);
+      }
+      .author-block {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .author-avatar-lg {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--primary-blue, #2563EB);
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      /* Layout: Sidebar + Main Content */
+      .article-layout {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 48px;
+        align-items: start;
+        margin-top: 36px;
+      }
+      @media (max-width: 900px) {
+        .article-layout {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      /* Table of Contents */
+      .toc-sidebar {
+        position: sticky;
+        top: 24px;
+        background: var(--bg-surface, #FFF);
+        border: 1px solid var(--border-light, #E2E8F0);
+        border-radius: 14px;
+        padding: 20px;
+      }
+      .toc-title {
+        font-size: 0.875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-main, #0F172A);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 0.84rem;
+      }
+      .toc-list a {
+        color: var(--text-secondary, #64748B);
+        text-decoration: none;
+        line-height: 1.4;
+        transition: color 0.15s ease;
+        display: block;
+      }
+      .toc-list a:hover {
+        color: var(--primary-blue, #2563EB);
+      }
+
+      /* Main Article Prose */
+      .article-prose {
+        font-size: 1.0625rem;
+        line-height: 1.75;
+        color: var(--text-main, #1E293B);
+      }
+      .article-prose p {
+        margin-bottom: 24px;
+      }
+      .article-prose h2 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--text-main, #0F172A);
+        margin: 44px 0 16px;
+        letter-spacing: -0.015em;
+      }
+      .article-prose h3 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--text-main, #0F172A);
+        margin: 32px 0 14px;
+      }
+      .article-prose ul, .article-prose ol {
+        margin-bottom: 24px;
+        padding-left: 24px;
+      }
+      .article-prose li {
+        margin-bottom: 8px;
+      }
+      .article-prose pre {
+        background: #0F172A;
+        color: #E2E8F0;
+        padding: 20px;
+        border-radius: 12px;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        margin: 24px 0;
+      }
+      .article-prose table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 28px 0;
+        font-size: 0.9375rem;
+      }
+      .article-prose th, .article-prose td {
+        padding: 12px 16px;
+        border: 1px solid var(--border-light, #E2E8F0);
+        text-align: left;
+      }
+      .article-prose th {
+        background: var(--bg-muted, #F8FAFC);
+        font-weight: 700;
+        color: var(--text-main, #0F172A);
+      }
+
+      /* Visual Asset Blocks */
+      .visual-asset-block {
+        background: #0B0F19;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        margin: 36px 0;
+        color: #FFFFFF;
+        box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.3);
+      }
+      .va-header {
+        padding: 14px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .va-type-badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 3px 8px;
+        border-radius: 4px;
+        background: rgba(56, 189, 248, 0.2);
+        color: #38BDF8;
+        border: 1px solid rgba(56, 189, 248, 0.4);
+      }
+      .va-canvas-preview {
+        padding: 40px 24px;
+        background: radial-gradient(circle at 50% 50%, #1E293B 0%, #0B0F19 100%);
+        min-height: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+      }
+      .va-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        margin-bottom: 8px;
+      }
+      .va-concept {
+        font-size: 0.875rem;
+        color: #94A3B8;
+        max-width: 600px;
+      }
+      .va-footer {
+        padding: 14px 20px;
+        background: rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.8125rem;
+      }
+      .va-caption {
+        color: #CBD5E1;
+        font-style: italic;
+        flex: 1 1 300px;
+      }
+      .va-prompt-btn {
+        background: rgba(37, 99, 235, 0.3);
+        color: #93C5FD;
+        border: 1px solid rgba(147, 197, 253, 0.3);
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.8125rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.15s ease;
+      }
+      .va-prompt-btn:hover {
+        background: var(--primary-blue, #2563EB);
+        color: #FFF;
+      }
+
+      /* Prompt Modal */
+      .prompt-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(6px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 20px;
+      }
+      .prompt-modal-backdrop.open {
+        display: flex;
+      }
+      .prompt-modal {
+        background: #0F172A;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 16px;
+        width: 100%;
+        max-width: 680px;
+        color: #FFFFFF;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
+      .modal-header {
+        padding: 18px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .modal-body {
+        padding: 24px;
+        max-height: 70vh;
+        overflow-y: auto;
+      }
+      .prompt-code-block {
+        background: #020617;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 16px;
+        color: #38BDF8;
+        font-family: monospace;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        word-break: break-word;
+        margin: 14px 0;
+      }
+
+      /* FAQ Accordion */
+      .faq-section {
+        margin: 48px 0;
+        padding-top: 36px;
+        border-top: 2px solid var(--border-light, #E2E8F0);
+      }
+      .faq-item {
+        border: 1px solid var(--border-light, #E2E8F0);
+        border-radius: 10px;
+        margin-bottom: 12px;
+        overflow: hidden;
+      }
+      .faq-question {
+        padding: 16px 20px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--bg-surface, #FFF);
+      }
+      .faq-answer {
+        padding: 16px 20px;
+        background: var(--bg-muted, #F8FAFC);
+        border-top: 1px solid var(--border-light, #E2E8F0);
+        color: var(--text-secondary, #475569);
+        display: none;
+        line-height: 1.6;
+      }
+      .faq-item.active .faq-answer {
+        display: block;
+      }
+
+      /* Contextual Tool CTA Banner */
+      .context-cta {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(249, 115, 22, 0.08) 100%);
+        border: 1px solid var(--primary-blue-border, #BFDBFE);
+        border-radius: 16px;
+        padding: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin: 48px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-shell" id="top">
+      <header class="global-header" role="banner">
+        <div class="header-container">
+          <div class="header-brand-group">
+            <a class="brand-link" href="/" aria-label="FluxWebP Pro Home">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name-wrap">
+                <span class="brand-title">FluxWebP</span>
+                <span class="brand-badge">PRO</span>
+              </span>
+            </a>
+          </div>
+          <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
+            <ul class="nav-link-list">
+              <li><a href="/" class="nav-item">Converter</a></li>
+              <li><a href="/editor/" class="nav-item">Image Editor</a></li>
+              <li><a href="/background-remover/" class="nav-item">AI BG Remover</a></li>
+              <li><a href="/poster-studio/" class="nav-item">Poster Studio</a></li>
+              <li><a href="/resizer/" class="nav-item">Resizer</a></li>
+              <li><a href="/blog/" class="nav-item active" aria-current="page">Knowledge Center</a></li>
+            </ul>
+          </nav>
+          <div class="header-action-group">
+            <a href="/" class="btn btn-sm btn-primary">Open WebP Converter</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="article-page-wrap">
+        <!-- Breadcrumbs -->
+        <nav class="article-breadcrumbs" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep">/</span>
+          <a href="/blog/">Knowledge Center</a>
+          <span class="sep">/</span>
+          <span id="breadcrumbCategory" style="color: var(--text-secondary);">Privacy, Metadata &amp; Troubleshooting</span>
+          <span class="sep">/</span>
+          <span id="breadcrumbTitle" style="color: var(--text-main); font-weight: 600;">Why Client-Side In-Browser Conversion is 100% Private (Zero Server Uploads)</span>
+        </nav>
+
+        <!-- Article Header -->
+        <header class="article-header">
+          <span class="article-category-badge" id="articleCatBadge">Privacy, Metadata &amp; Troubleshooting</span>
+          <h1 class="article-h1" id="articleH1">Why Client-Side In-Browser Conversion is 100% Private (Zero Server Uploads)</h1>
+          <div class="article-meta-row">
+            <div class="author-block">
+              <span class="author-avatar-lg" id="authorAvatar">M</span>
+              <div>
+                <strong id="authorName" style="color: var(--text-main); display: block;">Marcus Vance</strong>
+                <span id="authorRole" style="font-size: 0.75rem; color: var(--text-muted);">Principal Image Processing Engineer</span>
+              </div>
+            </div>
+            <span id="publishedDate">Published: 2026-11-07</span>
+            <span id="readingTime">8 min read</span>
+            <span style="background: #F0FDF4; color: #16A34A; padding: 2px 8px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; border: 1px solid #BBF7D0;">
+              ✓ Verified Technical Review
+            </span>
+          </div>
+        </header>
+
+        <!-- Two-column reading layout -->
+        <div class="article-layout">
+          <!-- Table of Contents Sidebar -->
+          <aside class="toc-sidebar" aria-label="Table of Contents">
+            <div class="toc-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+              Table of Contents
+            </div>
+            <ul class="toc-list" id="tocList">
+              <!-- Dynamically populated from H2s -->
+            </ul>
+          </aside>
+
+          <!-- Main Prose Content -->
+          <article class="article-prose" id="articleBody"><p class="article-lead">Every day, millions of users upload sensitive personal documents, passport scans, confidential medical charts, and unreleased client designs to free online file conversion websites. What most users don't realize is that traditional conversion services transmit your files to remote third-party servers, where they may be stored, analyzed, or exposed in data leaks. Client-side WebAssembly architecture permanently eliminates this risk.</p>
+
+<h2>The Two Architectures Compared</h2>
+<ul>
+  <li><strong>The Legacy Cloud Server Model:</strong> Client Browser → 20MB Network Upload → Remote Linux VM (File written to disk) → Cloud Codec Runs → Remote Download Link Generated. Severe privacy vulnerability, GDPR compliance headache.</li>
+  <li><strong>The Modern Client-Side WebAssembly Model (FluxWebP):</strong> Client Browser → Local RAM Buffer → In-Browser WebAssembly Engine (Zero Network Traffic) → Converted Blob Saved Directly to Local Disk. 100% private, works completely offline.</li>
+</ul>
+
+<h2>The Chrome DevTools Verification Test</h2>
+<p>You never have to take a developer's word on privacy. You can verify it yourself:</p>
+<ol>
+  <li>Open FluxWebP in your browser.</li>
+  <li>Press <strong>F12</strong> to open Developer Tools and select the <strong>Network</strong> tab.</li>
+  <li>Turn on <strong>Airplane Mode</strong> or disconnect your Wi-Fi.</li>
+  <li>Drop 10 photos into the converter. Notice how conversion completes instantly with zero network activity.</li>
+</ol></article>
+        </div>
+
+        <!-- 5 Visual Assets Section -->
+        <section style="margin-top: 60px;">
+          <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+            📸 Article Visual Asset Concepts &amp; AI Prompts
+          </h2>
+          <p style="color: var(--text-secondary); margin-bottom: 28px;">
+            Every guide in our knowledge center includes five custom visual asset architectures and generative AI prompts. Inspect the concepts or copy the prompts below:
+          </p>
+          <div id="visualAssetsContainer">
+    <div class="visual-asset-block">
+      <div class="va-header">
+        <span class="va-type-badge">hero</span>
+        <span style="font-size: 0.8125rem; color: #94A3B8;">Asset #1 &bull; 16:9</span>
+      </div>
+      <div class="va-canvas-preview">
+        <div style="font-size: 0.75rem; text-transform: uppercase; color: #38BDF8; font-weight: 700; margin-bottom: 4px;">Hero Section</div>
+        <h3 class="va-title">Airtight Local WebAssembly Sandboxed Execution</h3>
+        <p class="va-concept">3D render showing an image being processed inside an impenetrable glowing cryptographic glass cube inside a laptop, with an severed network cable proving zero data egress.</p>
+      </div>
+      <div class="va-footer">
+        <span class="va-caption">"WebAssembly processes images locally in device RAM with zero network uploads or external storage."</span>
+        <button class="va-prompt-btn" data-prompt="Futuristic cybersecurity and privacy architecture visualization: a sleek modern laptop open on an obsidian desk. Inside the screen, an image asset is processed inside an impenetrable glowing emerald cryptographic sandbox (labeled 'WebAssembly Client Sandbox'). Beside the laptop, an optical fiber-optic network cable is severed, emitting zero data packets, with an illuminated hologram confirming '100% Local Device Execution - 0 Bytes Uploaded'. Slate backdrop, 8k resolution." data-title="Airtight Local WebAssembly Sandboxed Execution" data-filename="client-side-browser-conversion-privacy-hero.webp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Inspect AI Prompt
+        </button>
+      </div>
+    </div>
+  
+    <div class="visual-asset-block">
+      <div class="va-header">
+        <span class="va-type-badge">infographic</span>
+        <span style="font-size: 0.8125rem; color: #94A3B8;">Asset #2 &bull; 4:3</span>
+      </div>
+      <div class="va-canvas-preview">
+        <div style="font-size: 0.75rem; text-transform: uppercase; color: #38BDF8; font-weight: 700; margin-bottom: 4px;">Under Two Architectures Section</div>
+        <h3 class="va-title">Cloud Server Converter vs In-Browser WebAssembly Dataflow</h3>
+        <p class="va-concept">Infographic contrasting Cloud Model (Data travels across internet to 3rd-party disk) vs FluxWebP Model (Data stays in local RAM).</p>
+      </div>
+      <div class="va-footer">
+        <span class="va-caption">"Comparing remote cloud data exposure with private client-side WebAssembly execution."</span>
+        <button class="va-prompt-btn" data-prompt="Clean technical architecture infographic on dark slate background: Flow A (Legacy Cloud Converter) shows user laptop uploading photo across the open internet to a remote cloud server disk with red security vulnerability warnings; Flow B (FluxWebP WebAssembly) shows all processing confined entirely within the local browser sandbox with an emerald green privacy shield. High contrast data arrows." data-title="Cloud Server Converter vs In-Browser WebAssembly Dataflow" data-filename="cloud-converter-vs-wasm-dataflow-infographic.webp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Inspect AI Prompt
+        </button>
+      </div>
+    </div>
+  
+    <div class="visual-asset-block">
+      <div class="va-header">
+        <span class="va-type-badge">workflow</span>
+        <span style="font-size: 0.8125rem; color: #94A3B8;">Asset #3 &bull; 16:9</span>
+      </div>
+      <div class="va-canvas-preview">
+        <div style="font-size: 0.75rem; text-transform: uppercase; color: #38BDF8; font-weight: 700; margin-bottom: 4px;">Under Chrome DevTools Verification Section</div>
+        <h3 class="va-title">Verifying Zero Data Egress in Chrome DevTools</h3>
+        <p class="va-concept">Vector developer workflow diagram showing opening F12 Network tab, filtering by Fetch/XHR, and verifying 0 bytes transmitted.</p>
+      </div>
+      <div class="va-footer">
+        <span class="va-caption">"Verify privacy independently: Chrome DevTools confirms zero bytes leave your device during conversion."</span>
+        <button class="va-prompt-btn" data-prompt="Vector developer UI workflow diagram: 1. Pressing F12 to open Chrome DevTools, 2. Selecting Network tab and filtering by Fetch/XHR, 3. Dropping a 15MB photo into FluxWebP, 4. Verifying network log: 0 requests, 0 bytes transferred, 100% offline verified. Clean modern software aesthetic." data-title="Verifying Zero Data Egress in Chrome DevTools" data-filename="verify-zero-egress-devtools-workflow.webp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Inspect AI Prompt
+        </button>
+      </div>
+    </div>
+  
+    <div class="visual-asset-block">
+      <div class="va-header">
+        <span class="va-type-badge">comparison</span>
+        <span style="font-size: 0.8125rem; color: #94A3B8;">Asset #4 &bull; 16:9</span>
+      </div>
+      <div class="va-canvas-preview">
+        <div style="font-size: 0.75rem; text-transform: uppercase; color: #38BDF8; font-weight: 700; margin-bottom: 4px;">Under FAQ Section</div>
+        <h3 class="va-title">Cloud Privacy Policy Red Flags vs Zero-Retention Client Guarantees</h3>
+        <p class="va-concept">Side-by-side legal document comparison showing cloud converter TOS 'We may retain files for 24 hours' vs client-side zero-touch guarantee.</p>
+      </div>
+      <div class="va-footer">
+        <span class="va-caption">"Cloud converters store files on remote disks; client-side architectures guarantee zero data retention by design."</span>
+        <button class="va-prompt-btn" data-prompt="Side-by-side legal privacy policy comparison: Left shows typical cloud converter TOS clause highlighted in red: 'We store your files on cloud servers for processing and up to 24 hours for download'; Right shows FluxWebP architecture guarantee: 'Zero files ever touch our servers because codecs run in your browser's WebAssembly sandbox'. High contrast visual styling." data-title="Cloud Privacy Policy Red Flags vs Zero-Retention Client Guarantees" data-filename="cloud-tos-retention-vs-zero-upload-comparison.webp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Inspect AI Prompt
+        </button>
+      </div>
+    </div>
+  
+    <div class="visual-asset-block">
+      <div class="va-header">
+        <span class="va-type-badge">application</span>
+        <span style="font-size: 0.8125rem; color: #94A3B8;">Asset #5 &bull; 16:9</span>
+      </div>
+      <div class="va-canvas-preview">
+        <div style="font-size: 0.75rem; text-transform: uppercase; color: #38BDF8; font-weight: 700; margin-bottom: 4px;">Conclusion Section</div>
+        <h3 class="va-title">Corporate Legal Department Processing Confidential NDAs</h3>
+        <p class="va-concept">Corporate legal counsel securely converting confidential merger documents and proprietary blueprints using client-side tools.</p>
+      </div>
+      <div class="va-footer">
+        <span class="va-caption">"Client-side conversion satisfies strict enterprise NDA, HIPAA, and GDPR compliance mandates."</span>
+        <button class="va-prompt-btn" data-prompt="High-end corporate legal office in a major financial district: an attorney and compliance officer review confidential merger schematics and proprietary client blueprints on secure workstations. A verified green privacy badge confirms: 'Offline Sandboxed Processing - Air-Gapped Compliant'. Sleek executive office setting at dusk." data-title="Corporate Legal Department Processing Confidential NDAs" data-filename="corporate-legal-confidential-document-processing.webp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Inspect AI Prompt
+        </button>
+      </div>
+    </div>
+  </div>
+        </section>
+
+        <!-- Contextual Tool CTA Banner -->
+        <div class="context-cta" id="contextCta">
+          <div>
+            <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px;" id="ctaToolName">Private WebP Converter</h3>
+            <p style="color: var(--text-secondary); margin: 0;" id="ctaDescription">Convert your files client-side with zero data egress</p>
+          </div>
+          <a href="/" class="btn btn-primary" id="ctaBtn" href="/" style="background: #2563EB; color: #FFF; padding: 12px 24px; border-radius: 10px; font-weight: 700; text-decoration: none;">
+            Launch Tool
+          </a>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <section class="faq-section" id="faqSection">
+          <h2 style="font-size: 1.85rem; font-weight: 800; color: var(--text-main); margin-bottom: 20px;">
+            Frequently Asked Questions
+          </h2>
+          <div id="faqList">
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How do traditional online converters handle my uploaded files?</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-answer">
+        <p style="margin: 0;">Legacy converters require your browser to upload the entire image file to their remote cloud servers. Those servers execute ImageMagick or FFmpeg, save the output to temporary cloud storage buckets, and generate a download link. Your private files sit on foreign hard drives.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How does FluxWebP convert images without uploading them?</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-answer">
+        <p style="margin: 0;">FluxWebP compiles native C++ and Rust image codecs (like libwebp and mozjpeg) into WebAssembly (WASM). When you drop an image, the WebAssembly engine runs locally inside your browser's V8 JavaScript engine. Data never leaves your device's local memory.</p>
+      </div>
+    </div>
+  
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How can I independently prove that FluxWebP does not upload my files?</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+      <div class="faq-answer">
+        <p style="margin: 0;">Open Chrome DevTools (F12) → go to the &lt;strong&gt;Network&lt;/strong&gt; tab. Convert a 10MB photo. You will see exactly ZERO outbound HTTP POST or PUT requests carrying image data. The processing works even if you disconnect your Wi-Fi entirely.</p>
+      </div>
+    </div>
+  </div>
+        </section>
+      </main>
+
+      <!-- Prompt Modal -->
+      <div class="prompt-modal-backdrop" id="promptModal">
+        <div class="prompt-modal">
+          <div class="modal-header">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0;" id="modalVaTitle">Generative AI Prompt</h3>
+            <button id="closeModalBtn" style="background: none; border: none; color: #94A3B8; font-size: 1.5rem; cursor: pointer;">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div style="font-size: 0.8125rem; color: #94A3B8; margin-bottom: 6px;">Production Prompt (Copy &amp; Paste into Midjourney / Flux / DALL-E):</div>
+            <div class="prompt-code-block" id="modalPromptText">Loading prompt...</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+              <span id="modalFilename" style="font-size: 0.8125rem; color: #64748B;">filename.webp</span>
+              <button id="copyPromptBtn" class="btn btn-primary" style="background: #2563EB; color: #FFF; padding: 8px 18px; border-radius: 8px; font-weight: 700; cursor: pointer; border: none;">
+                Copy Prompt
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+          <div class="footer-brand-col">
+            <div class="brand">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name">FluxWebP Pro</span>
+            </div>
+            <p class="footer-desc">Universal, privacy-first on-device image conversion and creative platform.</p>
+          </div>
+          <div class="footer-links-col">
+            <h4>Creative Suite</h4>
+            <ul>
+              <li><a href="/">WebP Converter</a></li>
+              <li><a href="/editor/">Image Editor</a></li>
+              <li><a href="/background-remover/">AI Background Remover</a></li>
+              <li><a href="/poster-studio/">AI Poster Studio</a></li>
+              <li><a href="/resizer/">Image Resizer</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/blog/">All 100 Guides</a></li>
+              <li><a href="/about/">About Us</a></li>
+              <li><a href="/privacy/">Privacy Policy</a></li>
+              <li><a href="/terms/">Terms of Service</a></li>
+              <li><a href="/sitemap.xml">XML Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 FluxWebP Pro. All rights reserved. 100% In-Browser Client-Side Processing.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Client-side dynamic article loader -->
+    <script>
+      (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let slug = urlParams.get('slug');
+
+        // If no query parameter, check pathname (e.g. /blog/what-is-webp/)
+        if (!slug) {
+          const parts = window.location.pathname.split('/').filter(Boolean);
+          if (parts.length >= 2 && parts[0] === 'blog' && parts[1] !== 'index.html' && parts[1] !== 'article.html') {
+            slug = parts[1];
+          }
+        }
+
+        // Default fallback to first article if not specified
+        if (!slug) slug = 'what-is-webp-complete-guide-to-googles-image-format';
+
+        fetch('/data/blog-articles.json')
+          .then(res => res.json())
+          .then(articles => {
+            const article = articles.find(a => a.slug === slug || String(a.id) === slug);
+            if (!article) {
+              document.getElementById('articleH1').textContent = 'Article Not Found';
+              document.getElementById('articleBody').innerHTML = '<p>The requested guide could not be located. <a href="/blog/">Return to Knowledge Center</a>.</p>';
+              return;
+            }
+            renderArticle(article);
+          })
+          .catch(err => {
+            console.warn('Could not fetch articles database, trying relative path:', err);
+            fetch('../data/blog-articles.json')
+              .then(res => res.json())
+              .then(articles => {
+                const article = articles.find(a => a.slug === slug || String(a.id) === slug);
+                if (article) renderArticle(article);
+              });
+          });
+
+        function renderArticle(a) {
+          // Update Page Meta
+          document.title = a.metaTitle || a.title + ' | FluxWebP Pro';
+          document.getElementById('metaDesc').setAttribute('content', a.metaDescription || a.excerpt);
+          document.getElementById('canonicalLink').setAttribute('href', a.canonicalUrl || window.location.href);
+          document.getElementById('ogTitle').setAttribute('content', a.metaTitle || a.title);
+          document.getElementById('ogDesc').setAttribute('content', a.metaDescription || a.excerpt);
+
+          // Update Breadcrumbs & Header
+          document.getElementById('breadcrumbCategory').textContent = a.category;
+          document.getElementById('breadcrumbTitle').textContent = a.title;
+          document.getElementById('articleCatBadge').textContent = a.category;
+          document.getElementById('articleH1').textContent = a.h1 || a.title;
+          
+          if (a.author) {
+            document.getElementById('authorName').textContent = a.author.name;
+            document.getElementById('authorRole').textContent = a.author.role || 'Image Processing Specialist';
+            document.getElementById('authorAvatar').textContent = a.author.name.charAt(0);
+          }
+          document.getElementById('publishedDate').textContent = 'Published: ' + a.publishedDate;
+          document.getElementById('readingTime').textContent = a.readingTime + ' min read';
+
+          // Inject Body HTML
+          const bodyEl = document.getElementById('articleBody');
+          bodyEl.innerHTML = a.bodyHtml || '<p>' + a.excerpt + '</p>';
+
+          // Generate Table of Contents from H2 elements
+          const headings = bodyEl.querySelectorAll('h2');
+          const tocList = document.getElementById('tocList');
+          tocList.innerHTML = '';
+          headings.forEach((h, index) => {
+            const headingId = 'section-' + (index + 1);
+            h.id = headingId;
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="#${headingId}">${h.textContent}</a>`;
+            tocList.appendChild(li);
+          });
+
+          // Render 5 Visual Assets
+          const vaContainer = document.getElementById('visualAssetsContainer');
+          if (a.visualAssets && a.visualAssets.length > 0) {
+            vaContainer.innerHTML = a.visualAssets.map((va, idx) => `
+              <div class="visual-asset-block">
+                <div class="va-header">
+                  <span class="va-type-badge">${va.type || 'Visual Asset'}</span>
+                  <span style="font-size: 0.8125rem; color: #94A3B8;">Asset #${idx + 1} &bull; ${va.aspectRatio || '16:9'}</span>
+                </div>
+                <div class="va-canvas-preview">
+                  <div style="font-size: 0.75rem; text-transform: uppercase; color: #38BDF8; font-weight: 700; margin-bottom: 4px;">${va.placement || 'Embedded'}</div>
+                  <h3 class="va-title">${escapeHtml(va.title)}</h3>
+                  <p class="va-concept">${escapeHtml(va.concept)}</p>
+                </div>
+                <div class="va-footer">
+                  <span class="va-caption">"${escapeHtml(va.caption || va.altText)}"</span>
+                  <button class="va-prompt-btn" data-prompt="${escapeAttr(va.prompt)}" data-title="${escapeAttr(va.title)}" data-filename="${escapeAttr(va.filename)}">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    Inspect AI Prompt
+                  </button>
+                </div>
+              </div>
+            `).join('');
+          }
+
+          // Tool CTA
+          if (a.toolCta) {
+            document.getElementById('ctaToolName').textContent = a.toolCta.toolName || 'FluxWebP Creative Suite';
+            document.getElementById('ctaDescription').textContent = a.toolCta.ctaText || 'Optimize your images with our on-device tools.';
+            document.getElementById('ctaBtn').setAttribute('href', a.toolCta.toolUrl || '/');
+          }
+
+          // FAQs
+          const faqContainer = document.getElementById('faqList');
+          if (a.faq && a.faq.length > 0) {
+            faqContainer.innerHTML = a.faq.map(f => `
+              <div class="faq-item">
+                <div class="faq-question">
+                  <span>${escapeHtml(f.q)}</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="faq-answer">
+                  <p style="margin: 0;">${escapeHtml(f.a)}</p>
+                </div>
+              </div>
+            `).join('');
+
+            // FAQ accordion click handler
+            faqContainer.querySelectorAll('.faq-question').forEach(q => {
+              q.addEventListener('click', () => {
+                const item = q.closest('.faq-item');
+                item.classList.toggle('active');
+              });
+            });
+          }
+
+          // Update Schema JSON-LD
+          const schema = {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Article",
+                "@id": a.canonicalUrl + "#article",
+                "headline": a.h1 || a.title,
+                "description": a.metaDescription || a.excerpt,
+                "author": { "@type": "Person", "name": a.author ? a.author.name : "FluxWebP Team" },
+                "publisher": { "@type": "Organization", "name": "FluxWebP Pro" },
+                "datePublished": a.publishedDate,
+                "dateModified": a.updatedDate || a.publishedDate,
+                "mainEntityOfPage": a.canonicalUrl
+              },
+              {
+                "@type": "BreadcrumbList",
+                "@id": a.canonicalUrl + "#breadcrumbs",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://app-webp-converter.vercel.app/" },
+                  { "@type": "ListItem", "position": 2, "name": "Knowledge Center", "item": "https://app-webp-converter.vercel.app/blog/" },
+                  { "@type": "ListItem", "position": 3, "name": a.title, "item": a.canonicalUrl }
+                ]
+              }
+            ]
+          };
+
+          if (a.faq && a.faq.length > 0) {
+            schema["@graph"].push({
+              "@type": "FAQPage",
+              "@id": a.canonicalUrl + "#faq",
+              "mainEntity": a.faq.map(f => ({
+                "@type": "Question",
+                "name": f.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": f.a
+                }
+              }))
+            });
+          }
+
+          document.getElementById('structuredDataScript').textContent = JSON.stringify(schema, null, 2);
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('promptModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const copyBtn = document.getElementById('copyPromptBtn');
+        let activePrompt = '';
+
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('.va-prompt-btn');
+          if (btn) {
+            activePrompt = btn.getAttribute('data-prompt');
+            document.getElementById('modalVaTitle').textContent = btn.getAttribute('data-title');
+            document.getElementById('modalPromptText').textContent = activePrompt;
+            document.getElementById('modalFilename').textContent = btn.getAttribute('data-filename');
+            copyBtn.textContent = 'Copy Prompt';
+            modal.classList.add('open');
+          }
+        });
+
+        closeModalBtn.addEventListener('click', () => modal.classList.remove('open'));
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) modal.classList.remove('open');
+        });
+
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(activePrompt).then(() => {
+            copyBtn.textContent = 'Copied! ✓';
+            setTimeout(() => { copyBtn.textContent = 'Copy Prompt'; }, 2000);
+          });
+        });
+
+        function escapeHtml(str) {
+          if (!str) return '';
+          return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+        function escapeAttr(str) {
+          if (!str) return '';
+          return str.replace(/"/g, '&quot;');
+        }
+      })();
+    </script>
+  </body>
+</html>

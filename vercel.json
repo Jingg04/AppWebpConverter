@@ -4,6 +4,32 @@
   "trailingSlash": true,
   "headers": [
     {
+      "source": "/samnang.com.com.omg/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/samnang.com.com.omg",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         {
@@ -55,6 +81,18 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/admin/:path*",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/dashboard/admin/:path*",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/samnang.com.com.omg/:path*",
+      "destination": "/samnang.com.com.omg/index.html"
+    },
     {
       "source": "/converter/",
       "destination": "/index.html"

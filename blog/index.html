@@ -3,25 +3,392 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Image Optimization Guides &amp; Tutorials | FluxWebP Pro</title>
+    <title>Knowledge Center &amp; Engineering Guides | FluxWebP Pro</title>
     <meta
       name="description"
-      content="Comprehensive guides and technical tutorials on image formats, web performance, Core Web Vitals optimization, and browser-based Camera RAW decoding."
+      content="100 comprehensive engineering guides, tutorials, and research articles on modern image codecs, WebP, AVIF, AI background removal, poster design, and Core Web Vitals SEO."
     />
-    <meta name="keywords" content="image optimization guide, webp guide, web performance images, core web vitals lcp images, raw conversion tutorial" />
+    <meta name="keywords" content="image optimization guide, webp guide, avif vs webp, ai background removal, image seo, core web vitals, poster design" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="canonical" href="https://app-webp-converter.vercel.app/blog/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="FluxWebP Pro" />
     <meta property="og:url" content="https://app-webp-converter.vercel.app/blog/" />
-    <meta property="og:title" content="Image Optimization Guides &amp; Tutorials | FluxWebP Pro" />
-    <meta property="og:description" content="Comprehensive guides and tutorials on web image formats, Core Web Vitals, and camera RAW workflows." />
+    <meta property="og:title" content="FluxWebP Pro Knowledge Center: 100 Premium Technical Guides" />
+    <meta property="og:description" content="Master modern image compression, AI background removal, poster graphic design, and image SEO with 100 in-depth articles." />
     <meta property="og:image" content="https://app-webp-converter.vercel.app/screenshot-desktop.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
     <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .blog-hero {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(15, 23, 42, 0.02) 100%);
+        border-bottom: 1px solid var(--border-light, #E2E8F0);
+        padding: 56px 24px 44px;
+        text-align: center;
+      }
+      .blog-hero-inner {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .blog-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--primary-blue-light, #EFF6FF);
+        color: var(--primary-blue, #2563EB);
+        border: 1px solid var(--primary-blue-border, #BFDBFE);
+        padding: 4px 12px;
+        border-radius: 9999px;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      .blog-hero-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: var(--text-main, #0F172A);
+        line-height: 1.15;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+      }
+      .blog-hero-desc {
+        font-size: 1.125rem;
+        color: var(--text-secondary, #475569);
+        line-height: 1.6;
+        margin-bottom: 28px;
+      }
+
+      /* Search & Filter Bar */
+      .blog-controls-section {
+        max-width: 1240px;
+        margin: -24px auto 36px;
+        padding: 0 24px;
+        position: relative;
+        z-index: 10;
+      }
+      .search-box-card {
+        background: var(--bg-surface, #FFFFFF);
+        border: 1px solid var(--border-light, #E2E8F0);
+        border-radius: 16px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+        padding: 18px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .search-input-wrap {
+        flex: 1 1 320px;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .search-input-wrap svg {
+        position: absolute;
+        left: 14px;
+        width: 18px;
+        height: 18px;
+        color: var(--text-muted, #94A3B8);
+      }
+      .search-input {
+        width: 100%;
+        padding: 10px 14px 10px 42px;
+        border: 1px solid var(--border-light, #CBD5E1);
+        border-radius: 10px;
+        font-size: 0.9375rem;
+        outline: none;
+        transition: all 0.2s ease;
+      }
+      .search-input:focus {
+        border-color: var(--primary-blue, #2563EB);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+      .sort-select {
+        padding: 10px 14px;
+        border: 1px solid var(--border-light, #CBD5E1);
+        border-radius: 10px;
+        font-size: 0.875rem;
+        background: var(--bg-surface, #FFF);
+        color: var(--text-main, #1E293B);
+        outline: none;
+        cursor: pointer;
+      }
+
+      /* Categories Nav */
+      .categories-bar {
+        max-width: 1240px;
+        margin: 0 auto 36px;
+        padding: 0 24px;
+      }
+      .category-pills-wrap {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        scrollbar-width: thin;
+      }
+      .cat-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 9999px;
+        border: 1px solid var(--border-light, #E2E8F0);
+        background: var(--bg-surface, #FFF);
+        color: var(--text-secondary, #475569);
+        font-size: 0.875rem;
+        font-weight: 500;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        text-decoration: none;
+      }
+      .cat-pill:hover {
+        border-color: var(--primary-blue, #2563EB);
+        color: var(--primary-blue, #2563EB);
+      }
+      .cat-pill.active {
+        background: var(--primary-blue, #2563EB);
+        color: #FFFFFF;
+        border-color: var(--primary-blue, #2563EB);
+      }
+      .cat-pill .count {
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 10px;
+        padding: 1px 6px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+      .cat-pill.active .count {
+        background: rgba(255, 255, 255, 0.25);
+        color: #FFF;
+      }
+
+      /* Main Article Grid */
+      .blog-content-wrap {
+        max-width: 1240px;
+        margin: 0 auto 60px;
+        padding: 0 24px;
+      }
+      .results-meta-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        color: var(--text-secondary, #64748B);
+        font-size: 0.875rem;
+      }
+      .article-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        gap: 28px;
+      }
+      .article-card {
+        background: var(--bg-surface, #FFF);
+        border: 1px solid var(--border-light, #E2E8F0);
+        border-radius: 16px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+      }
+      .article-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+        border-color: var(--primary-blue-border, #BFDBFE);
+      }
+      .card-header-art {
+        height: 180px;
+        background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .card-art-pattern {
+        position: absolute;
+        inset: 0;
+        opacity: 0.25;
+        background-size: 24px 24px;
+        background-image: radial-gradient(circle, #38BDF8 1px, transparent 1px);
+      }
+      .card-visual-badge {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(15, 23, 42, 0.75);
+        backdrop-filter: blur(8px);
+        color: #38BDF8;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .card-id-tag {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #CBD5E1;
+        font-family: monospace;
+        font-size: 0.75rem;
+        padding: 3px 8px;
+        border-radius: 4px;
+      }
+      .card-art-title {
+        color: #FFFFFF;
+        font-size: 1.125rem;
+        font-weight: 700;
+        text-align: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+        line-height: 1.35;
+      }
+      .card-body {
+        padding: 24px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-category-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+        color: var(--primary-blue, #2563EB);
+      }
+      .card-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1.35;
+        color: var(--text-main, #0F172A);
+        margin-bottom: 10px;
+      }
+      .card-excerpt {
+        font-size: 0.875rem;
+        color: var(--text-secondary, #64748B);
+        line-height: 1.55;
+        margin-bottom: 20px;
+        flex: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-light, #F1F5F9);
+        font-size: 0.8125rem;
+        color: var(--text-muted, #94A3B8);
+      }
+      .author-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        color: var(--text-secondary, #475569);
+      }
+      .author-avatar-chip {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--primary-blue, #2563EB);
+        color: #FFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.6875rem;
+        font-weight: 700;
+      }
+
+      /* Pagination */
+      .pagination-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        margin-top: 48px;
+      }
+      .page-btn {
+        width: 38px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        border: 1px solid var(--border-light, #E2E8F0);
+        background: var(--bg-surface, #FFF);
+        color: var(--text-main, #1E293B);
+        font-weight: 600;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+      .page-btn:hover:not(:disabled) {
+        border-color: var(--primary-blue, #2563EB);
+        color: var(--primary-blue, #2563EB);
+      }
+      .page-btn.active {
+        background: var(--primary-blue, #2563EB);
+        color: #FFFFFF;
+        border-color: var(--primary-blue, #2563EB);
+      }
+      .page-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      /* Studio CTA */
+      .studio-cta-banner {
+        background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        border-radius: 20px;
+        padding: 44px;
+        color: #FFFFFF;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin: 60px auto 20px;
+        box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.3);
+      }
+      .cta-content {
+        max-width: 600px;
+      }
+      .cta-title {
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+      .cta-desc {
+        color: #94A3B8;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      .cta-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+    </style>
   </head>
   <body>
     <div class="app-shell" id="top">
@@ -39,70 +406,125 @@
           <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
             <ul class="nav-link-list">
               <li><a href="/" class="nav-item">Converter</a></li>
-              <li><a href="/jpg-to-webp/" class="nav-item">JPG to WebP</a></li>
-              <li><a href="/png-to-webp/" class="nav-item">PNG to WebP</a></li>
-              <li><a href="/image-compressor/" class="nav-item">Compressor</a></li>
-              <li><a href="/blog/" class="nav-item active" aria-current="page">Guides</a></li>
+              <li><a href="/editor/" class="nav-item">Image Editor</a></li>
+              <li><a href="/background-remover/" class="nav-item">AI BG Remover</a></li>
+              <li><a href="/poster-studio/" class="nav-item">Poster Studio</a></li>
+              <li><a href="/resizer/" class="nav-item">Resizer</a></li>
+              <li><a href="/blog/" class="nav-item active" aria-current="page">Knowledge Center</a></li>
             </ul>
           </nav>
           <div class="header-action-group">
-            <a href="/" class="btn btn-sm btn-primary">Open Main Studio</a>
+            <a href="/" class="btn btn-sm btn-primary">Open WebP Converter</a>
           </div>
         </div>
       </header>
 
-      <main class="main-viewport" role="main">
-        <div class="seo-breadcrumbs">
-          <a href="/">Home</a> <span>/</span>
-          <span>Educational Guides &amp; Tutorials</span>
-        </div>
-
-        <div class="view-header">
-          <div class="view-header-content">
-            <div class="title-with-pill">
-              <h1 class="view-title">Image Optimization Guides &amp; Tutorials</h1>
-              <span class="badge badge-purple">Knowledge Base</span>
-            </div>
-            <p class="view-description">
-              In-depth technical guides written for frontend engineers, photographers, and webmasters looking to master image compression and performance.
+      <main>
+        <section class="blog-hero">
+          <div class="blog-hero-inner">
+            <span class="blog-hero-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              100 Engineering Guides &bull; 500 Custom Visuals
+            </span>
+            <h1 class="blog-hero-title">FluxWebP Knowledge Center</h1>
+            <p class="blog-hero-desc">
+              Authoritative technical guides on modern image formats, next-gen WebP/AVIF codecs, AI background removal, graphic poster design, and Core Web Vitals optimization.
             </p>
           </div>
-        </div>
+        </section>
 
-        <div class="guides-preview-grid" style="margin-top: 24px;">
-          <a href="/blog/webp-vs-png-vs-jpg/" class="guide-card">
-            <div>
-              <span class="guide-tag">Format Comparison</span>
-              <h2 class="guide-title">WebP vs PNG vs JPG: Which Image Format Is Best?</h2>
-              <p class="guide-excerpt">
-                An authoritative comparison of compression algorithms, browser support, alpha channel transparency, and byte efficiency across modern web scenarios.
+        <!-- Controls Section -->
+        <section class="blog-controls-section">
+          <div class="search-box-card">
+            <div class="search-input-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="search" id="blogSearch" class="search-input" placeholder="Search 100 guides by keyword, topic, or format..." aria-label="Search articles" />
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <label for="sortSelect" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-secondary);">Sort By:</label>
+              <select id="sortSelect" class="sort-select">
+                <option value="id-asc">Article # (01 to 100)</option>
+                <option value="newest">Latest Updated</option>
+                <option value="reading-time">Reading Time</option>
+                <option value="title-asc">Title (A-Z)</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <!-- Category Navigation -->
+        <section class="categories-bar">
+          <div class="category-pills-wrap" id="categoryPills">
+            <button class="cat-pill active" data-category="all">
+              All Categories <span class="count">100</span>
+            </button>
+            <button class="cat-pill" data-category="formats-and-conversion">
+              Image Formats &amp; Conversion <span class="count">10</span>
+            </button>
+            <button class="cat-pill" data-category="conversion-tutorials">
+              Conversion Tutorials <span class="count">10</span>
+            </button>
+            <button class="cat-pill" data-category="compression-and-optimization">
+              Compression &amp; Optimization <span class="count">10</span>
+            </button>
+            <button class="cat-pill" data-category="resizing-and-dimensions">
+              Resizing &amp; Dimensions <span class="count">10</span>
+            </button>
+            <button class="cat-pill" data-category="editing-and-creative-workflows">
+              Editing &amp; Workflows <span class="count">10</span>
+            </button>
+            <button class="cat-pill" data-category="ai-background-removal">
+              AI Background Removal <span class="count">10</span>
+            </button>
+            <button class="cat-pill" data-category="ai-poster-generation-and-design">
+              AI Poster Studio <span class="count">10</span>
+            </button>
+            <button class="cat-pill" data-category="image-seo-and-performance">
+              SEO &amp; Performance <span class="count">10</span>
+            </button>
+            <button class="cat-pill" data-category="ecommerce-and-business-images">
+              E-Commerce Images <span class="count">10</span>
+            </button>
+            <button class="cat-pill" data-category="privacy-metadata-and-troubleshooting">
+              Privacy &amp; Troubleshooting <span class="count">10</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Articles Grid -->
+        <section class="blog-content-wrap">
+          <div class="results-meta-bar">
+            <span id="resultsCount">Showing 100 articles</span>
+            <span id="pageIndicator">Page 1 of 9</span>
+          </div>
+
+          <div class="article-grid" id="articlesGrid">
+            <!-- Dynamically populated by JS from manifest -->
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-secondary);">
+              Loading guides...
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination-bar" id="paginationBar">
+            <!-- Dynamically generated -->
+          </div>
+
+          <!-- Studio CTA -->
+          <div class="studio-cta-banner">
+            <div class="cta-content">
+              <h2 class="cta-title">Need to Optimize Images Right Now?</h2>
+              <p class="cta-desc">
+                Put these guides into practice. Convert, compress, remove backgrounds, or generate stunning marketing posters with FluxWebP Pro's zero-upload client-side tools.
               </p>
             </div>
-            <span class="guide-link-action">Read Full Guide &rarr;</span>
-          </a>
-
-          <a href="/blog/how-to-convert-camera-raw/" class="guide-card">
-            <div>
-              <span class="guide-tag">Photography Workflow</span>
-              <h2 class="guide-title">How to Convert Camera RAW (ARW, CR2, NEF, DNG) in Browser</h2>
-              <p class="guide-excerpt">
-                Step-by-step tutorial explaining how client-side Web Workers parse binary RAW metadata, extract ISP JPEG previews, and encode to WebP in milliseconds.
-              </p>
+            <div class="cta-buttons">
+              <a href="/" class="btn btn-primary" style="background: #2563EB; color: #FFF; padding: 12px 24px; border-radius: 10px; font-weight: 700; text-decoration: none;">WebP Converter</a>
+              <a href="/editor/" class="btn btn-outline" style="border: 1px solid rgba(255,255,255,0.4); color: #FFF; padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none;">Image Editor</a>
+              <a href="/background-remover/" class="btn btn-outline" style="border: 1px solid rgba(255,255,255,0.4); color: #FFF; padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none;">AI BG Remover</a>
             </div>
-            <span class="guide-link-action">Read Full Guide &rarr;</span>
-          </a>
-
-          <a href="/blog/image-compression-guide/" class="guide-card">
-            <div>
-              <span class="guide-tag">Core Web Vitals</span>
-              <h2 class="guide-title">Optimizing Images for Core Web Vitals (LCP &amp; CLS)</h2>
-              <p class="guide-excerpt">
-                Practical techniques for tuning compression quality, eliminating layout shift with aspect-ratio containers, and preloading hero images to pass Google PageSpeed.
-              </p>
-            </div>
-            <span class="guide-link-action">Read Full Guide &rarr;</span>
-          </a>
-        </div>
+          </div>
+        </section>
       </main>
 
       <footer class="site-footer" role="contentinfo">
@@ -112,34 +534,235 @@
               <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
               <span class="brand-name">FluxWebP Pro</span>
             </div>
-            <p class="footer-desc">Universal on-device image conversion platform.</p>
+            <p class="footer-desc">Universal, privacy-first on-device image conversion and creative platform.</p>
           </div>
           <div class="footer-links-col">
-            <h4>Converters</h4>
+            <h4>Creative Suite</h4>
             <ul>
-              <li><a href="/jpg-to-webp/">JPG to WebP</a></li>
-              <li><a href="/png-to-webp/">PNG to WebP</a></li>
-              <li><a href="/image-compressor/">Image Compressor</a></li>
-              <li><a href="/heic-converter/">HEIC Converter</a></li>
-              <li><a href="/raw-image-converter/">Camera RAW Converter</a></li>
+              <li><a href="/">WebP Converter</a></li>
+              <li><a href="/editor/">Image Editor</a></li>
+              <li><a href="/background-remover/">AI Background Remover</a></li>
+              <li><a href="/poster-studio/">AI Poster Studio</a></li>
+              <li><a href="/resizer/">Image Resizer</a></li>
             </ul>
           </div>
           <div class="footer-links-col">
-            <h4>Company</h4>
+            <h4>Resources</h4>
             <ul>
-              <li><a href="/blog/">Guides</a></li>
-              <li><a href="/about/">About</a></li>
-              <li><a href="/privacy/">Privacy</a></li>
-              <li><a href="/terms/">Terms</a></li>
-              <li><a href="/sitemap.xml">Sitemap</a></li>
+              <li><a href="/blog/">All 100 Guides</a></li>
+              <li><a href="/about/">About Us</a></li>
+              <li><a href="/privacy/">Privacy Policy</a></li>
+              <li><a href="/terms/">Terms of Service</a></li>
+              <li><a href="/sitemap.xml">XML Sitemap</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© 2026 FluxWebP Pro. Open source MIT license.</p>
+          <p>&copy; 2026 FluxWebP Pro. All rights reserved. 100% In-Browser Client-Side Processing.</p>
         </div>
       </footer>
     </div>
+
+    <!-- Client-side data and interactive rendering -->
+    <script>
+      (function() {
+        let manifest = [];
+        let filteredArticles = [];
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let currentSort = 'id-asc';
+        let currentPage = 1;
+        const pageSize = 12;
+
+        const grid = document.getElementById('articlesGrid');
+        const searchInput = document.getElementById('blogSearch');
+        const sortSelect = document.getElementById('sortSelect');
+        const categoryPills = document.getElementById('categoryPills');
+        const resultsCount = document.getElementById('resultsCount');
+        const pageIndicator = document.getElementById('pageIndicator');
+        const paginationBar = document.getElementById('paginationBar');
+
+        // Color mapper for categories
+        const categoryColors = {
+          'formats-and-conversion': '#2563EB',
+          'conversion-tutorials': '#0284C7',
+          'compression-and-optimization': '#16A34A',
+          'resizing-and-dimensions': '#F97316',
+          'editing-and-creative-workflows': '#8B5CF6',
+          'ai-background-removal': '#EC4899',
+          'ai-poster-generation-and-design': '#D946EF',
+          'image-seo-and-performance': '#059669',
+          'ecommerce-and-business-images': '#EA580C',
+          'privacy-metadata-and-troubleshooting': '#475569'
+        };
+
+        // Fetch manifest or fallback
+        fetch('/data/blog-manifest.json')
+          .then(res => res.json())
+          .then(data => {
+            manifest = data;
+            applyFilters();
+          })
+          .catch(err => {
+            console.warn('Could not fetch manifest, attempting fallback:', err);
+            // Try relative path
+            fetch('../data/blog-manifest.json')
+              .then(res => res.json())
+              .then(data => {
+                manifest = data;
+                applyFilters();
+              })
+              .catch(e => {
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: red;">Failed to load blog directory. Please refresh.</div>';
+              });
+          });
+
+        function applyFilters() {
+          filteredArticles = manifest.filter(item => {
+            const matchesCat = (currentCategory === 'all' || item.categorySlug === currentCategory);
+            const q = searchQuery.toLowerCase().trim();
+            const matchesSearch = !q || 
+              item.title.toLowerCase().includes(q) || 
+              item.excerpt.toLowerCase().includes(q) || 
+              item.primaryKeyword.toLowerCase().includes(q) ||
+              item.category.toLowerCase().includes(q) ||
+              item.subcategory.toLowerCase().includes(q) ||
+              item.id.toString() === q;
+            return matchesCat && matchesSearch;
+          });
+
+          // Sorting
+          filteredArticles.sort((a, b) => {
+            if (currentSort === 'id-asc') return a.id - b.id;
+            if (currentSort === 'newest') return new Date(b.updatedDate) - new Date(a.updatedDate);
+            if (currentSort === 'reading-time') return a.readingTime - b.readingTime;
+            if (currentSort === 'title-asc') return a.title.localeCompare(b.title);
+            return 0;
+          });
+
+          currentPage = 1;
+          render();
+        }
+
+        function render() {
+          const total = filteredArticles.length;
+          const totalPages = Math.ceil(total / pageSize) || 1;
+          if (currentPage > totalPages) currentPage = totalPages;
+
+          const startIdx = (currentPage - 1) * pageSize;
+          const pageArticles = filteredArticles.slice(startIdx, startIdx + pageSize);
+
+          resultsCount.textContent = `Showing ${total} article${total === 1 ? '' : 's'}`;
+          pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+
+          if (pageArticles.length === 0) {
+            grid.innerHTML = `
+              <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" style="margin-bottom: 12px;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-main);">No matching articles found</h3>
+                <p style="color: var(--text-secondary); margin-top: 6px;">Try adjusting your search terms or clearing your category filter.</p>
+              </div>
+            `;
+            paginationBar.innerHTML = '';
+            return;
+          }
+
+          grid.innerHTML = pageArticles.map(a => {
+            const catColor = categoryColors[a.categorySlug] || '#2563EB';
+            const paddedId = String(a.id).padStart(3, '0');
+            const authorInitial = a.author && a.author.name ? a.author.name.charAt(0) : 'F';
+            const authorName = a.author && a.author.name ? a.author.name : 'FluxWebP Team';
+            const articleLink = `/blog/${a.slug}/`;
+
+            return `
+              <article class="article-card">
+                <a href="${articleLink}" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+                  <div class="card-header-art">
+                    <div class="card-art-pattern"></div>
+                    <span class="card-id-tag">#${paddedId}</span>
+                    <h3 class="card-art-title">${escapeHtml(a.title)}</h3>
+                    <div class="card-visual-badge">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                      5 Visuals Included
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <span class="card-category-tag" style="color: ${catColor};">${escapeHtml(a.category)}</span>
+                    <h2 class="card-title">${escapeHtml(a.title)}</h2>
+                    <p class="card-excerpt">${escapeHtml(a.excerpt)}</p>
+                    <div class="card-footer">
+                      <div class="author-info">
+                        <span class="author-avatar-chip" style="background: ${catColor};">${authorInitial}</span>
+                        <span>${escapeHtml(authorName)}</span>
+                      </div>
+                      <span>${a.readingTime} min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            `;
+          }).join('');
+
+          renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+          if (totalPages <= 1) {
+            paginationBar.innerHTML = '';
+            return;
+          }
+
+          let buttonsHtml = '';
+          buttonsHtml += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}">&lsaquo;</button>`;
+
+          for (let p = 1; p <= totalPages; p++) {
+            if (p === 1 || p === totalPages || (p >= currentPage - 2 && p <= currentPage + 2)) {
+              buttonsHtml += `<button class="page-btn ${p === currentPage ? 'active' : ''}" data-page="${p}">${p}</button>`;
+            } else if (p === currentPage - 3 || p === currentPage + 3) {
+              buttonsHtml += `<span style="padding: 0 4px; color: var(--text-muted);">&bull;&bull;&bull;</span>`;
+            }
+          }
+
+          buttonsHtml += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}">&rsaquo;</button>`;
+          paginationBar.innerHTML = buttonsHtml;
+        }
+
+        function escapeHtml(str) {
+          if (!str) return '';
+          return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value;
+          applyFilters();
+        });
+
+        sortSelect.addEventListener('change', (e) => {
+          currentSort = e.target.value;
+          applyFilters();
+        });
+
+        categoryPills.addEventListener('click', (e) => {
+          const pill = e.target.closest('.cat-pill');
+          if (!pill) return;
+          categoryPills.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          currentCategory = pill.getAttribute('data-category');
+          applyFilters();
+        });
+
+        paginationBar.addEventListener('click', (e) => {
+          const btn = e.target.closest('.page-btn');
+          if (!btn || btn.disabled) return;
+          const targetPage = parseInt(btn.getAttribute('data-page'), 10);
+          if (targetPage && targetPage !== currentPage) {
+            currentPage = targetPage;
+            render();
+            window.scrollTo({ top: document.querySelector('.blog-controls-section').offsetTop - 20, behavior: 'smooth' });
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
-

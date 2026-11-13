@@ -1,9 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /samnang.com.com.omg/
+Disallow: /admin/
+Disallow: /dashboard/admin/
 
 # Host
 Host: https://app-webp-converter.vercel.app
 
 # Sitemaps
 Sitemap: https://app-webp-converter.vercel.app/sitemap.xml
-
