@@ -469,45 +469,6 @@ const state = {
 
 const scriptCache = new Map();
 
-// --- Initialization ---
-FluxAnalytics.track("page_view");
-loadSavedSettings();
-initTheme();
-initRouting();
-renderFormatCatalog();
-bindAllEvents();
-renderHistory();
-syncCompare();
-render();
-runDiagnostics();
-checkTransferredImage();
-
-// Register Service Worker for Offline PWA Resilience
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(() => {});
-  });
-}
-
-// Export Global SDK API (v2.4.0)
-window.FluxWebP = {
-  version: "2.4.0",
-  convertFile,
-  compressToTarget,
-  detectFileSignature,
-  detectGifAnimation,
-  detectWebpAnimation,
-  getCapabilities: (formatOrExt) => {
-    const ext = String(formatOrExt || "").toLowerCase().replace(/^\./, "");
-    return FORMAT_REGISTRY[ext] || null;
-  },
-  getSupportedFormats: () => FORMAT_CATALOG,
-  getFormatRegistry: () => ({ ...FORMAT_REGISTRY }),
-  sanitizeSvg: sanitizeSvgText,
-  getQueue: () => [...state.items],
-  purgeData: purgeAllData
-};
-
 // --- Privacy-Conscious Local Analytics Engine ---
 const FluxAnalytics = {
   STORAGE_KEY: "fluxwebp-local-analytics",
@@ -576,6 +537,45 @@ function renderGrowthDashboard() {
     });
   }
 }
+
+// --- Initialization ---
+FluxAnalytics.track("page_view");
+loadSavedSettings();
+initTheme();
+initRouting();
+renderFormatCatalog();
+bindAllEvents();
+renderHistory();
+syncCompare();
+render();
+runDiagnostics();
+checkTransferredImage();
+
+// Register Service Worker for Offline PWA Resilience
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+  });
+}
+
+// Export Global SDK API (v2.4.0)
+window.FluxWebP = {
+  version: "2.4.0",
+  convertFile,
+  compressToTarget,
+  detectFileSignature,
+  detectGifAnimation,
+  detectWebpAnimation,
+  getCapabilities: (formatOrExt) => {
+    const ext = String(formatOrExt || "").toLowerCase().replace(/^\./, "");
+    return FORMAT_REGISTRY[ext] || null;
+  },
+  getSupportedFormats: () => FORMAT_CATALOG,
+  getFormatRegistry: () => ({ ...FORMAT_REGISTRY }),
+  sanitizeSvg: sanitizeSvgText,
+  getQueue: () => [...state.items],
+  purgeData: purgeAllData
+};
 
 // --- Routing & Tab Management ---
 function initRouting() {
@@ -753,6 +753,35 @@ function closeDrawer() {
 
 // --- Event Binding ---
 function bindAllEvents() {
+  // Primary Navigation Tabs Explicit Click Handling
+  dom.navItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      const tab = item.dataset.tab;
+      const href = item.getAttribute("href") || "";
+      if (tab && href.startsWith("#")) {
+        e.preventDefault();
+        if (window.location.hash !== href) {
+          window.location.hash = href;
+        }
+        switchTab(tab);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+  });
+
+  // Creative Studio Dropdown in Navigation
+  const studioMenuBtn = document.getElementById("studioMenuBtn");
+  const studioMenuDropdown = document.getElementById("studioMenuDropdown");
+  studioMenuBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = studioMenuDropdown?.classList.toggle("show");
+    studioMenuBtn.setAttribute("aria-expanded", String(isOpen));
+  });
+  document.addEventListener("click", () => {
+    studioMenuDropdown?.classList.remove("show");
+    studioMenuBtn?.setAttribute("aria-expanded", "false");
+  });
+
   // Mobile Navigation
   dom.mobileMenuToggle?.addEventListener("click", () => {
     const isOpen = dom.mainNav.classList.toggle("nav-open");
