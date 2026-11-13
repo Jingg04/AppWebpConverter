@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Online Image Compressor – Reduce File Size Without Quality Loss | FluxWebP Pro</title>
+    <meta
+      name="description"
+      content="Compress JPG, PNG, WebP, and AVIF images online for free. Adjust compression levels with real-time visual comparison. 100% private, on-device batch image compressor."
+    />
+    <meta name="keywords" content="image compressor, compress images online, reduce image size, photo compressor, bulk image compression, compress webp" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://app-webp-converter.vercel.app/image-compressor/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FluxWebP Pro" />
+    <meta property="og:url" content="https://app-webp-converter.vercel.app/image-compressor/" />
+    <meta property="og:title" content="Online Image Compressor – Reduce File Size Without Quality Loss | FluxWebP Pro" />
+    <meta property="og:description" content="Compress JPG, PNG, WebP, and AVIF images online for free. Adjust compression levels with visual split-screen comparison." />
+    <meta property="og:image" content="https://app-webp-converter.vercel.app/screenshot-desktop.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://app-webp-converter.vercel.app/image-compressor/#software",
+          "name": "Online Image Compressor – FluxWebP Pro",
+          "url": "https://app-webp-converter.vercel.app/image-compressor/",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "All modern browsers",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "description": "Browser-based client-side image compression tool supporting WebP, JPEG, PNG, and AVIF optimization."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://app-webp-converter.vercel.app/image-compressor/#breadcrumbs",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://app-webp-converter.vercel.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://app-webp-converter.vercel.app/#/converter" },
+            { "@type": "ListItem", "position": 3, "name": "Online Image Compressor", "item": "https://app-webp-converter.vercel.app/image-compressor/" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://app-webp-converter.vercel.app/image-compressor/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How does this compressor reduce file size without losing quality?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "FluxWebP Pro eliminates redundant high-frequency image data that the human eye cannot perceive, while quantizing color tables and applying modern entropy encoding."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are my images uploaded to an external server?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. All compression algorithms execute inside your browser using Web Workers and HTML5 Canvas. Your private photos never leave your device."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="top">
+      <header class="global-header" role="banner">
+        <div class="header-container">
+          <div class="header-brand-group">
+            <a class="brand-link" href="/" aria-label="FluxWebP Pro Home">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name-wrap">
+                <span class="brand-title">FluxWebP</span>
+                <span class="brand-badge">PRO</span>
+              </span>
+            </a>
+          </div>
+          <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
+            <ul class="nav-link-list">
+              <li><a href="/" class="nav-item">Converter</a></li>
+              <li><a href="/jpg-to-webp/" class="nav-item">JPG to WebP</a></li>
+              <li><a href="/png-to-webp/" class="nav-item">PNG to WebP</a></li>
+              <li><a href="/image-compressor/" class="nav-item active" aria-current="page">Compressor</a></li>
+              <li><a href="/blog/" class="nav-item">Guides</a></li>
+            </ul>
+          </nav>
+          <div class="header-action-group">
+            <a href="/" class="btn btn-sm btn-primary">Open Main Studio</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-viewport" role="main">
+        <div class="seo-breadcrumbs">
+          <a href="/">Home</a> <span>/</span>
+          <a href="/#converter">Tools</a> <span>/</span>
+          <span>Image Compressor</span>
+        </div>
+
+        <div class="view-header">
+          <div class="view-header-content">
+            <div class="title-with-pill">
+              <h1 class="view-title">Online Image Compressor</h1>
+              <span class="status-indicator-pill"><span class="pulse-dot"></span>Ready</span>
+            </div>
+            <p class="view-description">
+              Compress multiple images with intelligent byte optimization. Adjust quality sliders, inspect side-by-side split comparison, and download lightweight assets in batch.
+            </p>
+          </div>
+        </div>
+
+        <div class="card p-6 mb-6 text-center" style="padding: 40px 20px; background: var(--bg-surface); border: 2px dashed var(--primary-blue-border); border-radius: var(--radius-lg);">
+          <div class="dropzone-icon-circle" style="margin: 0 auto 16px auto;" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px;">Compress Images in One Click</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 20px; max-width: 500px; margin-left: auto; margin-right: auto;">
+            Upload your files to start real-time compression with interactive before &amp; after comparison.
+          </p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a href="/#converter" class="btn btn-primary" style="padding: 12px 28px; font-size: 1rem;">
+              <span>Start Compressing Images</span>
+            </a>
+            <a href="/batch-image-converter/" class="btn btn-outline" style="padding: 12px 24px;">Batch Bulk Optimizer</a>
+          </div>
+        </div>
+
+        <div class="seo-content-block" style="margin-top: 0;">
+          <section class="seo-section">
+            <div class="seo-section-header">
+              <span class="seo-section-tag">Quality Intelligence</span>
+              <h2 class="seo-section-title">Visual Comparison &amp; Fine-Tuned Compression</h2>
+              <p class="seo-section-desc">
+                Never guess how your compressed image will look. Our interactive split-screen comparison lets you slide across the boundary between original and compressed pixels in real time.
+              </p>
+            </div>
+            <div class="steps-grid">
+              <div class="step-card">
+                <span class="step-badge">1</span>
+                <h3 class="step-title">Lossy vs. Lossless Control</h3>
+                <p class="step-desc">Pick precision 1% increments from 5% to 100% or toggle lossless encoding for pixel-perfect requirements.</p>
+              </div>
+              <div class="step-card">
+                <span class="step-badge">2</span>
+                <h3 class="step-title">EXIF &amp; GPS Sanitization</h3>
+                <p class="step-desc">Save additional kilobytes by stripping camera metadata and sensitive GPS coordinate tags before publishing online.</p>
+              </div>
+              <div class="step-card">
+                <span class="step-badge">3</span>
+                <h3 class="step-title">Boundary Dimension Constraints</h3>
+                <p class="step-desc">Automatically resize oversized 4K or 8K assets down to responsive web viewports (e.g. 1920px or 1200px) during compression.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="seo-section">
+            <div class="seo-section-header">
+              <span class="seo-section-tag">FAQ</span>
+              <h2 class="seo-section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+              <details class="faq-item" open>
+                <summary class="faq-summary">How does this compressor reduce file size without losing quality?</summary>
+                <div class="faq-answer">
+                  <p>FluxWebP Pro eliminates redundant high-frequency image data that the human eye cannot perceive, while quantizing color tables and applying modern entropy encoding.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-summary">Are my images uploaded to an external server?</summary>
+                <div class="faq-answer">
+                  <p>No. All compression algorithms execute inside your browser using Web Workers and HTML5 Canvas. Your private photos never leave your device.</p>
+                </div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+          <div class="footer-brand-col">
+            <div class="brand">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name">FluxWebP Pro</span>
+            </div>
+            <p class="footer-desc">Universal on-device image conversion &amp; optimization platform. 100% private.</p>
+          </div>
+          <div class="footer-links-col">
+            <h4>Converters</h4>
+            <ul>
+              <li><a href="/jpg-to-webp/">JPG to WebP</a></li>
+              <li><a href="/png-to-webp/">PNG to WebP</a></li>
+              <li><a href="/image-compressor/">Image Compressor</a></li>
+              <li><a href="/heic-converter/">HEIC Converter</a></li>
+              <li><a href="/raw-image-converter/">Camera RAW Converter</a></li>
+              <li><a href="/batch-image-converter/">Batch Bulk Converter</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="/blog/">Guides</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/privacy/">Privacy</a></li>
+              <li><a href="/terms/">Terms</a></li>
+              <li><a href="/sitemap.xml">XML Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 FluxWebP Pro. Open source MIT license.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

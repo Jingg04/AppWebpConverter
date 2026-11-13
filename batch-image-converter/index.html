@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Batch Image Converter – Bulk Optimize Multiple Images | FluxWebP Pro</title>
+    <meta
+      name="description"
+      content="Convert and optimize hundreds of images in bulk online. Parallel multi-threaded Web Worker processing with one-click ZIP download. 100% private, on-device batch image converter."
+    />
+    <meta name="keywords" content="batch image converter, bulk image converter, convert multiple images to webp, bulk photo optimizer, zip download converter" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href="https://app-webp-converter.vercel.app/batch-image-converter/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FluxWebP Pro" />
+    <meta property="og:url" content="https://app-webp-converter.vercel.app/batch-image-converter/" />
+    <meta property="og:title" content="Batch Image Converter – Bulk Optimize Multiple Images | FluxWebP Pro" />
+    <meta property="og:description" content="Convert and optimize hundreds of images in bulk online with multi-threaded Web Workers and ZIP export." />
+    <meta property="og:image" content="https://app-webp-converter.vercel.app/screenshot-desktop.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://app-webp-converter.vercel.app/batch-image-converter/#software",
+          "name": "Batch Image Converter – FluxWebP Pro",
+          "url": "https://app-webp-converter.vercel.app/batch-image-converter/",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "All modern browsers",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "description": "High-volume client-side batch image converter with parallel multi-worker concurrency and ZIP packaging."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://app-webp-converter.vercel.app/batch-image-converter/#breadcrumbs",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://app-webp-converter.vercel.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://app-webp-converter.vercel.app/#/converter" },
+            { "@type": "ListItem", "position": 3, "name": "Batch Image Converter", "item": "https://app-webp-converter.vercel.app/batch-image-converter/" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://app-webp-converter.vercel.app/batch-image-converter/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is there a limit to how many images I can convert at once?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There are no artificial software limits or daily upload quotas. Because encoding runs locally on your computer hardware, you can batch convert dozens or hundreds of photos without subscription paywalls."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I upload an entire folder with subfolders?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, clicking 'Upload Folder' lets you select an entire folder structure. FluxWebP Pro recursively filters all compatible image assets."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="top">
+      <header class="global-header" role="banner">
+        <div class="header-container">
+          <div class="header-brand-group">
+            <a class="brand-link" href="/" aria-label="FluxWebP Pro Home">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name-wrap">
+                <span class="brand-title">FluxWebP</span>
+                <span class="brand-badge">PRO</span>
+              </span>
+            </a>
+          </div>
+          <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
+            <ul class="nav-link-list">
+              <li><a href="/" class="nav-item">Converter</a></li>
+              <li><a href="/batch-image-converter/" class="nav-item active" aria-current="page">Batch Converter</a></li>
+              <li><a href="/jpg-to-webp/" class="nav-item">JPG to WebP</a></li>
+              <li><a href="/png-to-webp/" class="nav-item">PNG to WebP</a></li>
+              <li><a href="/blog/" class="nav-item">Guides</a></li>
+            </ul>
+          </nav>
+          <div class="header-action-group">
+            <a href="/" class="btn btn-sm btn-primary">Open Main Studio</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-viewport" role="main">
+        <div class="seo-breadcrumbs">
+          <a href="/">Home</a> <span>/</span>
+          <a href="/#converter">Tools</a> <span>/</span>
+          <span>Batch Image Converter</span>
+        </div>
+
+        <div class="view-header">
+          <div class="view-header-content">
+            <div class="title-with-pill">
+              <h1 class="view-title">Batch &amp; Bulk Image Converter</h1>
+              <span class="status-indicator-pill"><span class="pulse-dot"></span>Ready</span>
+            </div>
+            <p class="view-description">
+              Convert, resize, and compress entire folders of images in parallel. Multi-threaded browser execution with zero server limits.
+            </p>
+          </div>
+        </div>
+
+        <div class="card p-6 mb-6 text-center" style="padding: 40px 20px; background: var(--bg-surface); border: 2px dashed var(--primary-blue-border); border-radius: var(--radius-lg);">
+          <div class="dropzone-icon-circle" style="margin: 0 auto 16px auto;" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+          </div>
+          <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px;">Batch Process Images in Parallel</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 20px; max-width: 500px; margin-left: auto; margin-right: auto;">
+            Drop whole folders of photos or graphics. Export all converted assets as a single organized ZIP.
+          </p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a href="/#converter" class="btn btn-primary" style="padding: 12px 28px; font-size: 1rem;">
+              <span>Open Bulk Batch Studio</span>
+            </a>
+            <a href="/image-compressor/" class="btn btn-outline" style="padding: 12px 24px;">Online Image Compressor</a>
+          </div>
+        </div>
+
+        <div class="seo-content-block" style="margin-top: 0;">
+          <section class="seo-section">
+            <div class="seo-section-header">
+              <span class="seo-section-tag">High-Concurrency Performance</span>
+              <h2 class="seo-section-title">Built for High-Volume Web Optimization</h2>
+              <p class="seo-section-desc">
+                Traditional online converters choke on more than 10 or 20 files because every byte must travel through cloud servers. FluxWebP Pro processes everything locally on your multi-core CPU.
+              </p>
+            </div>
+            <div class="steps-grid">
+              <div class="step-card">
+                <span class="step-badge">1</span>
+                <h3 class="step-title">Multi-Worker Concurrency</h3>
+                <p class="step-desc">Configure 1 to 4 parallel Web Worker threads to saturate modern multi-core processors without freezing the UI.</p>
+              </div>
+              <div class="step-card">
+                <span class="step-badge">2</span>
+                <h3 class="step-title">Batch Renaming Patterns</h3>
+                <p class="step-desc">Automatically append clean suffixes like '_optimized' or custom prefixes to keep your asset folders organized.</p>
+              </div>
+              <div class="step-card">
+                <span class="step-badge">3</span>
+                <h3 class="step-title">Instant In-Memory ZIP</h3>
+                <p class="step-desc">Bundles hundreds of converted files into a standard ZIP archive compiled in browser memory via JSZip.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="seo-section">
+            <div class="seo-section-header">
+              <span class="seo-section-tag">FAQ</span>
+              <h2 class="seo-section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-list">
+              <details class="faq-item" open>
+                <summary class="faq-summary">Is there a limit to how many images I can convert at once?</summary>
+                <div class="faq-answer">
+                  <p>There are no artificial software limits or daily upload quotas. Because encoding runs locally on your computer hardware, you can batch convert dozens or hundreds of photos without subscription paywalls.</p>
+                </div>
+              </details>
+              <details class="faq-item">
+                <summary class="faq-summary">Can I upload an entire folder with subfolders?</summary>
+                <div class="faq-answer">
+                  <p>Yes, clicking 'Upload Folder' lets you select an entire folder structure. FluxWebP Pro recursively filters all compatible image assets.</p>
+                </div>
+              </details>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+          <div class="footer-brand-col">
+            <div class="brand">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name">FluxWebP Pro</span>
+            </div>
+            <p class="footer-desc">Universal on-device image conversion platform. 100% private.</p>
+          </div>
+          <div class="footer-links-col">
+            <h4>Converters</h4>
+            <ul>
+              <li><a href="/jpg-to-webp/">JPG to WebP</a></li>
+              <li><a href="/png-to-webp/">PNG to WebP</a></li>
+              <li><a href="/batch-image-converter/">Batch Converter</a></li>
+              <li><a href="/image-compressor/">Image Compressor</a></li>
+              <li><a href="/heic-converter/">HEIC Converter</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="/blog/">Guides</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/privacy/">Privacy</a></li>
+              <li><a href="/terms/">Terms</a></li>
+              <li><a href="/sitemap.xml">Sitemap</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 FluxWebP Pro. Open source MIT license.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

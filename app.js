@@ -107,7 +107,8 @@ const dom = {
     converter: document.getElementById("view-converter"),
     formats: document.getElementById("view-formats"),
     history: document.getElementById("view-history"),
-    api: document.getElementById("view-api")
+    api: document.getElementById("view-api"),
+    growth: document.getElementById("view-growth")
   },
   navItems: document.querySelectorAll(".nav-item"),
 
@@ -279,6 +280,7 @@ const state = {
 const scriptCache = new Map();
 
 // --- Initialization ---
+FluxAnalytics.track("page_view");
 loadSavedSettings();
 initTheme();
 initRouting();
@@ -296,6 +298,75 @@ window.FluxWebP = {
   getQueue: () => [...state.items]
 };
 
+// --- Privacy-Conscious Local Analytics Engine ---
+const FluxAnalytics = {
+  STORAGE_KEY: "fluxwebp-local-analytics",
+
+  getMetrics() {
+    try {
+      const data = localStorage.getItem(this.STORAGE_KEY);
+      if (data) return JSON.parse(data);
+    } catch (_) {}
+    return {
+      pageViews: 1,
+      uploadsStarted: 0,
+      conversionsCompleted: 0,
+      downloadsCompleted: 0,
+      previewsViewed: 0,
+      formatsUsed: { webp: 0, png: 0, jpeg: 0, avif: 0 },
+      firstSeen: new Date().toISOString()
+    };
+  },
+
+  track(eventName, payload = {}) {
+    try {
+      const metrics = this.getMetrics();
+      if (eventName === "page_view") metrics.pageViews = (metrics.pageViews || 0) + 1;
+      if (eventName === "upload_started") metrics.uploadsStarted = (metrics.uploadsStarted || 0) + (payload.count || 1);
+      if (eventName === "conversion_completed") {
+        metrics.conversionsCompleted = (metrics.conversionsCompleted || 0) + (payload.count || 1);
+        if (payload.format && metrics.formatsUsed) {
+          metrics.formatsUsed[payload.format] = (metrics.formatsUsed[payload.format] || 0) + 1;
+        }
+      }
+      if (eventName === "download") metrics.downloadsCompleted = (metrics.downloadsCompleted || 0) + (payload.count || 1);
+      if (eventName === "preview_viewed") metrics.previewsViewed = (metrics.previewsViewed || 0) + 1;
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(metrics));
+    } catch (_) {}
+  }
+};
+
+function renderGrowthDashboard() {
+  const metrics = FluxAnalytics.getMetrics();
+  const uploadsEl = document.getElementById("seoStatUploads");
+  const conversionsEl = document.getElementById("seoStatConversions");
+  const rateEl = document.getElementById("seoStatRate");
+
+  if (uploadsEl) uploadsEl.textContent = (metrics.uploadsStarted || 0).toLocaleString();
+  if (conversionsEl) conversionsEl.textContent = (metrics.conversionsCompleted || 0).toLocaleString();
+  if (rateEl) {
+    if (!metrics.uploadsStarted || metrics.uploadsStarted === 0) {
+      rateEl.textContent = "100%";
+    } else {
+      const pct = Math.min(100, Math.round(((metrics.conversionsCompleted || 0) / metrics.uploadsStarted) * 100));
+      rateEl.textContent = `${pct}%`;
+    }
+  }
+
+  const copyBtn = document.getElementById("copySitemapBtn");
+  if (copyBtn && !copyBtn.dataset.bound) {
+    copyBtn.dataset.bound = "true";
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard?.writeText("https://app-webp-converter.vercel.app/sitemap.xml");
+      const originalText = copyBtn.innerHTML;
+      copyBtn.innerHTML = "<span>Copied to Clipboard!</span>";
+      setTimeout(() => {
+        copyBtn.innerHTML = originalText;
+      }, 2000);
+    });
+  }
+}
+
 // --- Routing & Tab Management ---
 function initRouting() {
   window.addEventListener("hashchange", handleHashChange);
@@ -304,7 +375,7 @@ function initRouting() {
 
 function handleHashChange() {
   const hash = window.location.hash.replace("#/", "").replace("#", "").toLowerCase() || "converter";
-  const validTabs = ["converter", "formats", "history", "api"];
+  const validTabs = ["converter", "formats", "history", "api", "growth"];
   const target = validTabs.includes(hash) ? hash : "converter";
   switchTab(target);
 }
@@ -344,6 +415,7 @@ function switchTab(tabName) {
   // Rerender tab-specific content if needed
   if (tabName === "history") renderHistory();
   if (tabName === "formats") filterFormatsCatalog();
+  if (tabName === "growth") renderGrowthDashboard();
 }
 
 // --- Settings & Storage Management ---
@@ -967,6 +1039,8 @@ function addFiles(fileList) {
 
   if (!validFiles.length) return;
 
+  FluxAnalytics.track("upload_started", { count: validFiles.length });
+
   const newItems = validFiles.map((file) => {
     const id = makeId();
     return {
@@ -1112,6 +1186,8 @@ async function convertItem(item, version) {
     item.savedBytes = result.savedBytes;
     item.status = "done";
     item.progress = 100;
+
+    FluxAnalytics.track("conversion_completed", { count: 1, format: state.targetFormat });
 
     if (state.saveHistory) {
       addHistory(item);
@@ -2645,6 +2721,7 @@ async function downloadAllAsZip() {
 }
 
 function downloadBlob(blob, filename) {
+  FluxAnalytics.track("download", { count: 1 });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url;
