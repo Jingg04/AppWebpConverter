@@ -24,7 +24,9 @@ function assert(condition, message) {
 const ROOT = path.resolve(__dirname, '..');
 const contentBlogDir = path.join(ROOT, 'content/blog');
 const manifestPath = path.join(contentBlogDir, 'manifest.json');
-const publicAssetsDir = path.join(ROOT, 'public/blog-assets');
+const publicAssetsDir = fs.existsSync(path.join(ROOT, 'blog-assets'))
+  ? path.join(ROOT, 'blog-assets')
+  : path.join(ROOT, 'public/blog-assets');
 
 // 1. Check Strict Database Prohibition in Codebase & Dependencies
 console.log('--- TEST GROUP 1: DATABASE PROHIBITION VERIFICATION ---');

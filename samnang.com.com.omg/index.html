@@ -1239,9 +1239,9 @@
                   </div>
                   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
                     ${['hero', 'infographic', 'workflow', 'comparison', 'application'].map(type => `
-                      <a href="/public/blog-assets/${folder}/${type}.svg" target="_blank" style="background: #090D16; border: 1px solid var(--admin-border); border-radius: 8px; padding: 10px; text-decoration: none; text-align: center; transition: border-color 0.15s ease;">
+                      <a href="/blog-assets/${folder}/${type}.svg" target="_blank" style="background: #090D16; border: 1px solid var(--admin-border); border-radius: 8px; padding: 10px; text-decoration: none; text-align: center; transition: border-color 0.15s ease;">
                         <div style="font-size: 0.6875rem; text-transform: uppercase; color: #38BDF8; font-weight: 700; margin-bottom: 4px;">${type}.svg</div>
-                        <img src="/public/blog-assets/${folder}/${type}.svg" style="width: 100%; height: 75px; object-fit: cover; border-radius: 4px; background: #111827;" alt="${type}" loading="lazy" />
+                        <img src="/blog-assets/${folder}/${type}.svg" onerror="this.onerror=null;this.src='/public/blog-assets/${folder}/${type}.svg';" style="width: 100%; height: 75px; object-fit: cover; border-radius: 4px; background: #111827;" alt="${type}" loading="lazy" />
                       </a>
                     `).join('')}
                   </div>
