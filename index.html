@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Convert JPG, PNG, GIF, BMP, TIFF, and HEIC images to optimized WebP files instantly in your browser."
+      content="Convert Sony ARW, Canon CR2/CR3, Nikon NEF, Adobe DNG, PSD, SVG, AVIF, HEIC, TIFF, PNG, JPG, and all image formats to optimized WebP files instantly in your browser."
     />
     <meta name="theme-color" content="#f8fbff" />
-    <meta property="og:title" content="FluxWebP - Convert Images to WebP in Seconds" />
+    <meta property="og:title" content="FluxWebP - Universal Image to WebP Converter (RAW, ARW, PSD, HEIC & More)" />
     <meta
       property="og:description"
-      content="A fast, private, client-side WebP converter with bulk downloads, previews, quality controls, and local history."
+      content="A fast, private, client-side WebP converter for all image files: Sony ARW, Canon CR2/CR3, Nikon NEF, Adobe DNG, PSD, SVG, AVIF, HEIC, TIFF, PNG, JPG & more."
     />
     <meta property="og:type" content="website" />
-    <title>FluxWebP - Convert Images to WebP in Seconds</title>
+    <title>FluxWebP - Universal Image to WebP Converter (RAW, ARW, PSD, HEIC & More)</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a84ff'/%3E%3Cpath d='M18 22h17c7 0 12 4 12 10s-5 10-12 10H18V22zm9 7v6h8c3 0 5-1 5-3s-2-3-5-3h-8z' fill='white'/%3E%3Cpath d='M16 47h32' stroke='white' stroke-width='5' stroke-linecap='round' opacity='.75'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -34,6 +34,7 @@
 
         <nav class="nav-links" aria-label="Page sections">
           <a href="#converter">Converter</a>
+          <a href="#formats">Formats</a>
           <a href="#api">API</a>
           <a href="#history">History</a>
         </nav>
@@ -54,11 +55,11 @@
           <div class="hero-copy">
             <div class="eyebrow">
               <span></span>
-              Private, browser-native conversion
+              Universal RAW, Pro &amp; Web Image Support
             </div>
-            <h1>Convert Images to WebP in Seconds</h1>
+            <h1>Convert Any Image or Camera RAW to WebP</h1>
             <p>
-              Upload a batch of images, tune quality, compare before and after, and download optimized WebP files without sending pixels to a server.
+              Upload any picture file — Sony ARW, Canon CR2/CR3, Nikon NEF, Adobe DNG, Photoshop PSD, SVG, AVIF, HEIC, TIFF, PNG, or JPG. Compare before and after, tune quality, and download optimized WebP files with 100% on-device privacy.
             </p>
             <div class="hero-actions">
               <a class="primary-button" href="#converter">
@@ -81,6 +82,10 @@
               </button>
             </div>
             <dl class="hero-stats" aria-label="Converter highlights">
+              <div>
+                <dt>30+</dt>
+                <dd>formats &amp; RAW</dd>
+              </div>
               <div>
                 <dt>100%</dt>
                 <dd>client-side</dd>
@@ -182,7 +187,7 @@
                 <input
                   id="fileInput"
                   type="file"
-                  accept="image/jpeg,image/png,image/gif,image/bmp,image/tiff,image/heic,image/heif,.jpg,.jpeg,.png,.gif,.bmp,.tif,.tiff,.heic,.heif"
+                  accept="image/*,.jpg,.jpeg,.png,.webp,.gif,.bmp,.dib,.svg,.svgz,.avif,.ico,.cur,.tif,.tiff,.heic,.heif,.hif,.psd,.psb,.tga,.targa,.hdr,.ppm,.pgm,.pbm,.pnm,.qoi,.arw,.srf,.sr2,.cr2,.cr3,.crw,.nef,.nrw,.dng,.raf,.orf,.ori,.rw2,.raw,.pef,.3fr,.fff,.mrw,.x3f,.rwl,.srw,.iiq,.mos,.erf,.kdc,.dcr,.k25"
                   multiple
                 />
                 <span class="upload-icon" aria-hidden="true">
@@ -193,7 +198,22 @@
                   </svg>
                 </span>
                 <strong>Drop your images here or click to upload</strong>
-                <span>JPG, PNG, GIF, BMP, TIFF, HEIC and HEIF. Multiple files supported.</span>
+                <span>Supports all image files: Sony ARW, Canon CR2/CR3, Nikon NEF, DNG, RAF, ORF, RW2, PEF, PSD, SVG, AVIF, HEIC, TIFF, PNG, JPG, GIF &amp; more.</span>
+                <div class="dropzone-chips" aria-label="Supported formats preview">
+                  <span class="chip-mini chip-raw">Sony ARW</span>
+                  <span class="chip-mini chip-raw">Canon CR2/CR3</span>
+                  <span class="chip-mini chip-raw">Nikon NEF</span>
+                  <span class="chip-mini chip-raw">Adobe DNG</span>
+                  <span class="chip-mini chip-raw">Fuji RAF</span>
+                  <span class="chip-mini chip-pro">PSD</span>
+                  <span class="chip-mini chip-pro">HEIC</span>
+                  <span class="chip-mini chip-pro">TIFF</span>
+                  <span class="chip-mini chip-web">SVG</span>
+                  <span class="chip-mini chip-web">AVIF</span>
+                  <span class="chip-mini chip-web">PNG</span>
+                  <span class="chip-mini chip-web">JPG</span>
+                  <span class="chip-mini chip-more">+ 20 more</span>
+                </div>
               </label>
 
               <div class="settings-panel">
@@ -290,20 +310,81 @@
           <div class="queue-list" id="queueList" aria-live="polite"></div>
         </section>
 
+        <section class="formats-section" id="formats">
+          <div class="formats-heading">
+            <p class="section-kicker">Universal Compatibility</p>
+            <h2>Supported Image &amp; Camera RAW Formats</h2>
+            <p>
+              FluxWebP automatically detects format types, parses multi-megabyte camera RAW previews, decodes Photoshop composites, and rasterizes vector SVGs completely inside your browser.
+            </p>
+          </div>
+          <div class="formats-grid">
+            <article class="format-card">
+              <div class="format-card-header">
+                <span class="format-tag tag-raw">Camera RAW</span>
+                <h3>Digital Cameras</h3>
+              </div>
+              <p>Directly convert RAW photos from DSLR &amp; mirrorless cameras with instant preview extraction and EXIF metadata preservation.</p>
+              <ul class="format-list">
+                <li><strong>Sony:</strong> .arw, .srf, .sr2 (Alpha A7, A9, A1, A6000 series)</li>
+                <li><strong>Canon:</strong> .cr2, .cr3, .crw (EOS, Rebel, R-system)</li>
+                <li><strong>Nikon:</strong> .nef, .nrw (Z-mount &amp; D-SLR series)</li>
+                <li><strong>Adobe DNG:</strong> .dng (Leica, iPhone ProRAW, Google Pixel, DJI)</li>
+                <li><strong>Fujifilm:</strong> .raf (X-Series, X-Trans, GFX medium format)</li>
+                <li><strong>Olympus / OM:</strong> .orf, .ori (OM-D, PEN)</li>
+                <li><strong>Panasonic Lumix:</strong> .rw2, .raw (GH &amp; S series)</li>
+                <li><strong>Pentax &amp; Ricoh:</strong> .pef (K-series, GR)</li>
+                <li><strong>Other Brands:</strong> Hasselblad (.3fr, .fff), Minolta (.mrw), Sigma (.x3f), Samsung (.srw)</li>
+              </ul>
+            </article>
+
+            <article class="format-card">
+              <div class="format-card-header">
+                <span class="format-tag tag-pro">Pro &amp; Mobile</span>
+                <h3>Design &amp; Mobile</h3>
+              </div>
+              <p>Decode multi-layer Photoshop designs and modern mobile capture formats directly on-device.</p>
+              <ul class="format-list">
+                <li><strong>Adobe Photoshop:</strong> .psd, .psb (composite raster rendering)</li>
+                <li><strong>Apple &amp; Mobile:</strong> .heic, .heif, .hif (iPhone Live Photos &amp; bursts)</li>
+                <li><strong>Tagged Image:</strong> .tif, .tiff (multi-strip &amp; uncompressed)</li>
+                <li><strong>Textures &amp; Gaming:</strong> .tga, .targa (uncompressed &amp; RLE)</li>
+                <li><strong>Scientific &amp; Legacy:</strong> .ppm, .pgm, .pbm, .pnm, .hdr, .qoi</li>
+              </ul>
+            </article>
+
+            <article class="format-card">
+              <div class="format-card-header">
+                <span class="format-tag tag-web">Web &amp; Vector</span>
+                <h3>Web &amp; Standard</h3>
+              </div>
+              <p>Lossless &amp; lossy conversion for all web standards, including vector SVG auto-scaled up to 2400px.</p>
+              <ul class="format-list">
+                <li><strong>Vector Graphics:</strong> .svg, .svgz (crisp auto-scaled rasterization)</li>
+                <li><strong>Next-Gen Web:</strong> .avif, .webp (recompression &amp; optimization)</li>
+                <li><strong>Standard Web:</strong> .png, .jpg, .jpeg, .jfif</li>
+                <li><strong>Animation &amp; Legacy:</strong> .gif (frame capture), .bmp, .dib</li>
+                <li><strong>Icons &amp; Cursors:</strong> .ico, .cur</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
         <section class="api-section" id="api">
           <div>
             <p class="section-kicker">Developer API</p>
             <h2>Browser API included</h2>
             <p>
-              Use the same client-side conversion engine from your own scripts. A serverless Sharp endpoint can be added behind this interface for HEIC/TIFF parity on every browser.
+              Use the same client-side conversion engine from your own scripts. Seamlessly handles Sony ARW, Canon CR2/CR3, Nikon NEF, Adobe DNG, PSD, SVG, AVIF, HEIC, TIFF, PNG, and JPG in one line of code.
             </p>
           </div>
-          <pre><code>const result = await window.FluxWebP.convertFile(file, {
+          <pre><code>// Convert any camera RAW or standard image file to WebP
+const result = await window.FluxWebP.convertFile(file, {
   quality: 82,
-  preserveMetadata: false
+  preserveMetadata: true // Preserves EXIF from JPEG and Camera RAW
 });
 
-console.log(result.blob, result.savedPercent);</code></pre>
+console.log(result.blob, result.width, result.height, result.savedPercent);</code></pre>
         </section>
 
         <section class="history-section" id="history">
