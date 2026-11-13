@@ -6,3 +6,4 @@ Host: https://app-webp-converter.vercel.app
 
 # Sitemaps
 Sitemap: https://app-webp-converter.vercel.app/sitemap.xml
+
