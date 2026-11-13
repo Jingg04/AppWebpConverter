@@ -87,3 +87,4 @@ xml += `</urlset>
 const sitemapPath = path.join(__dirname, '../sitemap.xml');
 fs.writeFileSync(sitemapPath, xml, 'utf8');
 console.log(`Successfully generated sitemap.xml with ${coreUrls.length} core pages and ${articles.length} blog articles (Total: ${coreUrls.length + articles.length} URLs).`);
+

@@ -102,6 +102,26 @@
       "destination": "/content/blog/manifest.json"
     },
     {
+      "source": "/admin/:path*",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/dashboard/admin/:path*",
+      "destination": "/404.html"
+    },
+    {
+      "source": "/samnang.com.com.omg/:path*",
+      "destination": "/samnang.com.com.omg/index.html"
+    },
+    {
+      "source": "/public/blog-assets/:path*",
+      "destination": "/blog-assets/:path*"
+    },
+    {
+      "source": "/content/blog/manifest.json",
+      "destination": "/content/blog/manifest.json"
+    },
+    {
       "source": "/converter/",
       "destination": "/index.html"
     },

@@ -1,9 +1,9 @@
 /**
  * FluxWebP Pro Service Worker (Offline Cache & Shell Resilience)
- * Caches core static application shell for fast offline launches.
- * Bypasses in-memory Blobs, user files, and analytics.
+ * Strategy: Network-First with Offline Cache Fallback for dynamic updates.
+ * Bypasses in-memory Blobs, API requests, and user conversion files.
  */
-const CACHE_NAME = "fluxwebp-shell-v6";
+const CACHE_NAME = "fluxwebp-shell-v10";
 const CORE_ASSETS = [
   "/",
   "/index.html",
@@ -24,8 +24,6 @@ const CORE_ASSETS = [
   "/poster-studio/poster-engine.js",
   "/poster-studio/poster-templates.js",
   "/poster-studio/poster-studio.js",
-  "/ai-poster-generator/",
-  "/ai-poster-generator/index.html",
   "/background-remover/",
   "/background-remover/index.html",
   "/resizer/",
@@ -44,7 +42,13 @@ const CORE_ASSETS = [
 
 self.addEventListener("install", (evt) => {
   evt.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS))
+    caches.open(CACHE_NAME).then((cache) => {
+      return Promise.allSettled(
+        CORE_ASSETS.map((url) =>
+          cache.add(url).catch((err) => console.warn(`PWA pre-cache skipped for ${url}:`, err.message))
+        )
+      );
+    })
   );
   self.skipWaiting();
 });
@@ -63,20 +67,29 @@ self.addEventListener("fetch", (evt) => {
 
   const url = new URL(evt.request.url);
 
-  // Strictly avoid intercepting blob:, data:, or non-http requests
+  // Strictly avoid intercepting blob:, data:, api endpoints, or admin paths
   if (url.protocol !== "http:" && url.protocol !== "https:") return;
+  if (url.pathname.startsWith("/api/")) return;
+  if (url.pathname.includes("samnang.com.com.omg")) return;
 
+  // Network-First Strategy for HTML, JS, CSS: Always fetch fresh, fallback to cache if offline
   evt.respondWith(
-    caches.match(evt.request).then((cached) => {
-      if (cached) return cached;
-      return fetch(evt.request).then((response) => {
-        if (!response || response.status !== 200 || response.type !== "basic") {
-          return response;
+    fetch(evt.request)
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const clone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(evt.request, clone));
         }
-        const toCache = response.clone();
-        caches.open(CACHE_NAME).then((cache) => cache.put(evt.request, toCache));
-        return response;
-      }).catch(() => caches.match("/"));
-    })
+        return networkResponse;
+      })
+      .catch(() => {
+        return caches.match(evt.request).then((cached) => {
+          if (cached) return cached;
+          if (evt.request.mode === "navigate") {
+            return caches.match("/index.html") || caches.match("/");
+          }
+          return new Response("Offline resource unavailable", { status: 503, statusText: "Offline" });
+        });
+      })
   );
 });

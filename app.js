@@ -551,10 +551,12 @@ render();
 runDiagnostics();
 checkTransferredImage();
 
-// Register Service Worker for Offline PWA Resilience
+// Register Service Worker for Offline PWA Resilience (Auto-updating)
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(() => {});
+    navigator.serviceWorker.register("/sw.js").then((reg) => {
+      reg.update().catch(() => {});
+    }).catch(() => {});
   });
 }
 
@@ -2766,6 +2768,10 @@ function bindQueueRow(row) {
     const button = event.target.closest("button");
     if (button) {
       const action = button.dataset.action;
+      if (action === "remove-bg") {
+        const item = findItem(id);
+        if (item) openItemInBgRemover(item);
+      }
       if (action === "remove-bg") {
         const item = findItem(id);
         if (item) openItemInBgRemover(item);

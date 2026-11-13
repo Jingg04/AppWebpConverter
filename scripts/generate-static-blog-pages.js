@@ -143,3 +143,4 @@ function escapeAttr(str) {
   if (!str) return '';
   return str.replace(/"/g, '&quot;');
 }
+

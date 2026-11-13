@@ -98,3 +98,4 @@ console.log('✅ Successfully compiled master blog database:');
 console.log(` - data/blog-articles.json (${allArticles.length} articles)`);
 console.log(` - data/blog-manifest.json (${manifest.length} manifest entries)`);
 console.log(` - data/visual-assets-catalog.json (${allVisualAssets.length} visual asset prompts)`);
+

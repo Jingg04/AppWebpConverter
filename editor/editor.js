@@ -240,6 +240,8 @@
     copyClipboardBtn: document.getElementById("copyClipboardBtn"),
 
     // Landing samples
+    emptyOverlayCloseBtn: document.getElementById("emptyOverlayCloseBtn"),
+    loadBlankCanvasBtn: document.getElementById("loadBlankCanvasBtn"),
     loadSampleLandscapeBtn: document.getElementById("loadSampleLandscapeBtn"),
     loadSamplePortraitBtn: document.getElementById("loadSamplePortraitBtn"),
     loadSampleCutoutBtn: document.getElementById("loadSampleCutoutBtn"),
@@ -2115,6 +2117,8 @@
     });
 
     // Sample generators
+    dom.emptyOverlayCloseBtn?.addEventListener("click", () => dom.emptyOverlay?.classList.add("hidden"));
+    dom.loadBlankCanvasBtn?.addEventListener("click", () => initDocumentWithBlank(1920, 1080));
     dom.loadSampleLandscapeBtn?.addEventListener("click", () => generateSampleCanvas("landscape"));
     dom.loadSamplePortraitBtn?.addEventListener("click", () => generateSampleCanvas("portrait"));
     dom.pasteClipboardLandingBtn?.addEventListener("click", pasteFromClipboard);
@@ -2638,6 +2642,15 @@
   }
 
   // --- Synthetic Sample Image Generator ---
+  function initDocumentWithBlank(w = 1920, h = 1080) {
+    const blankCanvas = Object.assign(document.createElement("canvas"), { width: w, height: h });
+    const bCtx = blankCanvas.getContext("2d");
+    bCtx.fillStyle = "#FFFFFF";
+    bCtx.fillRect(0, 0, w, h);
+    initDocumentWithImage(blankCanvas, "Blank Canvas");
+    dom.emptyOverlay?.classList.add("hidden");
+  }
+
   function generateSampleCanvas(type = "landscape") {
     const isLand = type === "landscape";
     const w = isLand ? 1920 : 1080;
@@ -2718,8 +2731,9 @@
       }
     } catch (_) {}
 
-    // Show empty state overlay by default
-    dom.emptyOverlay.classList.remove("hidden");
+    // Auto-load high-resolution landscape photo sample by default so the editor is immediately interactive
+    generateSampleCanvas("landscape");
+    dom.emptyOverlay?.classList.add("hidden");
   }
 
   // --- Utility Functions ---

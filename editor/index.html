@@ -23,6 +23,7 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="editor.css" />
 
@@ -863,8 +864,9 @@
       </div>
 
       <!-- Empty State Landing Screen Overlay -->
-      <div class="editor-empty-overlay" id="editorEmptyOverlay">
-        <div class="editor-landing-card">
+      <div class="editor-empty-overlay hidden" id="editorEmptyOverlay">
+        <div class="editor-landing-card" style="position: relative;">
+          <button class="btn btn-sm btn-ghost" id="emptyOverlayCloseBtn" type="button" aria-label="Close dialog and use current canvas" style="position: absolute; top: 16px; right: 16px; font-size: 1.2rem; width: 36px; height: 36px; padding: 0; line-height: 1;">✕</button>
           <div class="brand mb-2">
             <span class="brand-logo" aria-hidden="true">
               <svg viewBox="0 0 32 32" width="36" height="36">
@@ -887,7 +889,8 @@
             <input type="file" id="editorFileInput" class="hidden" accept="image/*,.raw,.arw,.cr2,.cr3,.nef,.dng,.psd,.svg,.tiff,.tif,.heic" />
           </div>
 
-          <div class="quick-samples-row">
+          <div class="quick-samples-row" style="flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px;">
+            <button class="btn btn-xs btn-primary" id="loadBlankCanvasBtn" type="button">Start Blank Canvas</button>
             <button class="btn btn-xs btn-outline" id="loadSampleLandscapeBtn" type="button">Sample Landscape</button>
             <button class="btn btn-xs btn-outline" id="loadSamplePortraitBtn" type="button">Sample Portrait</button>
             <button class="btn btn-xs btn-ai-gradient" id="loadSampleCutoutBtn" type="button">AI Cutout Demo</button>

@@ -206,3 +206,4 @@ const cat04 = [
 // Write cat04 module
 fs.writeFileSync(path.join(__dirname, 'cat04-resizing.js'), `module.exports = ${JSON.stringify(cat04, null, 2)};\n`, 'utf8');
 console.log('✔ Generated cat04-resizing.js (Articles 31-35 seeded)');
+

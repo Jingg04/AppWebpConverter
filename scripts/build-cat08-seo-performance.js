@@ -1271,3 +1271,4 @@ module.exports = ${JSON.stringify(articles, null, 2)};
 
 fs.writeFileSync(outputPath, fileContent, 'utf8');
 console.log(`Generated Category 08 with ${articles.length} articles and ${articles.reduce((acc, a) => acc + a.visualAssets.length, 0)} visual assets.`);
+

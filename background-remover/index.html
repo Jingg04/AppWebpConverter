@@ -73,7 +73,10 @@
           <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary-blue); margin-bottom: 16px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
           <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">Upload an Image to Remove Background</h2>
           <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px;">Drag &amp; drop PNG, JPG, WebP, HEIC, or Camera RAW</p>
-          <button class="btn btn-primary" type="button" id="btnSelectBgFile">Choose Photo</button>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <button class="btn btn-primary" type="button" id="btnSelectBgFile">Choose Photo</button>
+            <button class="btn btn-outline" type="button" id="btnTrySampleBg">Try Sample Photo</button>
+          </div>
         </div>
 
         <!-- Processing State Card (Hidden by default) -->
@@ -163,6 +166,29 @@
         fileInput.addEventListener('change', (e) => {
           const file = e.target.files[0];
           if (file) processFile(file);
+        });
+
+        document.getElementById('btnTrySampleBg')?.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const canvas = document.createElement('canvas');
+          canvas.width = 800;
+          canvas.height = 800;
+          const ctx = canvas.getContext('2d');
+          ctx.fillStyle = '#1E293B';
+          ctx.fillRect(0, 0, 800, 800);
+          ctx.beginPath();
+          ctx.arc(400, 400, 240, 0, Math.PI * 2);
+          ctx.fillStyle = '#F97316';
+          ctx.fill();
+          ctx.fillStyle = '#FFFFFF';
+          ctx.font = 'bold 36px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('FluxWebP Studio', 400, 410);
+
+          canvas.toBlob((blob) => {
+            const file = new File([blob], 'sample-product.png', { type: 'image/png' });
+            processFile(file);
+          });
         });
 
         async function processFile(file) {

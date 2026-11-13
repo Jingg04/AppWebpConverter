@@ -196,3 +196,4 @@ module.exports = async function handler(req, res) {
   res.statusCode = 405;
   res.end('Method Not Allowed');
 };
+
