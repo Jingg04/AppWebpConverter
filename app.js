@@ -1,5 +1,5 @@
 /**
- * FluxWebP Pro — Professional Universal Image Conversion & Optimization Engine
+ * FluxWebP Pro — Universal Image Optimization Platform
  * Pure Client-Side Architecture (WebAssembly, Canvas 2D, Stream Parsers, Zero Server Uploads)
  */
 
@@ -9,7 +9,7 @@
 const HISTORY_KEY = "fluxwebp-history-v2";
 const SETTINGS_KEY = "fluxwebp-settings-v2";
 const THEME_KEY = "fluxwebp-theme";
-const MAX_HISTORY = 40;
+const MAX_HISTORY = 50;
 
 const RAW_EXTENSIONS = new Set([
   "arw", "srf", "sr2", // Sony
@@ -50,7 +50,7 @@ const CODECS = {
 
 const FORMAT_CATALOG = [
   // Camera RAW Formats
-  { ext: "ARW", name: "Sony Alpha RAW", category: "raw", engine: "Camera ISP Extractor", desc: "Sony Alpha mirrorless uncompressed & compressed 14-bit RAW." },
+  { ext: "ARW", name: "Sony Alpha RAW", category: "raw", engine: "Camera ISP Extractor", desc: "Sony Alpha mirrorless uncompressed & compressed 14-bit RAW sensor files." },
   { ext: "CR2", name: "Canon RAW 2", category: "raw", engine: "Camera ISP Extractor", desc: "Canon EOS DSLR and mirrorless linear sensor captures." },
   { ext: "CR3", name: "Canon RAW 3", category: "raw", engine: "ISOBMFF & ISP Engine", desc: "Modern Canon EOS mirrorless HEVC container RAW format." },
   { ext: "NEF", name: "Nikon Electronic Format", category: "raw", engine: "Camera ISP Extractor", desc: "Nikon Z-series mirrorless and DSLR native RAW captures." },
@@ -93,40 +93,44 @@ const FORMAT_CATALOG = [
 // --- DOM References ---
 const dom = {
   root: document.documentElement,
-  themeToggle: document.getElementById("themeToggle"),
-  mobileMenuToggle: document.getElementById("mobileMenuToggle"),
   mainNav: document.getElementById("mainNav"),
+  mobileMenuToggle: document.getElementById("mobileMenuToggle"),
+  themeToggle: document.getElementById("themeToggle"),
   openSettings: document.getElementById("openSettings"),
   docsLink: document.getElementById("docsLink"),
   footerDocsBtn: document.getElementById("footerDocsBtn"),
+  footerSettingsBtn: document.getElementById("footerSettingsBtn"),
   footerPrivacyBtn: document.getElementById("footerPrivacyBtn"),
-  loadSampleBtn: document.getElementById("loadSampleBtn"),
+
+  // Views
+  views: {
+    converter: document.getElementById("view-converter"),
+    formats: document.getElementById("view-formats"),
+    history: document.getElementById("view-history"),
+    api: document.getElementById("view-api")
+  },
+  navItems: document.querySelectorAll(".nav-item"),
+
+  // Converter Workspace
+  triggerDrawerBtn: document.getElementById("triggerDrawerBtn"),
+  headerClearQueueBtn: document.getElementById("headerClearQueueBtn"),
+  resetSettingsBtn: document.getElementById("resetSettingsBtn"),
+  formatPills: document.querySelectorAll(".format-pill"),
+  formatHint: document.getElementById("formatHint"),
+  qualityRange: document.getElementById("qualityRange"),
+  qualityValue: document.getElementById("qualityValue"),
+  presetBtns: document.querySelectorAll(".preset-btn"),
+  autoOptimize: document.getElementById("autoOptimize"),
+  preserveMetadata: document.getElementById("preserveMetadata"),
 
   // Upload
   dropzone: document.getElementById("dropzone"),
   fileInput: document.getElementById("fileInput"),
   folderUploadTrigger: document.getElementById("folderUploadTrigger"),
   folderInput: document.getElementById("folderInput"),
+  loadSampleBtn: document.getElementById("loadSampleBtn"),
 
-  // Conversion Settings
-  formatHint: document.getElementById("formatHint"),
-  formatPills: document.querySelectorAll(".format-pill"),
-  resetSettingsBtn: document.getElementById("resetSettingsBtn"),
-  qualityGroup: document.getElementById("qualityGroup"),
-  qualityRange: document.getElementById("qualityRange"),
-  qualityValue: document.getElementById("qualityValue"),
-  presetBtns: document.querySelectorAll(".preset-btn"),
-  autoOptimize: document.getElementById("autoOptimize"),
-  preserveMetadata: document.getElementById("preserveMetadata"),
-  maxWidthInput: document.getElementById("maxWidthInput"),
-  maxHeightInput: document.getElementById("maxHeightInput"),
-  maintainAspect: document.getElementById("maintainAspect"),
-  namingPattern: document.getElementById("namingPattern"),
-  customPrefixGroup: document.getElementById("customPrefixGroup"),
-  customPrefixInput: document.getElementById("customPrefixInput"),
-  stripGps: document.getElementById("stripGps"),
-
-  // Comparison & Inspector View
+  // Preview & Comparison
   previewBadge: document.getElementById("previewBadge"),
   previewTitle: document.getElementById("previewTitle"),
   toggleCompareMode: document.getElementById("toggleCompareMode"),
@@ -148,7 +152,7 @@ const dom = {
   sideAfterImage: document.getElementById("sideAfterImage"),
   emptyState: document.getElementById("emptyState"),
 
-  // Meta Bar
+  // Comparison Meta Bar
   selectedOriginal: document.getElementById("selectedOriginal"),
   selectedOrigDim: document.getElementById("selectedOrigDim"),
   metaOutputFormatLabel: document.getElementById("metaOutputFormatLabel"),
@@ -157,7 +161,21 @@ const dom = {
   selectedSaved: document.getElementById("selectedSaved"),
   selectedSavedBytes: document.getElementById("selectedSavedBytes"),
 
-  // Statistics
+  // Queue Section
+  queueCountBadge: document.getElementById("queueCountBadge"),
+  selectAllBtn: document.getElementById("selectAllBtn"),
+  removeSelectedBtn: document.getElementById("removeSelectedBtn"),
+  pauseQueueBtn: document.getElementById("pauseQueueBtn"),
+  retryFailedBtn: document.getElementById("retryFailedBtn"),
+  clearQueueBtn: document.getElementById("clearQueueBtn"),
+  downloadZip: document.getElementById("downloadZip"),
+  batchProgressWrapper: document.getElementById("batchProgressWrapper"),
+  batchProgressLabel: document.getElementById("batchProgressLabel"),
+  batchProgressPercent: document.getElementById("batchProgressPercent"),
+  batchProgressBarFill: document.getElementById("batchProgressBarFill"),
+  queueList: document.getElementById("queueList"),
+
+  // Live Statistics
   totalFiles: document.getElementById("totalFiles"),
   statQueuePending: document.getElementById("statQueuePending"),
   completedFiles: document.getElementById("completedFiles"),
@@ -166,35 +184,41 @@ const dom = {
   totalOutput: document.getElementById("totalOutput"),
   totalSavedBytes: document.getElementById("totalSavedBytes"),
   totalSavedPercent: document.getElementById("totalSavedPercent"),
-  batchProgressWrapper: document.getElementById("batchProgressWrapper"),
-  batchProgressLabel: document.getElementById("batchProgressLabel"),
-  batchProgressPercent: document.getElementById("batchProgressPercent"),
-  batchProgressBarFill: document.getElementById("batchProgressBarFill"),
 
-  // Queue
-  queueCountBadge: document.getElementById("queueCountBadge"),
-  selectAllBtn: document.getElementById("selectAllBtn"),
-  removeSelectedBtn: document.getElementById("removeSelectedBtn"),
-  pauseQueueBtn: document.getElementById("pauseQueueBtn"),
-  retryFailedBtn: document.getElementById("retryFailedBtn"),
-  clearQueueBtn: document.getElementById("clearQueueBtn"),
-  downloadZip: document.getElementById("downloadZip"),
-  queueList: document.getElementById("queueList"),
+  // Advanced Settings Drawer
+  drawerOverlay: document.getElementById("drawerOverlay"),
+  advancedDrawer: document.getElementById("advancedDrawer"),
+  drawerCloseBtn: document.getElementById("drawerCloseBtn"),
+  drawerResetBtn: document.getElementById("drawerResetBtn"),
+  drawerApplyBtn: document.getElementById("drawerApplyBtn"),
+  maxWidthInput: document.getElementById("maxWidthInput"),
+  maxHeightInput: document.getElementById("maxHeightInput"),
+  maintainAspect: document.getElementById("maintainAspect"),
+  stripGps: document.getElementById("stripGps"),
+  preserveIcc: document.getElementById("preserveIcc"),
+  namingPattern: document.getElementById("namingPattern"),
+  customPrefixGroup: document.getElementById("customPrefixGroup"),
+  customPrefixInput: document.getElementById("customPrefixInput"),
+  drawerConcurrencySelect: document.getElementById("drawerConcurrencySelect"),
 
-  // Formats Directory
+  // Formats View
   formatSearchInput: document.getElementById("formatSearchInput"),
   formatCatBtns: document.querySelectorAll(".format-cat-btn"),
   formatsGrid: document.getElementById("formatsGrid"),
 
-  // API Block
-  copyApiCodeBtn: document.getElementById("copyApiCodeBtn"),
-  apiCodeBlock: document.getElementById("apiCodeBlock"),
-
-  // History
+  // History View
   historySearchInput: document.getElementById("historySearchInput"),
   exportHistoryBtn: document.getElementById("exportHistoryBtn"),
   clearHistory: document.getElementById("clearHistory"),
+  historyTotalCount: document.getElementById("historyTotalCount"),
+  historyOrigTotal: document.getElementById("historyOrigTotal"),
+  historyOutTotal: document.getElementById("historyOutTotal"),
+  historySavedTotal: document.getElementById("historySavedTotal"),
   historyList: document.getElementById("historyList"),
+
+  // Developer API View
+  copyApiCodeBtn: document.getElementById("copyApiCodeBtn"),
+  apiCodeBlock: document.getElementById("apiCodeBlock"),
 
   // Dialogs
   settingsDialog: document.getElementById("settingsDialog"),
@@ -203,11 +227,16 @@ const dom = {
   themeSelect: document.getElementById("themeSelect"),
   saveHistoryToggle: document.getElementById("saveHistoryToggle"),
   purgeDataBtn: document.getElementById("purgeDataBtn"),
+  diagOffscreen: document.getElementById("diagOffscreen"),
+  diagWasm: document.getElementById("diagWasm"),
+  diagAvif: document.getElementById("diagAvif"),
 
   previewModal: document.getElementById("previewModal"),
   modalFormatBadge: document.getElementById("modalFormatBadge"),
   previewModalTitle: document.getElementById("previewModalTitle"),
   modalDimLabel: document.getElementById("modalDimLabel"),
+  modalPrevBtn: document.getElementById("modalPrevBtn"),
+  modalNextBtn: document.getElementById("modalNextBtn"),
   modalZoomOut: document.getElementById("modalZoomOut"),
   modalZoomLevel: document.getElementById("modalZoomLevel"),
   modalZoomIn: document.getElementById("modalZoomIn"),
@@ -225,6 +254,7 @@ const dom = {
 
 // --- Application State ---
 const state = {
+  currentTab: "converter",
   items: [],
   selectedId: null,
   targetFormat: "webp",
@@ -251,18 +281,70 @@ const scriptCache = new Map();
 // --- Initialization ---
 loadSavedSettings();
 initTheme();
+initRouting();
 renderFormatCatalog();
 bindAllEvents();
 renderHistory();
 syncCompare();
 render();
+runDiagnostics();
 
-// Export Global API
+// Export Global SDK API
 window.FluxWebP = {
   convertFile,
   getSupportedFormats: () => FORMAT_CATALOG,
   getQueue: () => [...state.items]
 };
+
+// --- Routing & Tab Management ---
+function initRouting() {
+  window.addEventListener("hashchange", handleHashChange);
+  handleHashChange();
+}
+
+function handleHashChange() {
+  const hash = window.location.hash.replace("#/", "").replace("#", "").toLowerCase() || "converter";
+  const validTabs = ["converter", "formats", "history", "api"];
+  const target = validTabs.includes(hash) ? hash : "converter";
+  switchTab(target);
+}
+
+function switchTab(tabName) {
+  state.currentTab = tabName;
+
+  // Update Navigation Active State
+  dom.navItems.forEach((item) => {
+    const isTarget = item.dataset.tab === tabName;
+    item.classList.toggle("active", isTarget);
+    if (isTarget) {
+      item.setAttribute("aria-current", "page");
+    } else {
+      item.removeAttribute("aria-current");
+    }
+  });
+
+  // Switch View Containers
+  Object.keys(dom.views).forEach((key) => {
+    const view = dom.views[key];
+    if (view) {
+      if (key === tabName) {
+        view.classList.remove("hidden");
+        requestAnimationFrame(() => view.classList.add("active"));
+      } else {
+        view.classList.remove("active");
+        view.classList.add("hidden");
+      }
+    }
+  });
+
+  // Close mobile navigation drawer if open
+  dom.mainNav?.classList.remove("nav-open");
+  dom.mobileMenuToggle?.setAttribute("aria-expanded", "false");
+
+  // Rerender tab-specific content if needed
+  if (tabName === "history") renderHistory();
+  if (tabName === "formats") filterFormatsCatalog();
+}
 
 // --- Settings & Storage Management ---
 function loadSavedSettings() {
@@ -279,6 +361,7 @@ function loadSavedSettings() {
 
   if (dom.defaultFormatSelect) dom.defaultFormatSelect.value = state.targetFormat;
   if (dom.concurrencySelect) dom.concurrencySelect.value = String(state.concurrency);
+  if (dom.drawerConcurrencySelect) dom.drawerConcurrencySelect.value = String(state.concurrency);
   if (dom.saveHistoryToggle) dom.saveHistoryToggle.checked = state.saveHistory;
 
   updateFormatPillsUI(state.targetFormat);
@@ -295,6 +378,7 @@ function saveSettings() {
   state.concurrency = state.settings.concurrency;
   state.saveHistory = state.settings.saveHistory;
 
+  if (dom.drawerConcurrencySelect) dom.drawerConcurrencySelect.value = String(state.concurrency);
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(state.settings));
   updateFormatPillsUI(state.targetFormat);
   scheduleReconvert();
@@ -349,27 +433,39 @@ function handleThemeSelectChange() {
   }
 }
 
+// --- Drawer Management ---
+function openDrawer() {
+  dom.drawerOverlay.classList.add("open");
+  dom.advancedDrawer.classList.add("open");
+  dom.advancedDrawer.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeDrawer() {
+  dom.drawerOverlay.classList.remove("open");
+  dom.advancedDrawer.classList.remove("open");
+  dom.advancedDrawer.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
 // --- Event Binding ---
 function bindAllEvents() {
-  // Navigation & Dialog triggers
-  dom.themeToggle?.addEventListener("click", toggleTheme);
+  // Mobile Navigation
   dom.mobileMenuToggle?.addEventListener("click", () => {
-    dom.mainNav.classList.toggle("nav-open");
+    const isOpen = dom.mainNav.classList.toggle("nav-open");
+    dom.mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  dom.mainNav?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => dom.mainNav.classList.remove("nav-open"));
-  });
-
+  // Theme & Settings Triggers
+  dom.themeToggle?.addEventListener("click", toggleTheme);
   dom.openSettings?.addEventListener("click", () => dom.settingsDialog.showModal());
-  dom.docsLink?.addEventListener("click", (e) => {
-    e.preventDefault();
-    dom.docsModal.showModal();
-  });
+  dom.footerSettingsBtn?.addEventListener("click", () => dom.settingsDialog.showModal());
+  dom.docsLink?.addEventListener("click", () => dom.docsModal.showModal());
   dom.footerDocsBtn?.addEventListener("click", () => dom.docsModal.showModal());
   dom.footerPrivacyBtn?.addEventListener("click", () => {
-    const el = document.getElementById("privacy");
-    el?.scrollIntoView({ behavior: "smooth" });
+    switchTab("converter");
+    const privacy = document.getElementById("privacy");
+    privacy?.scrollIntoView({ behavior: "smooth" });
   });
 
   wireDialogBackdrop(dom.settingsDialog);
@@ -379,6 +475,20 @@ function bindAllEvents() {
   dom.settingsDialog?.querySelector("form[method='dialog'] button[value='save']")?.addEventListener("click", saveSettings);
   dom.themeSelect?.addEventListener("change", handleThemeSelectChange);
   dom.purgeDataBtn?.addEventListener("click", purgeAllData);
+
+  // Drawer Triggers
+  dom.triggerDrawerBtn?.addEventListener("click", openDrawer);
+  dom.drawerCloseBtn?.addEventListener("click", closeDrawer);
+  dom.drawerOverlay?.addEventListener("click", closeDrawer);
+  dom.drawerApplyBtn?.addEventListener("click", () => {
+    closeDrawer();
+    scheduleReconvert();
+    showToast("Advanced settings applied.");
+  });
+  dom.drawerResetBtn?.addEventListener("click", resetSettingsToDefaults);
+
+  // Clear Queue Shortcut
+  dom.headerClearQueueBtn?.addEventListener("click", clearQueue);
 
   // File Uploads
   dom.fileInput?.addEventListener("change", (e) => addFiles(e.target.files));
@@ -417,7 +527,7 @@ function bindAllEvents() {
     });
   });
 
-  // Quality Controls
+  // Quality Range & Presets
   dom.qualityRange?.addEventListener("input", handleQualityRangeChange);
   dom.presetBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -426,35 +536,44 @@ function bindAllEvents() {
     });
   });
 
-  // Core & Advanced Settings Toggles
+  // Toggles
   dom.autoOptimize?.addEventListener("change", handleAutoOptimizeToggle);
   dom.preserveMetadata?.addEventListener("change", () => scheduleReconvert());
   dom.resetSettingsBtn?.addEventListener("click", resetSettingsToDefaults);
-  dom.maintainAspect?.addEventListener("change", () => scheduleReconvert());
+
+  // Drawer Settings
   dom.maxWidthInput?.addEventListener("change", () => scheduleReconvert());
   dom.maxHeightInput?.addEventListener("change", () => scheduleReconvert());
+  dom.maintainAspect?.addEventListener("change", () => scheduleReconvert());
   dom.stripGps?.addEventListener("change", () => scheduleReconvert());
+  dom.preserveIcc?.addEventListener("change", () => scheduleReconvert());
+  dom.drawerConcurrencySelect?.addEventListener("change", (e) => {
+    state.concurrency = Number(e.target.value) || 3;
+    if (dom.concurrencySelect) dom.concurrencySelect.value = String(state.concurrency);
+  });
 
   dom.namingPattern?.addEventListener("change", () => {
     const isCustom = dom.namingPattern.value === "custom_prefix";
-    dom.customPrefixGroup.classList.toggle("hidden", !isCustom);
+    dom.customPrefixGroup?.classList.toggle("hidden", !isCustom);
     renderQueue();
   });
   dom.customPrefixInput?.addEventListener("input", () => renderQueue());
 
-  // Comparison & Inspector
+  // Comparison View Mode
   dom.compareRange?.addEventListener("input", syncCompare);
   dom.toggleCompareMode?.addEventListener("click", toggleCompareMode);
   dom.toggleCheckerboard?.addEventListener("click", toggleCheckerboard);
   dom.openFullscreenPreview?.addEventListener("click", openFullscreenInspector);
   dom.downloadSelected?.addEventListener("click", downloadSelected);
 
-  // Inspector Zoom Controls
+  // Fullscreen Inspector Navigation & Zoom
+  dom.modalPrevBtn?.addEventListener("click", navigateInspectorPrev);
+  dom.modalNextBtn?.addEventListener("click", navigateInspectorNext);
   dom.modalZoomIn?.addEventListener("click", () => adjustModalZoom(25));
   dom.modalZoomOut?.addEventListener("click", () => adjustModalZoom(-25));
   dom.modalZoomReset?.addEventListener("click", () => setModalZoom(100));
 
-  // Batch Queue Controls
+  // Batch Queue Actions
   dom.selectAllBtn?.addEventListener("click", toggleSelectAllQueue);
   dom.removeSelectedBtn?.addEventListener("click", removeSelectedQueueItems);
   dom.pauseQueueBtn?.addEventListener("click", togglePauseQueue);
@@ -477,10 +596,10 @@ function bindAllEvents() {
     });
   });
 
-  // API Snippet Copy
+  // API Code Copy
   dom.copyApiCodeBtn?.addEventListener("click", copyApiSnippet);
 
-  // History
+  // History Actions
   dom.historySearchInput?.addEventListener("input", renderHistory);
   dom.exportHistoryBtn?.addEventListener("click", exportHistoryToJson);
   dom.clearHistory?.addEventListener("click", clearHistory);
@@ -491,6 +610,42 @@ function wireDialogBackdrop(dialog) {
   dialog.addEventListener("click", (e) => {
     if (e.target === dialog) dialog.close();
   });
+}
+
+// --- Diagnostics Verification ---
+function runDiagnostics() {
+  if (dom.diagOffscreen) {
+    dom.diagOffscreen.textContent = "OffscreenCanvas" in window ? "Supported (Hardware Accelerated)" : "Fallback to Canvas 2D";
+    dom.diagOffscreen.className = "text-green";
+  }
+  if (dom.diagWasm) {
+    dom.diagWasm.textContent = typeof WebAssembly === "object" ? "Supported" : "Unavailable";
+    dom.diagWasm.className = "text-green";
+  }
+  if (dom.diagAvif) {
+    const c = document.createElement("canvas");
+    c.width = 1; c.height = 1;
+    if ("convertToBlob" in c) {
+      c.convertToBlob({ type: "image/avif" })
+        .then(() => {
+          if (dom.diagAvif) {
+            dom.diagAvif.textContent = "Native Canvas Supported";
+            dom.diagAvif.className = "text-green";
+          }
+        })
+        .catch(() => {
+          if (dom.diagAvif) {
+            dom.diagAvif.textContent = "Fallback to WebP";
+            dom.diagAvif.className = "text-secondary";
+          }
+        });
+    } else {
+      if (dom.diagAvif) {
+        dom.diagAvif.textContent = "Fallback to WebP";
+        dom.diagAvif.className = "text-secondary";
+      }
+    }
+  }
 }
 
 // --- Clipboard Paste Handler ---
@@ -523,7 +678,7 @@ function setTargetFormat(format) {
   if (format === "png") {
     dom.formatHint.textContent = "PNG: Universal lossless compression with full alpha channel support.";
     dom.qualityRange.disabled = true;
-    dom.qualityValue.textContent = "100 (Lossless)";
+    dom.qualityValue.textContent = "100";
   } else if (format === "jpeg") {
     dom.formatHint.textContent = "JPEG: Universal photographic standard. No alpha transparency support.";
     dom.qualityRange.disabled = false;
@@ -617,6 +772,7 @@ function resetSettingsToDefaults() {
   if (dom.customPrefixGroup) dom.customPrefixGroup.classList.add("hidden");
   if (dom.customPrefixInput) dom.customPrefixInput.value = "";
   if (dom.stripGps) dom.stripGps.checked = true;
+  if (dom.preserveIcc) dom.preserveIcc.checked = true;
 
   scheduleReconvert();
   showToast("Settings reset to balanced production defaults.");
@@ -673,6 +829,26 @@ function openFullscreenInspector() {
   dom.previewModal.showModal();
 }
 
+function navigateInspectorPrev() {
+  if (!state.items.length) return;
+  const idx = state.items.findIndex((i) => i.id === state.selectedId);
+  const prevIdx = idx > 0 ? idx - 1 : state.items.length - 1;
+  state.selectedId = state.items[prevIdx].id;
+  renderPreview();
+  renderQueue();
+  openFullscreenInspector();
+}
+
+function navigateInspectorNext() {
+  if (!state.items.length) return;
+  const idx = state.items.findIndex((i) => i.id === state.selectedId);
+  const nextIdx = idx < state.items.length - 1 ? idx + 1 : 0;
+  state.selectedId = state.items[nextIdx].id;
+  renderPreview();
+  renderQueue();
+  openFullscreenInspector();
+}
+
 function adjustModalZoom(delta) {
   setModalZoom(state.modalZoom + delta);
 }
@@ -696,7 +872,7 @@ function addFiles(fileList) {
       skipped++;
       return;
     }
-    if (file.size > 250_000_000) { // 250 MB ceiling
+    if (file.size > 250_000_000) {
       showToast(`Skipped ${file.name} (exceeds 250MB browser limit).`);
       skipped++;
       return;
@@ -729,7 +905,7 @@ function addFiles(fileList) {
       outputSize: 0,
       savedPercent: 0,
       savedBytes: 0,
-      status: "queued", // 'queued' | 'converting' | 'done' | 'error'
+      status: "queued",
       progress: 0,
       error: "",
       width: 0,
@@ -881,13 +1057,13 @@ async function convertFile(file, options = {}) {
   // 1. Universal Decoding
   const decoded = await decodeImage(file);
 
-  // 2. High-Quality Canvas Rasterization & Optional Dimension Constraints
+  // 2. High-Quality Canvas Rasterization & Dimension Constraints
   const { canvas, width, height } = drawToCanvas(decoded.source, decoded.width, decoded.height, options.resize || {});
 
   // 3. Multi-Format Canvas Encoding
   const blob = await canvasToFormat(canvas, targetFormat, quality);
 
-  // 4. EXIF Injection (Best-effort for WebP & JPEG)
+  // 4. EXIF Injection
   const finalBlob = options.preserveMetadata
     ? await tryPreserveExif(file, blob, targetFormat, width, height, options.stripGps)
     : blob;
@@ -1069,7 +1245,7 @@ async function decodeRawImage(file) {
     }
   }
 
-  // Strict JPEG marker verifier
+  // Strict JPEG marker sequence verifier
   function isValidJpeg(offset) {
     if (offset + 4 > bytes.length) return false;
     if (bytes[offset] !== 0xff || bytes[offset + 1] !== 0xd8) return false;
@@ -1085,8 +1261,8 @@ async function decodeRawImage(file) {
       if (p >= bytes.length) break;
 
       const marker = bytes[p++];
-      if (marker === 0xd9) break; // EOI
-      if (marker === 0xda) { // SOS
+      if (marker === 0xd9) break;
+      if (marker === 0xda) {
         foundSos = true;
         break;
       }
@@ -1095,7 +1271,6 @@ async function decodeRawImage(file) {
       const len = (bytes[p] << 8) | bytes[p + 1];
       if (len < 2 || p + len > bytes.length) break;
 
-      // SOF0, SOF1, SOF2
       if (marker === 0xc0 || marker === 0xc1 || marker === 0xc2) {
         if (len >= 7) {
           const h = (bytes[p + 3] << 8) | bytes[p + 4];
@@ -1133,7 +1308,7 @@ async function decodeRawImage(file) {
     throw new Error("raw-codec-failed");
   }
 
-  // Choose the candidate with largest dimension
+  // Choose the candidate with largest resolution
   let best = null;
   let maxArea = 0;
 
@@ -1714,7 +1889,6 @@ async function extractJpegExif(file, stripGps = true) {
       const matchesHeader = header.split("").every((char, index) => payload[index] === char.charCodeAt(0));
       if (matchesHeader) {
         if (stripGps) {
-          // Zero out GPSInfo pointer tag (0x8825) if present
           for (let i = 6; i < payload.length - 12; i++) {
             if ((payload[i] === 0x25 && payload[i + 1] === 0x88) || (payload[i] === 0x88 && payload[i + 1] === 0x25)) {
               payload[i] = 0; payload[i + 1] = 0;
@@ -1761,7 +1935,7 @@ function injectExifIntoWebP(webpBytes, exifBytes, width, height) {
   const normalized = chunks.map((chunk) => {
     if (chunk.type !== "VP8X") return chunk;
     const data = new Uint8Array(chunk.data);
-    data[0] = data[0] | 0x08; // Set EXIF flag
+    data[0] = data[0] | 0x08;
     return { type: chunk.type, data };
   });
 
@@ -1822,7 +1996,7 @@ function updateStats() {
   const overallSavedPercent = origTotal ? Math.round((savedTotal / origTotal) * 100) : 0;
 
   dom.totalFiles.textContent = String(total);
-  dom.statQueuePending.textContent = `${pending.length} queued / converting`;
+  dom.statQueuePending.textContent = `${pending.length} queued / waiting`;
   dom.completedFiles.textContent = String(done.length);
   dom.failedFiles.textContent = String(failed.length);
   dom.totalOriginalSize.textContent = formatBytes(origTotal);
@@ -1831,7 +2005,7 @@ function updateStats() {
   dom.totalSavedPercent.textContent = `${overallSavedPercent}%`;
 
   // Batch Progress Bar
-  if (total > 0) {
+  if (total > 0 && pending.length > 0) {
     dom.batchProgressWrapper.classList.remove("hidden");
     const completedCount = done.length + failed.length;
     const pct = Math.round((completedCount / total) * 100);
@@ -1911,10 +2085,10 @@ function renderQueue() {
         }
       </div>
       <div class="queue-item-actions">
-        <button class="icon-button" type="button" data-action="download" title="Download converted file" ${item.status === "done" ? "" : "disabled"}>
+        <button class="icon-btn" type="button" data-action="download" title="Download converted file" ${item.status === "done" ? "" : "disabled"}>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
         </button>
-        <button class="icon-button" type="button" data-action="remove" title="Remove from queue">
+        <button class="icon-btn" type="button" data-action="remove" title="Remove from queue">
           <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
       </div>
@@ -1996,8 +2170,6 @@ function bindQueueRow(row) {
 function renderPreview() {
   const selected = findItem(state.selectedId) || state.items[0] || null;
   if (selected && selected.id !== state.selectedId) state.selectedId = selected.id;
-
-  const isSplit = state.compareMode === "split";
 
   if (!selected) {
     dom.previewBadge.textContent = "Compare";
@@ -2131,6 +2303,17 @@ function renderHistory() {
   if (!dom.historyList) return;
   const history = getHistory();
   const query = dom.historySearchInput?.value.trim().toLowerCase() || "";
+
+  // Update Summary Metrics
+  const totalCount = history.length;
+  const origSum = history.reduce((sum, h) => sum + (h.originalSize || 0), 0);
+  const outSum = history.reduce((sum, h) => sum + (h.outputSize || 0), 0);
+  const savedSum = Math.max(0, origSum - outSum);
+
+  if (dom.historyTotalCount) dom.historyTotalCount.textContent = String(totalCount);
+  if (dom.historyOrigTotal) dom.historyOrigTotal.textContent = formatBytes(origSum);
+  if (dom.historyOutTotal) dom.historyOutTotal.textContent = formatBytes(outSum);
+  if (dom.historySavedTotal) dom.historySavedTotal.textContent = formatBytes(savedSum);
 
   const filtered = query
     ? history.filter((h) => h.name.toLowerCase().includes(query) || (h.targetFormat && h.targetFormat.toLowerCase().includes(query)))

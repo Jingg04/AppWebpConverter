@@ -1,329 +1,257 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <title>FluxWebP Pro — Universal Image Conversion &amp; Optimization Platform</title>
     <meta
       name="description"
-      content="Convert, compress, compare, and optimize any image or Camera RAW file (Sony ARW, Canon CR2/CR3, Nikon NEF, Adobe DNG, PSD, SVG, AVIF, HEIC, TIFF, PNG, JPG) to WebP and other formats with 100% client-side privacy."
+      content="Enterprise-grade client-side image conversion and optimization. Convert Camera RAW (ARW, CR2/CR3, NEF, DNG), PSD, SVG, HEIC, TIFF, PNG, and JPG directly in your browser. 100% private, on-device processing."
     />
     <meta name="theme-color" content="#2563EB" />
-    <meta property="og:title" content="FluxWebP Pro — Professional Image Conversion &amp; Optimization Platform" />
-    <meta
-      property="og:description"
-      content="Convert images, optimize quality, save space. Universal support for Camera RAW, Photoshop PSD, SVG, HEIC, TIFF, and all web formats with 100% on-device privacy."
-    />
-    <meta property="og:type" content="website" />
-    <title>FluxWebP Pro — Universal Image Conversion &amp; Optimization Platform</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232563EB'/%3E%3Cpath d='M18 22h17c7 0 12 4 12 10s-5 10-12 10H18V22zm9 7v6h8c3 0 5-1 5-3s-2-3-5-3h-8z' fill='white'/%3E%3Cpath d='M16 47h32' stroke='%23F97316' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- FOUC prevention for color scheme -->
+    <script>
+      try {
+        const storedTheme = localStorage.getItem("fluxwebp-theme");
+        if (storedTheme === "dark" || (!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.dataset.theme = "dark";
+        } else {
+          document.documentElement.dataset.theme = "light";
+        }
+      } catch (_) {}
+    </script>
   </head>
   <body>
-    <div class="app-wrapper">
-      <!-- Site Header -->
-      <header class="site-header" id="top" aria-label="Main Navigation">
-        <div class="header-container">
-          <a class="brand" href="#top" aria-label="FluxWebP Pro Home">
-            <span class="brand-mark" aria-hidden="true">
-              <svg viewBox="0 0 32 32" role="img">
-                <rect width="32" height="32" rx="9" fill="currentColor"></rect>
-                <path d="M9 11h9.2c3.8 0 6.3 2.1 6.3 5s-2.5 5-6.3 5H9V11zm5.2 3.5v3h4c1.5 0 2.4-.5 2.4-1.5s-.9-1.5-2.4-1.5h-4z" fill="white"></path>
-                <path d="M8 24h16" stroke="#F97316" stroke-width="2.5" stroke-linecap="round"></path>
-              </svg>
-            </span>
-            <span class="brand-name">FluxWebP <span class="brand-pro">PRO</span></span>
-          </a>
+    <!-- Top Skip Link for Keyboard Accessibility -->
+    <a href="#mainContent" class="skip-to-content">Skip to primary workspace</a>
 
-          <nav class="nav-links" id="mainNav" aria-label="Application Sections">
-            <a href="#converter" class="nav-link active">Converter</a>
-            <a href="#stats" class="nav-link">Statistics</a>
-            <a href="#queue" class="nav-link">Queue</a>
-            <a href="#formats" class="nav-link">Formats</a>
-            <a href="#api" class="nav-link">API</a>
-            <a href="#history" class="nav-link">History</a>
-            <a href="#docs" class="nav-link" id="docsLink">Docs</a>
+    <div class="app-shell" id="top">
+      <!-- Global Navigation Header -->
+      <header class="global-header" role="banner">
+        <div class="header-container">
+          <!-- Brand Identity -->
+          <div class="header-brand-group">
+            <a class="brand-link" href="#/converter" aria-label="FluxWebP Pro Home">
+              <span class="brand-logo" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <rect width="32" height="32" rx="8" fill="#2563EB"></rect>
+                  <path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path>
+                  <circle cx="23" cy="9" r="3" fill="#F97316"></circle>
+                </svg>
+              </span>
+              <span class="brand-name-wrap">
+                <span class="brand-title">FluxWebP</span>
+                <span class="brand-badge">PRO</span>
+              </span>
+            </a>
+          </div>
+
+          <!-- Primary Desktop Navigation -->
+          <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
+            <ul class="nav-link-list">
+              <li>
+                <a href="#/converter" class="nav-item active" data-tab="converter" aria-current="page">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="nav-icon"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                  <span>Converter</span>
+                </a>
+              </li>
+              <li>
+                <a href="#/formats" class="nav-item" data-tab="formats">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="nav-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                  <span>Formats</span>
+                  <span class="nav-count-badge">32</span>
+                </a>
+              </li>
+              <li>
+                <a href="#/history" class="nav-item" data-tab="history">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="nav-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>History</span>
+                </a>
+              </li>
+              <li>
+                <a href="#/api" class="nav-item" data-tab="api">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="nav-icon"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                  <span>API / SDK</span>
+                </a>
+              </li>
+            </ul>
           </nav>
 
-          <div class="header-actions">
-            <button class="icon-button" type="button" id="openSettings" aria-label="Open Settings">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-              </svg>
+          <!-- Right Action Group -->
+          <div class="header-action-group">
+            <button class="icon-btn theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle visual theme" title="Toggle Light / Dark mode">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="theme-icon-light"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="theme-icon-dark"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
             </button>
 
-            <button class="icon-button theme-toggle" type="button" id="themeToggle" aria-label="Toggle dark mode">
-              <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-              </svg>
-              <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20.2 15.3A8.5 8.5 0 0 1 8.7 3.8 8.5 8.5 0 1 0 20.2 15.3z"></path>
-              </svg>
+            <button class="icon-btn" id="openSettings" type="button" aria-label="Open Application Settings" title="Preferences &amp; System Configuration">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             </button>
 
-            <button class="icon-button mobile-menu-toggle" type="button" id="mobileMenuToggle" aria-label="Open mobile menu" aria-expanded="false">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
+            <button class="btn btn-sm btn-outline hide-mobile" id="docsLink" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              <span>Docs</span>
+            </button>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="icon-btn mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
           </div>
         </div>
       </header>
 
-      <!-- Main Application Container -->
-      <main class="app-main">
-        <!-- Hero Introduction -->
-        <section class="hero-section" aria-label="Overview">
-          <div class="hero-content">
-            <div class="eyebrow-pill">
-              <span class="eyebrow-dot" aria-hidden="true"></span>
-              Universal Image &amp; Camera RAW Optimization Engine
+      <!-- Main Application Views Container -->
+      <main id="mainContent" class="main-viewport" role="main">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: CONVERTER WORKSPACE (Primary)      -->
+        <!-- ========================================== -->
+        <div class="app-view active" id="view-converter" role="region" aria-label="Image Converter Workspace">
+          <!-- Page Header -->
+          <div class="view-header">
+            <div class="view-header-content">
+              <div class="title-with-pill">
+                <h1 class="view-title">Image Converter</h1>
+                <span class="status-indicator-pill"><span class="pulse-dot"></span>Ready</span>
+              </div>
+              <p class="view-description">
+                Convert, optimize, compare, and manage your images in one professional workspace. 100% on-device.
+              </p>
             </div>
-            <h1 class="hero-title">Convert Images. Optimize Quality. Save Space.</h1>
-            <p class="hero-description">
-              Convert, compress, compare, and download your images in one professional workspace. Supporting Sony ARW, Canon CR2/CR3, Nikon NEF, Adobe DNG, Photoshop PSD, SVG, AVIF, HEIC, TIFF, and all web formats with 100% on-device privacy.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#converter">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>
-                Start Converting
-              </a>
-              <a class="btn btn-secondary" href="#formats">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                Explore Supported Formats
-              </a>
-              <button class="btn btn-ghost" type="button" id="loadSampleBtn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7V5a2 2 0 0 1 2-2h2"></path><path d="M16 3h2a2 2 0 0 1 2 2v2"></path><path d="M20 17v2a2 2 0 0 1-2 2h-2"></path><path d="M8 21H6a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                Try Sample Image
+            <div class="view-header-actions">
+              <button class="btn btn-sm btn-outline" type="button" id="triggerDrawerBtn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <span>Advanced Settings</span>
+              </button>
+              <button class="btn btn-sm btn-ghost text-red" type="button" id="headerClearQueueBtn" title="Clear all files from queue">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                <span>Clear Queue</span>
               </button>
             </div>
-            <dl class="hero-stats-grid" aria-label="Key Platform Features">
-              <div class="hero-stat-card">
-                <dt>30+ Formats</dt>
-                <dd>RAW, PSD, SVG &amp; Web</dd>
-              </div>
-              <div class="hero-stat-card">
-                <dt>100% Client-Side</dt>
-                <dd>Zero Server Pixel Uploads</dd>
-              </div>
-              <div class="hero-stat-card">
-                <dt>Batch ZIP</dt>
-                <dd>Multi-file Queue &amp; Export</dd>
-              </div>
-              <div class="hero-stat-card">
-                <dt>EXIF Preserved</dt>
-                <dd>Camera Specs Carried Over</dd>
-              </div>
-            </dl>
           </div>
-        </section>
 
-        <!-- Main Workspace (Upload, Controls, Comparison) -->
-        <section class="converter-workspace" id="converter" aria-label="Conversion Workspace">
-          <div class="workspace-grid">
-            <!-- Left Column: Upload Zone & Conversion Controls -->
-            <div class="workspace-controls-column">
-              <!-- Upload Dropzone -->
-              <div class="card upload-card">
-                <div class="card-header">
-                  <div class="card-title-group">
-                    <span class="badge badge-blue">Input</span>
-                    <h2 class="card-title">Add Images</h2>
-                  </div>
-                  <div class="upload-options">
-                    <button class="btn btn-xs btn-outline" type="button" id="folderUploadTrigger" title="Upload an entire directory of photos">
-                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                      Folder
-                    </button>
-                    <input type="file" id="folderInput" webkitdirectory directory multiple hidden />
-                  </div>
-                </div>
-
-                <label class="dropzone" id="dropzone" for="fileInput" tabindex="0" role="button" aria-label="Upload files by dragging or clicking">
-                  <input
-                    id="fileInput"
-                    type="file"
-                    accept="image/*,.jpg,.jpeg,.png,.webp,.gif,.bmp,.dib,.svg,.svgz,.avif,.ico,.cur,.tif,.tiff,.heic,.heif,.hif,.psd,.psb,.tga,.targa,.hdr,.ppm,.pgm,.pbm,.pnm,.qoi,.arw,.srf,.sr2,.cr2,.cr3,.crw,.nef,.nrw,.dng,.raf,.orf,.ori,.rw2,.raw,.pef,.3fr,.fff,.mrw,.x3f,.rwl,.srw,.iiq,.mos,.erf,.kdc,.dcr,.k25"
-                    multiple
-                  />
-                  <div class="dropzone-icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="17 8 12 3 7 8"></polyline>
-                      <line x1="12" y1="3" x2="12" y2="15"></line>
-                    </svg>
-                  </div>
-                  <strong class="dropzone-title">Drop your images here, or <span class="text-blue">browse</span></strong>
-                  <p class="dropzone-sub">Supports all camera RAWs, PSD, SVG, AVIF, HEIC, TIFF, PNG, JPG &amp; more</p>
-                  <div class="dropzone-meta">
-                    <span>Up to 100MB per file</span>
-                    <span>•</span>
-                    <span>Paste with <kbd>Ctrl+V</kbd> / <kbd>Cmd+V</kbd></span>
-                  </div>
-                  <div class="dropzone-chips" aria-label="Supported file type chips">
-                    <span class="chip-mini chip-raw">Sony ARW</span>
-                    <span class="chip-mini chip-raw">Canon CR2/CR3</span>
-                    <span class="chip-mini chip-raw">Nikon NEF</span>
-                    <span class="chip-mini chip-raw">Adobe DNG</span>
-                    <span class="chip-mini chip-pro">PSD</span>
-                    <span class="chip-mini chip-pro">HEIC</span>
-                    <span class="chip-mini chip-pro">TIFF</span>
-                    <span class="chip-mini chip-web">SVG</span>
-                    <span class="chip-mini chip-web">AVIF</span>
-                    <span class="chip-mini chip-web">WebP</span>
-                    <span class="chip-mini chip-web">PNG</span>
-                    <span class="chip-mini chip-more">+ 20 More</span>
-                  </div>
-                </label>
+          <!-- Compact Conversion Toolbar -->
+          <div class="conversion-toolbar-bar card">
+            <div class="toolbar-group format-group">
+              <span class="toolbar-label">Output:</span>
+              <div class="segmented-control" role="radiogroup" aria-label="Target format">
+                <button class="format-pill active" type="button" role="radio" aria-checked="true" data-format="webp">WebP</button>
+                <button class="format-pill" type="button" role="radio" aria-checked="false" data-format="png">PNG</button>
+                <button class="format-pill" type="button" role="radio" aria-checked="false" data-format="jpeg">JPEG</button>
+                <button class="format-pill" type="button" role="radio" aria-checked="false" data-format="avif">AVIF</button>
               </div>
+            </div>
 
-              <!-- Optimization & Conversion Controls -->
-              <div class="card settings-card">
-                <div class="card-header">
-                  <div class="card-title-group">
-                    <span class="badge badge-orange">Optimization</span>
-                    <h2 class="card-title">Conversion Settings</h2>
+            <div class="toolbar-divider" aria-hidden="true"></div>
+
+            <div class="toolbar-group quality-toolbar-group" id="qualityGroup">
+              <div class="quality-label-readout">
+                <span class="toolbar-label">Quality:</span>
+                <output id="qualityValue" class="quality-number">82</output>
+                <span class="quality-unit">%</span>
+              </div>
+              <div class="quality-slider-wrap">
+                <input id="qualityRange" type="range" min="5" max="100" value="82" step="1" aria-label="Compression quality" />
+              </div>
+              <div class="preset-pill-group hide-mobile">
+                <button class="preset-btn" type="button" data-quality="35">35%</button>
+                <button class="preset-btn" type="button" data-quality="60">60%</button>
+                <button class="preset-btn active" type="button" data-quality="82">82%</button>
+                <button class="preset-btn" type="button" data-quality="92">92%</button>
+                <button class="preset-btn" type="button" data-quality="100" id="losslessPresetBtn">Lossless</button>
+              </div>
+            </div>
+
+            <div class="toolbar-divider" aria-hidden="true"></div>
+
+            <div class="toolbar-group toggles-group">
+              <label class="compact-toggle" title="Automatically evaluate image transparency &amp; compression">
+                <input type="checkbox" id="autoOptimize" />
+                <span class="compact-toggle-switch"></span>
+                <span class="compact-toggle-text">Auto Optimize</span>
+              </label>
+
+              <label class="compact-toggle" title="Retain Camera EXIF and Lens data in output files">
+                <input type="checkbox" id="preserveMetadata" checked />
+                <span class="compact-toggle-switch"></span>
+                <span class="compact-toggle-text">Preserve EXIF</span>
+              </label>
+            </div>
+
+            <div class="toolbar-group toolbar-actions-group">
+              <button class="btn btn-sm btn-ghost text-secondary" id="resetSettingsBtn" type="button" title="Reset all settings to balanced defaults">
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Format Hint Bar -->
+          <div class="format-hint-bar" id="formatHintWrap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <span id="formatHint">WebP: Recommended modern format delivering ~35% smaller files than JPEG with alpha transparency.</span>
+          </div>
+
+          <!-- Converter Workspace Grid: Upload & Comparison Stage -->
+          <div class="workspace-main-grid">
+            <!-- Left: Upload Zone & Actions -->
+            <div class="workspace-upload-col">
+              <div class="dropzone-card card" id="dropzone" tabindex="0" role="region" aria-label="Dropzone upload target">
+                <input type="file" id="fileInput" class="visually-hidden" multiple accept="image/*,.arw,.cr2,.cr3,.nef,.dng,.raf,.orf,.rw2,.pef,.3fr,.psd,.psb,.heic,.heif,.hif,.tiff,.tif,.tga,.ppm,.pgm" />
+                <input type="file" id="folderInput" class="visually-hidden" webkitdirectory directory multiple />
+
+                <div class="dropzone-visual">
+                  <div class="dropzone-icon-circle" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
                   </div>
-                  <button class="btn btn-xs btn-ghost text-red" type="button" id="resetSettingsBtn" title="Reset to standard defaults">
-                    Reset
-                  </button>
-                </div>
+                  <h3 class="dropzone-title">Drop images here to convert</h3>
+                  <p class="dropzone-sub">or browse files from your computer</p>
 
-                <div class="settings-body">
-                  <!-- Target Format Selector -->
-                  <div class="form-group">
-                    <div class="setting-label-row">
-                      <label for="formatSelect" class="form-label">Target Format</label>
-                      <span class="setting-hint" id="formatHint">WebP delivers up to 35% better compression than JPEG.</span>
-                    </div>
-                    <div class="format-button-group" role="radiogroup" aria-label="Select Target Output Format">
-                      <button class="format-pill active" type="button" role="radio" aria-checked="true" data-format="webp">
-                        <strong>WebP</strong>
-                        <small>Universal &amp; Efficient</small>
-                      </button>
-                      <button class="format-pill" type="button" role="radio" aria-checked="false" data-format="png">
-                        <strong>PNG</strong>
-                        <small>Lossless &amp; Alpha</small>
-                      </button>
-                      <button class="format-pill" type="button" role="radio" aria-checked="false" data-format="jpeg">
-                        <strong>JPEG</strong>
-                        <small>Photo Standard</small>
-                      </button>
-                      <button class="format-pill" type="button" role="radio" aria-checked="false" data-format="avif">
-                        <strong>AVIF</strong>
-                        <small>Next-Gen Codec</small>
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- Quality Slider & Presets -->
-                  <div class="form-group" id="qualityGroup">
-                    <div class="setting-label-row">
-                      <label for="qualityRange" class="form-label">Compression Quality</label>
-                      <div class="quality-display">
-                        <output for="qualityRange" id="qualityValue">82</output>
-                        <span class="quality-unit">%</span>
-                      </div>
-                    </div>
-                    <input id="qualityRange" type="range" min="5" max="100" value="82" step="1" aria-valuemin="5" aria-valuemax="100" aria-valuenow="82" />
-                    <div class="quality-presets" role="group" aria-label="Quality Presets">
-                      <button class="preset-btn" type="button" data-quality="35">Max Size (35)</button>
-                      <button class="preset-btn" type="button" data-quality="60">High (60)</button>
-                      <button class="preset-btn active" type="button" data-quality="82">Balanced (82)</button>
-                      <button class="preset-btn" type="button" data-quality="92">Crisp (92)</button>
-                      <button class="preset-btn" type="button" data-quality="98">Near Lossless (98)</button>
-                      <button class="preset-btn" type="button" data-quality="100" id="losslessPresetBtn">Lossless (100)</button>
-                    </div>
-                  </div>
-
-                  <!-- Core Toggles -->
-                  <div class="toggle-grid">
-                    <label class="toggle-card">
-                      <input type="checkbox" id="autoOptimize" />
-                      <div class="toggle-indicator"></div>
-                      <div class="toggle-text">
-                        <strong>Auto Optimize</strong>
-                        <span>Analyzes transparency, dimensions &amp; format</span>
-                      </div>
-                    </label>
-
-                    <label class="toggle-card">
-                      <input type="checkbox" id="preserveMetadata" checked />
-                      <div class="toggle-indicator"></div>
-                      <div class="toggle-text">
-                        <strong>Preserve EXIF</strong>
-                        <span>Carries camera &amp; lens data into output</span>
-                      </div>
-                    </label>
+                  <div class="dropzone-btn-group">
+                    <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click()">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                      <span>Browse Files</span>
+                    </button>
+                    <button class="btn btn-outline" type="button" id="folderUploadTrigger" title="Select an entire folder of photos">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                      <span>Upload Folder</span>
+                    </button>
                   </div>
 
-                  <!-- Advanced Resize & Naming Collapsible -->
-                  <details class="advanced-details" id="advancedDetails">
-                    <summary class="advanced-summary">
-                      <span>Advanced Settings (Resize, Metadata, Naming)</span>
-                      <svg viewBox="0 0 24 24" aria-hidden="true" class="summary-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                    </summary>
-                    <div class="advanced-content">
-                      <!-- Resizing Options -->
-                      <div class="resize-row">
-                        <div class="form-group flex-1">
-                          <label for="maxWidthInput" class="form-label-xs">Max Width (px)</label>
-                          <input type="number" id="maxWidthInput" class="form-input" placeholder="Original" min="16" max="16000" />
-                        </div>
-                        <div class="form-group flex-1">
-                          <label for="maxHeightInput" class="form-label-xs">Max Height (px)</label>
-                          <input type="number" id="maxHeightInput" class="form-input" placeholder="Original" min="16" max="16000" />
-                        </div>
-                      </div>
-                      <label class="checkbox-label">
-                        <input type="checkbox" id="maintainAspect" checked />
-                        <span>Maintain original aspect ratio</span>
-                      </label>
+                  <div class="dropzone-badge-row">
+                    <span class="format-support-badge">Sony ARW</span>
+                    <span class="format-support-badge">Canon CR2/CR3</span>
+                    <span class="format-support-badge">Nikon NEF</span>
+                    <span class="format-support-badge">Adobe DNG</span>
+                    <span class="format-support-badge">Photoshop PSD</span>
+                    <span class="format-support-badge">HEIC</span>
+                    <span class="format-support-badge">SVG</span>
+                    <span class="format-support-badge">TIFF</span>
+                    <span class="format-support-badge">+24 more</span>
+                  </div>
 
-                      <!-- Naming Strategy -->
-                      <div class="form-group mt-2">
-                        <label for="namingPattern" class="form-label-xs">Output Filename Pattern</label>
-                        <select id="namingPattern" class="form-select">
-                          <option value="name_clean" selected>Original Name (.ext)</option>
-                          <option value="name_optimized">Original + _optimized (.ext)</option>
-                          <option value="name_compressed">Original + _compressed (.ext)</option>
-                          <option value="custom_prefix">Custom Prefix + Original (.ext)</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group mt-2 hidden" id="customPrefixGroup">
-                        <label for="customPrefixInput" class="form-label-xs">Custom Prefix</label>
-                        <input type="text" id="customPrefixInput" class="form-input" placeholder="e.g. webp-" maxlength="20" />
-                      </div>
-
-                      <!-- Metadata Control -->
-                      <div class="form-group mt-2">
-                        <label class="checkbox-label">
-                          <input type="checkbox" id="stripGps" checked />
-                          <span>Strip GPS location metadata for privacy</span>
-                        </label>
-                      </div>
-                    </div>
-                  </details>
+                  <div class="dropzone-info-footer">
+                    <span class="info-pill"><kbd>Ctrl</kbd> + <kbd>V</kbd> to paste clipboard</span>
+                    <span class="info-separator">•</span>
+                    <button class="sample-link-btn" type="button" id="loadSampleBtn">Load 1080p sample photo</button>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Right Column: Interactive Before & After Comparison & Inspector -->
-            <div class="workspace-preview-column">
-              <div class="card preview-card">
-                <div class="card-header preview-card-header">
-                  <div class="preview-title-group">
+            <!-- Right: Interactive Before & After Comparison Stage -->
+            <div class="workspace-preview-col">
+              <div class="preview-card card">
+                <div class="preview-header">
+                  <div class="preview-title-wrap">
                     <span class="badge badge-purple" id="previewBadge">Compare</span>
-                    <h3 class="preview-title" id="previewTitle">No File Selected</h3>
+                    <h3 class="preview-heading" id="previewTitle">No File Selected</h3>
                   </div>
-                  <div class="preview-toolbar">
+                  <div class="preview-controls-row">
                     <button class="btn btn-xs btn-outline" type="button" id="toggleCompareMode" title="Toggle Side-by-Side vs Split View">
                       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="18" rx="1"></rect><rect x="14" y="3" width="7" height="18" rx="1"></rect></svg>
                       <span class="hide-mobile">Side-by-Side</span>
@@ -332,24 +260,24 @@
                       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M3 15h18M9 3v18M15 3v18"></path></svg>
                       <span class="hide-mobile">Transparency</span>
                     </button>
-                    <button class="btn btn-xs btn-outline" type="button" id="openFullscreenPreview" title="Inspect Fullscreen" disabled>
+                    <button class="btn btn-xs btn-outline" type="button" id="openFullscreenPreview" title="Inspect Fullscreen (Zoom &amp; EXIF)" disabled>
                       <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
                       <span class="hide-mobile">Inspect</span>
                     </button>
                     <button class="btn btn-xs btn-primary" type="button" id="downloadSelected" disabled>
                       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                      Download
+                      <span>Download</span>
                     </button>
                   </div>
                 </div>
 
-                <!-- Comparison Container -->
+                <!-- Comparison Stage Viewport -->
                 <div class="comparison-stage empty" id="comparisonStage">
-                  <!-- Split View Mode (Default) -->
+                  <!-- Mode 1: Split View Slider (Default) -->
                   <div class="comparison-wrapper" id="comparisonWrapper">
-                    <img id="beforeImage" class="compare-img before" alt="Original Preview" loading="lazy" />
+                    <img id="beforeImage" class="compare-img before" alt="Original preview" loading="lazy" />
                     <div class="after-layer" id="afterLayer">
-                      <img id="afterImage" class="compare-img after" alt="Converted Preview" loading="lazy" />
+                      <img id="afterImage" class="compare-img after" alt="Optimized preview" loading="lazy" />
                     </div>
                     <div class="compare-handle" id="compareHandle" aria-hidden="true">
                       <div class="handle-line"></div>
@@ -359,20 +287,12 @@
                       </div>
                       <div class="handle-line"></div>
                     </div>
-                    <input
-                      id="compareRange"
-                      type="range"
-                      min="0"
-                      max="100"
-                      value="50"
-                      class="compare-slider-input"
-                      aria-label="Drag before and after split slider"
-                    />
+                    <input id="compareRange" type="range" min="0" max="100" value="50" class="compare-slider-input" aria-label="Drag before and after split slider" />
                     <div class="layer-tag tag-before">Original</div>
                     <div class="layer-tag tag-after" id="afterFormatTag">WebP</div>
                   </div>
 
-                  <!-- Side-by-Side Alternative Mode -->
+                  <!-- Mode 2: Side-by-Side Alternative Mode -->
                   <div class="side-by-side-wrapper hidden" id="sideBySideWrapper">
                     <div class="side-pane">
                       <div class="side-header">Original (<span id="sideOriginalExt">RAW/IMG</span>)</div>
@@ -390,26 +310,22 @@
 
                   <!-- Empty Placeholder State -->
                   <div class="empty-state" id="emptyState">
-                    <div class="empty-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24">
-                        <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                        <polyline points="21 15 16 10 5 21"></polyline>
-                      </svg>
+                    <div class="empty-icon-wrap" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                     </div>
-                    <h4>No Preview Active</h4>
-                    <p>Upload an image or photo to inspect interactive before &amp; after comparison, zoom, and live size savings.</p>
+                    <h4 class="empty-state-title">No Image in Preview</h4>
+                    <p class="empty-state-desc">Upload photos to activate the interactive before-and-after comparison slider, side-by-side inspector, and savings breakdown.</p>
                   </div>
                 </div>
 
-                <!-- Comparison Specs & Live Metadata Bar -->
+                <!-- Comparison Telemetry & Specs Bar -->
                 <div class="comparison-metadata-bar" id="comparisonMetaBar">
                   <div class="meta-item">
                     <span class="meta-label">Original</span>
                     <strong class="meta-value" id="selectedOriginal">0 KB</strong>
                     <small id="selectedOrigDim" class="meta-sub">0 × 0</small>
                   </div>
-                  <div class="meta-item-arrow" aria-hidden="true">
+                  <div class="meta-arrow" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </div>
                   <div class="meta-item">
@@ -417,8 +333,8 @@
                     <strong class="meta-value text-blue" id="selectedOutput">0 KB</strong>
                     <small id="selectedOutDim" class="meta-sub">0 × 0</small>
                   </div>
-                  <div class="meta-item savings-badge-item">
-                    <span class="meta-label">Reduction</span>
+                  <div class="meta-item meta-savings">
+                    <span class="meta-label">Space Saved</span>
                     <strong class="meta-value text-green" id="selectedSaved">0%</strong>
                     <small id="selectedSavedBytes" class="meta-sub">0 KB saved</small>
                   </div>
@@ -426,95 +342,13 @@
               </div>
             </div>
           </div>
-        </section>
 
-        <!-- Live Conversion Statistics Panel -->
-        <section class="stats-section" id="stats" aria-label="Real-time Conversion Statistics">
-          <div class="section-title-wrap">
-            <span class="badge badge-blue">Live Telemetry</span>
-            <h2 class="section-title">Conversion Statistics</h2>
-            <p class="section-desc">Accurate, real-time measurements calculated locally across your current session.</p>
-          </div>
-
-          <div class="stats-cards-grid">
-            <div class="stat-card">
-              <div class="stat-icon bg-blue-light text-blue" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-label">Total Files</span>
-                <strong class="stat-number" id="totalFiles">0</strong>
-                <span class="stat-sub" id="statQueuePending">0 queued / waiting</span>
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <div class="stat-icon bg-green-light text-green" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-label">Completed Files</span>
-                <strong class="stat-number text-green" id="completedFiles">0</strong>
-                <span class="stat-sub" id="failedFiles">0 failed</span>
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <div class="stat-icon bg-gray-light text-muted" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-label">Original Size</span>
-                <strong class="stat-number" id="totalOriginalSize">0 KB</strong>
-                <span class="stat-sub">Before compression</span>
-              </div>
-            </div>
-
-            <div class="stat-card">
-              <div class="stat-icon bg-blue-light text-blue" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polyline points="8 17 12 21 16 17"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path></svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-label">Optimized Output</span>
-                <strong class="stat-number text-blue" id="totalOutput">0 KB</strong>
-                <span class="stat-sub">After optimization</span>
-              </div>
-            </div>
-
-            <div class="stat-card highlight">
-              <div class="stat-icon bg-orange-light text-orange" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-label">Disk Space Saved</span>
-                <strong class="stat-number text-orange" id="totalSavedBytes">0 KB</strong>
-                <span class="stat-sub" id="totalSavedPercent">0% average reduction</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Overall Batch Progress Bar -->
-          <div class="batch-progress-wrapper" id="batchProgressWrapper">
-            <div class="batch-progress-header">
-              <span id="batchProgressLabel">Batch Processing Idle</span>
-              <span id="batchProgressPercent">0%</span>
-            </div>
-            <div class="progress-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar-fill" id="batchProgressBarFill" style="width: 0%;"></div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Batch Processing Queue Section -->
-        <section class="queue-section" id="queue" aria-label="Batch Conversion Queue">
-          <div class="queue-card card">
+          <!-- Batch Queue Management Section -->
+          <div class="queue-card card" id="queueSection">
             <div class="queue-header-row">
-              <div class="queue-title-wrap">
-                <div class="queue-title-badge">
-                  <h2 class="queue-heading">Conversion Queue</h2>
-                  <span class="queue-counter" id="queueCountBadge">0 files</span>
-                </div>
-                <p class="queue-subtext">Drag to reorder • Concurrency controlled • Click row to inspect comparison</p>
+              <div class="queue-title-group">
+                <h2 class="queue-heading">Conversion Queue</h2>
+                <span class="queue-counter" id="queueCountBadge">0 files</span>
               </div>
 
               <!-- Batch Action Toolbar -->
@@ -541,27 +375,125 @@
               </div>
             </div>
 
-            <!-- Queue Items Container -->
+            <!-- Batch Progress Bar (Visible during multi-file processing) -->
+            <div class="batch-progress-strip hidden" id="batchProgressWrapper">
+              <div class="batch-progress-header">
+                <span class="batch-progress-label" id="batchProgressLabel">Batch Processing Progress</span>
+                <span class="batch-progress-percent" id="batchProgressPercent">0%</span>
+              </div>
+              <div class="progress-bar-track">
+                <div class="progress-bar-fill" id="batchProgressBarFill" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <!-- Queue Items List -->
             <div class="queue-list" id="queueList" role="region" aria-live="polite" aria-label="Batch Queue Items">
-              <!-- Rendered dynamically by app.js -->
               <div class="queue-empty-message">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
                 <p>Your queue is empty. Drag photos or click above to begin batch conversion.</p>
               </div>
             </div>
           </div>
-        </section>
 
-        <!-- Supported Formats Directory -->
-        <section class="formats-section" id="formats" aria-label="Supported Format Directory">
-          <div class="formats-header-wrap">
-            <div class="formats-title-group">
-              <span class="badge badge-purple">Format Catalog</span>
-              <h2 class="section-title">Universal Format Directory</h2>
-              <p class="section-desc">Over 30 file formats decoded directly inside your browser. No cloud dependencies.</p>
+          <!-- Real-Time Telemetry & Statistics Summary -->
+          <div class="stats-cards-grid" id="stats">
+            <div class="stat-card">
+              <div class="stat-icon bg-blue-light text-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Total Files</span>
+                <strong class="stat-number" id="totalFiles">0</strong>
+                <span class="stat-sub" id="statQueuePending">0 queued / waiting</span>
+              </div>
             </div>
 
-            <div class="formats-search-wrap">
+            <div class="stat-card">
+              <div class="stat-icon bg-green-light text-green" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Completed / Failed</span>
+                <strong class="stat-number"><span id="completedFiles">0</span> / <span id="failedFiles" class="text-red">0</span></strong>
+                <span class="stat-sub">100% On-device</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon bg-orange-light text-orange" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Original ➔ Optimized</span>
+                <strong class="stat-number"><span id="totalOriginalSize">0 KB</span></strong>
+                <span class="stat-sub">Output: <span id="totalOutput">0 KB</span></span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon bg-purple-light text-purple" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+              </div>
+              <div class="stat-content">
+                <span class="stat-label">Bandwidth Saved</span>
+                <strong class="stat-number text-green" id="totalSavedPercent">0%</strong>
+                <span class="stat-sub" id="totalSavedBytes">0 KB saved</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zero-Trust Privacy & Architecture Section -->
+          <div class="privacy-banner-card card" id="privacy">
+            <div class="privacy-badge-wrap">
+              <span class="badge badge-green">Zero-Trust Architecture</span>
+              <h3>Private By Design. 100% On-Device Processing.</h3>
+              <p>Unlike traditional online converters, FluxWebP Pro never transmits your pixels, photos, or documents across the network. All decoding, compression, and EXIF processing run inside your browser's isolated WebAssembly and Canvas 2D sandbox.</p>
+            </div>
+
+            <div class="privacy-features-grid">
+              <div class="privacy-feature-item">
+                <div class="feature-icon bg-green-light text-green" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <h4>Zero Server Uploads</h4>
+                <p>Private photos and confidential client assets never leave your computer.</p>
+              </div>
+
+              <div class="privacy-feature-item">
+                <div class="feature-icon bg-blue-light text-blue" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+                <h4>Instant Memory Cleanup</h4>
+                <p>Object URLs and buffers are immediately revoked, eliminating memory leaks.</p>
+              </div>
+
+              <div class="privacy-feature-item">
+                <div class="feature-icon bg-orange-light text-orange" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </div>
+                <h4>Camera RAW ISP Extraction</h4>
+                <p>Full-resolution previews extracted in milliseconds without cloud rendering.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: FORMATS DIRECTORY PAGE             -->
+        <!-- ========================================== -->
+        <div class="app-view hidden" id="view-formats" role="region" aria-label="Supported Image Formats Directory">
+          <div class="view-header">
+            <div class="view-header-content">
+              <div class="title-with-pill">
+                <h1 class="view-title">Supported Image Formats</h1>
+                <span class="badge badge-purple">32 Formats Cataloged</span>
+              </div>
+              <p class="view-description">
+                Explore supported image formats and camera RAW codecs decoded directly inside your browser.
+              </p>
+            </div>
+
+            <div class="view-header-actions formats-search-wrap">
               <div class="search-input-group">
                 <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 <input type="search" id="formatSearchInput" class="form-input search-input" placeholder="Search format (e.g. arw, psd, heic)..." aria-label="Search supported formats" />
@@ -569,7 +501,7 @@
             </div>
           </div>
 
-          <!-- Format Filter Tabs -->
+          <!-- Format Category Tabs -->
           <div class="format-category-pills" role="tablist" aria-label="Format Categories">
             <button class="format-cat-btn active" role="tab" aria-selected="true" data-cat="all">All Formats (32)</button>
             <button class="format-cat-btn" role="tab" aria-selected="false" data-cat="raw">Camera RAW (15)</button>
@@ -578,164 +510,256 @@
             <button class="format-cat-btn" role="tab" aria-selected="false" data-cat="standard">Standard Web (6)</button>
           </div>
 
-          <!-- Format Cards Grid -->
+          <!-- Formats Cards Grid -->
           <div class="formats-cards-grid" id="formatsGrid">
-            <!-- Rendered dynamically or standard cards -->
+            <!-- Dynamically populated by app.js -->
           </div>
-        </section>
+        </div>
 
-        <!-- Benefits & Privacy Architecture Section -->
-        <section class="benefits-section" id="privacy" aria-label="Privacy & Security Architecture">
-          <div class="section-title-wrap text-center">
-            <span class="badge badge-green">Zero-Trust Privacy</span>
-            <h2 class="section-title">Private By Design. 100% On-Device.</h2>
-            <p class="section-desc">Unlike traditional converters, FluxWebP Pro never uploads your pixels, documents, or photos to an external server.</p>
-          </div>
-
-          <div class="benefits-grid">
-            <article class="benefit-card">
-              <div class="benefit-icon bg-green-light text-green" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <!-- ========================================== -->
+        <!-- VIEW 3: CONVERSION HISTORY PAGE            -->
+        <!-- ========================================== -->
+        <div class="app-view hidden" id="view-history" role="region" aria-label="Conversion History Management">
+          <div class="view-header">
+            <div class="view-header-content">
+              <div class="title-with-pill">
+                <h1 class="view-title">Conversion History</h1>
+                <span class="badge badge-purple">Local Session Log</span>
               </div>
-              <h3>100% Client-Side Sandbox</h3>
-              <p>Conversion happens entirely within your browser's WebAssembly and Canvas runtime. Confidential client assets and private photos stay on your machine.</p>
-            </article>
-
-            <article class="benefit-card">
-              <div class="benefit-icon bg-blue-light text-blue" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-              </div>
-              <h3>Instant Memory Cleanup</h3>
-              <p>Object URLs, extracted buffers, and image bitmap allocations are immediately revoked as soon as images are processed, preventing memory leaks.</p>
-            </article>
-
-            <article class="benefit-card">
-              <div class="benefit-icon bg-orange-light text-orange" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              </div>
-              <h3>Fast Camera RAW ISP Extraction</h3>
-              <p>Extracts camera-calibrated full resolution previews from Sony, Canon, Nikon, and DNG files in milliseconds without expensive cloud rendering.</p>
-            </article>
-          </div>
-        </section>
-
-        <!-- Developer API Section -->
-        <section class="api-section" id="api" aria-label="Developer JavaScript API">
-          <div class="api-header-row">
-            <div>
-              <span class="badge badge-blue">Developer SDK</span>
-              <h2 class="section-title">Browser JavaScript API</h2>
-              <p class="section-desc">Integrate the same high-performance image conversion engine into your own client-side applications.</p>
+              <p class="view-description">
+                Review your recent on-device image optimization activity. Stored in your local browser sandbox.
+              </p>
             </div>
-            <button class="btn btn-sm btn-outline" type="button" id="copyApiCodeBtn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              <span>Copy Code</span>
-            </button>
+
+            <div class="view-header-actions history-actions">
+              <div class="search-input-group">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="search" id="historySearchInput" class="form-input search-input form-input-sm" placeholder="Search history..." aria-label="Search conversion history" />
+              </div>
+              <button class="btn btn-sm btn-outline" type="button" id="exportHistoryBtn" title="Export conversion logs to JSON">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Export JSON</span>
+              </button>
+              <button class="btn btn-sm btn-ghost text-red" type="button" id="clearHistory">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                <span>Clear History</span>
+              </button>
+            </div>
           </div>
 
-          <div class="api-code-wrapper">
-            <pre role="region" aria-label="JavaScript API example" tabindex="0"><code class="language-javascript" id="apiCodeBlock">// Convert any standard image or Camera RAW file (Sony ARW, Canon CR2, PSD, SVG, etc.)
+          <!-- History Telemetry Header -->
+          <div class="history-metrics-row">
+            <div class="history-metric-box">
+              <span class="metric-label">Total Conversions</span>
+              <strong class="metric-value" id="historyTotalCount">0</strong>
+            </div>
+            <div class="history-metric-box">
+              <span class="metric-label">Original Data</span>
+              <strong class="metric-value" id="historyOrigTotal">0 KB</strong>
+            </div>
+            <div class="history-metric-box">
+              <span class="metric-label">Optimized Output</span>
+              <strong class="metric-value text-blue" id="historyOutTotal">0 KB</strong>
+            </div>
+            <div class="history-metric-box">
+              <span class="metric-label">Net Space Saved</span>
+              <strong class="metric-value text-green" id="historySavedTotal">0 KB</strong>
+            </div>
+          </div>
+
+          <!-- Main History List / Table -->
+          <div class="card history-card">
+            <div class="history-list" id="historyList" aria-live="polite">
+              <!-- Dynamically populated by app.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 4: DEVELOPER API DOCUMENTATION        -->
+        <!-- ========================================== -->
+        <div class="app-view hidden" id="view-api" role="region" aria-label="Developer JavaScript API">
+          <div class="view-header">
+            <div class="view-header-content">
+              <div class="title-with-pill">
+                <h1 class="view-title">Developer JavaScript API</h1>
+                <span class="badge badge-blue">Client SDK</span>
+              </div>
+              <p class="view-description">
+                Integrate high-performance, client-side image conversion into your own applications with zero cloud dependencies.
+              </p>
+            </div>
+
+            <div class="view-header-actions">
+              <button class="btn btn-sm btn-primary" type="button" id="copyApiCodeBtn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy SDK Code</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Two-Column API Docs Layout -->
+          <div class="api-docs-container">
+            <!-- Left Sidebar Navigation -->
+            <nav class="api-sidebar" aria-label="API Documentation Sections">
+              <div class="api-sidebar-inner">
+                <span class="api-nav-heading">Table of Contents</span>
+                <ul class="api-nav-list">
+                  <li><a href="#api-quickstart" class="api-nav-link active">Quick Start</a></li>
+                  <li><a href="#api-methods" class="api-nav-link">Conversion Methods</a></li>
+                  <li><a href="#api-options" class="api-nav-link">Configuration Options</a></li>
+                  <li><a href="#api-return" class="api-nav-link">Return Values</a></li>
+                  <li><a href="#api-raw" class="api-nav-link">Camera RAW ISP Engine</a></li>
+                  <li><a href="#api-errors" class="api-nav-link">Error Handling</a></li>
+                  <li><a href="#api-compat" class="api-nav-link">Browser Support</a></li>
+                </ul>
+              </div>
+            </nav>
+
+            <!-- Right Content Area -->
+            <div class="api-content-area">
+              <!-- Quick Start Section -->
+              <section id="api-quickstart" class="api-doc-section">
+                <h2>Quick Start</h2>
+                <p>The global <code>window.FluxWebP</code> object is automatically exposed in the browser runtime. It decodes and encodes images on-device with Promise-based asynchronous execution.</p>
+
+                <div class="code-block-wrap">
+                  <div class="code-block-header">
+                    <span class="code-lang">JavaScript (ES6+)</span>
+                    <button class="code-copy-mini" type="button" onclick="navigator.clipboard.writeText(document.getElementById('apiCodeBlock').textContent)">Copy</button>
+                  </div>
+                  <pre role="region" aria-label="JavaScript API example" tabindex="0"><code class="language-javascript" id="apiCodeBlock">// Convert any standard image or Camera RAW file (Sony ARW, Canon CR2, PSD, SVG, etc.)
 const result = await window.FluxWebP.convertFile(file, {
   format: "webp",           // 'webp' | 'png' | 'jpeg' | 'avif'
-  quality: 82,              // 0 - 100
+  quality: 82,              // 5 - 100
   preserveMetadata: true,   // Preserves camera EXIF from JPEG and RAW
   stripGps: true,           // Strips geolocation tags for privacy
   resize: {
     maxWidth: 1920,         // Optional: constrain max width
     maxHeight: 1080,        // Optional: constrain max height
-    maintainAspect: true
+    maintainAspect: true    // Preserves aspect ratio
   }
 });
 
 console.log(result);
-// Output Schema:
+// Schema Output:
 // {
 //   blob: Blob,            // Optimized binary image blob
 //   width: 1920,           // Final output width
 //   height: 1080,          // Final output height
-//   originalSize: 12934656,// Bytes of input file
-//   outputSize: 842100,    // Bytes of output WebP
-//   savedBytes: 12092556,  // Exact bytes reduced
-//   savedPercent: 93,      // Percentage saved
-//   format: "webp",        // Output format
-//   filename: "photo.webp" // Formatted filename
+//   originalSize: 14205840,// Original input bytes
+//   outputSize: 842100,    // Optimized output bytes
+//   savedBytes: 13363740,  // Exact bytes reduced
+//   savedPercent: 94,      // Percentage saved
+//   format: "webp"         // Output format
 // }</code></pre>
-          </div>
-        </section>
+                </div>
+              </section>
 
-        <!-- Local Conversion History Section -->
-        <section class="history-section" id="history" aria-label="Recent Conversion History">
-          <div class="card history-card">
-            <div class="history-header">
-              <div>
-                <span class="badge badge-purple">Local Session</span>
-                <h2 class="card-title">Recent Conversions</h2>
-                <p class="history-sub">Stored locally in your browser sandbox. Never transmitted across the network.</p>
-              </div>
-              <div class="history-actions">
-                <input type="search" id="historySearchInput" class="form-input form-input-sm" placeholder="Search history..." aria-label="Search conversion history" />
-                <button class="btn btn-sm btn-outline" type="button" id="exportHistoryBtn" title="Export conversion logs to JSON">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                  Export
-                </button>
-                <button class="btn btn-sm btn-ghost text-red" type="button" id="clearHistory">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                  Clear History
-                </button>
-              </div>
-            </div>
-
-            <div class="history-list" id="historyList" aria-live="polite">
-              <!-- Rendered dynamically by app.js -->
+              <!-- Configuration Options Table -->
+              <section id="api-options" class="api-doc-section">
+                <h2>Configuration Options</h2>
+                <div class="table-wrapper" tabindex="0" role="region" aria-label="API Parameters Table">
+                  <table class="api-table">
+                    <thead>
+                      <tr>
+                        <th>Option</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>format</code></td>
+                        <td><code>string</code></td>
+                        <td><code>'webp'</code></td>
+                        <td>Target encoding format: <code>'webp'</code>, <code>'png'</code>, <code>'jpeg'</code>, or <code>'avif'</code>.</td>
+                      </tr>
+                      <tr>
+                        <td><code>quality</code></td>
+                        <td><code>number</code></td>
+                        <td><code>82</code></td>
+                        <td>Compression quality between <code>5</code> and <code>100</code>.</td>
+                      </tr>
+                      <tr>
+                        <td><code>preserveMetadata</code></td>
+                        <td><code>boolean</code></td>
+                        <td><code>true</code></td>
+                        <td>Injects camera exposure, lens, and sensor EXIF metadata into WebP and JPEG outputs.</td>
+                      </tr>
+                      <tr>
+                        <td><code>stripGps</code></td>
+                        <td><code>boolean</code></td>
+                        <td><code>true</code></td>
+                        <td>Sanitizes GPS latitude and longitude tags from EXIF headers for user privacy.</td>
+                      </tr>
+                      <tr>
+                        <td><code>resize.maxWidth</code></td>
+                        <td><code>number</code></td>
+                        <td><code>0</code></td>
+                        <td>Constrains image width to a maximum boundary (0 for unconstrained).</td>
+                      </tr>
+                      <tr>
+                        <td><code>resize.maxHeight</code></td>
+                        <td><code>number</code></td>
+                        <td><code>0</code></td>
+                        <td>Constrains image height to a maximum boundary (0 for unconstrained).</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
             </div>
           </div>
-        </section>
+        </div>
+
       </main>
 
-      <!-- Site Footer -->
-      <footer class="site-footer">
+      <!-- Global Footer -->
+      <footer class="site-footer" role="contentinfo">
         <div class="footer-container">
           <div class="footer-brand-col">
             <div class="brand">
-              <span class="brand-mark" aria-hidden="true">
-                <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#2563EB"></rect><path d="M9 11h9.2c3.8 0 6.3 2.1 6.3 5s-2.5 5-6.3 5H9V11zm5.2 3.5v3h4c1.5 0 2.4-.5 2.4-1.5s-.9-1.5-2.4-1.5h-4z" fill="white"></path><path d="M8 24h16" stroke="#F97316" stroke-width="2.5"></path></svg>
+              <span class="brand-logo" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><path d="M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z" fill="#FFFFFF"></path><circle cx="23" cy="9" r="3" fill="#F97316"></circle></svg>
               </span>
               <span class="brand-name">FluxWebP Pro</span>
             </div>
             <p class="footer-desc">
-              High-performance universal image conversion and optimization platform. 100% on-device processing.
+              Universal on-device image conversion &amp; optimization platform. Designed for photographers, designers, and developers.
             </p>
             <div class="footer-security-pill">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-              <span>Encrypted Client Sandbox • Zero Server Logs</span>
+              <span>100% Client-Side Sandbox • Zero Server Logs</span>
             </div>
+          </div>
+
+          <div class="footer-links-col">
+            <h4>Workspace</h4>
+            <ul>
+              <li><a href="#/converter">Image Converter</a></li>
+              <li><a href="#/formats">Supported Formats</a></li>
+              <li><a href="#/history">Conversion History</a></li>
+              <li><a href="#/api">Developer API</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-links-col">
+            <h4>Decoders</h4>
+            <ul>
+              <li><a href="#/formats">Sony ARW &amp; Alpha RAW</a></li>
+              <li><a href="#/formats">Canon CR2 / CR3 RAW</a></li>
+              <li><a href="#/formats">Adobe DNG &amp; Photoshop PSD</a></li>
+              <li><a href="#/formats">Dynamic SVG Scaler &amp; HEIC</a></li>
+            </ul>
           </div>
 
           <div class="footer-links-col">
             <h4>Application</h4>
             <ul>
-              <li><a href="#converter">Converter Workspace</a></li>
-              <li><a href="#stats">Telemetry &amp; Stats</a></li>
-              <li><a href="#queue">Batch Processing Queue</a></li>
-              <li><a href="#formats">Format Directory</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-links-col">
-            <h4>Format Families</h4>
-            <ul>
-              <li><a href="#formats">Sony ARW &amp; Alpha RAW</a></li>
-              <li><a href="#formats">Canon CR2 / CR3 RAW</a></li>
-              <li><a href="#formats">Adobe DNG &amp; Photoshop PSD</a></li>
-              <li><a href="#formats">Vector SVG &amp; Apple HEIC</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-links-col">
-            <h4>Developers &amp; Legal</h4>
-            <ul>
-              <li><a href="#api">JavaScript Browser API</a></li>
               <li><button type="button" class="footer-link-btn" id="footerDocsBtn">Technical Documentation</button></li>
+              <li><button type="button" class="footer-link-btn" id="footerSettingsBtn">Application Settings</button></li>
               <li><button type="button" class="footer-link-btn" id="footerPrivacyBtn">Privacy Statement</button></li>
               <li><a href="https://github.com/Jingg04/AppWebpConverter" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
             </ul>
@@ -743,34 +767,143 @@ console.log(result);
         </div>
 
         <div class="footer-bottom">
-          <p>© 2026 FluxWebP Pro. Open source MIT license. Engineered for professional workflows.</p>
+          <p>© 2026 FluxWebP Pro. Open source MIT license. High-performance browser runtime.</p>
           <div class="status-indicator">
             <span class="status-dot-pulse"></span>
-            <span>All Decoders Operational</span>
+            <span>All 32 Decoders Operational</span>
           </div>
         </div>
       </footer>
     </div>
 
-    <!-- Modals & Dialogs (Accessible Native Dialogs compliant with Modern Web Guidance) -->
+    <!-- ======================================================== -->
+    <!-- SLIDE-OVER RIGHT DRAWER: ADVANCED CONVERSION SETTINGS    -->
+    <!-- ======================================================== -->
+    <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+    <aside class="slide-drawer" id="advancedDrawer" role="dialog" aria-labelledby="drawerTitle" aria-hidden="true">
+      <div class="drawer-header">
+        <div class="drawer-title-wrap">
+          <h2 id="drawerTitle" class="drawer-title">Advanced Settings</h2>
+          <span class="drawer-sub">Fine-tune image geometry, metadata, and naming</span>
+        </div>
+        <button class="icon-btn drawer-close-btn" id="drawerCloseBtn" type="button" aria-label="Close settings drawer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
 
-    <!-- Settings Dialog -->
+      <div class="drawer-body">
+        <!-- Section 1: Image Geometry & Dimensions -->
+        <div class="drawer-section">
+          <div class="drawer-section-header">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="section-icon"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            <h3>Image Geometry &amp; Resizing</h3>
+          </div>
+          <p class="section-hint">Optionally constrain maximum pixel dimensions before encoding.</p>
+
+          <div class="input-grid-2">
+            <div class="form-group">
+              <label for="maxWidthInput" class="form-label-xs">Max Width (px)</label>
+              <input type="number" id="maxWidthInput" class="form-input" placeholder="Original" min="16" max="16000" />
+            </div>
+            <div class="form-group">
+              <label for="maxHeightInput" class="form-label-xs">Max Height (px)</label>
+              <input type="number" id="maxHeightInput" class="form-input" placeholder="Original" min="16" max="16000" />
+            </div>
+          </div>
+
+          <label class="checkbox-label mt-2">
+            <input type="checkbox" id="maintainAspect" checked />
+            <span>Maintain original aspect ratio (prevents distortion)</span>
+          </label>
+        </div>
+
+        <!-- Section 2: Metadata & Location Privacy -->
+        <div class="drawer-section">
+          <div class="drawer-section-header">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="section-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <h3>Metadata &amp; Privacy</h3>
+          </div>
+          <p class="section-hint">Control EXIF camera tags and location data.</p>
+
+          <label class="checkbox-label">
+            <input type="checkbox" id="stripGps" checked />
+            <span>Strip GPS coordinates for privacy (Recommended)</span>
+          </label>
+          <label class="checkbox-label mt-2">
+            <input type="checkbox" id="preserveIcc" checked />
+            <span>Preserve ICC color profiles (sRGB / Display P3)</span>
+          </label>
+        </div>
+
+        <!-- Section 3: Output Filename Pattern -->
+        <div class="drawer-section">
+          <div class="drawer-section-header">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="section-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <h3>Output Filename Pattern</h3>
+          </div>
+
+          <div class="form-group">
+            <label for="namingPattern" class="form-label-xs">Naming Strategy</label>
+            <select id="namingPattern" class="form-select">
+              <option value="name_clean" selected>Original Name (photo.webp)</option>
+              <option value="name_optimized">Append Suffix (photo_optimized.webp)</option>
+              <option value="name_compressed">Append Suffix (photo_compressed.webp)</option>
+              <option value="custom_prefix">Custom Prefix (flux-photo.webp)</option>
+            </select>
+          </div>
+
+          <div class="form-group mt-2 hidden" id="customPrefixGroup">
+            <label for="customPrefixInput" class="form-label-xs">Custom Prefix</label>
+            <input type="text" id="customPrefixInput" class="form-input" placeholder="e.g. webp-" maxlength="20" />
+          </div>
+        </div>
+
+        <!-- Section 4: Concurrency & Performance -->
+        <div class="drawer-section">
+          <div class="drawer-section-header">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="section-icon"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <h3>Batch Processing Concurrency</h3>
+          </div>
+          <div class="form-group">
+            <label for="drawerConcurrencySelect" class="form-label-xs">Parallel Worker Threads</label>
+            <select id="drawerConcurrencySelect" class="form-select">
+              <option value="1">1 Worker (Low CPU)</option>
+              <option value="2">2 Workers</option>
+              <option value="3" selected>3 Workers (Balanced)</option>
+              <option value="4">4 Workers (Fast)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer-footer">
+        <button class="btn btn-outline" type="button" id="drawerResetBtn">Reset Defaults</button>
+        <button class="btn btn-primary" type="button" id="drawerApplyBtn">Apply &amp; Close</button>
+      </div>
+    </aside>
+
+    <!-- ======================================================== -->
+    <!-- DIALOG: APPLICATION SETTINGS MODAL                       -->
+    <!-- ======================================================== -->
     <dialog id="settingsDialog" class="app-dialog" aria-labelledby="settingsDialogTitle">
       <div class="dialog-content">
         <div class="dialog-header">
-          <h2 id="settingsDialogTitle">Application Settings</h2>
+          <div class="dialog-title-group">
+            <h2 id="settingsDialogTitle">Application Settings</h2>
+            <span class="dialog-sub">Global preferences, theme, and storage management</span>
+          </div>
           <form method="dialog">
-            <button class="icon-button dialog-close-btn" value="cancel" aria-label="Close settings">
+            <button class="icon-btn dialog-close-btn" value="cancel" aria-label="Close settings">
               <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
           </form>
         </div>
 
         <div class="dialog-body">
-          <div class="settings-section">
-            <h3>General &amp; Defaults</h3>
+          <div class="settings-group">
+            <h3>General Defaults</h3>
             <div class="form-group">
-              <label for="defaultFormatSelect" class="form-label">Default Target Output Format</label>
+              <label for="defaultFormatSelect" class="form-label">Default Target Format</label>
               <select id="defaultFormatSelect" class="form-select">
                 <option value="webp" selected>WebP (Recommended)</option>
                 <option value="png">PNG (Lossless)</option>
@@ -778,19 +911,18 @@ console.log(result);
                 <option value="avif">AVIF (Next-Gen)</option>
               </select>
             </div>
-
             <div class="form-group mt-2">
-              <label for="concurrencySelect" class="form-label">Batch Processing Concurrency</label>
+              <label for="concurrencySelect" class="form-label">Batch Concurrency</label>
               <select id="concurrencySelect" class="form-select">
-                <option value="1">1 File at a time (Low CPU)</option>
-                <option value="2">2 Concurrent Workers</option>
-                <option value="3" selected>3 Concurrent Workers (Balanced)</option>
-                <option value="4">4 Concurrent Workers (Fast)</option>
+                <option value="1">1 Worker (Low CPU)</option>
+                <option value="2">2 Workers</option>
+                <option value="3" selected>3 Workers (Balanced)</option>
+                <option value="4">4 Workers (Fast)</option>
               </select>
             </div>
           </div>
 
-          <div class="settings-section">
+          <div class="settings-group">
             <h3>Appearance &amp; Theme</h3>
             <div class="form-group">
               <label for="themeSelect" class="form-label">Color Theme</label>
@@ -802,7 +934,7 @@ console.log(result);
             </div>
           </div>
 
-          <div class="settings-section">
+          <div class="settings-group">
             <h3>Privacy &amp; Local Storage</h3>
             <label class="checkbox-label">
               <input type="checkbox" id="saveHistoryToggle" checked />
@@ -810,6 +942,16 @@ console.log(result);
             </label>
             <div class="mt-2">
               <button class="btn btn-sm btn-outline text-red" type="button" id="purgeDataBtn">Purge All Saved Data &amp; Caches</button>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3>System Diagnostics</h3>
+            <div class="diagnostics-box" id="diagnosticsBox">
+              <div class="diag-row"><span>Engine:</span><strong>Pure Client-Side (Vanilla ES6+)</strong></div>
+              <div class="diag-row"><span>OffscreenCanvas:</span><strong id="diagOffscreen">Checking...</strong></div>
+              <div class="diag-row"><span>WebAssembly:</span><strong id="diagWasm">Checking...</strong></div>
+              <div class="diag-row"><span>AVIF Encoding:</span><strong id="diagAvif">Checking...</strong></div>
             </div>
           </div>
         </div>
@@ -822,7 +964,9 @@ console.log(result);
       </div>
     </dialog>
 
-    <!-- Fullscreen Inspect Modal -->
+    <!-- ======================================================== -->
+    <!-- DIALOG: FULLSCREEN IMAGE INSPECTOR & EXIF VIEWER         -->
+    <!-- ======================================================== -->
     <dialog id="previewModal" class="app-dialog preview-dialog" aria-labelledby="previewModalTitle">
       <div class="dialog-content full-dialog">
         <div class="dialog-header">
@@ -831,7 +975,19 @@ console.log(result);
             <h2 id="previewModalTitle">Image Inspector</h2>
             <span class="modal-dim-label" id="modalDimLabel">0 × 0 px</span>
           </div>
+
           <div class="preview-modal-controls">
+            <!-- Queue Navigation -->
+            <button class="btn btn-xs btn-outline" type="button" id="modalPrevBtn" title="Previous Image in Queue">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="btn btn-xs btn-outline" type="button" id="modalNextBtn" title="Next Image in Queue">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
+            <div class="toolbar-divider" aria-hidden="true"></div>
+
+            <!-- Zoom Controls -->
             <button class="btn btn-xs btn-outline" type="button" id="modalZoomOut" title="Zoom Out">
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
             </button>
@@ -840,15 +996,16 @@ console.log(result);
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
             </button>
             <button class="btn btn-xs btn-outline" type="button" id="modalZoomReset">Fit Screen</button>
+
             <form method="dialog">
-              <button class="icon-button dialog-close-btn" value="close" aria-label="Close inspector">
+              <button class="icon-btn dialog-close-btn" value="close" aria-label="Close inspector">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </button>
             </form>
           </div>
         </div>
 
-        <div class="modal-image-viewport" id="modalImageViewport">
+        <div class="modal-image-viewport checkerboard-bg" id="modalImageViewport">
           <img id="modalInspectImage" alt="High resolution preview" />
         </div>
 
@@ -860,13 +1017,15 @@ console.log(result);
       </div>
     </dialog>
 
-    <!-- Technical Documentation Dialog -->
+    <!-- ======================================================== -->
+    <!-- DIALOG: TECHNICAL DOCUMENTATION MODAL                    -->
+    <!-- ======================================================== -->
     <dialog id="docsModal" class="app-dialog docs-dialog" aria-labelledby="docsModalTitle">
       <div class="dialog-content">
         <div class="dialog-header">
           <h2 id="docsModalTitle">Technical Documentation &amp; Architecture</h2>
           <form method="dialog">
-            <button class="icon-button dialog-close-btn" value="close" aria-label="Close documentation">
+            <button class="icon-btn dialog-close-btn" value="close" aria-label="Close documentation">
               <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
           </form>
@@ -874,7 +1033,7 @@ console.log(result);
         <div class="dialog-body docs-body">
           <h3>Universal Decoding Architecture</h3>
           <p>FluxWebP Pro leverages client-side WebAssembly, Canvas 2D, and specialized stream extractors to support professional camera files and graphic formats without a server backend.</p>
-          
+
           <h4>1. Camera RAW Preview Parsing</h4>
           <p>Camera RAW files (.ARW, .CR2, .CR3, .NEF, .DNG, .RAF, .ORF, .RW2, .PEF) contain camera-calibrated JPEG preview streams generated by the camera's internal Image Signal Processor (ISP). FluxWebP Pro parses the TIFF IFDs and ISOBMFF container boxes to extract and render these previews with exact camera color profiles and EXIF metadata.</p>
 
