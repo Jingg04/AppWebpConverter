@@ -2681,6 +2681,20 @@
   // --- Initial Check for Transferred Image from Converter ---
   function initEmptyState() {
     try {
+      const importedPoster = sessionStorage.getItem("fluxwebp_imported_editor_image");
+      const posterTitle = sessionStorage.getItem("fluxwebp_editor_title") || "Poster Design";
+      if (importedPoster) {
+        sessionStorage.removeItem("fluxwebp_imported_editor_image");
+        sessionStorage.removeItem("fluxwebp_editor_title");
+        const img = new Image();
+        img.onload = () => {
+          initDocumentWithImage(img, posterTitle);
+          if (dom.projectTitleInput) dom.projectTitleInput.value = posterTitle;
+        };
+        img.src = importedPoster;
+        return;
+      }
+
       const transferred = sessionStorage.getItem("fluxwebp_edit_source");
       const autoRemoveBg = sessionStorage.getItem("fluxwebp_auto_remove_bg") === "true";
       if (transferred) {

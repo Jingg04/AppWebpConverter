@@ -355,6 +355,16 @@ a:hover {
   color: var(--text-secondary);
 }
 
+.nav-ai-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #2563EB, #F97316);
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+}
+
 .nav-item.active .nav-count-badge {
   background: var(--primary-blue);
   color: #FFFFFF;

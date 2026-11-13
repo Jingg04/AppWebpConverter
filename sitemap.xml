@@ -16,6 +16,20 @@
     <priority>0.95</priority>
   </url>
 
+  <!-- AI Poster Studio & Graphic Design Platform -->
+  <url>
+    <loc>https://app-webp-converter.vercel.app/poster-studio/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://app-webp-converter.vercel.app/ai-poster-generator/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
   <!-- High-Intent Dedicated Conversion Landing Pages -->
   <url>
     <loc>https://app-webp-converter.vercel.app/jpg-to-webp/</loc>
