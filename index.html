@@ -13,6 +13,8 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="theme-color" content="#2563EB" />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="canonical" href="https://app-webp-converter.vercel.app/" />
 
     <!-- Open Graph / Facebook -->
@@ -194,6 +196,12 @@
                 <a href="#/growth" class="nav-item" data-tab="growth">
                   <svg viewBox="0 0 24 24" aria-hidden="true" class="nav-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                   <span>SEO &amp; Growth</span>
+                </a>
+              </li>
+              <li>
+                <a href="#/trust" class="nav-item" data-tab="trust">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" class="nav-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                  <span>Trust &amp; Privacy</span>
                 </a>
               </li>
             </ul>
@@ -1329,6 +1337,142 @@ console.log(result);
             </div>
           </div>
         </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 6: TRUST, PRIVACY & SECURITY CENTER   -->
+        <!-- ========================================== -->
+        <div class="app-view hidden" id="view-trust" role="region" aria-label="Trust &amp; Privacy Transparency Center">
+          <div class="view-header">
+            <div class="view-header-content">
+              <div class="title-with-pill">
+                <h1 class="view-title">Trust, Privacy &amp; Architecture Transparency Center</h1>
+                <span class="status-indicator-pill"><span class="pulse-dot"></span>Zero Cloud Uploads</span>
+              </div>
+              <p class="view-description">
+                Inspect real-time browser sandbox metrics, verify zero server transmissions, review local storage usage, and audit our security and privacy guarantees.
+              </p>
+            </div>
+            <div class="view-header-actions">
+              <button class="btn btn-sm btn-outline" type="button" id="trustVerifyNetBtn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>Audit Network Isolation</span>
+              </button>
+              <button class="btn btn-sm btn-ghost text-red" type="button" id="trustPurgeBtn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                <span>Purge All Local Data</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Network Isolation & Zero-Upload Verification Card -->
+          <div class="card mb-4">
+            <div class="card-header">
+              <div class="flex-align-center gap-2">
+                <svg viewBox="0 0 24 24" class="text-green w-5 h-5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                <h2 class="card-title">Network Isolation Audit (Live Verification)</h2>
+              </div>
+              <span class="badge badge-green" id="trustNetBadge">0 Bytes Uploaded</span>
+            </div>
+            <div class="card-body">
+              <p class="text-secondary mb-3">
+                FluxWebP executes 100% on your device using client-side JavaScript, WebAssembly, and HTML5 Canvas. Your image files, pixels, and EXIF tags never leave your device.
+              </p>
+              <div class="stats-grid mb-3">
+                <div class="stat-card">
+                  <div class="stat-label">Image Data Uploaded</div>
+                  <div class="stat-value text-green" id="trustUploadMetric">0.00 KB</div>
+                  <div class="stat-sub">Strict local sandbox</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">External HTTP POSTs</div>
+                  <div class="stat-value text-blue" id="trustPostCount">0 Requests</div>
+                  <div class="stat-sub">Zero telemetry servers</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">WASM &amp; Worker Codecs</div>
+                  <div class="stat-value text-purple">100% Local</div>
+                  <div class="stat-sub">ag-psd • utif • heic2any</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-label">Memory Revocation</div>
+                  <div class="stat-value text-green">Active (OOM-Safe)</div>
+                  <div class="stat-sub">Explicit Blob URL revoke</div>
+                </div>
+              </div>
+              <div class="audit-log-box" id="trustNetLog">
+                <span class="text-muted">Click "Audit Network Isolation" to inspect the browser Resource Timing API and verify zero outbound image uploads.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Local Storage & Storage Footprint -->
+          <div class="card mb-4">
+            <div class="card-header">
+              <div class="flex-align-center gap-2">
+                <svg viewBox="0 0 24 24" class="text-blue w-5 h-5" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                <h2 class="card-title">Browser Local Storage Inspector</h2>
+              </div>
+              <span class="badge badge-blue" id="trustStorageTotalBadge">0 KB Used</span>
+            </div>
+            <div class="card-body">
+              <p class="text-secondary mb-3">
+                All saved settings, conversion history records, and session statistics are stored exclusively in your browser's private <code>localStorage</code> domain. No cookies or server sessions exist.
+              </p>
+              <div class="table-wrapper">
+                <table class="api-table" id="trustStorageTable">
+                  <thead>
+                    <tr>
+                      <th>Storage Key</th>
+                      <th>Purpose &amp; Scope</th>
+                      <th>Entries</th>
+                      <th>Byte Size</th>
+                    </tr>
+                  </thead>
+                  <tbody id="trustStorageList">
+                    <!-- Populated dynamically by renderTrustCenter() -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Architecture & Security Disclosures -->
+          <div class="grid-2 gap-4">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Vector &amp; SVG Security Sanitization</h3>
+              </div>
+              <div class="card-body">
+                <p class="text-secondary mb-2">
+                  Untrusted SVG files may contain embedded JavaScript or XML external entity (XXE) exploits. FluxWebP runs every SVG through a multi-pass security sanitizer before parsing:
+                </p>
+                <ul class="bullet-list-simple">
+                  <li><strong>Script Elimination:</strong> All <code>&lt;script&gt;</code> and <code>&lt;foreignObject&gt;</code> tags are stripped.</li>
+                  <li><strong>Event Handler Removal:</strong> All inline <code>onload</code>, <code>onerror</code>, <code>onclick</code> attributes are stripped.</li>
+                  <li><strong>URI Sanitization:</strong> Any <code>javascript:</code> hyperlinks are neutralized.</li>
+                  <li><strong>XXE Prevention:</strong> <code>&lt;!DOCTYPE&gt;</code> and <code>&lt;!ENTITY&gt;</code> expansions are eliminated.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Camera RAW Truth-in-Labeling</h3>
+              </div>
+              <div class="card-body">
+                <p class="text-secondary mb-2">
+                  Camera RAW files (Sony ARW, Canon CR2/CR3, Nikon NEF, Adobe DNG, Fujifilm RAF) contain both Bayer sensor raw pixel arrays and high-resolution ISP camera previews:
+                </p>
+                <ul class="bullet-list-simple">
+                  <li><strong>ISP Preview Pipeline:</strong> FluxWebP parses TIFF IFD structures to extract the camera's full-resolution processed ISP preview JPEG.</li>
+                  <li><strong>True Resolution:</strong> Preserves full megapixels (e.g. 24MP, 45MP, 61MP) directly as captured by your camera sensor.</li>
+                  <li><strong>Honest Disclosure:</strong> Explicitly labeled as <em>"Embedded ISP Camera Preview"</em> rather than simulating full desktop Bayer demosaicing.</li>
+                  <li><strong>Privacy Guard:</strong> Optional GPS stripping removes sensitive camera geolocation coordinates before export.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
 
       <!-- Global Footer -->
@@ -1377,6 +1521,7 @@ console.log(result);
           <div class="footer-links-col">
             <h4>Trust &amp; Legal</h4>
             <ul>
+              <li><a href="#/trust">Trust &amp; Privacy Center</a></li>
               <li><a href="/about/">About FluxWebP</a></li>
               <li><a href="/privacy/">Privacy Policy</a></li>
               <li><a href="/terms/">Terms of Service</a></li>
@@ -1437,6 +1582,54 @@ console.log(result);
             <input type="checkbox" id="maintainAspect" checked />
             <span>Maintain original aspect ratio (prevents distortion)</span>
           </label>
+        </div>
+
+        <!-- Section 1b: Transformations & Orientation -->
+        <div class="drawer-section">
+          <div class="drawer-section-header">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="section-icon"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+            <h3>Rotation, Flip &amp; Background</h3>
+          </div>
+          <div class="form-group">
+            <label for="rotateSelect" class="form-label-xs">Image Rotation</label>
+            <select id="rotateSelect" class="form-select">
+              <option value="0" selected>0° (Original Orientation)</option>
+              <option value="90">90° Clockwise</option>
+              <option value="180">180° Inverted</option>
+              <option value="270">270° Clockwise (90° CCW)</option>
+            </select>
+          </div>
+          <div class="input-grid-2 mt-2">
+            <label class="checkbox-label">
+              <input type="checkbox" id="flipHCheck" />
+              <span>Flip Horizontal</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="flipVCheck" />
+              <span>Flip Vertical</span>
+            </label>
+          </div>
+          <div class="form-group mt-2">
+            <label for="bgColorSelect" class="form-label-xs">Background Fill (for JPEG)</label>
+            <select id="bgColorSelect" class="form-select">
+              <option value="transparent" selected>Transparent (Preserve alpha)</option>
+              <option value="#FFFFFF">Solid White (#FFFFFF)</option>
+              <option value="#000000">Solid Black (#000000)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Section 1c: Target File Size Constraint -->
+        <div class="drawer-section">
+          <div class="drawer-section-header">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="section-icon"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <h3>Target File Size Limit (KB)</h3>
+          </div>
+          <p class="section-hint">Iterative binary search optimization to hit strict target file weight.</p>
+          <div class="form-group">
+            <label for="targetSizeInput" class="form-label-xs">Maximum File Size (KB)</label>
+            <input type="number" id="targetSizeInput" class="form-input" placeholder="e.g. 500 (Empty = Unconstrained)" min="10" max="50000" />
+          </div>
         </div>
 
         <!-- Section 2: Metadata & Location Privacy -->

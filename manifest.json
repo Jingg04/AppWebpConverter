@@ -1,0 +1,16 @@
+{
+  "name": "FluxWebP Pro",
+  "short_name": "FluxWebP",
+  "description": "Universal Image Conversion & Optimization Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F7FA",
+  "theme_color": "#2563EB",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 11h9.5c3.5 0 5.5 1.8 5.5 4.5s-2 4.5-5.5 4.5H8V11zm4.5 3v3h5c1.2 0 1.8-.4 1.8-1.5s-.6-1.5-1.8-1.5h-5z' fill='%23FFFFFF'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
