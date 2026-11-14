@@ -57,7 +57,7 @@
 
   // --- Global State for Background Removal Engine ---
   const state = {
-    activeEngine: "rmbg", // "rmbg" | "fast" | "cloud"
+    activeEngine: "fast", // "fast" (instant 0MB local) | "rmbg" (deep neural) | "cloud"
     isProcessing: false,
     abortController: null,
     modelSession: null,
@@ -169,7 +169,7 @@
 
     if (!modelBuffer) {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(new Error("Model download timeout")), 5000);
+      let activityTimer = setTimeout(() => controller.abort(new Error("Model connection timeout")), 12000);
 
       try {
         const response = await fetch(modelCfg.url, { signal: controller.signal });
@@ -181,6 +181,9 @@
         let receivedBytes = 0;
 
         while (true) {
+          clearTimeout(activityTimer);
+          activityTimer = setTimeout(() => controller.abort(new Error("Model download stalled")), 15000);
+
           const { done, value } = await reader.read();
           if (done) break;
           chunks.push(value);
@@ -193,7 +196,7 @@
             progress: pct
           });
         }
-        clearTimeout(timeoutId);
+        clearTimeout(activityTimer);
 
         const totalBlob = new Blob(chunks);
         modelBuffer = await totalBlob.arrayBuffer();
@@ -206,7 +209,7 @@
           }
         } catch (_) {}
       } catch (dlErr) {
-        clearTimeout(timeoutId);
+        clearTimeout(activityTimer);
         throw dlErr;
       }
     }
@@ -277,7 +280,7 @@
       mPixels[pi] = alpha;     // R
       mPixels[pi + 1] = alpha; // G
       mPixels[pi + 2] = alpha; // B
-      mPixels[pi + 3] = 255;   // Opaque grayscale
+      mPixels[pi + 3] = alpha; // Alpha channel matches probability
     }
     m1024Ctx.putImageData(mImgData, 0, 0);
 
@@ -291,18 +294,18 @@
     return finalMaskCanvas;
   }
 
-  // --- Fast Adaptive Saliency & Color Segmentation (Instant Fallback) ---
+  // --- Fast Adaptive Saliency & Border-Seeded Matting (Instant Local) ---
   function runFastSaliencySegmentation(sourceCanvas, progressCallback) {
     progressCallback?.({ stage: "fast-analysis", message: "Analyzing foreground saliency & background color clusters..." });
 
     const w = sourceCanvas.width;
     const h = sourceCanvas.height;
 
-    // Work on downscaled canvas for fast calculation
+    // Downscale for instant responsive calculation
     const maxDim = 400;
     const scale = Math.min(1, maxDim / Math.max(w, h));
-    const sw = Math.round(w * scale);
-    const sh = Math.round(h * scale);
+    const sw = Math.max(32, Math.round(w * scale));
+    const sh = Math.max(32, Math.round(h * scale));
 
     const sCanvas = document.createElement("canvas");
     sCanvas.width = sw;
@@ -312,66 +315,109 @@
 
     const imgData = sCtx.getImageData(0, 0, sw, sh);
     const data = imgData.data;
+    const pixelCount = sw * sh;
 
-    // 1. Sample perimeter border pixels to identify dominant background color palette
-    const bgSamples = [];
-    const sampleBorder = (x, y) => {
+    // 1. Collect perimeter border samples to identify all background color clusters
+    const borderColors = [];
+    const addBorderSample = (x, y) => {
       const idx = (y * sw + x) * 4;
-      bgSamples.push({ r: data[idx], g: data[idx + 1], b: data[idx + 2] });
+      if (data[idx + 3] < 32) return; // Skip already transparent pixels
+      borderColors.push([data[idx], data[idx + 1], data[idx + 2]]);
     };
 
-    const borderStep = Math.max(1, Math.floor(sw / 40));
-    for (let x = 0; x < sw; x += borderStep) {
-      sampleBorder(x, 0);
-      sampleBorder(x, sh - 1);
+    const step = Math.max(1, Math.floor(Math.max(sw, sh) / 60));
+    for (let x = 0; x < sw; x += step) {
+      addBorderSample(x, 0);
+      addBorderSample(x, sh - 1);
     }
-    for (let y = 0; y < sh; y += borderStep) {
-      sampleBorder(0, y);
-      sampleBorder(sw - 1, y);
+    for (let y = 0; y < sh; y += step) {
+      addBorderSample(0, y);
+      addBorderSample(sw - 1, y);
     }
 
-    // Average background color
-    let avgR = 0, avgG = 0, avgB = 0;
-    bgSamples.forEach((p) => { avgR += p.r; avgG += p.g; avgB += p.b; });
-    avgR /= bgSamples.length;
-    avgG /= bgSamples.length;
-    avgB /= bgSamples.length;
-
-    // 2. Compute spatial center bias and color distance map
-    const saliency = new Float32Array(sw * sh);
-    const cx = sw / 2;
-    const cy = sh / 2;
-    const maxDist = Math.hypot(cx, cy);
-
-    let maxSal = 0;
-    for (let y = 0; y < sh; y++) {
-      for (let x = 0; x < sw; x++) {
-        const i = y * sw + x;
-        const pi = i * 4;
-        const r = data[pi];
-        const g = data[pi + 1];
-        const b = data[pi + 2];
-
-        // Euclidean color distance in RGB
-        const colorDist = Math.hypot(r - avgR, g - avgG, b - avgB);
-
-        // Center prior (subjects are usually centered)
-        const centerDist = Math.hypot(x - cx, y - cy);
-        const spatialWeight = 1 - (centerDist / maxDist) * 0.45;
-
-        const sal = colorDist * spatialWeight;
-        saliency[i] = sal;
-        if (sal > maxSal) maxSal = sal;
+    // Cluster border samples into top representative background colors
+    const clusters = [];
+    for (const c of borderColors) {
+      let matched = false;
+      for (const cl of clusters) {
+        const dist = Math.hypot(c[0] - cl.r, c[1] - cl.g, c[2] - cl.b);
+        if (dist < 28) {
+          cl.r = (cl.r * cl.count + c[0]) / (cl.count + 1);
+          cl.g = (cl.g * cl.count + c[1]) / (cl.count + 1);
+          cl.b = (cl.b * cl.count + c[2]) / (cl.count + 1);
+          cl.count++;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched && clusters.length < 16) {
+        clusters.push({ r: c[0], g: c[1], b: c[2], count: 1 });
       }
     }
 
-    // 3. Otsu-inspired dynamic thresholding
-    let sum = 0;
-    for (let i = 0; i < saliency.length; i++) sum += saliency[i];
-    const meanSal = sum / saliency.length;
-    const threshold = meanSal * 0.85;
+    // Distance to nearest background cluster
+    function distToBg(r, g, b, a) {
+      if (a < 32) return 0;
+      if (clusters.length === 0) return 0;
+      let minD = Infinity;
+      for (let i = 0; i < clusters.length; i++) {
+        const cl = clusters[i];
+        const d = Math.hypot(r - cl.r, g - cl.g, b - cl.b);
+        if (d < minD) minD = d;
+      }
+      return minD;
+    }
 
-    // 4. Construct binary mask
+    // 2. Multi-seed border flood fill for contiguous background
+    const isBg = new Uint8Array(pixelCount); // 1 = confirmed background
+    const queue = new Int32Array(pixelCount);
+    let qHead = 0;
+    let qTail = 0;
+
+    const pushBorderPixel = (x, y) => {
+      const idx = y * sw + x;
+      if (isBg[idx] === 0) {
+        isBg[idx] = 1;
+        queue[qTail++] = idx;
+      }
+    };
+
+    for (let x = 0; x < sw; x++) {
+      pushBorderPixel(x, 0);
+      pushBorderPixel(x, sh - 1);
+    }
+    for (let y = 0; y < sh; y++) {
+      pushBorderPixel(0, y);
+      pushBorderPixel(sw - 1, y);
+    }
+
+    const bgTolerance = 34;
+    while (qHead < qTail) {
+      const idx = queue[qHead++];
+      const x = idx % sw;
+      const y = Math.floor(idx / sw);
+
+      const neighbors = [
+        x > 0 ? idx - 1 : -1,
+        x < sw - 1 ? idx + 1 : -1,
+        y > 0 ? idx - sw : -1,
+        y < sh - 1 ? idx + sw : -1
+      ];
+
+      for (let i = 0; i < 4; i++) {
+        const nIdx = neighbors[i];
+        if (nIdx !== -1 && isBg[nIdx] === 0) {
+          const pi = nIdx * 4;
+          const d = distToBg(data[pi], data[pi + 1], data[pi + 2], data[pi + 3]);
+          if (d <= bgTolerance) {
+            isBg[nIdx] = 1;
+            queue[qTail++] = nIdx;
+          }
+        }
+      }
+    }
+
+    // 3. Construct binary mask with center saliency reinforcement
     const maskSmallCanvas = document.createElement("canvas");
     maskSmallCanvas.width = sw;
     maskSmallCanvas.height = sh;
@@ -379,22 +425,49 @@
     const mData = mCtx.createImageData(sw, sh);
     const mPix = mData.data;
 
-    for (let i = 0; i < saliency.length; i++) {
-      const val = saliency[i] >= threshold ? 255 : 0;
-      const pi = i * 4;
-      mPix[pi] = val;
-      mPix[pi + 1] = val;
-      mPix[pi + 2] = val;
-      mPix[pi + 3] = 255;
+    const cx = sw / 2;
+    const cy = sh / 2;
+    const maxDist = Math.hypot(cx, cy);
+
+    for (let y = 0; y < sh; y++) {
+      for (let x = 0; x < sw; x++) {
+        const i = y * sw + x;
+        const pi = i * 4;
+
+        if (data[pi + 3] < 32) {
+          mPix[pi] = 0;
+          mPix[pi + 1] = 0;
+          mPix[pi + 2] = 0;
+          mPix[pi + 3] = 0;
+          continue;
+        }
+
+        if (isBg[i] === 1) {
+          mPix[pi] = 0;
+          mPix[pi + 1] = 0;
+          mPix[pi + 2] = 0;
+          mPix[pi + 3] = 0;
+        } else {
+          const d = distToBg(data[pi], data[pi + 1], data[pi + 2], data[pi + 3]);
+          const centerDist = Math.hypot(x - cx, y - cy);
+          const spatialWeight = 1 - (centerDist / maxDist) * 0.35;
+
+          const val = (d > bgTolerance * 0.7 || spatialWeight > 0.75) ? 255 : 0;
+          mPix[pi] = val;
+          mPix[pi + 1] = val;
+          mPix[pi + 2] = val;
+          mPix[pi + 3] = val;
+        }
+      }
     }
     mCtx.putImageData(mData, 0, 0);
 
-    // 5. Morphological smoothing + feather scale-up to original resolution
+    // 4. Anti-aliasing feathering scaled up to original source resolution
     const finalMaskCanvas = document.createElement("canvas");
     finalMaskCanvas.width = w;
     finalMaskCanvas.height = h;
     const fCtx = finalMaskCanvas.getContext("2d");
-    fCtx.filter = "blur(4px)";
+    fCtx.filter = "blur(3px)";
     fCtx.drawImage(maskSmallCanvas, 0, 0, w, h);
     fCtx.filter = "none";
 
@@ -463,14 +536,35 @@
     outCanvas.height = h;
     const outCtx = outCanvas.getContext("2d", { willReadFrequently: true });
 
-    // Draw source
     outCtx.drawImage(sourceCanvas, 0, 0);
 
-    // Apply mask via destination-in blend
-    outCtx.globalCompositeOperation = "destination-in";
-    outCtx.drawImage(maskCanvas, 0, 0, w, h);
-    outCtx.globalCompositeOperation = "source-over";
+    const srcImgData = outCtx.getImageData(0, 0, w, h);
+    const srcPix = srcImgData.data;
 
+    let maskImgData;
+    if (maskCanvas.width === w && maskCanvas.height === h) {
+      maskImgData = maskCanvas.getContext("2d", { willReadFrequently: true }).getImageData(0, 0, w, h);
+    } else {
+      const temp = document.createElement("canvas");
+      temp.width = w;
+      temp.height = h;
+      const tCtx = temp.getContext("2d", { willReadFrequently: true });
+      tCtx.drawImage(maskCanvas, 0, 0, w, h);
+      maskImgData = tCtx.getImageData(0, 0, w, h);
+    }
+    const maskPix = maskImgData.data;
+
+    for (let i = 0; i < srcPix.length; i += 4) {
+      // Robust calculation:
+      // If maskCanvas has alpha transparency, use both luminance and alpha.
+      const maskLum = maskPix[i] * 0.299 + maskPix[i + 1] * 0.587 + maskPix[i + 2] * 0.114;
+      const maskAlpha = maskPix[i + 3] / 255;
+      const factor = (maskLum / 255) * maskAlpha;
+
+      srcPix[i + 3] = Math.round(srcPix[i + 3] * factor);
+    }
+
+    outCtx.putImageData(srcImgData, 0, 0);
     return outCanvas;
   }
 
@@ -575,6 +669,7 @@
         pix[i] = inv;
         pix[i + 1] = inv;
         pix[i + 2] = inv;
+        pix[i + 3] = inv;
       }
       ctx.putImageData(imgData, 0, 0);
     },

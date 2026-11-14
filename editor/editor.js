@@ -1525,7 +1525,7 @@
     srcCanvas.height = source.naturalHeight || source.height;
     srcCanvas.getContext("2d").drawImage(source, 0, 0);
 
-    const engine = dom.bgRemoverEngineSelect?.value || "rmbg";
+    const engine = dom.bgRemoverEngineSelect?.value || "fast";
     dom.bgRemovalProgressWrap?.classList.remove("hidden");
     if (dom.btnRunBgRemoval) dom.btnRunBgRemoval.disabled = true;
 
@@ -1605,12 +1605,14 @@
       rCtx.save();
       const inv = window.FluxBgRemover.MaskOperations.cloneMask(workingMaskCanvas);
       window.FluxBgRemover.MaskOperations.invertMask(inv);
-      rCtx.globalCompositeOperation = "source-over";
-      rCtx.globalAlpha = 0.5;
-      rCtx.fillStyle = "#EF4444";
-      rCtx.fillRect(0, 0, w, h);
-      rCtx.globalCompositeOperation = "destination-in";
-      rCtx.drawImage(inv, 0, 0);
+      const redCanvas = document.createElement("canvas");
+      redCanvas.width = w;
+      redCanvas.height = h;
+      const redCtx = redCanvas.getContext("2d");
+      redCtx.fillStyle = "rgba(239, 68, 68, 0.5)";
+      redCtx.fillRect(0, 0, w, h);
+      const maskedRed = window.FluxBgRemover.applyMaskToSource(redCanvas, inv);
+      rCtx.drawImage(maskedRed, 0, 0);
       rCtx.restore();
     } else if (viewMode === "matte") {
       rCtx.drawImage(workingMaskCanvas, 0, 0);
@@ -1925,7 +1927,7 @@
       showToast("Re-running AI segmentation...");
       try {
         const res = await window.FluxBgRemover.removeBackground(refineSession.sourceCanvas, {
-          engine: dom.bgRemoverEngineSelect?.value || "rmbg"
+          engine: dom.bgRemoverEngineSelect?.value || "fast"
         });
         refineSession.workingMaskCanvas = window.FluxBgRemover.MaskOperations.cloneMask(res.maskCanvas);
         refineSession.initialMaskSnapshot = window.FluxBgRemover.MaskOperations.cloneMask(res.maskCanvas);
