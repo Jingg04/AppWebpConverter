@@ -1475,8 +1475,8 @@ async function convertItem(item, version) {
       format: state.targetFormat,
       quality: state.quality,
       targetBytes: targetKb > 0 ? targetKb * 1024 : 0,
-      preserveMetadata: dom.preserveMetadata.checked,
-      stripGps: dom.stripGps.checked,
+      preserveMetadata: dom.preserveMetadata ? dom.preserveMetadata.checked : true,
+      stripGps: dom.stripGps ? dom.stripGps.checked : true,
       resize: resizeOpts
     });
 
@@ -2619,7 +2619,7 @@ function updateStats() {
   dom.pauseQueueBtn.disabled = total === 0;
   dom.retryFailedBtn.disabled = failed.length === 0;
   dom.clearQueueBtn.disabled = total === 0;
-  dom.downloadZip.disabled = done.length < 2;
+  dom.downloadZip.disabled = done.length < 1;
 }
 
 function renderQueue() {
@@ -3283,7 +3283,7 @@ function openItemInResizer(item) {
 
 async function downloadAllAsZip() {
   const done = state.items.filter((item) => item.status === "done" && item.outputBlob);
-  if (done.length < 2) return;
+  if (done.length < 1) return;
 
   dom.downloadZip.disabled = true;
   const originalHtml = dom.downloadZip.innerHTML;

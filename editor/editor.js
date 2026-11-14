@@ -2078,6 +2078,39 @@
     dom.landingBrowseBtn?.addEventListener("click", () => dom.fileInput.click());
     dom.fileInput?.addEventListener("change", handleFileInput);
 
+    // Save project (.fluxproj)
+    dom.saveProjBtn?.addEventListener("click", () => {
+      try {
+        const title = state.doc.name || dom.projectTitleInput?.value || "Untitled Edit";
+        const key = "fluxwebp_project_" + Date.now();
+        const docState = serializeDocState(state.doc);
+        const projData = {
+          version: "2.4.0",
+          type: "fluxproj",
+          title,
+          date: new Date().toLocaleDateString(),
+          doc: docState
+        };
+        const projJson = JSON.stringify(projData);
+
+        localStorage.setItem(key, JSON.stringify({
+          id: key,
+          title,
+          json: projJson,
+          date: new Date().toLocaleDateString()
+        }));
+
+        const blob = new Blob([projJson], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `${title.toLowerCase().replace(/[^a-z0-9]/g, "-")}.fluxproj`;
+        a.click();
+        showToast("Project saved locally and downloaded as .fluxproj!");
+      } catch (err) {
+        showToast("Failed to save project: " + err.message);
+      }
+    });
+
     // Tool switching
     dom.toolButtons.forEach((btn) => {
       btn.addEventListener("click", () => setActiveTool(btn.dataset.tool));
@@ -2694,6 +2727,24 @@
   // --- Initial Check for Transferred Image from Converter ---
   function initEmptyState() {
     try {
+      const importedProject = sessionStorage.getItem("fluxwebp_imported_project");
+      if (importedProject) {
+        sessionStorage.removeItem("fluxwebp_imported_project");
+        try {
+          const parsedProj = JSON.parse(importedProject);
+          const docData = parsedProj.doc ? (typeof parsedProj.doc === 'string' ? JSON.parse(parsedProj.doc) : parsedProj.doc) : parsedProj;
+          restoreDocSnapshot({ doc: JSON.stringify(docData) });
+          if (dom.projectTitleInput) dom.projectTitleInput.value = docData.name || parsedProj.title || "Imported Project";
+          requestRender();
+          fitCanvasToViewport();
+          dom.emptyOverlay?.classList.add("hidden");
+          showToast("Loaded saved project!");
+          return;
+        } catch (e) {
+          console.warn("Could not parse imported project:", e);
+        }
+      }
+
       const importedPoster = sessionStorage.getItem("fluxwebp_imported_editor_image");
       const posterTitle = sessionStorage.getItem("fluxwebp_editor_title") || "Poster Design";
       if (importedPoster) {

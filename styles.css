@@ -2943,6 +2943,23 @@ body.modal-open {
     display: inline-flex !important;
   }
 
+  .nav-dropdown-wrap {
+    width: 100%;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    min-width: 100%;
+    box-shadow: none;
+    background: var(--bg-muted, #F1F5F9);
+    margin-top: 4px;
+    border-radius: var(--radius-sm, 6px);
+  }
+
+  [data-theme="dark"] .nav-dropdown-menu {
+    background: #1F2937;
+  }
+
   .hide-mobile {
     display: none !important;
   }

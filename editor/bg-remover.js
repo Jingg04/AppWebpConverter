@@ -168,38 +168,47 @@
     } catch (_) {}
 
     if (!modelBuffer) {
-      const response = await fetch(modelCfg.url);
-      if (!response.ok) throw new Error(`Model fetch failed with status ${response.status}`);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(new Error("Model download timeout")), 5000);
 
-      const contentLength = Number(response.headers.get("content-length")) || 43000000;
-      const reader = response.body.getReader();
-      const chunks = [];
-      let receivedBytes = 0;
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        chunks.push(value);
-        receivedBytes += value.length;
-        const pct = Math.min(99, Math.round((receivedBytes / contentLength) * 100));
-        const mb = (receivedBytes / (1024 * 1024)).toFixed(1);
-        progressCallback?.({
-          stage: "download",
-          message: `Downloading AI Model weights: ${mb} MB (${pct}%)...`,
-          progress: pct
-        });
-      }
-
-      const totalBlob = new Blob(chunks);
-      modelBuffer = await totalBlob.arrayBuffer();
-
-      // Cache model for future instant access
       try {
-        if ("caches" in window) {
-          const cache = await caches.open(cacheKey);
-          await cache.put(modelCfg.url, new Response(totalBlob));
+        const response = await fetch(modelCfg.url, { signal: controller.signal });
+        if (!response.ok) throw new Error(`Model fetch failed with status ${response.status}`);
+
+        const contentLength = Number(response.headers.get("content-length")) || 43000000;
+        const reader = response.body.getReader();
+        const chunks = [];
+        let receivedBytes = 0;
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          chunks.push(value);
+          receivedBytes += value.length;
+          const pct = Math.min(99, Math.round((receivedBytes / contentLength) * 100));
+          const mb = (receivedBytes / (1024 * 1024)).toFixed(1);
+          progressCallback?.({
+            stage: "download",
+            message: `Downloading AI Model weights: ${mb} MB (${pct}%)...`,
+            progress: pct
+          });
         }
-      } catch (_) {}
+        clearTimeout(timeoutId);
+
+        const totalBlob = new Blob(chunks);
+        modelBuffer = await totalBlob.arrayBuffer();
+
+        // Cache model for future instant access
+        try {
+          if ("caches" in window) {
+            const cache = await caches.open(cacheKey);
+            await cache.put(modelCfg.url, new Response(totalBlob));
+          }
+        } catch (_) {}
+      } catch (dlErr) {
+        clearTimeout(timeoutId);
+        throw dlErr;
+      }
     }
 
     progressCallback?.({ stage: "compile", message: "Compiling neural graph for hardware acceleration..." });

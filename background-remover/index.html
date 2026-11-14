@@ -13,6 +13,7 @@
     <link rel="canonical" href="https://app-webp-converter.vercel.app/background-remover/" />
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><path d='M8 12h9a5 5 0 0 1 0 10H8V12zm4 3v4h5a2 2 0 0 0 0-4h-5z' fill='white'/><circle cx='23' cy='9' r='3' fill='%23F97316'/></svg>" />
+    <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="stylesheet" href="../styles.css" />
 
     <!-- Structured Data -->
@@ -77,6 +78,11 @@
             <button class="btn btn-primary" type="button" id="btnSelectBgFile">Choose Photo</button>
             <button class="btn btn-outline" type="button" id="btnTrySampleBg">Try Sample Photo</button>
           </div>
+          <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-top: 18px;">
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary);">Engine:</span>
+            <button type="button" class="btn btn-xs btn-primary bg-engine-pill active" id="pillEngineFast" data-engine="fast" style="font-size: 0.75rem; padding: 4px 10px;">⚡ Instant Cutout (0 MB)</button>
+            <button type="button" class="btn btn-xs btn-outline bg-engine-pill" id="pillEngineRmbg" data-engine="rmbg" style="font-size: 0.75rem; padding: 4px 10px;">🧠 Deep Neural AI</button>
+          </div>
         </div>
 
         <!-- Processing State Card (Hidden by default) -->
@@ -89,8 +95,11 @@
         <!-- Result Card (Hidden by default) -->
         <div class="card p-4 hidden" id="bgResultCard" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; margin-top: 24px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-            <h3 style="font-size: 1.15rem; font-weight: 700;">Transparent Cutout Result</h3>
-            <div style="display: flex; gap: 10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; margin:0;">Transparent Cutout Result</h3>
+              <button class="btn btn-xs btn-outline" id="btnRemoveAnother" type="button">New Cutout</button>
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
               <button class="btn btn-sm btn-primary" id="btnDownloadPng" type="button">Download PNG</button>
               <button class="btn btn-sm btn-outline" id="btnDownloadWebp" type="button">Download WebP</button>
               <button class="btn btn-sm btn-outline" id="btnSendToEditor" type="button">Open in Editor</button>
@@ -146,9 +155,36 @@
         const btnDownloadWebp = document.getElementById('btnDownloadWebp');
         const btnSendToEditor = document.getElementById('btnSendToEditor');
         const btnSendToPoster = document.getElementById('btnSendToPoster');
+        const btnRemoveAnother = document.getElementById('btnRemoveAnother');
+        const pillEngineFast = document.getElementById('pillEngineFast');
+        const pillEngineRmbg = document.getElementById('pillEngineRmbg');
 
+        let selectedEngine = 'fast';
         let lastResultCanvas = null;
         let lastFileName = 'cutout';
+
+        pillEngineFast?.addEventListener('click', () => {
+          selectedEngine = 'fast';
+          pillEngineFast.classList.add('btn-primary');
+          pillEngineFast.classList.remove('btn-outline');
+          pillEngineRmbg?.classList.remove('btn-primary');
+          pillEngineRmbg?.classList.add('btn-outline');
+        });
+
+        pillEngineRmbg?.addEventListener('click', () => {
+          selectedEngine = 'rmbg';
+          pillEngineRmbg.classList.add('btn-primary');
+          pillEngineRmbg.classList.remove('btn-outline');
+          pillEngineFast?.classList.remove('btn-primary');
+          pillEngineFast?.classList.add('btn-outline');
+        });
+
+        btnRemoveAnother?.addEventListener('click', () => {
+          resultCard.classList.add('hidden');
+          processingCard.classList.add('hidden');
+          dropzone.classList.remove('hidden');
+          fileInput.value = '';
+        });
 
         selectBtn.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -213,6 +249,7 @@
 
           try {
             const result = await window.FluxBgRemover.removeBackground(srcCanvas, {
+              engine: selectedEngine,
               onProgress: (p) => {
                 if (statusText) statusText.textContent = p.message || 'Processing...';
               }

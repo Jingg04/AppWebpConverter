@@ -59,10 +59,19 @@
     studioLayersList: document.getElementById('studioLayersList'),
     btnAddTextLayer: document.getElementById('btnAddTextLayer'),
     btnAddBadgeLayer: document.getElementById('btnAddBadgeLayer'),
+    btnAddNewTextFromPanel: document.getElementById('btnAddNewTextFromPanel'),
     inspectorTitle: document.getElementById('inspectorTitle'),
     inspectorBody: document.getElementById('inspectorBody'),
+    // Typography Panel
+    textLayerInput: document.getElementById('textLayerInput'),
+    fontFamilySelect: document.getElementById('fontFamilySelect'),
+    fontSizeSlider: document.getElementById('fontSizeSlider'),
+    fontSizeVal: document.getElementById('fontSizeVal'),
+    textColorPicker: document.getElementById('textColorPicker'),
+    btnManualRefineCutout: document.getElementById('btnManualRefineCutout'),
     // Brand Kits & Saved Designs
     brandKitsList: document.getElementById('brandKitsList'),
+    btnOpenNewBrandKitModal: document.getElementById('btnOpenNewBrandKitModal'),
     savedProjectsList: document.getElementById('savedProjectsList'),
     btnSaveCurrentProject: document.getElementById('btnSaveCurrentProject'),
     generationHistoryList: document.getElementById('generationHistoryList'),
@@ -109,12 +118,14 @@
     if (initialTmpl) {
       engine.loadTemplate(initialTmpl);
       updateCanvasDimensionsReadout();
+      renderLayersList();
     }
 
     // Engine Event Listeners
     engine.on('selectionChange', (layer) => {
       renderLayersList();
       renderInspector(layer);
+      syncTypographyPanel(layer);
     });
 
     engine.on('historyChange', ({ canUndo, canRedo }) => {
@@ -134,6 +145,7 @@
     bindTemplatesCatalog();
     bindProductUpload();
     bindLayersList();
+    bindTypographyPanel();
     bindBrandKits();
     bindSavedDesigns();
     bindExportModal();
@@ -146,9 +158,30 @@
     checkTransferredImage();
   }
 
-  // Check incoming transferred image from other tools
+  // Check incoming transferred image or project from other tools
   async function checkTransferredImage() {
     try {
+      const importedProj = sessionStorage.getItem('fluxwebp_imported_project');
+      if (importedProj) {
+        sessionStorage.removeItem('fluxwebp_imported_project');
+        try {
+          const parsed = JSON.parse(importedProj);
+          const tmpl = parsed.doc ? (typeof parsed.doc === 'string' ? JSON.parse(parsed.doc) : parsed.doc) : (parsed.json ? JSON.parse(parsed.json) : parsed);
+          if (tmpl.doc) {
+            engine.doc = tmpl.doc;
+            engine.render();
+          } else {
+            engine.loadTemplate(tmpl);
+          }
+          if (dom.projectTitleInput) dom.projectTitleInput.value = parsed.title || tmpl.name || 'Imported Poster';
+          fitCanvasToViewport();
+          renderLayersList();
+          showToast('Loaded saved poster design!');
+          return;
+        } catch (e) {
+          console.warn('Could not parse imported poster:', e);
+        }
+      }
       const incomingPosterBg = sessionStorage.getItem('fluxwebp_poster_bg_image');
       if (incomingPosterBg) {
         sessionStorage.removeItem('fluxwebp_poster_bg_image');
@@ -448,6 +481,90 @@
     });
   }
 
+  function bindTypographyPanel() {
+    dom.btnAddNewTextFromPanel?.addEventListener('click', () => {
+      const text = dom.textLayerInput?.value || 'NEW HEADLINE';
+      const font = dom.fontFamilySelect?.value || 'Inter';
+      const size = Number(dom.fontSizeSlider?.value) || 54;
+      const color = dom.textColorPicker?.value || '#FFFFFF';
+
+      engine.addLayer({
+        type: 'text',
+        name: 'Heading Layer',
+        text,
+        x: engine.doc.width / 2,
+        y: engine.doc.height / 2,
+        fontSize: size,
+        fontFamily: font,
+        fontWeight: '800',
+        color,
+        align: 'center'
+      });
+      showToast('Added new typography layer!');
+    });
+
+    dom.textLayerInput?.addEventListener('input', () => {
+      const layer = engine.getSelectedLayer();
+      if (layer && (layer.type === 'text' || layer.type === 'badge')) {
+        layer.text = dom.textLayerInput.value;
+        engine.render();
+      }
+    });
+
+    dom.fontFamilySelect?.addEventListener('change', () => {
+      const layer = engine.getSelectedLayer();
+      if (layer && layer.type === 'text') {
+        layer.fontFamily = dom.fontFamilySelect.value;
+        engine.render();
+      }
+    });
+
+    dom.fontSizeSlider?.addEventListener('input', () => {
+      const val = dom.fontSizeSlider.value;
+      if (dom.fontSizeVal) dom.fontSizeVal.textContent = `${val} px`;
+      const layer = engine.getSelectedLayer();
+      if (layer && (layer.type === 'text' || layer.type === 'badge')) {
+        layer.fontSize = Number(val);
+        engine.render();
+      }
+    });
+
+    dom.textColorPicker?.addEventListener('input', () => {
+      const layer = engine.getSelectedLayer();
+      if (layer && (layer.type === 'text' || layer.type === 'badge')) {
+        layer.color = dom.textColorPicker.value;
+        engine.render();
+      }
+    });
+
+    dom.btnManualRefineCutout?.addEventListener('click', () => {
+      const prodLayer = engine.doc.layers.find((l) => l.type === 'product' || l.type === 'image');
+      if (prodLayer && prodLayer.image) {
+        const canvas = document.createElement('canvas');
+        canvas.width = prodLayer.image.naturalWidth || prodLayer.image.width || 800;
+        canvas.height = prodLayer.image.naturalHeight || prodLayer.image.height || 800;
+        canvas.getContext('2d').drawImage(prodLayer.image, 0, 0);
+        sessionStorage.setItem('fluxwebp_imported_editor_image', canvas.toDataURL('image/png'));
+        sessionStorage.setItem('fluxwebp_editor_title', 'Refine Cutout Edge');
+        sessionStorage.setItem('fluxwebp_auto_remove_bg', 'true');
+        window.location.href = '/editor/';
+      } else {
+        showToast('Please upload a product photo first to refine edges.');
+      }
+    });
+  }
+
+  function syncTypographyPanel(layer) {
+    if (!layer || (layer.type !== 'text' && layer.type !== 'badge')) return;
+    if (dom.textLayerInput) dom.textLayerInput.value = layer.text || '';
+    if (dom.fontFamilySelect && layer.fontFamily) dom.fontFamilySelect.value = layer.fontFamily;
+    if (dom.fontSizeSlider && layer.fontSize) {
+      dom.fontSizeSlider.value = layer.fontSize;
+      if (dom.fontSizeVal) dom.fontSizeVal.textContent = `${layer.fontSize} px`;
+    }
+    if (dom.textColorPicker && layer.color) dom.textColorPicker.value = layer.color;
+  }
+
   function renderLayersList() {
     if (!dom.studioLayersList || !engine) return;
     const layers = engine.getLayers();
@@ -607,6 +724,20 @@
   // -------------------------------------------------------------
   function bindBrandKits() {
     renderBrandKits();
+
+    dom.btnOpenNewBrandKitModal?.addEventListener('click', () => {
+      const name = prompt('Enter custom Brand Kit name:', 'My Custom Brand');
+      if (!name || !name.trim()) return;
+      const newKit = {
+        id: 'brand-' + Date.now(),
+        name: name.trim(),
+        colors: { primary: '#2563EB', secondary: '#1E293B', accent: '#F97316' },
+        fonts: { heading: 'Space Grotesk', body: 'Inter' }
+      };
+      DEFAULT_BRAND_KITS.push(newKit);
+      renderBrandKits();
+      showToast(`Created Brand Kit: ${newKit.name}`);
+    });
   }
 
   function renderBrandKits() {
