@@ -112,11 +112,141 @@
     if (!dom.canvas) return;
 
     engine = new FluxPosterEngine.PosterEngine(dom.canvas);
+    window.posterEngine = engine;
 
-    // Load initial default template (AeroGlide Sneaker)
-    const initialTmpl = FluxPosterTemplates.getTemplateById('prod-sneaker-hyper') || FluxPosterTemplates.getTemplates()[0];
-    if (initialTmpl) {
-      engine.loadTemplate(initialTmpl);
+    // Check if an image was transferred from Converter or Background Remover
+    let incomingImage = null;
+    try {
+      incomingImage = sessionStorage.getItem('fluxwebp_poster_bg_image') || sessionStorage.getItem('fluxwebp_poster_image');
+      if (incomingImage) {
+        sessionStorage.removeItem('fluxwebp_poster_bg_image');
+        sessionStorage.removeItem('fluxwebp_poster_image');
+      }
+    } catch (_) {}
+
+    if (incomingImage) {
+      // Build blank poster centered around user's image
+      const img = new Image();
+      img.onload = () => {
+        const iw = img.naturalWidth || 1080;
+        const ih = img.naturalHeight || 1350;
+        const pw = 1080;
+        const ph = Math.round(pw * (ih / iw)) || 1350;
+        engine.doc.width = pw;
+        engine.doc.height = ph;
+        engine.doc.name = "My Poster Project";
+        if (dom.projectTitleInput) dom.projectTitleInput.value = "My Poster Project";
+        engine.doc.layers = [
+          {
+            id: 'layer-bg-user',
+            name: 'Studio Background',
+            type: 'background',
+            bgType: 'color',
+            color: '#0F172A',
+            visible: true,
+            locked: false
+          },
+          {
+            id: 'layer-user-image',
+            name: 'User Photo',
+            type: 'product',
+            imageElement: img,
+            x: 54,
+            y: Math.round(ph * 0.08),
+            width: Math.round(pw * 0.9),
+            height: Math.round(ph * 0.75),
+            objectFit: 'contain',
+            visible: true,
+            locked: false
+          },
+          {
+            id: 'layer-title-text',
+            name: 'Headline',
+            type: 'text',
+            text: 'POSTER TITLE',
+            fontSize: 48,
+            fontFamily: 'Montserrat',
+            fontWeight: '800',
+            color: '#FFFFFF',
+            align: 'center',
+            x: Math.round(pw / 2),
+            y: Math.round(ph * 0.86),
+            width: Math.round(pw * 0.85),
+            visible: true,
+            locked: false
+          }
+        ];
+        engine.render();
+        updateCanvasDimensionsReadout();
+        renderLayersList();
+        showToast("Created blank poster with your photo!");
+      };
+      img.src = incomingImage;
+    } else {
+      // Start from a clean, blank poster project (templates are opt-in)
+      engine.doc.width = 1080;
+      engine.doc.height = 1350;
+      engine.doc.name = "Untitled Poster";
+      if (dom.projectTitleInput) dom.projectTitleInput.value = "Untitled Poster";
+      engine.doc.layers = [
+        {
+          id: 'layer-bg-default',
+          name: 'Background Canvas',
+          type: 'background',
+          bgType: 'gradient',
+          gradientType: 'linear',
+          gradientAngle: 180,
+          gradientColors: ['#0F172A', '#1E293B'],
+          visible: true,
+          locked: false
+        },
+        {
+          id: 'layer-headline-guide',
+          name: 'Poster Title',
+          type: 'text',
+          text: 'CREATIVE POSTER',
+          fontSize: 54,
+          fontFamily: 'Montserrat',
+          fontWeight: '800',
+          color: '#FFFFFF',
+          align: 'center',
+          x: 540,
+          y: 200,
+          width: 900,
+          visible: true,
+          locked: false
+        },
+        {
+          id: 'layer-product-drop',
+          name: 'Product / Subject',
+          type: 'product',
+          x: 140,
+          y: 340,
+          width: 800,
+          height: 600,
+          objectFit: 'contain',
+          placeholderText: 'Drop or Upload Product Photo (AI Cutout)',
+          visible: true,
+          locked: false
+        },
+        {
+          id: 'layer-subheadline',
+          name: 'Subheadline',
+          type: 'text',
+          text: 'Add your description or choose a template from the catalog',
+          fontSize: 22,
+          fontFamily: 'Inter',
+          fontWeight: '400',
+          color: '#94A3B8',
+          align: 'center',
+          x: 540,
+          y: 980,
+          width: 800,
+          visible: true,
+          locked: false
+        }
+      ];
+      engine.render();
       updateCanvasDimensionsReadout();
       renderLayersList();
     }
@@ -895,18 +1025,32 @@
       const quality = Number(dom.exportQualitySlider?.value || 95) / 100;
 
       showToast('Preparing high-resolution export...');
-      const blob = await engine.exportToBlob(format, quality, scale);
+      try {
+        const blob = await engine.exportToBlob(format, quality, scale);
+        if (!blob) {
+          showToast('Failed to export poster.', 'error');
+          return;
+        }
 
-      const ext = format === 'image/jpeg' ? 'jpg' : format === 'image/webp' ? 'webp' : 'png';
-      const filename = `${dom.projectTitleInput?.value.toLowerCase().replace(/[^a-z0-9]/g, '-') || 'poster'}-${scale}x.${ext}`;
+        const ext = format === 'image/jpeg' ? 'jpg' : format === 'image/webp' ? 'webp' : 'png';
+        const rawTitle = dom.projectTitleInput?.value.trim() || 'poster';
+        const safeTitle = rawTitle.toLowerCase().replace(/[^a-z0-9]/g, '-') || 'poster';
+        const filename = `${safeTitle}-${scale}x.${ext}`;
 
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = filename;
-      link.click();
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(link.href), 5000);
 
-      dom.exportModal?.classList.remove('open');
-      showToast(`Exported ${filename} (${(blob.size / 1024).toFixed(1)} KB)`);
+        dom.exportModal?.classList.remove('open');
+        showToast(`Exported ${filename} (${(blob.size / 1024).toFixed(1)} KB)`);
+      } catch (err) {
+        console.error('Export download failed:', err);
+        showToast('Export error: ' + err.message, 'error');
+      }
     });
   }
 

@@ -340,6 +340,12 @@
                 <span class="compact-toggle-switch"></span>
                 <span class="compact-toggle-text">Preserve EXIF</span>
               </label>
+
+              <label class="compact-toggle" title="Keep original file if output is larger than original">
+                <input type="checkbox" id="keepOriginalIfLarger" checked />
+                <span class="compact-toggle-switch"></span>
+                <span class="compact-toggle-text">Keep original if larger</span>
+              </label>
             </div>
 
             <div class="toolbar-group toolbar-actions-group">
@@ -360,8 +366,8 @@
             <!-- Left: Upload Zone & Actions -->
             <div class="workspace-upload-col">
               <div class="dropzone-card card" id="dropzone" tabindex="0" role="region" aria-label="Dropzone upload target">
-                <input type="file" id="fileInput" class="visually-hidden" multiple accept="image/*,.arw,.cr2,.cr3,.nef,.dng,.raf,.orf,.rw2,.pef,.3fr,.psd,.psb,.heic,.heif,.hif,.tiff,.tif,.tga,.ppm,.pgm" />
-                <input type="file" id="folderInput" class="visually-hidden" webkitdirectory directory multiple />
+                <input type="file" id="fileInput" class="visually-hidden" multiple accept="image/*,.arw,.cr2,.cr3,.nef,.dng,.raf,.orf,.rw2,.pef,.3fr,.psd,.psb,.heic,.heif,.hif,.tiff,.tif,.tga,.ppm,.pgm" title="No file chosen" aria-label="No file chosen" />
+                <input type="file" id="folderInput" class="visually-hidden" webkitdirectory directory multiple title="No file chosen" aria-label="No file chosen" />
 
                 <div class="dropzone-visual">
                   <div class="dropzone-icon-circle" aria-hidden="true">
@@ -369,6 +375,7 @@
                   </div>
                   <h3 class="dropzone-title">Drop images here to convert</h3>
                   <p class="dropzone-sub">or browse files from your computer</p>
+                  <div class="dropzone-limit-note" style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:8px;">Max file size: 50 MB per image • 100% Client-Side</div>
 
                   <div class="dropzone-btn-group">
                     <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click()">
@@ -1050,6 +1057,19 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 <input type="search" id="historySearchInput" class="form-input search-input form-input-sm" placeholder="Search history..." aria-label="Search conversion history" />
               </div>
+              <select id="historyFormatFilter" class="form-select form-select-sm" style="width: auto; min-width: 105px;" aria-label="Filter history by format">
+                <option value="all">All Formats</option>
+                <option value="webp">WebP</option>
+                <option value="png">PNG</option>
+                <option value="jpeg">JPEG</option>
+                <option value="avif">AVIF</option>
+              </select>
+              <select id="historyDateFilter" class="form-select form-select-sm" style="width: auto; min-width: 105px;" aria-label="Filter history by time range">
+                <option value="all">All Time</option>
+                <option value="today">Today</option>
+                <option value="7days">Last 7 Days</option>
+                <option value="30days">Last 30 Days</option>
+              </select>
               <button class="btn btn-sm btn-outline" type="button" id="exportHistoryBtn" title="Export conversion logs to JSON">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 <span>Export JSON</span>
@@ -1079,6 +1099,11 @@
               <span class="metric-label">Net Space Saved</span>
               <strong class="metric-value text-green" id="historySavedTotal">0 KB</strong>
             </div>
+          </div>
+
+          <!-- Range Coverage Statement (Requirement 13) -->
+          <div id="historyRangeSummary" style="font-size: 0.85rem; color: var(--text-secondary); margin: 6px 4px 14px; font-weight: 500;">
+            Showing all-time conversions recorded locally.
           </div>
 
           <!-- Main History List / Table -->
@@ -1834,6 +1859,14 @@ console.log(result);
           </div>
 
           <div class="settings-group">
+            <h3>Output Optimization</h3>
+            <label class="checkbox-label">
+              <input type="checkbox" id="dlgKeepOriginalIfLarger" checked />
+              <span>Keep original file if output is larger than original (Recommended)</span>
+            </label>
+          </div>
+
+          <div class="settings-group">
             <h3>System Diagnostics</h3>
             <div class="diagnostics-box" id="diagnosticsBox">
               <div class="diag-row"><span>Engine:</span><strong>Pure Client-Side (Vanilla ES6+)</strong></div>
@@ -1883,7 +1916,9 @@ console.log(result);
             <button class="btn btn-xs btn-outline" type="button" id="modalZoomIn" title="Zoom In">
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
             </button>
+            <button class="btn btn-xs btn-outline" type="button" id="modalZoom100">100% (Actual)</button>
             <button class="btn btn-xs btn-outline" type="button" id="modalZoomReset">Fit Screen</button>
+            <button class="btn btn-xs btn-outline" type="button" id="modalToggleSideBySide">Side-by-Side</button>
             <button class="btn btn-xs btn-primary" type="button" id="modalEditInEditorBtn" title="Edit in Image Editor">
               <svg viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
               <span>Edit</span>
@@ -1898,10 +1933,33 @@ console.log(result);
         </div>
 
         <div class="modal-image-viewport checkerboard-bg" id="modalImageViewport">
-          <img id="modalInspectImage" alt="High resolution preview" />
+          <div id="inspectorSingleView" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img id="modalInspectImage" alt="High resolution preview" />
+          </div>
+          <div id="inspectorSideBySideView" class="hidden" style="width:100%; height:100%; display:grid; grid-template-columns: 1fr 1fr; gap:16px; padding:16px; box-sizing:border-box;">
+            <div style="display:flex; flex-direction:column; align-items:center; height:100%; background:var(--bg-surface); border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+              <div style="width:100%; padding:8px 14px; background:var(--bg-muted); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border);">
+                <strong>Original</strong>
+                <span id="inspectOrigMeta" style="font-size:0.8rem; color:var(--text-secondary);">JPG • 1920×1080 • 1.5 MB</span>
+              </div>
+              <div style="flex:1; width:100%; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:10px;">
+                <img id="inspectOrigImg" style="max-width:100%; max-height:100%; object-fit:contain;" alt="Original image" />
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; height:100%; background:var(--bg-surface); border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+              <div style="width:100%; padding:8px 14px; background:var(--bg-muted); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border);">
+                <strong class="text-blue">Converted</strong>
+                <span id="inspectConvMeta" style="font-size:0.8rem; color:var(--text-secondary);">WebP • 1920×1080 • 320 KB (78% saved)</span>
+              </div>
+              <div style="flex:1; width:100%; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:10px;">
+                <img id="inspectConvImg" style="max-width:100%; max-height:100%; object-fit:contain;" alt="Converted image" />
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="modal-footer-meta" id="modalExifBar">
+          <div class="exif-pill" id="inspectStatsPill">Savings: 0%</div>
           <div class="exif-pill" id="exifCamera">Camera: Standard</div>
           <div class="exif-pill" id="exifLens">Lens: Auto</div>
           <div class="exif-pill" id="exifSpecs">ISO • Shutter • Aperture</div>
@@ -1941,7 +1999,50 @@ console.log(result);
     <!-- Floating Toast Notification System -->
     <div class="toast-container" id="toastContainer" role="status" aria-live="polite"></div>
 
-    <!-- Application Script -->
+    <!-- Keyboard Shortcuts Help Modal (Requirement 17) -->
+    <dialog id="shortcutsModal" class="app-dialog docs-dialog" aria-labelledby="shortcutsModalTitle">
+      <div class="dialog-content" style="max-width: 480px;">
+        <div class="dialog-header">
+          <h2 id="shortcutsModalTitle">Keyboard Shortcuts</h2>
+          <form method="dialog">
+            <button class="icon-btn dialog-close-btn" value="close" aria-label="Close shortcuts">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </form>
+        </div>
+        <div class="dialog-body" style="padding: 16px 20px;">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+              <span>Paste Image from Clipboard</span>
+              <kbd style="background:var(--bg-muted); border:1px solid var(--border); padding:2px 8px; border-radius:4px; font-family:var(--font-mono); font-size:0.8rem;">Ctrl + V</kbd>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+              <span>Browse / Open Files</span>
+              <kbd style="background:var(--bg-muted); border:1px solid var(--border); padding:2px 8px; border-radius:4px; font-family:var(--font-mono); font-size:0.8rem;">Ctrl + O</kbd>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+              <span>Inspect Selected Image (Fullscreen)</span>
+              <kbd style="background:var(--bg-muted); border:1px solid var(--border); padding:2px 8px; border-radius:4px; font-family:var(--font-mono); font-size:0.8rem;">Space</kbd>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+              <span>Remove Selected Image</span>
+              <kbd style="background:var(--bg-muted); border:1px solid var(--border); padding:2px 8px; border-radius:4px; font-family:var(--font-mono); font-size:0.8rem;">Del / Backspace</kbd>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 6px;">
+              <span>Close Dialogs / Modals</span>
+              <kbd style="background:var(--bg-muted); border:1px solid var(--border); padding:2px 8px; border-radius:4px; font-family:var(--font-mono); font-size:0.8rem;">Esc</kbd>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span>Show Shortcuts Help</span>
+              <kbd style="background:var(--bg-muted); border:1px solid var(--border); padding:2px 8px; border-radius:4px; font-family:var(--font-mono); font-size:0.8rem;">?</kbd>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Application Scripts -->
+    <script src="/queue-db.js" defer></script>
     <script src="app.js" defer></script>
   </body>
 </html>

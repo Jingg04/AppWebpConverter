@@ -208,7 +208,12 @@
               </h3>
             </div>
             <div class="subpanel-body">
-              <p class="text-secondary text-xs mb-3">Automatically segment foreground subjects (people, animals, products, vehicles) and produce clean transparent alpha cutouts.</p>
+              <p class="text-secondary text-xs mb-2">Automatically segment foreground subjects (people, animals, products, vehicles) and produce clean transparent alpha cutouts.</p>
+
+              <div style="background:#FFFBEB; border:1px solid #FCD34D; border-radius:6px; padding:6px 10px; margin-bottom:12px; font-size:0.75rem; color:#92400E; display:flex; align-items:center; gap:6px;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Best for people, products, and pets — not landscapes.</span>
+              </div>
 
               <div class="form-group mb-3">
                 <label for="bgRemoverEngineSelect" class="form-label-xs">AI Inference Engine</label>
@@ -224,6 +229,10 @@
                 <button class="btn btn-primary w-full btn-lg-ai" id="btnRunBgRemoval" type="button">
                   <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path><path d="M19 16l-1 2.5L15.5 19l2.5 1 1 2.5 1-2.5 2.5-1-2.5-1L19 16z"></path></svg>
                   <span>Remove Background</span>
+                </button>
+                <button class="btn btn-sm btn-outline w-full mt-2" id="btnRestoreOriginalBg" type="button" disabled>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                  <span>Restore Original Image</span>
                 </button>
                 <div class="ai-progress-status hidden" id="bgRemovalProgressWrap">
                   <div class="progress-bar mb-1" id="bgRemovalProgressBar" style="--progress: 0%"><span></span></div>
@@ -1085,6 +1094,7 @@
       <span>100% Client-Side In-Browser Sandbox • Zero Uploads</span>
     </footer>
 
+    <script src="/queue-db.js"></script>
     <script src="bg-remover.js"></script>
     <script src="editor.js"></script>
   </body>

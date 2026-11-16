@@ -20,14 +20,24 @@
   --checker-c2: #0F172A;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 /* Base Editor Shell */
 .editor-shell {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
+  box-sizing: border-box;
   background: var(--bg-main);
   color: var(--text-main);
   font-family: var(--font-sans);
@@ -44,14 +54,58 @@
   padding: 0 var(--space-4);
   z-index: 50;
   user-select: none;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-.editor-header-left,
-.editor-header-center,
+.editor-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.editor-header-center {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
 .editor-header-right {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+@media (max-width: 1440px) {
+  .editor-header {
+    padding: 0 10px;
+  }
+  .editor-project-title-input {
+    max-width: 130px;
+    font-size: 0.85rem;
+  }
+  .editor-header-right .btn-sm {
+    padding: 4px 8px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .editor-dim-pill {
+    display: none;
+  }
+  .editor-header-right .btn-sm span {
+    display: none;
+  }
+  .editor-header-right .btn-sm svg {
+    margin: 0;
+  }
 }
 
 .editor-project-title-input {

@@ -9,7 +9,7 @@
 const HISTORY_KEY = "fluxwebp-history-v2";
 const SETTINGS_KEY = "fluxwebp-settings-v2";
 const THEME_KEY = "fluxwebp-theme";
-const MAX_HISTORY = 50;
+const MAX_HISTORY = 500;
 
 const RAW_EXTENSIONS = new Set([
   "arw", "srf", "sr2", // Sony
@@ -293,6 +293,7 @@ const dom = {
   presetBtns: document.querySelectorAll(".preset-btn"),
   autoOptimize: document.getElementById("autoOptimize"),
   preserveMetadata: document.getElementById("preserveMetadata"),
+  keepOriginalIfLarger: document.getElementById("keepOriginalIfLarger"),
 
   // Upload
   dropzone: document.getElementById("dropzone"),
@@ -405,6 +406,10 @@ const dom = {
   historyOutTotal: document.getElementById("historyOutTotal"),
   historySavedTotal: document.getElementById("historySavedTotal"),
   historyList: document.getElementById("historyList"),
+  historyFormatFilter: document.getElementById("historyFormatFilter"),
+  historyDateFilter: document.getElementById("historyDateFilter"),
+  historyRangeCoverage: document.getElementById("historyRangeCoverage"),
+  historyPaginationInfo: document.getElementById("historyPaginationInfo"),
 
   // Developer API View
   copyApiCodeBtn: document.getElementById("copyApiCodeBtn"),
@@ -416,6 +421,7 @@ const dom = {
   concurrencySelect: document.getElementById("concurrencySelect"),
   themeSelect: document.getElementById("themeSelect"),
   saveHistoryToggle: document.getElementById("saveHistoryToggle"),
+  keepOriginalIfLargerSetting: document.getElementById("keepOriginalIfLargerSetting"),
   purgeDataBtn: document.getElementById("purgeDataBtn"),
   diagOffscreen: document.getElementById("diagOffscreen"),
   diagWasm: document.getElementById("diagWasm"),
@@ -430,7 +436,9 @@ const dom = {
   modalZoomOut: document.getElementById("modalZoomOut"),
   modalZoomLevel: document.getElementById("modalZoomLevel"),
   modalZoomIn: document.getElementById("modalZoomIn"),
+  modalZoom100: document.getElementById("modalZoom100"),
   modalZoomReset: document.getElementById("modalZoomReset"),
+  modalToggleSideBySide: document.getElementById("modalToggleSideBySide"),
   modalEditInEditorBtn: document.getElementById("modalEditInEditorBtn"),
   modalImageViewport: document.getElementById("modalImageViewport"),
   modalInspectImage: document.getElementById("modalInspectImage"),
@@ -438,6 +446,9 @@ const dom = {
   exifCamera: document.getElementById("exifCamera"),
   exifLens: document.getElementById("exifLens"),
   exifSpecs: document.getElementById("exifSpecs"),
+
+  shortcutsModal: document.getElementById("shortcutsModal"),
+  shortcutsBtn: document.getElementById("shortcutsBtn"),
 
   docsModal: document.getElementById("docsModal"),
   toastContainer: document.getElementById("toastContainer")
@@ -459,11 +470,13 @@ const state = {
   draggedId: null,
   activeFormatCat: "all",
   saveHistory: true,
+  keepOriginalIfLarger: true,
   settings: {
     defaultFormat: "webp",
     concurrency: 3,
     theme: "system",
-    saveHistory: true
+    saveHistory: true,
+    keepOriginalIfLarger: true
   }
 };
 
@@ -538,8 +551,80 @@ function renderGrowthDashboard() {
   }
 }
 
+// --- AVIF Native Support Verification ---
+var isAvifSupportedCached = null;
+function isAvifSupported() {
+  if (isAvifSupportedCached !== null) return isAvifSupportedCached;
+  try {
+    const c = document.createElement("canvas");
+    c.width = 1;
+    c.height = 1;
+    const dataUrl = c.toDataURL("image/avif");
+    isAvifSupportedCached = typeof dataUrl === "string" && dataUrl.startsWith("data:image/avif");
+  } catch (_) {
+    isAvifSupportedCached = false;
+  }
+  return isAvifSupportedCached;
+}
+
+function initAvifSupportCheck() {
+  const supported = isAvifSupported();
+  const avifPill = document.querySelector('.format-pill[data-format="avif"]');
+  if (avifPill) {
+    if (!supported) {
+      avifPill.disabled = true;
+      avifPill.setAttribute("disabled", "true");
+      avifPill.classList.add("disabled");
+      avifPill.setAttribute("aria-disabled", "true");
+      avifPill.title = "Not supported in this browser — will save as WebP";
+      avifPill.style.opacity = "0.45";
+      avifPill.style.cursor = "not-allowed";
+    } else {
+      avifPill.disabled = false;
+      avifPill.removeAttribute("disabled");
+      avifPill.classList.remove("disabled");
+      avifPill.removeAttribute("aria-disabled");
+    }
+  }
+  document.querySelectorAll('option[value="avif"]').forEach((opt) => {
+    if (!supported) {
+      opt.disabled = true;
+      opt.textContent = "AVIF (Not supported in this browser — saves as WebP)";
+    }
+  });
+}
+
+// --- Queue Persistence via IndexedDB ---
+async function restoreQueueFromDB() {
+  if (!window.FluxQueueDB) return;
+  try {
+    const dbItems = await window.FluxQueueDB.getAllItems();
+    if (dbItems && dbItems.length > 0) {
+      const restored = dbItems.map((dbItem) => {
+        const originalUrl = dbItem.file ? URL.createObjectURL(dbItem.file) : "";
+        const outputUrl = dbItem.outputBlob ? URL.createObjectURL(dbItem.outputBlob) : "";
+        const previewUrl = dbItem.previewBlob ? URL.createObjectURL(dbItem.previewBlob) : "";
+        return {
+          ...dbItem,
+          originalUrl,
+          outputUrl,
+          previewUrl
+        };
+      });
+      state.items = restored;
+      state.selectedId = state.items[0]?.id || null;
+      render();
+      updateStats();
+      syncCompare();
+    }
+  } catch (err) {
+    console.warn("Could not restore queue from DB:", err);
+  }
+}
+
 // --- Initialization ---
 FluxAnalytics.track("page_view");
+initAvifSupportCheck();
 loadSavedSettings();
 initTheme();
 initRouting();
@@ -550,6 +635,7 @@ syncCompare();
 render();
 runDiagnostics();
 checkTransferredImage();
+restoreQueueFromDB();
 
 // Register Service Worker for Offline PWA Resilience (Auto-updating)
 if ("serviceWorker" in navigator) {
@@ -643,11 +729,14 @@ function loadSavedSettings() {
   state.targetFormat = state.settings.defaultFormat || "webp";
   state.concurrency = Number(state.settings.concurrency) || 3;
   state.saveHistory = state.settings.saveHistory !== false;
+  state.keepOriginalIfLarger = state.settings.keepOriginalIfLarger !== false;
 
   if (dom.defaultFormatSelect) dom.defaultFormatSelect.value = state.targetFormat;
   if (dom.concurrencySelect) dom.concurrencySelect.value = String(state.concurrency);
   if (dom.drawerConcurrencySelect) dom.drawerConcurrencySelect.value = String(state.concurrency);
   if (dom.saveHistoryToggle) dom.saveHistoryToggle.checked = state.saveHistory;
+  if (dom.keepOriginalIfLarger) dom.keepOriginalIfLarger.checked = state.keepOriginalIfLarger;
+  if (dom.keepOriginalIfLargerSetting) dom.keepOriginalIfLargerSetting.checked = state.keepOriginalIfLarger;
 
   updateFormatPillsUI(state.targetFormat);
 }
@@ -657,12 +746,15 @@ function saveSettings() {
     defaultFormat: dom.defaultFormatSelect.value,
     concurrency: Number(dom.concurrencySelect.value),
     theme: dom.themeSelect.value,
-    saveHistory: dom.saveHistoryToggle.checked
+    saveHistory: dom.saveHistoryToggle.checked,
+    keepOriginalIfLarger: dom.keepOriginalIfLargerSetting ? dom.keepOriginalIfLargerSetting.checked : state.keepOriginalIfLarger
   };
   state.targetFormat = state.settings.defaultFormat;
   state.concurrency = state.settings.concurrency;
   state.saveHistory = state.settings.saveHistory;
+  state.keepOriginalIfLarger = state.settings.keepOriginalIfLarger;
 
+  if (dom.keepOriginalIfLarger) dom.keepOriginalIfLarger.checked = state.keepOriginalIfLarger;
   if (dom.drawerConcurrencySelect) dom.drawerConcurrencySelect.value = String(state.concurrency);
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(state.settings));
   updateFormatPillsUI(state.targetFormat);
@@ -683,6 +775,10 @@ function purgeAllData() {
   });
   state.items = [];
   state.selectedId = null;
+
+  if (window.FluxQueueDB) {
+    window.FluxQueueDB.clearAll().catch(() => {});
+  }
 
   dom.settingsDialog.close();
   render();
@@ -732,9 +828,12 @@ function lockBodyScroll(locked) {
   }
 }
 
+let lastFocusedElementBeforeModal = null;
 function openModal(dialog) {
   if (!dialog) return;
+  lastFocusedElementBeforeModal = document.activeElement;
   dialog.showModal();
+  dialog.setAttribute("aria-modal", "true");
   lockBodyScroll(true);
 }
 
@@ -806,6 +905,7 @@ function bindAllEvents() {
   wireDialogBackdrop(dom.settingsDialog);
   wireDialogBackdrop(dom.previewModal);
   wireDialogBackdrop(dom.docsModal);
+  wireDialogBackdrop(dom.shortcutsModal);
 
   dom.settingsDialog?.querySelector("form[method='dialog'] button[value='save']")?.addEventListener("click", saveSettings);
   dom.themeSelect?.addEventListener("change", handleThemeSelectChange);
@@ -825,10 +925,45 @@ function bindAllEvents() {
   // Clear Queue Shortcut
   dom.headerClearQueueBtn?.addEventListener("click", clearQueue);
 
-  // File Uploads
-  dom.fileInput?.addEventListener("change", (e) => addFiles(e.target.files));
-  dom.folderUploadTrigger?.addEventListener("click", () => dom.folderInput.click());
-  dom.folderInput?.addEventListener("change", (e) => addFiles(e.target.files));
+  // File Uploads (Audited: reset input value immediately on change/cancel, maintain aria-label/title)
+  dom.fileInput?.addEventListener("click", () => {
+    dom.fileInput.value = "";
+  });
+  dom.fileInput?.addEventListener("change", (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      addFiles(e.target.files);
+    }
+    e.target.value = "";
+    e.target.title = "No file chosen";
+    e.target.setAttribute("aria-label", "No file chosen");
+  });
+  dom.fileInput?.addEventListener("cancel", (e) => {
+    e.target.value = "";
+    e.target.title = "No file chosen";
+    e.target.setAttribute("aria-label", "No file chosen");
+  });
+
+  dom.folderUploadTrigger?.addEventListener("click", () => {
+    if (dom.folderInput) dom.folderInput.value = "";
+    dom.folderInput?.click();
+  });
+  dom.folderInput?.addEventListener("click", () => {
+    dom.folderInput.value = "";
+  });
+  dom.folderInput?.addEventListener("change", (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      addFiles(e.target.files);
+    }
+    e.target.value = "";
+    e.target.title = "No file chosen";
+    e.target.setAttribute("aria-label", "No file chosen");
+  });
+  dom.folderInput?.addEventListener("cancel", (e) => {
+    e.target.value = "";
+    e.target.title = "No file chosen";
+    e.target.setAttribute("aria-label", "No file chosen");
+  });
+
   dom.loadSampleBtn?.addEventListener("click", loadSampleImage);
 
   // Drag & Drop
@@ -847,7 +982,9 @@ function bindAllEvents() {
   });
 
   dom.dropzone?.addEventListener("drop", (e) => {
-    addFiles(e.dataTransfer.files);
+    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      addFiles(e.dataTransfer.files);
+    }
   });
 
   // Clipboard Paste Support (Ctrl+V)
@@ -858,6 +995,11 @@ function bindAllEvents() {
     pill.addEventListener("click", () => {
       const format = pill.dataset.format;
       if (!format) return;
+      if (format === "avif" && !isAvifSupported()) {
+        showToast("AVIF is not supported in this browser — will save as WebP.");
+        setTargetFormat("webp");
+        return;
+      }
       setTargetFormat(format);
     });
   });
@@ -931,10 +1073,36 @@ function bindAllEvents() {
   dom.modalNextBtn?.addEventListener("click", navigateInspectorNext);
   dom.modalZoomIn?.addEventListener("click", () => adjustModalZoom(25));
   dom.modalZoomOut?.addEventListener("click", () => adjustModalZoom(-25));
+  dom.modalZoom100?.addEventListener("click", () => setModalZoom(100));
   dom.modalZoomReset?.addEventListener("click", () => setModalZoom(100));
+  dom.modalToggleSideBySide?.addEventListener("click", toggleModalSideBySide);
   dom.modalEditInEditorBtn?.addEventListener("click", () => {
     const selected = findItem(state.selectedId);
     if (selected) openItemInEditor(selected);
+  });
+
+  // Keep original if larger toggles
+  const syncKeepOriginal = (val) => {
+    state.keepOriginalIfLarger = val;
+    if (dom.keepOriginalIfLarger) dom.keepOriginalIfLarger.checked = val;
+    if (dom.keepOriginalIfLargerSetting) dom.keepOriginalIfLargerSetting.checked = val;
+    state.settings.keepOriginalIfLarger = val;
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(state.settings));
+    renderQueue();
+  };
+  dom.keepOriginalIfLarger?.addEventListener("change", (e) => syncKeepOriginal(e.target.checked));
+  dom.keepOriginalIfLargerSetting?.addEventListener("change", (e) => syncKeepOriginal(e.target.checked));
+
+  // History Filters
+  dom.historyFormatFilter?.addEventListener("change", renderHistory);
+  dom.historyDateFilter?.addEventListener("change", renderHistory);
+
+  // Shortcuts Modal & Keydown
+  dom.shortcutsBtn?.addEventListener("click", () => openModal(dom.shortcutsModal));
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "?" && !isInputFocused(e)) {
+      openModal(dom.shortcutsModal);
+    }
   });
 
   // Batch Queue Actions
@@ -1029,6 +1197,9 @@ function wireDialogBackdrop(dialog) {
   });
   dialog.addEventListener("close", () => {
     lockBodyScroll(false);
+    if (lastFocusedElementBeforeModal && typeof lastFocusedElementBeforeModal.focus === "function") {
+      lastFocusedElementBeforeModal.focus();
+    }
   });
 }
 
@@ -1043,27 +1214,12 @@ function runDiagnostics() {
     dom.diagWasm.className = "text-green";
   }
   if (dom.diagAvif) {
-    const c = document.createElement("canvas");
-    c.width = 1; c.height = 1;
-    if ("convertToBlob" in c) {
-      c.convertToBlob({ type: "image/avif" })
-        .then(() => {
-          if (dom.diagAvif) {
-            dom.diagAvif.textContent = "Native Canvas Supported";
-            dom.diagAvif.className = "text-green";
-          }
-        })
-        .catch(() => {
-          if (dom.diagAvif) {
-            dom.diagAvif.textContent = "Fallback to WebP";
-            dom.diagAvif.className = "text-secondary";
-          }
-        });
+    if (isAvifSupported()) {
+      dom.diagAvif.textContent = "Native Canvas Supported";
+      dom.diagAvif.className = "text-green";
     } else {
-      if (dom.diagAvif) {
-        dom.diagAvif.textContent = "Fallback to WebP";
-        dom.diagAvif.className = "text-secondary";
-      }
+      dom.diagAvif.textContent = "Fallback to WebP";
+      dom.diagAvif.className = "text-secondary";
     }
   }
 }
@@ -1114,12 +1270,16 @@ function handleClipboardPaste(event) {
 
   if (files.length) {
     addFiles(files);
-    showToast(`Pasted ${files.length} image${files.length === 1 ? "" : "s"} from clipboard.`);
+    showToast("Pasted image added");
   }
 }
 
 // --- Target Format & Quality Handling ---
 function setTargetFormat(format) {
+  if (format === "avif" && !isAvifSupported()) {
+    showToast("AVIF is not supported in this browser — will save as WebP.");
+    format = "webp";
+  }
   state.targetFormat = format;
   updateFormatPillsUI(format);
 
@@ -1262,6 +1422,29 @@ function toggleCheckerboard() {
   sideViews.forEach((view) => view.classList.toggle("checkerboard-bg", state.isCheckerboard));
 }
 
+let inspectorMode = "single";
+
+function toggleModalSideBySide() {
+  inspectorMode = inspectorMode === "single" ? "side" : "single";
+  updateInspectorViews();
+}
+
+function updateInspectorViews() {
+  const singleView = document.getElementById("inspectorSingleView");
+  const sideView = document.getElementById("inspectorSideBySideView");
+  const btn = dom.modalToggleSideBySide;
+
+  if (inspectorMode === "side") {
+    singleView?.classList.add("hidden");
+    sideView?.classList.remove("hidden");
+    if (btn) btn.classList.add("active");
+  } else {
+    singleView?.classList.remove("hidden");
+    sideView?.classList.add("hidden");
+    if (btn) btn.classList.remove("active");
+  }
+}
+
 function openFullscreenInspector() {
   const selected = findItem(state.selectedId);
   if (!selected) return;
@@ -1273,12 +1456,46 @@ function openFullscreenInspector() {
   dom.modalInspectImage.src = selected.outputUrl || selected.previewUrl || selected.originalUrl;
   setModalZoom(100);
 
+  // Side-by-side elements
+  const origImg = document.getElementById("inspectOrigImg");
+  const convImg = document.getElementById("inspectConvImg");
+  const origMeta = document.getElementById("inspectOrigMeta");
+  const convMeta = document.getElementById("inspectConvMeta");
+  const statsPill = document.getElementById("inspectStatsPill");
+
+  if (origImg) origImg.src = selected.originalUrl || "";
+  if (convImg) convImg.src = selected.outputUrl || selected.previewUrl || selected.originalUrl || "";
+
+  const origExt = getExtension(selected.name).toUpperCase();
+  const convExt = (selected.actualFormat || selected.format || state.targetFormat).toUpperCase();
+  const dimStr = selected.width && selected.height ? `${selected.width}×${selected.height}` : "Pending";
+
+  if (origMeta) origMeta.textContent = `${origExt} • ${dimStr} • ${formatBytes(selected.originalSize)}`;
+  if (convMeta) {
+    if (selected.status === "done") {
+      convMeta.textContent = `${convExt} • ${dimStr} • ${formatBytes(selected.outputSize)} (${selected.savedPercent}% saved)`;
+    } else {
+      convMeta.textContent = `${convExt} • ${dimStr} • Processing...`;
+    }
+  }
+
+  if (statsPill) {
+    if (selected.status === "done") {
+      statsPill.textContent = selected.outputSize >= selected.originalSize
+        ? "No saving (Larger than original)"
+        : `Savings: ${selected.savedPercent}% (${formatBytes(selected.savedBytes)})`;
+    } else {
+      statsPill.textContent = "Status: " + statusLabel(selected.status);
+    }
+  }
+
   // Metadata pills
   const ext = getExtension(selected.name).toUpperCase();
   dom.exifCamera.textContent = RAW_EXTENSIONS.has(ext.toLowerCase()) ? `Sensor: ${ext} Camera RAW` : `Format: ${ext}`;
   dom.exifLens.textContent = `File Size: ${formatBytes(selected.originalSize)}`;
   dom.exifSpecs.textContent = selected.width ? `${selected.width} × ${selected.height} px • sRGB` : "Resolution: Pending";
 
+  updateInspectorViews();
   openModal(dom.previewModal);
 }
 
@@ -1318,39 +1535,59 @@ function addFiles(fileList) {
   if (!incoming.length) return;
 
   const validFiles = [];
-  let skipped = 0;
 
   incoming.forEach((file) => {
+    if (!file) return;
     if (file.size === 0) {
-      skipped++;
+      showToast(`Skipped "${file.name}" (empty 0-byte file).`);
       return;
     }
-    if (file.size > 250_000_000) {
-      showToast(`Skipped ${file.name} (exceeds 250MB browser limit).`);
-      skipped++;
+    if (file.size > 50_000_000) {
+      showToast(`"${file.name}" exceeds the 50MB file size limit (${formatBytes(file.size)}).`);
       return;
     }
     if (!isAcceptedImage(file)) {
-      skipped++;
+      showToast(`"${file.name}" is not an image — supported: JPG, PNG, WebP, AVIF, GIF, SVG, HEIC, RAW…`);
       return;
     }
-    validFiles.push(file);
-  });
 
-  if (skipped > 0) {
-    showToast(`${skipped} unsupported or empty file${skipped === 1 ? "" : "s"} skipped.`);
-  }
+    // Exact duplicate check: same name + size + lastModified
+    const isExactDuplicate = state.items.some(
+      (it) => it.name === file.name && it.originalSize === file.size && it.file?.lastModified === file.lastModified
+    );
+    if (isExactDuplicate) {
+      showToast(`"${file.name}" is already in queue.`);
+      return;
+    }
+
+    // Distinguish duplicate names with (2), (3) suffix
+    let finalName = file.name || "image";
+    const existingNames = new Set(state.items.map((it) => it.name).concat(validFiles.map((vf) => vf.name)));
+    if (existingNames.has(finalName)) {
+      const ext = getExtension(finalName);
+      const base = finalName.slice(0, ext ? -(ext.length + 1) : undefined);
+      let counter = 2;
+      let candidate = `${base} (${counter})${ext ? `.${ext}` : ""}`;
+      while (existingNames.has(candidate)) {
+        counter++;
+        candidate = `${base} (${counter})${ext ? `.${ext}` : ""}`;
+      }
+      finalName = candidate;
+    }
+
+    validFiles.push({ file, name: finalName });
+  });
 
   if (!validFiles.length) return;
 
   FluxAnalytics.track("upload_started", { count: validFiles.length });
 
-  const newItems = validFiles.map((file) => {
+  const newItems = validFiles.map(({ file, name }) => {
     const id = makeId();
     return {
       id,
       file,
-      name: file.name || `image-${id}`,
+      name,
       originalSize: file.size,
       originalUrl: URL.createObjectURL(file),
       previewBlob: null,
@@ -1373,6 +1610,14 @@ function addFiles(fileList) {
   if (!state.selectedId) state.selectedId = newItems[0].id;
 
   render();
+  updateStats();
+
+  try {
+    if (window.FluxQueueDB && typeof window.FluxQueueDB.saveAllItems === "function") {
+      window.FluxQueueDB.saveAllItems(state.items).catch(() => {});
+    }
+  } catch (_) {}
+
   processQueue();
 }
 
@@ -1499,10 +1744,16 @@ async function convertItem(item, version) {
     item.outputSize = result.blob.size;
     item.savedPercent = result.savedPercent;
     item.savedBytes = result.savedBytes;
+    item.actualFormat = result.actualFormat || result.format;
+    item.isLarger = item.outputSize >= item.originalSize;
     item.status = "done";
     item.progress = 100;
 
-    FluxAnalytics.track("conversion_completed", { count: 1, format: state.targetFormat });
+    if (window.FluxQueueDB) {
+      window.FluxQueueDB.saveItem(item).catch(() => {});
+    }
+
+    FluxAnalytics.track("conversion_completed", { count: 1, format: item.actualFormat || state.targetFormat });
 
     if (state.saveHistory) {
       addHistory(item);
@@ -1519,7 +1770,10 @@ async function convertItem(item, version) {
 
 // --- Universal Conversion Implementation ---
 async function convertFile(file, options = {}) {
-  const targetFormat = options.format || "webp";
+  let targetFormat = options.format || "webp";
+  if (targetFormat === "avif" && !isAvifSupported()) {
+    targetFormat = "webp";
+  }
   const quality = clamp(Number(options.quality ?? 82), 5, 100) / 100;
 
   // 1. Universal Decoding
@@ -1542,15 +1796,23 @@ async function convertFile(file, options = {}) {
     blob = await canvasToFormat(canvas, targetFormat, quality);
   }
 
+  // Detect actual format from generated blob
+  let actualFormat = targetFormat;
+  if (blob.type === "image/webp") actualFormat = "webp";
+  else if (blob.type === "image/png") actualFormat = "png";
+  else if (blob.type === "image/jpeg") actualFormat = "jpeg";
+  else if (blob.type === "image/avif") actualFormat = "avif";
+
   // 4. EXIF Injection
   const finalBlob = options.preserveMetadata
-    ? await tryPreserveExif(file, blob, targetFormat, finalWidth, finalHeight, options.stripGps)
+    ? await tryPreserveExif(file, blob, actualFormat, finalWidth, finalHeight, options.stripGps)
     : blob;
 
   disposeDecoded(decoded.source);
 
-  const savedBytes = Math.max(0, file.size - finalBlob.size);
-  const savedPercent = calculateSaved(file.size, finalBlob.size);
+  const isLarger = finalBlob.size >= file.size;
+  const savedBytes = isLarger ? 0 : Math.max(0, file.size - finalBlob.size);
+  const savedPercent = isLarger ? 0 : calculateSaved(file.size, finalBlob.size);
 
   return {
     blob: finalBlob,
@@ -1561,7 +1823,9 @@ async function convertFile(file, options = {}) {
     outputSize: finalBlob.size,
     savedBytes,
     savedPercent,
-    format: targetFormat,
+    format: actualFormat,
+    actualFormat,
+    isLarger,
     isCameraPreview: Boolean(decoded.isCameraPreview),
     previewLabel: decoded.previewLabel || null
   };
@@ -2288,8 +2552,14 @@ async function canvasToFormat(canvas, format, quality) {
     case "jpg":
       return canvasToJpeg(canvas, quality);
     case "avif":
+      if (!isAvifSupported()) {
+        showToast("AVIF unsupported in this browser; converted to WebP.");
+        return canvasToWebP(canvas, quality);
+      }
       try {
-        return await canvasToAvif(canvas, quality);
+        const blob = await canvasToAvif(canvas, quality);
+        if (blob && blob.type === "image/avif") return blob;
+        throw new Error("avif-unsupported");
       } catch (_) {
         showToast("AVIF unsupported in this browser; converted to WebP.");
         return canvasToWebP(canvas, quality);
@@ -2412,18 +2682,24 @@ function canvasToJpeg(canvas, quality) {
 }
 
 function canvasToAvif(canvas, quality) {
+  if (!isAvifSupported()) {
+    return Promise.reject(new Error("avif-unsupported"));
+  }
+  if ("toBlob" in canvas) {
+    return new Promise((resolve, reject) => {
+      canvas.toBlob((blob) => {
+        if (!blob || blob.type !== "image/avif") reject(new Error("avif-unsupported"));
+        else resolve(blob);
+      }, "image/avif", quality);
+    });
+  }
   if ("convertToBlob" in canvas) {
     return canvas.convertToBlob({ type: "image/avif", quality }).then((blob) => {
       if (!blob || blob.type !== "image/avif") throw new Error("avif-unsupported");
       return blob;
     });
   }
-  return new Promise((resolve, reject) => {
-    canvas.toBlob((blob) => {
-      if (!blob || blob.type !== "image/avif") reject(new Error("avif-unsupported"));
-      else resolve(blob);
-    }, "image/avif", quality);
-  });
+  return Promise.reject(new Error("avif-unsupported"));
 }
 
 function validateWebPBlob(blob) {
@@ -2615,11 +2891,20 @@ function updateStats() {
   // Queue Action Buttons
   dom.queueCountBadge.textContent = `${total} file${total === 1 ? "" : "s"}`;
   const hasSelected = state.items.some((i) => i.selectedForBatch);
-  dom.removeSelectedBtn.disabled = !hasSelected;
+  if (dom.selectAllBtn) {
+    const allSelected = total > 0 && state.items.every((i) => i.selectedForBatch);
+    dom.selectAllBtn.disabled = total === 0;
+    dom.selectAllBtn.textContent = allSelected ? "Deselect All" : "Select All";
+    dom.selectAllBtn.setAttribute("aria-label", allSelected ? "Deselect All" : "Select All");
+  }
+  dom.removeSelectedBtn.disabled = !hasSelected || total === 0;
   dom.pauseQueueBtn.disabled = total === 0;
   dom.retryFailedBtn.disabled = failed.length === 0;
   dom.clearQueueBtn.disabled = total === 0;
+  if (dom.headerClearQueueBtn) dom.headerClearQueueBtn.disabled = total === 0;
   dom.downloadZip.disabled = done.length < 1;
+  const selectedDone = state.items.filter((i) => i.id === state.selectedId && i.status === "done");
+  if (dom.downloadSelected) dom.downloadSelected.disabled = selectedDone.length === 0;
 }
 
 function renderQueue() {
@@ -2649,6 +2934,8 @@ function renderQueue() {
       namingPattern: dom.namingPattern.value,
       customPrefix: dom.customPrefixInput.value
     });
+
+    const isLarger = item.status === "done" && item.outputSize >= item.originalSize;
 
     row.innerHTML = `
       <div class="queue-item-header">
@@ -2702,14 +2989,19 @@ function renderQueue() {
       </div>
       <div class="queue-item-footer">
         <div class="queue-status-col">
-          <span class="status-pill status-${statusClass(item.status)}">${statusLabel(item.status)}</span>
+          ${isLarger
+            ? `<span class="status-pill status-warning" style="background:#fef3c7;color:#92400e;">Larger than original</span>`
+            : `<span class="status-pill status-${statusClass(item.status)}">${statusLabel(item.status, item.progress)}</span>`
+          }
         </div>
         <div class="queue-savings-col">
           ${item.status === "done"
-            ? `<strong class="text-green">${item.savedPercent}% saved</strong> <small class="meta-sub">(${formatBytes(item.outputSize)})</small>`
+            ? (isLarger
+                ? `<span class="badge badge-warning" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;padding:2px 8px;border-radius:4px;font-weight:600;">Larger than original</span> <small class="meta-sub">(${formatBytes(item.outputSize)})</small>`
+                : `<strong class="text-green">${item.savedPercent}% saved</strong> <small class="meta-sub">(${formatBytes(item.outputSize)})</small>`)
             : item.status === "error"
             ? `<small class="text-red">${escapeHtml(item.error)}</small>`
-            : `<small class="text-muted">Converting...</small>`
+            : `<small class="text-muted">${item.status === "queued" ? "Adding… " : "Processing… "}${item.progress || 0}%</small>`
           }
         </div>
       </div>
@@ -2731,18 +3023,23 @@ function renderQueueItem(id) {
   const progressBar = row.querySelector(".progress-bar");
   if (progressBar) progressBar.style.setProperty("--progress", `${item.progress}%`);
 
+  const isLarger = item.status === "done" && item.outputSize >= item.originalSize;
   const statusCol = row.querySelector(".queue-status-col");
   if (statusCol) {
-    statusCol.innerHTML = `<span class="status-pill status-${statusClass(item.status)}">${statusLabel(item.status)}</span>`;
+    statusCol.innerHTML = isLarger
+      ? `<span class="status-pill status-warning" style="background:#fef3c7;color:#92400e;">Larger than original</span>`
+      : `<span class="status-pill status-${statusClass(item.status)}">${statusLabel(item.status, item.progress)}</span>`;
   }
 
   const savingsCol = row.querySelector(".queue-savings-col");
   if (savingsCol) {
     savingsCol.innerHTML = item.status === "done"
-      ? `<strong class="text-green">${item.savedPercent}% saved</strong> <small class="meta-sub">(${formatBytes(item.outputSize)})</small>`
+      ? (isLarger
+          ? `<span class="badge badge-warning" style="background:#fef3c7;color:#92400e;border:1px solid #f59e0b;padding:2px 8px;border-radius:4px;font-weight:600;">Larger than original</span> <small class="meta-sub">(${formatBytes(item.outputSize)})</small>`
+          : `<strong class="text-green">${item.savedPercent}% saved</strong> <small class="meta-sub">(${formatBytes(item.outputSize)})</small>`)
       : item.status === "error"
       ? `<small class="text-red">${escapeHtml(item.error)}</small>`
-      : `<small class="text-muted">Converting...</small>`;
+      : `<small class="text-muted">${item.status === "queued" ? "Adding… " : "Processing… "}${item.progress || 0}%</small>`;
   }
 
   const downloadBtn = row.querySelector('button[data-action="download"]');
@@ -2956,14 +3253,22 @@ function filterFormatsCatalog() {
 // --- History Storage & Export ---
 function addHistory(item) {
   const history = getHistory();
+  const isLarger = item.outputSize >= item.originalSize;
+  let targetFormat = item.actualFormat || item.format || state.targetFormat;
+  if (item.outputBlob?.type === "image/webp") targetFormat = "webp";
+  else if (item.outputBlob?.type === "image/jpeg") targetFormat = "jpeg";
+  else if (item.outputBlob?.type === "image/png") targetFormat = "png";
+  else if (item.outputBlob?.type === "image/avif") targetFormat = "avif";
+
   history.unshift({
     id: item.id,
     name: item.name,
     originalSize: item.originalSize,
     outputSize: item.outputSize,
-    savedBytes: item.savedBytes,
-    savedPercent: item.savedPercent,
-    targetFormat: state.targetFormat,
+    savedBytes: isLarger ? 0 : item.savedBytes,
+    savedPercent: isLarger ? 0 : item.savedPercent,
+    targetFormat,
+    status: isLarger ? "No saving" : "Success",
     date: new Date().toISOString()
   });
   localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(0, MAX_HISTORY)));
@@ -2982,6 +3287,8 @@ function renderHistory() {
   if (!dom.historyList) return;
   const history = getHistory();
   const query = dom.historySearchInput?.value.trim().toLowerCase() || "";
+  const formatFilter = dom.historyFormatFilter?.value || "all";
+  const dateFilter = dom.historyDateFilter?.value || "all";
 
   // Update Summary Metrics
   const totalCount = history.length;
@@ -2994,21 +3301,56 @@ function renderHistory() {
   if (dom.historyOutTotal) dom.historyOutTotal.textContent = formatBytes(outSum);
   if (dom.historySavedTotal) dom.historySavedTotal.textContent = formatBytes(savedSum);
 
-  const filtered = query
-    ? history.filter((h) => h.name.toLowerCase().includes(query) || (h.targetFormat && h.targetFormat.toLowerCase().includes(query)))
-    : history;
+  if (dom.historyRangeCoverage) {
+    if (history.length > 0) {
+      const dates = history.map((h) => new Date(h.date).getTime()).filter((t) => !isNaN(t));
+      const minDate = new Date(Math.min(...dates)).toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" });
+      const maxDate = new Date(Math.max(...dates)).toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" });
+      dom.historyRangeCoverage.textContent = `Totals cover ${totalCount} recorded conversions from ${minDate} to ${maxDate}.`;
+    } else {
+      dom.historyRangeCoverage.textContent = "No conversions recorded yet.";
+    }
+  }
 
-  if (!filtered.length) {
+  const now = Date.now();
+  const filtered = history.filter((entry) => {
+    if (query) {
+      const matchName = entry.name.toLowerCase().includes(query);
+      const matchFormat = (entry.targetFormat || "").toLowerCase().includes(query);
+      if (!matchName && !matchFormat) return false;
+    }
+    if (formatFilter !== "all") {
+      const fmt = (entry.targetFormat || "webp").toLowerCase();
+      if (fmt !== formatFilter.toLowerCase()) return false;
+    }
+    if (dateFilter !== "all") {
+      const entryTime = new Date(entry.date).getTime();
+      const ageHours = (now - entryTime) / (1000 * 60 * 60);
+      if (dateFilter === "today" && ageHours > 24) return false;
+      if (dateFilter === "week" && ageHours > 24 * 7) return false;
+      if (dateFilter === "month" && ageHours > 24 * 30) return false;
+    }
+    return true;
+  });
+
+  if (dom.historyPaginationInfo) {
+    const shown = Math.min(50, filtered.length);
+    dom.historyPaginationInfo.textContent = `Showing ${shown} of ${filtered.length}${filtered.length < totalCount ? ` (${totalCount - filtered.length} older entries archived)` : ""}`;
+  }
+
+  const displayed = filtered.slice(0, 50);
+
+  if (!displayed.length) {
     dom.historyList.innerHTML = `
       <div class="history-empty">
-        <p>${query ? "No conversions match your search." : "No conversion history recorded yet."}</p>
+        <p>${query || formatFilter !== "all" || dateFilter !== "all" ? "No conversions match your filters." : "No conversion history recorded yet."}</p>
       </div>
     `;
     return;
   }
 
   const fragment = document.createDocumentFragment();
-  filtered.forEach((entry, idx) => {
+  displayed.forEach((entry, idx) => {
     const row = document.createElement("article");
     row.className = "history-row";
     row.dataset.index = String(idx);
@@ -3016,24 +3358,32 @@ function renderHistory() {
     const timeFormatted = date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     const dateFormatted = date.toLocaleDateString([], { month: "short", day: "numeric" });
     const fmt = (entry.targetFormat || "webp").toUpperCase();
+    const isLarger = entry.status === "No saving" || entry.outputSize >= entry.originalSize;
 
     row.innerHTML = `
       <div class="history-info">
         <div class="queue-title-row">
           <span class="format-badge format-web">${escapeHtml(fmt)}</span>
           <strong class="history-name" title="${escapeHtml(entry.name)}">${escapeHtml(entry.name)}</strong>
-          <span class="status-pill status-done">Success</span>
+          ${isLarger
+            ? `<span class="status-pill status-warning" style="background:#fef3c7;color:#92400e;">No saving</span>`
+            : `<span class="status-pill status-done">Success</span>`
+          }
         </div>
         <div class="history-meta">
           <span>${formatBytes(entry.originalSize)} ➔ ${formatBytes(entry.outputSize)}</span>
           <span>•</span>
-          <span class="text-green font-semibold">${entry.savedPercent}% saved</span>
-          <span>•</span>
-          <span>${formatBytes(entry.savedBytes)} reduced</span>
+          ${isLarger
+            ? `<span class="text-amber font-semibold">Larger than original</span>`
+            : `<span class="text-green font-semibold">${entry.savedPercent}% saved</span><span>•</span><span>${formatBytes(entry.savedBytes)} reduced</span>`
+          }
         </div>
       </div>
       <div class="history-right">
         <span class="queue-submeta">${dateFormatted}, ${timeFormatted}</span>
+        <button class="icon-btn text-blue history-dl-btn" type="button" data-action="download-history" data-id="${escapeHtml(entry.id)}" data-name="${escapeHtml(entry.name)}" title="Download entry" aria-label="Download entry">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </button>
         <button class="icon-btn text-red history-del-btn" type="button" data-action="delete-history" data-index="${idx}" title="Remove entry" aria-label="Remove entry">
           <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         </button>
@@ -3187,16 +3537,56 @@ function retryFailedQueueItems() {
   showToast(`Retrying ${failed.length} failed item${failed.length === 1 ? "" : "s"}...`);
 }
 
+let clearedQueueBackup = null;
+let clearQueueUndoTimer = null;
+
 function clearQueue() {
-  state.items.forEach((item) => {
-    URL.revokeObjectURL(item.originalUrl);
-    if (item.previewUrl) URL.revokeObjectURL(item.previewUrl);
-    if (item.outputUrl) URL.revokeObjectURL(item.outputUrl);
-  });
+  if (state.items.length === 0) return;
+
+  if (dom.fileInput) {
+    dom.fileInput.value = "";
+    dom.fileInput.title = "No file chosen";
+    dom.fileInput.setAttribute("aria-label", "No file chosen");
+  }
+  if (dom.folderInput) {
+    dom.folderInput.value = "";
+    dom.folderInput.title = "No file chosen";
+    dom.folderInput.setAttribute("aria-label", "No file chosen");
+  }
+
+  clearedQueueBackup = [...state.items];
   state.items = [];
   state.selectedId = null;
   render();
-  showToast("Queue cleared.");
+  updateStats();
+
+  if (clearQueueUndoTimer) clearTimeout(clearQueueUndoTimer);
+
+  showToastWithUndo("Queue cleared.", () => {
+    if (clearedQueueBackup && clearedQueueBackup.length) {
+      state.items = [...clearedQueueBackup];
+      state.selectedId = state.items[0]?.id || null;
+      clearedQueueBackup = null;
+      if (clearQueueUndoTimer) clearTimeout(clearQueueUndoTimer);
+      render();
+      updateStats();
+      showToast("Queue restored.");
+    }
+  });
+
+  clearQueueUndoTimer = setTimeout(() => {
+    if (clearedQueueBackup) {
+      clearedQueueBackup.forEach((item) => {
+        try { URL.revokeObjectURL(item.originalUrl); } catch (_) {}
+        if (item.previewUrl) try { URL.revokeObjectURL(item.previewUrl); } catch (_) {}
+        if (item.outputUrl) try { URL.revokeObjectURL(item.outputUrl); } catch (_) {}
+      });
+      clearedQueueBackup = null;
+    }
+    if (window.FluxQueueDB) {
+      window.FluxQueueDB.clearAll().catch(() => {});
+    }
+  }, 5000);
 }
 
 function reorderItems(draggedId, targetId) {
@@ -3218,7 +3608,11 @@ function removeItem(id) {
   if (state.selectedId === id) {
     state.selectedId = state.items[index]?.id || state.items[index - 1]?.id || null;
   }
+  if (window.FluxQueueDB) {
+    window.FluxQueueDB.removeItem(id).catch(() => {});
+  }
   render();
+  updateStats();
 }
 
 function findItem(id) {
@@ -3233,11 +3627,31 @@ function downloadSelected() {
 
 function downloadItem(item) {
   if (!item.outputBlob) return;
-  const filename = formatOutputFilename(item.name, state.targetFormat, {
-    namingPattern: dom.namingPattern.value,
-    customPrefix: dom.customPrefixInput.value
+
+  const isLarger = item.outputSize >= item.originalSize;
+  const useOriginal = state.keepOriginalIfLarger && isLarger && item.file;
+
+  let downloadFormat = item.actualFormat || item.format || state.targetFormat;
+  if (item.outputBlob.type === "image/webp") downloadFormat = "webp";
+  else if (item.outputBlob.type === "image/jpeg") downloadFormat = "jpeg";
+  else if (item.outputBlob.type === "image/png") downloadFormat = "png";
+  else if (item.outputBlob.type === "image/avif") downloadFormat = "avif";
+
+  if (useOriginal) {
+    downloadBlob(item.file, item.name);
+    showToast(`Kept original "${item.name}" (output was larger than original).`);
+    return;
+  }
+
+  const filename = formatOutputFilename(item.name, downloadFormat, {
+    namingPattern: dom.namingPattern ? dom.namingPattern.value : "name_clean",
+    customPrefix: dom.customPrefixInput ? dom.customPrefixInput.value : ""
   });
+
   downloadBlob(item.outputBlob, filename);
+  if (state.targetFormat === "avif" && downloadFormat === "webp") {
+    showToast(`AVIF unsupported in this browser — downloaded as WebP (${filename}).`);
+  }
 }
 
 function passItemToRoute(item, route, toolName) {
@@ -3292,10 +3706,26 @@ async function downloadAllAsZip() {
   try {
     const entries = await Promise.all(
       done.map(async (item, index) => {
+        const isLarger = item.outputSize >= item.originalSize;
+        const useOriginal = state.keepOriginalIfLarger && isLarger && item.file;
+
+        if (useOriginal) {
+          return {
+            name: uniqueName(item.name, index),
+            data: new Uint8Array(await item.file.arrayBuffer())
+          };
+        }
+
+        let downloadFormat = item.actualFormat || item.format || state.targetFormat;
+        if (item.outputBlob.type === "image/webp") downloadFormat = "webp";
+        else if (item.outputBlob.type === "image/jpeg") downloadFormat = "jpeg";
+        else if (item.outputBlob.type === "image/png") downloadFormat = "png";
+        else if (item.outputBlob.type === "image/avif") downloadFormat = "avif";
+
         const filename = uniqueName(
-          formatOutputFilename(item.name, state.targetFormat, {
-            namingPattern: dom.namingPattern.value,
-            customPrefix: dom.customPrefixInput.value
+          formatOutputFilename(item.name, downloadFormat, {
+            namingPattern: dom.namingPattern ? dom.namingPattern.value : "name_clean",
+            customPrefix: dom.customPrefixInput ? dom.customPrefixInput.value : ""
           }),
           index
         );
@@ -3364,61 +3794,110 @@ function uniqueName(name, index) {
   return `${base}-${String(index + 1).padStart(2, "0")}${ext}`;
 }
 
-// --- Sample Image Generator ---
+// --- Sample Image Generator (Real Photographic Scene) ---
+let isSamplePhotoLoading = false;
 async function loadSampleImage() {
-  const canvas = document.createElement("canvas");
-  canvas.width = 1920;
-  canvas.height = 1080;
-  const ctx = canvas.getContext("2d");
+  if (isSamplePhotoLoading) return;
+  isSamplePhotoLoading = true;
 
-  // Sky Gradient
-  const grad = ctx.createLinearGradient(0, 0, 0, 1080);
-  grad.addColorStop(0, "#1e3a8a");
-  grad.addColorStop(0.4, "#2563eb");
-  grad.addColorStop(0.7, "#f97316");
-  grad.addColorStop(1, "#facc15");
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, 1920, 1080);
+  try {
+    const alreadyInQueue = state.items.some(
+      (item) => item.name.includes("sample-photo") || item.name.includes("sample-sunset")
+    );
+    if (alreadyInQueue) {
+      showToast("Sample photo is already in the queue.");
+      return;
+    }
 
-  // Glowing Sun
-  ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
-  ctx.beginPath();
-  ctx.arc(960, 480, 120, 0, Math.PI * 2);
-  ctx.fill();
+    const canvas = document.createElement("canvas");
+    canvas.width = 1920;
+    canvas.height = 1080;
+    const ctx = canvas.getContext("2d");
 
-  // Mountain Silhouette 1
-  ctx.fillStyle = "#1e293b";
-  ctx.beginPath();
-  ctx.moveTo(0, 1080);
-  ctx.lineTo(400, 520);
-  ctx.lineTo(820, 780);
-  ctx.lineTo(1240, 430);
-  ctx.lineTo(1920, 1080);
-  ctx.closePath();
-  ctx.fill();
+    // Sky gradient with atmospheric scattering
+    const skyGrad = ctx.createLinearGradient(0, 0, 0, 650);
+    skyGrad.addColorStop(0, "#0c2340");
+    skyGrad.addColorStop(0.35, "#1d4ed8");
+    skyGrad.addColorStop(0.65, "#f97316");
+    skyGrad.addColorStop(0.85, "#fbbf24");
+    skyGrad.addColorStop(1, "#fef08a");
+    ctx.fillStyle = skyGrad;
+    ctx.fillRect(0, 0, 1920, 650);
 
-  // Mountain Silhouette 2 (Foreground)
-  ctx.fillStyle = "#0f172a";
-  ctx.beginPath();
-  ctx.moveTo(0, 1080);
-  ctx.lineTo(320, 750);
-  ctx.lineTo(650, 920);
-  ctx.lineTo(1100, 680);
-  ctx.lineTo(1600, 940);
-  ctx.lineTo(1920, 1080);
-  ctx.closePath();
-  ctx.fill();
+    // Soft clouds
+    ctx.fillStyle = "rgba(255, 255, 255, 0.25)";
+    for (let i = 0; i < 6; i++) {
+      ctx.beginPath();
+      const cx = 200 + i * 280;
+      const cy = 200 + (i % 3) * 70;
+      ctx.ellipse(cx, cy, 140, 35, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
 
-  // Grid texture to simulate photo detail
-  ctx.fillStyle = "rgba(255, 255, 255, 0.08)";
-  for (let i = 0; i < 40; i++) {
-    ctx.fillRect(i * 50, 800 + (i % 5) * 12, 35, 120);
+    // Distant mountain range
+    ctx.fillStyle = "#1e1b4b";
+    ctx.beginPath();
+    ctx.moveTo(0, 650);
+    ctx.lineTo(0, 480);
+    for (let x = 0; x <= 1920; x += 60) {
+      const y = 420 + Math.sin(x * 0.005) * 80 + Math.cos(x * 0.015) * 40;
+      ctx.lineTo(x, y);
+    }
+    ctx.lineTo(1920, 650);
+    ctx.closePath();
+    ctx.fill();
+
+    // Midground mountain with realistic lighting
+    ctx.fillStyle = "#111827";
+    ctx.beginPath();
+    ctx.moveTo(0, 650);
+    ctx.lineTo(0, 530);
+    for (let x = 0; x <= 1920; x += 40) {
+      const y = 490 + Math.sin(x * 0.008 + 1) * 70 + Math.cos(x * 0.02) * 30;
+      ctx.lineTo(x, y);
+    }
+    ctx.lineTo(1920, 650);
+    ctx.closePath();
+    ctx.fill();
+
+    // Lake water reflection with gradient
+    const waterGrad = ctx.createLinearGradient(0, 650, 0, 1080);
+    waterGrad.addColorStop(0, "#0f172a");
+    waterGrad.addColorStop(0.3, "#1e293b");
+    waterGrad.addColorStop(0.7, "#0f2f4c");
+    waterGrad.addColorStop(1, "#020617");
+    ctx.fillStyle = waterGrad;
+    ctx.fillRect(0, 650, 1920, 430);
+
+    // Lake water surface ripples & golden reflections
+    for (let y = 660; y < 1070; y += 8) {
+      const w = 40 + Math.random() * 120;
+      const x = 960 - w / 2 + (Math.random() - 0.5) * 200;
+      const alpha = 0.15 + (1 - (y - 650) / 420) * 0.45;
+      ctx.fillStyle = `rgba(251, 191, 36, ${alpha.toFixed(2)})`;
+      ctx.fillRect(x, y, w, 2.5);
+    }
+
+    // Photographic film grain for authentic entropy and savings
+    const imgData = ctx.getImageData(0, 0, 1920, 1080);
+    const data = imgData.data;
+    for (let i = 0; i < data.length; i += 4) {
+      const noise = (Math.random() - 0.5) * 14;
+      data[i] = Math.min(255, Math.max(0, data[i] + noise));
+      data[i + 1] = Math.min(255, Math.max(0, data[i + 1] + noise));
+      data[i + 2] = Math.min(255, Math.max(0, data[i + 2] + noise));
+    }
+    ctx.putImageData(imgData, 0, 0);
+
+    const blob = await new Promise((res) => canvas.toBlob(res, "image/jpeg", 0.94));
+    const file = new File([blob], "sample-photo-sunset-lake.jpg", { type: "image/jpeg" });
+    addFiles([file]);
+    showToast("Loaded high-resolution sample photograph.");
+  } finally {
+    setTimeout(() => {
+      isSamplePhotoLoading = false;
+    }, 600);
   }
-
-  const blob = await new Promise((res) => canvas.toBlob(res, "image/png", 0.95));
-  const file = new File([blob], "sample-sunset-mountains-1080p.png", { type: "image/png" });
-  addFiles([file]);
-  showToast("Loaded high-resolution sample image.");
 }
 
 // --- API Snippet Copy ---
@@ -3665,4 +4144,48 @@ function showToast(message) {
     toast.style.transform = "translateY(8px) scale(0.96)";
     window.setTimeout(() => toast.remove(), 320);
   }, 3200);
+}
+
+function showToastWithUndo(message, onUndo) {
+  const container = dom.toastContainer;
+  if (!container) return;
+
+  const toast = document.createElement("div");
+  toast.className = "toast toast-with-action";
+  toast.style.display = "flex";
+  toast.style.alignItems = "center";
+  toast.style.justifyContent = "space-between";
+  toast.style.gap = "12px";
+
+  const span = document.createElement("span");
+  span.textContent = message;
+  toast.appendChild(span);
+
+  const undoBtn = document.createElement("button");
+  undoBtn.type = "button";
+  undoBtn.className = "btn btn-xs btn-primary";
+  undoBtn.textContent = "Undo";
+  undoBtn.style.padding = "4px 10px";
+  undoBtn.style.fontWeight = "600";
+  undoBtn.addEventListener("click", () => {
+    toast.remove();
+    if (typeof onUndo === "function") onUndo();
+  });
+  toast.appendChild(undoBtn);
+
+  container.append(toast);
+
+  window.setTimeout(() => {
+    toast.style.transition = "opacity 300ms ease, transform 300ms ease";
+    toast.style.opacity = "0";
+    toast.style.transform = "translateY(8px) scale(0.96)";
+    window.setTimeout(() => toast.remove(), 320);
+  }, 5000);
+}
+
+function isInputFocused(event) {
+  const target = event.target;
+  if (!target) return false;
+  const tag = target.tagName ? target.tagName.toLowerCase() : "";
+  return tag === "input" || tag === "textarea" || tag === "select" || target.isContentEditable;
 }

@@ -44,10 +44,14 @@
           <nav class="primary-nav" aria-label="Main Navigation">
             <ul class="nav-link-list">
               <li><a href="/" class="nav-item">Converter</a></li>
-              <li><a href="/editor/" class="nav-item">Image Editor</a></li>
+              <li><a href="/#/formats" class="nav-item">Formats</a></li>
+              <li><a href="/#/history" class="nav-item">History</a></li>
+              <li><a href="/blog/" class="nav-item">Guides</a></li>
+              <li><a href="/privacy/" class="nav-item">Privacy</a></li>
+              <li><a href="/editor/" class="nav-item">Editor</a></li>
               <li><a href="/background-remover/" class="nav-item active">AI Remover</a></li>
               <li><a href="/poster-studio/" class="nav-item">Poster Studio</a></li>
-              <li><a href="/help/" class="nav-item">Help</a></li>
+              <li><a href="/resizer/" class="nav-item">Resizer</a></li>
             </ul>
           </nav>
           <div class="header-action-group">
@@ -63,20 +67,26 @@
           <h1 style="font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
             AI Automatic Background Remover
           </h1>
-          <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto;">
+          <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto 16px;">
             Extract clean transparent cutouts of people, products, animals, and vehicles in seconds using cutting-edge client-side neural segmentation.
           </p>
+
+          <!-- Pre-run Guidance Hint (Requirement 7) -->
+          <div class="bg-hint-pill" style="display:inline-flex; align-items:center; gap:8px; background:var(--bg-subtle, #F8FAFC); border:1px solid var(--border-color, #E2E8F0); padding:8px 18px; border-radius:9999px; font-size:0.88rem; color:var(--text-secondary); box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary-blue, #2563EB)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <span><strong>Pro Tip:</strong> Best for people, products, and pets — not landscapes.</span>
+          </div>
         </div>
 
         <!-- Dedicated Upload & Interaction Card -->
         <div class="card p-4 text-center" style="background: var(--bg-card); border: 2px dashed var(--border-color); border-radius: 16px; padding: 48px 24px; position: relative; cursor: pointer;" id="bgDropzone">
-          <input type="file" id="bgFileInput" accept="image/*" class="hidden" style="display:none;" />
+          <input type="file" id="bgFileInput" accept="image/*" class="hidden" style="display:none;" title="No file chosen" aria-label="No file chosen" />
           <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary-blue); margin-bottom: 16px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
           <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">Upload an Image to Remove Background</h2>
-          <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px;">Drag &amp; drop PNG, JPG, WebP, HEIC, or Camera RAW</p>
+          <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px;">Drag &amp; drop PNG, JPG, WebP, HEIC, or Camera RAW • Max 50 MB</p>
           <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
             <button class="btn btn-primary" type="button" id="btnSelectBgFile">Choose Photo</button>
-            <button class="btn btn-outline" type="button" id="btnTrySampleBg">Try Sample Photo</button>
+            <button class="btn btn-outline" type="button" id="btnTrySampleBg">Try Sample Product</button>
           </div>
           <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-top: 18px;">
             <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary);">Engine:</span>
@@ -85,31 +95,65 @@
           </div>
         </div>
 
-        <!-- Processing State Card (Hidden by default) -->
+        <!-- Processing State Card with Real Progress (Requirement 7) -->
         <div class="card p-4 text-center hidden" id="bgProcessingCard" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 48px 24px; margin-top: 24px;">
-          <div class="spinner mb-3" style="width: 40px; height: 40px; border: 4px solid var(--border-color); border-top-color: var(--primary-blue); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite;"></div>
+          <div class="spinner mb-3" style="width: 44px; height: 44px; border: 4px solid var(--border-color); border-top-color: var(--primary-blue); border-radius: 50%; margin: 0 auto 16px; animation: spin 0.8s linear infinite;"></div>
           <h3 id="bgStatusText" style="font-size: 1.2rem; font-weight: 700; margin-bottom: 8px;">Analyzing foreground subject...</h3>
-          <p style="color: var(--text-secondary); font-size: 0.9rem;">Processing locally inside your browser sandbox.</p>
+          <div style="max-width: 360px; margin: 12px auto 8px; background: var(--bg-muted, #E2E8F0); height: 8px; border-radius: 4px; overflow: hidden;">
+            <div id="bgProgressBar" style="width: 15%; height: 100%; background: var(--primary-blue, #2563EB); transition: width 0.3s ease;"></div>
+          </div>
+          <p id="bgProgressPct" style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">15%</p>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 6px;">Processing locally inside your browser sandbox.</p>
         </div>
 
-        <!-- Result Card (Hidden by default) -->
+        <!-- Result Card with Original | Result Split Comparison (Requirement 7 & 5) -->
         <div class="card p-4 hidden" id="bgResultCard" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; margin-top: 24px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
-            <div style="display:flex; align-items:center; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
               <h3 style="font-size: 1.15rem; font-weight: 700; margin:0;">Transparent Cutout Result</h3>
+              <span id="bgSizeBadge" class="badge badge-blue">Cutout ready</span>
+              <button class="btn btn-xs btn-outline" id="btnRestoreOriginal" type="button" title="Undo background removal and restore original photo">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                <span>Restore Original</span>
+              </button>
               <button class="btn btn-xs btn-outline" id="btnRemoveAnother" type="button">New Cutout</button>
             </div>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <button class="btn btn-sm btn-outline" id="btnDownloadOrig" type="button" style="display:none;">Download Original</button>
               <button class="btn btn-sm btn-primary" id="btnDownloadPng" type="button">Download PNG</button>
               <button class="btn btn-sm btn-outline" id="btnDownloadWebp" type="button">Download WebP</button>
-              <button class="btn btn-sm btn-outline" id="btnSendToEditor" type="button">Open in Editor</button>
+              <button class="btn btn-sm btn-outline" id="btnSendToEditor" type="button">Refine in Editor</button>
               <button class="btn btn-sm btn-outline" id="btnSendToPoster" type="button">Make Poster</button>
             </div>
           </div>
 
-          <div style="background: repeating-conic-gradient(#E2E8F0 0% 25%, transparent 0% 50%) 50% / 20px 20px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 400px; padding: 20px;">
-            <canvas id="bgResultCanvas" style="max-width: 100%; max-height: 550px; object-fit: contain; box-shadow: 0 10px 25px rgba(0,0,0,0.1);"></canvas>
+          <!-- Split Comparison Stage (Original vs Cutout) -->
+          <div style="position: relative; width: 100%; height: 480px; max-height: 70vh; border-radius: 12px; overflow: hidden; background: repeating-conic-gradient(#CBD5E1 0% 25%, #F1F5F9 0% 50%) 50% / 18px 18px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); user-select:none;" id="bgCompareContainer">
+            <!-- 1. Original Image (Bottom Layer) -->
+            <img id="bgCompareBeforeImg" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; pointer-events:none;" alt="Original photo" />
+            
+            <!-- 2. Cutout Image (Top Layer, Clipped via Width) -->
+            <div id="bgCompareAfterClip" style="position: absolute; top:0; left:0; width:50%; height:100%; overflow:hidden; pointer-events:none; border-right:2px solid var(--primary-blue, #2563EB);">
+              <img id="bgCompareAfterImg" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; max-width:none;" alt="Transparent cutout" />
+            </div>
+
+            <!-- 3. Comparison Slider Handle -->
+            <div id="bgCompareHandle" style="position: absolute; top:0; bottom:0; left:50%; transform:translateX(-50%); width:36px; display:flex; align-items:center; justify-content:center; pointer-events:none; z-index:5;">
+              <div style="width:32px; height:32px; border-radius:50%; background:var(--primary-blue, #2563EB); color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </div>
+            </div>
+
+            <input type="range" id="bgCompareSlider" min="0" max="100" value="50" style="position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:ew-resize; z-index:10; margin:0;" aria-label="Slide to compare original photo and transparent cutout" />
+
+            <!-- Labels -->
+            <span style="position:absolute; bottom:12px; left:12px; background:rgba(15,23,42,0.75); color:#fff; font-size:0.75rem; font-weight:600; padding:4px 10px; border-radius:6px; backdrop-filter:blur(4px); pointer-events:none; z-index:4;">Cutout (Result)</span>
+            <span style="position:absolute; bottom:12px; right:12px; background:rgba(15,23,42,0.75); color:#fff; font-size:0.75rem; font-weight:600; padding:4px 10px; border-radius:6px; backdrop-filter:blur(4px); pointer-events:none; z-index:4;">Original Photo</span>
           </div>
+
+          <!-- Hidden canvas for pixel extraction -->
+          <canvas id="bgResultCanvas" style="display:none;"></canvas>
         </div>
       </main>
 
@@ -141,6 +185,7 @@
       .hidden { display: none !important; }
     </style>
 
+    <script src="/queue-db.js"></script>
     <script src="../editor/bg-remover.js"></script>
     <script>
       (function() {
@@ -150,7 +195,11 @@
         const processingCard = document.getElementById('bgProcessingCard');
         const resultCard = document.getElementById('bgResultCard');
         const statusText = document.getElementById('bgStatusText');
+        const progressBar = document.getElementById('bgProgressBar');
+        const progressPct = document.getElementById('bgProgressPct');
         const resultCanvas = document.getElementById('bgResultCanvas');
+        const btnRestoreOriginal = document.getElementById('btnRestoreOriginal');
+        const btnDownloadOrig = document.getElementById('btnDownloadOrig');
         const btnDownloadPng = document.getElementById('btnDownloadPng');
         const btnDownloadWebp = document.getElementById('btnDownloadWebp');
         const btnSendToEditor = document.getElementById('btnSendToEditor');
@@ -158,10 +207,36 @@
         const btnRemoveAnother = document.getElementById('btnRemoveAnother');
         const pillEngineFast = document.getElementById('pillEngineFast');
         const pillEngineRmbg = document.getElementById('pillEngineRmbg');
+        const bgSizeBadge = document.getElementById('bgSizeBadge');
+
+        const compareSlider = document.getElementById('bgCompareSlider');
+        const compareAfterClip = document.getElementById('bgCompareAfterClip');
+        const compareHandle = document.getElementById('bgCompareHandle');
+        const compareBeforeImg = document.getElementById('bgCompareBeforeImg');
+        const compareAfterImg = document.getElementById('bgCompareAfterImg');
+        const compareContainer = document.getElementById('bgCompareContainer');
 
         let selectedEngine = 'fast';
+        let originalFile = null;
+        let originalCanvas = null;
         let lastResultCanvas = null;
+        let lastMaskCanvas = null;
         let lastFileName = 'cutout';
+
+        // Update comparison split slider position
+        function updateComparisonSlider(val) {
+          if (!compareAfterClip || !compareHandle) return;
+          compareAfterClip.style.width = val + '%';
+          compareHandle.style.left = val + '%';
+          if (compareAfterImg && compareContainer) {
+            compareAfterImg.style.width = compareContainer.clientWidth + 'px';
+          }
+        }
+
+        compareSlider?.addEventListener('input', (e) => updateComparisonSlider(e.target.value));
+        window.addEventListener('resize', () => {
+          if (compareSlider) updateComparisonSlider(compareSlider.value);
+        });
 
         pillEngineFast?.addEventListener('click', () => {
           selectedEngine = 'fast';
@@ -184,6 +259,23 @@
           processingCard.classList.add('hidden');
           dropzone.classList.remove('hidden');
           fileInput.value = '';
+          fileInput.title = 'No file chosen';
+        });
+
+        // Restore original image (Undo background removal)
+        btnRestoreOriginal?.addEventListener('click', () => {
+          if (!originalCanvas) return;
+          lastResultCanvas = originalCanvas;
+          resultCanvas.width = originalCanvas.width;
+          resultCanvas.height = originalCanvas.height;
+          resultCanvas.getContext('2d').drawImage(originalCanvas, 0, 0);
+          const origUrl = originalCanvas.toDataURL('image/png');
+          compareAfterImg.src = origUrl;
+          if (bgSizeBadge) {
+            bgSizeBadge.textContent = 'Original Restored';
+            bgSizeBadge.className = 'badge badge-blue';
+          }
+          if (btnDownloadOrig) btnDownloadOrig.style.display = 'none';
         });
 
         selectBtn.addEventListener('click', (e) => {
@@ -202,6 +294,7 @@
         fileInput.addEventListener('change', (e) => {
           const file = e.target.files[0];
           if (file) processFile(file);
+          fileInput.value = '';
         });
 
         document.getElementById('btnTrySampleBg')?.addEventListener('click', (e) => {
@@ -228,10 +321,15 @@
         });
 
         async function processFile(file) {
+          originalFile = file;
           lastFileName = file.name.replace(/\.[^.]+$/, '');
           dropzone.classList.add('hidden');
           processingCard.classList.remove('hidden');
           resultCard.classList.add('hidden');
+
+          if (progressBar) progressBar.style.width = '10%';
+          if (progressPct) progressPct.textContent = '10%';
+          if (statusText) statusText.textContent = 'Decoding original image...';
 
           const img = new Image();
           const url = URL.createObjectURL(file);
@@ -242,23 +340,71 @@
             img.src = url;
           });
 
-          const srcCanvas = document.createElement('canvas');
-          srcCanvas.width = img.naturalWidth || img.width;
-          srcCanvas.height = img.naturalHeight || img.height;
-          srcCanvas.getContext('2d').drawImage(img, 0, 0);
+          originalCanvas = document.createElement('canvas');
+          originalCanvas.width = img.naturalWidth || img.width;
+          originalCanvas.height = img.naturalHeight || img.height;
+          originalCanvas.getContext('2d').drawImage(img, 0, 0);
+
+          if (progressBar) progressBar.style.width = '30%';
+          if (progressPct) progressPct.textContent = '30%';
 
           try {
-            const result = await window.FluxBgRemover.removeBackground(srcCanvas, {
+            const result = await window.FluxBgRemover.removeBackground(originalCanvas, {
               engine: selectedEngine,
               onProgress: (p) => {
                 if (statusText) statusText.textContent = p.message || 'Processing...';
+                if (p.stage === 'preprocess') {
+                  if (progressBar) progressBar.style.width = '45%';
+                  if (progressPct) progressPct.textContent = '45%';
+                } else if (p.stage === 'inference') {
+                  if (progressBar) progressBar.style.width = '75%';
+                  if (progressPct) progressPct.textContent = '75%';
+                } else if (p.stage === 'postprocess') {
+                  if (progressBar) progressBar.style.width = '90%';
+                  if (progressPct) progressPct.textContent = '90%';
+                }
               }
             });
 
             lastResultCanvas = result.resultCanvas;
+            lastMaskCanvas = result.maskCanvas;
             resultCanvas.width = lastResultCanvas.width;
             resultCanvas.height = lastResultCanvas.height;
             resultCanvas.getContext('2d').drawImage(lastResultCanvas, 0, 0);
+
+            // Populate Before and After comparison
+            const originalDataUrl = originalCanvas.toDataURL('image/jpeg', 0.9);
+            const cutoutDataUrl = lastResultCanvas.toDataURL('image/png');
+            if (compareBeforeImg) compareBeforeImg.src = originalDataUrl;
+            if (compareAfterImg) compareAfterImg.src = cutoutDataUrl;
+
+            // Check if Cutout PNG is larger than original file (Requirement 5)
+            lastResultCanvas.toBlob((pngBlob) => {
+              if (pngBlob && file.size > 0 && pngBlob.size >= file.size) {
+                if (bgSizeBadge) {
+                  bgSizeBadge.textContent = 'Larger than original (' + (pngBlob.size / 1024).toFixed(1) + ' KB vs ' + (file.size / 1024).toFixed(1) + ' KB)';
+                  bgSizeBadge.className = 'badge badge-warning';
+                  bgSizeBadge.style.background = '#FEF3C7';
+                  bgSizeBadge.style.color = '#B45309';
+                  bgSizeBadge.style.border = '1px solid #FCD34D';
+                }
+                if (btnDownloadOrig) btnDownloadOrig.style.display = 'inline-block';
+              } else {
+                if (bgSizeBadge) {
+                  bgSizeBadge.textContent = 'Cutout Ready (' + ((pngBlob?.size || 0) / 1024).toFixed(1) + ' KB)';
+                  bgSizeBadge.className = 'badge badge-blue';
+                  bgSizeBadge.style.background = '';
+                  bgSizeBadge.style.color = '';
+                  bgSizeBadge.style.border = '';
+                }
+                if (btnDownloadOrig) btnDownloadOrig.style.display = 'none';
+              }
+            }, 'image/png');
+
+            if (compareSlider) {
+              compareSlider.value = 50;
+              updateComparisonSlider(50);
+            }
 
             processingCard.classList.add('hidden');
             resultCard.classList.remove('hidden');
@@ -272,13 +418,25 @@
           }
         }
 
+        btnDownloadOrig?.addEventListener('click', () => {
+          if (!originalFile) return;
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(originalFile);
+          a.download = originalFile.name;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        });
+
         btnDownloadPng?.addEventListener('click', () => {
           if (!lastResultCanvas) return;
           lastResultCanvas.toBlob((blob) => {
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
             a.download = `${lastFileName}-cutout.png`;
+            document.body.appendChild(a);
             a.click();
+            document.body.removeChild(a);
           }, 'image/png');
         });
 
@@ -288,7 +446,9 @@
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
             a.download = `${lastFileName}-cutout.webp`;
+            document.body.appendChild(a);
             a.click();
+            document.body.removeChild(a);
           }, 'image/webp', 0.95);
         });
 

@@ -437,7 +437,33 @@
         this.ctx.letterSpacing = `${layer.letterSpacing}px`;
       }
 
-      this.ctx.fillText(text, layer.x, layer.y);
+      // Word wrapping without truncating titles
+      const maxWidth = layer.width || (this.doc.width - 80);
+      const lineHeight = fontSize * (layer.lineHeight || 1.25);
+      const paragraphs = String(text).split('\n');
+      let currentY = layer.y;
+
+      paragraphs.forEach((para) => {
+        const words = para.split(' ');
+        let currentLine = '';
+
+        for (let i = 0; i < words.length; i++) {
+          const testLine = currentLine ? `${currentLine} ${words[i]}` : words[i];
+          const testWidth = this.ctx.measureText(testLine).width;
+          if (testWidth > maxWidth && i > 0) {
+            this.ctx.fillText(currentLine, layer.x, currentY);
+            currentLine = words[i];
+            currentY += lineHeight;
+          } else {
+            currentLine = testLine;
+          }
+        }
+        if (currentLine) {
+          this.ctx.fillText(currentLine, layer.x, currentY);
+          currentY += lineHeight;
+        }
+      });
+
       this.ctx.restore();
     }
 
@@ -880,27 +906,59 @@
     // -------------------------------------------------------------
     // Export Pipeline
     // -------------------------------------------------------------
-    async exportToBlob(format = 'image/png', quality = 0.95, multiplier = 1) {
-      let exportCanvas = this.canvas;
+    async exportToBlob(format = 'image/png', arg2 = 0.95, arg3 = 1) {
+      let quality = 0.95;
+      let multiplier = 1;
+      if (typeof arg2 === 'number' && typeof arg3 === 'number') {
+        if (arg2 >= 1 && arg3 <= 1 && arg3 > 0) {
+          multiplier = arg2;
+          quality = arg3;
+        } else {
+          quality = arg2;
+          multiplier = arg3;
+        }
+      } else if (typeof arg2 === 'number') {
+        if (arg2 > 1) multiplier = arg2;
+        else quality = arg2;
+      }
+      const scale = Math.max(0.25, Number(multiplier) || 1);
+      const exportCanvas = document.createElement('canvas');
+      exportCanvas.width = Math.round(this.doc.width * scale);
+      exportCanvas.height = Math.round(this.doc.height * scale);
+      const eCtx = exportCanvas.getContext('2d');
+      eCtx.scale(scale, scale);
 
-      // Handle high-res scaling (e.g. 2x, 3x for 300 DPI print)
-      if (multiplier > 1) {
-        exportCanvas = document.createElement('canvas');
-        exportCanvas.width = this.doc.width * multiplier;
-        exportCanvas.height = this.doc.height * multiplier;
-        const eCtx = exportCanvas.getContext('2d');
-        eCtx.scale(multiplier, multiplier);
-
+      const originalCtx = this.ctx;
+      this.ctx = eCtx;
+      try {
         this.doc.layers.forEach((layer) => {
           if (!layer.visible) return;
-          this.ctx.save();
           this.renderLayer(layer);
-          this.ctx.restore();
         });
+      } finally {
+        this.ctx = originalCtx;
       }
 
       return new Promise((resolve) => {
-        exportCanvas.toBlob(resolve, format, quality);
+        try {
+          exportCanvas.toBlob((blob) => {
+            if (!blob) {
+              try {
+                exportCanvas.toBlob((fbBlob) => resolve(fbBlob), 'image/png');
+              } catch (_) {
+                resolve(null);
+              }
+            } else {
+              resolve(blob);
+            }
+          }, format, quality);
+        } catch (_) {
+          try {
+            exportCanvas.toBlob((fbBlob) => resolve(fbBlob), 'image/png');
+          } catch (_) {
+            resolve(null);
+          }
+        }
       });
     }
 

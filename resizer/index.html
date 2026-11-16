@@ -25,7 +25,7 @@
       "applicationCategory": "MultimediaApplication",
       "operatingSystem": "All modern web browsers",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "description": "Fast, high-fidelity client-side image resizing with aspect-ratio locking and social media presets."
+      "description": "Fast, high-fidelity client-side image resizing with aspect-ratio locking, percentage scaling, and social media presets."
     }
     </script>
   </head>
@@ -42,10 +42,14 @@
           <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
             <ul class="nav-link-list">
               <li><a href="/" class="nav-item">Converter</a></li>
-              <li><a href="/editor/" class="nav-item">Image Editor</a></li>
+              <li><a href="/#/formats" class="nav-item">Formats</a></li>
+              <li><a href="/#/history" class="nav-item">History</a></li>
+              <li><a href="/blog/" class="nav-item">Guides</a></li>
+              <li><a href="/privacy/" class="nav-item">Privacy</a></li>
+              <li><a href="/editor/" class="nav-item">Editor</a></li>
+              <li><a href="/background-remover/" class="nav-item">AI Remover</a></li>
+              <li><a href="/poster-studio/" class="nav-item">Poster Studio</a></li>
               <li><a href="/resizer/" class="nav-item active">Resizer</a></li>
-              <li><a href="/image-compressor/" class="nav-item">Compressor</a></li>
-              <li><a href="/help/" class="nav-item">Help</a></li>
             </ul>
           </nav>
           <div class="header-action-group">
@@ -65,10 +69,10 @@
         </div>
 
         <div class="card p-4" style="background: var(--bg-card); border: 2px dashed var(--border-color); border-radius: 16px; padding: 36px 20px; text-align: center; cursor: pointer;" id="resizerDropzone">
-          <input type="file" id="resizerFileInput" accept="image/*" class="hidden" style="display:none;" />
+          <input type="file" id="resizerFileInput" accept="image/*" class="hidden" style="display:none;" title="No file chosen" aria-label="No file chosen" />
           <svg viewBox="0 0 24 24" width="42" height="42" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary-blue); margin-bottom: 12px;"><path d="M15 3h6v6m0-6L10 14m-1 7H3v-6m0 6l11-11"></path></svg>
           <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;">Select or Drop Image to Resize</h2>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">PNG, JPG, WebP, SVG, or TIFF</p>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px;">PNG, JPG, WebP, SVG, or TIFF • Max 50 MB</p>
           <button class="btn btn-primary" type="button" id="btnSelectResizerFile">Choose Image</button>
         </div>
 
@@ -79,6 +83,34 @@
             <span class="badge badge-blue" id="resizerOriginalDim">Original: 1920 × 1080 px</span>
           </div>
 
+          <!-- Mode Switcher: Pixels vs Percentage (Requirement 12) -->
+          <div style="display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
+            <button class="btn btn-sm btn-primary resizer-mode-btn" id="modePixelsBtn" type="button">Pixels Mode</button>
+            <button class="btn btn-sm btn-outline resizer-mode-btn" id="modePercentBtn" type="button">Percentage Mode (%)</button>
+          </div>
+
+          <!-- Percentage Mode Controls Container -->
+          <div id="percentControlsWrap" class="hidden" style="background: var(--bg-subtle, #F8FAFC); border: 1px solid var(--border-color, #E2E8F0); border-radius: 12px; padding: 18px; margin-bottom: 22px;">
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap;">
+              <label for="targetPercent" style="font-weight: 700; font-size: 0.9rem;">Scale Percentage:</label>
+              <div style="display: flex; align-items: center; gap: 4px;">
+                <input type="number" id="targetPercent" class="form-select" style="width: 90px; padding: 6px 10px; font-weight:700;" value="100" min="1" max="1000" />
+                <span style="font-weight: 700;">%</span>
+              </div>
+              <input type="range" id="percentSlider" class="slider" min="10" max="250" value="100" style="flex: 1; min-width: 140px;" />
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary);">Quick Presets:</span>
+              <button class="btn btn-xs btn-outline preset-pct-btn" data-pct="25" type="button">25% (Thumbnail)</button>
+              <button class="btn btn-xs btn-outline preset-pct-btn" data-pct="50" type="button">50% (Half)</button>
+              <button class="btn btn-xs btn-outline preset-pct-btn" data-pct="75" type="button">75%</button>
+              <button class="btn btn-xs btn-primary preset-pct-btn" data-pct="100" type="button">100% (Original)</button>
+              <button class="btn btn-xs btn-outline preset-pct-btn" data-pct="150" type="button">150% (Upscale)</button>
+              <button class="btn btn-xs btn-outline preset-pct-btn" data-pct="200" type="button">200% (2x)</button>
+            </div>
+          </div>
+
+          <!-- Pixel Dimension Inputs -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 24px;">
             <div>
               <label for="targetWidth" style="display: block; font-weight: 600; font-size: 0.85rem; margin-bottom: 6px;">Target Width (px)</label>
@@ -141,6 +173,7 @@
 
     <style>.hidden { display: none !important; }</style>
 
+    <script src="/queue-db.js"></script>
     <script>
       (function() {
         const dropzone = document.getElementById('resizerDropzone');
@@ -154,9 +187,71 @@
         const imageName = document.getElementById('resizerImageName');
         const downloadBtn = document.getElementById('btnDownloadResized');
 
+        const modePixelsBtn = document.getElementById('modePixelsBtn');
+        const modePercentBtn = document.getElementById('modePercentBtn');
+        const percentControlsWrap = document.getElementById('percentControlsWrap');
+        const targetPercentInput = document.getElementById('targetPercent');
+        const percentSlider = document.getElementById('percentSlider');
+
         let originalImg = null;
         let aspectRatio = 1.0;
+        let originalWidth = 0;
+        let originalHeight = 0;
         let currentFile = null;
+        let currentMode = 'pixels';
+
+        // Mode Switching
+        modePixelsBtn?.addEventListener('click', () => {
+          currentMode = 'pixels';
+          modePixelsBtn.className = 'btn btn-sm btn-primary resizer-mode-btn';
+          modePercentBtn.className = 'btn btn-sm btn-outline resizer-mode-btn';
+          percentControlsWrap.classList.add('hidden');
+        });
+
+        modePercentBtn?.addEventListener('click', () => {
+          currentMode = 'percent';
+          modePercentBtn.className = 'btn btn-sm btn-primary resizer-mode-btn';
+          modePixelsBtn.className = 'btn btn-sm btn-outline resizer-mode-btn';
+          percentControlsWrap.classList.remove('hidden');
+          syncPercentToDimensions();
+        });
+
+        function syncPercentToDimensions() {
+          if (!originalWidth) return;
+          const currentW = parseInt(targetWidthInput.value, 10) || originalWidth;
+          const pct = Math.round((currentW / originalWidth) * 100);
+          targetPercentInput.value = pct;
+          percentSlider.value = Math.min(250, pct);
+        }
+
+        function applyPercentage(pct) {
+          if (!originalWidth || !originalHeight) return;
+          pct = Math.max(1, Math.min(1000, Number(pct) || 100));
+          targetPercentInput.value = pct;
+          percentSlider.value = Math.min(250, pct);
+          const w = Math.round((originalWidth * pct) / 100);
+          const h = Math.round((originalHeight * pct) / 100);
+          targetWidthInput.value = w;
+          targetHeightInput.value = h;
+
+          document.querySelectorAll('.preset-pct-btn').forEach(btn => {
+            if (Number(btn.dataset.pct) === pct) {
+              btn.className = 'btn btn-xs btn-primary preset-pct-btn';
+            } else {
+              btn.className = 'btn btn-xs btn-outline preset-pct-btn';
+            }
+          });
+        }
+
+        targetPercentInput?.addEventListener('input', (e) => applyPercentage(e.target.value));
+        percentSlider?.addEventListener('input', (e) => applyPercentage(e.target.value));
+
+        document.querySelectorAll('.preset-pct-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const pct = Number(btn.dataset.pct);
+            if (pct) applyPercentage(pct);
+          });
+        });
 
         selectBtn.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -172,6 +267,7 @@
 
         fileInput.addEventListener('change', (e) => {
           if (e.target.files[0]) handleFile(e.target.files[0]);
+          fileInput.value = '';
         });
 
         function handleFile(file) {
@@ -180,10 +276,13 @@
           const url = URL.createObjectURL(file);
           originalImg = new Image();
           originalImg.onload = () => {
-            aspectRatio = originalImg.width / originalImg.height;
-            originalDimBadge.textContent = `Original: ${originalImg.width} × ${originalImg.height} px`;
-            targetWidthInput.value = originalImg.width;
-            targetHeightInput.value = originalImg.height;
+            originalWidth = originalImg.naturalWidth || originalImg.width;
+            originalHeight = originalImg.naturalHeight || originalImg.height;
+            aspectRatio = originalWidth / originalHeight;
+            originalDimBadge.textContent = `Original: ${originalWidth} × ${originalHeight} px`;
+            targetWidthInput.value = originalWidth;
+            targetHeightInput.value = originalHeight;
+            syncPercentToDimensions();
             dropzone.classList.add('hidden');
             controlsCard.classList.remove('hidden');
           };
@@ -194,12 +293,14 @@
           if (lockAspectCheckbox.checked && aspectRatio) {
             targetHeightInput.value = Math.round(targetWidthInput.value / aspectRatio);
           }
+          syncPercentToDimensions();
         });
 
         targetHeightInput.addEventListener('input', () => {
           if (lockAspectCheckbox.checked && aspectRatio) {
             targetWidthInput.value = Math.round(targetHeightInput.value * aspectRatio);
           }
+          syncPercentToDimensions();
         });
 
         document.querySelectorAll('.preset-btn').forEach((btn) => {
@@ -207,6 +308,7 @@
             targetWidthInput.value = btn.dataset.w;
             targetHeightInput.value = btn.dataset.h;
             lockAspectCheckbox.checked = false;
+            syncPercentToDimensions();
           });
         });
 
@@ -228,7 +330,9 @@
             a.href = URL.createObjectURL(blob);
             const ext = currentFile.name.split('.').pop() || 'png';
             a.download = `resized-${w}x${h}-${currentFile.name}`;
+            document.body.appendChild(a);
             a.click();
+            document.body.removeChild(a);
           }, currentFile.type || 'image/png');
         });
 

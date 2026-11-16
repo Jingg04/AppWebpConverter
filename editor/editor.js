@@ -253,6 +253,7 @@
     bgRemoverEngineSelect: document.getElementById("bgRemoverEngineSelect"),
     engineDescText: document.getElementById("engineDescText"),
     btnRunBgRemoval: document.getElementById("btnRunBgRemoval"),
+    btnRestoreOriginalBg: document.getElementById("btnRestoreOriginalBg"),
     bgRemovalProgressWrap: document.getElementById("bgRemovalProgressWrap"),
     bgRemovalProgressBar: document.getElementById("bgRemovalProgressBar"),
     bgRemovalStatusText: document.getElementById("bgRemovalStatusText"),
@@ -1548,6 +1549,7 @@
       activeLayer.isCutout = true;
 
       if (dom.btnOpenRefinementStudio) dom.btnOpenRefinementStudio.disabled = false;
+      if (dom.btnRestoreOriginalBg) dom.btnRestoreOriginalBg.disabled = false;
       pushHistory("AI Background Removal");
       requestRender();
       showToast(`AI Cutout complete in ${result.elapsed}s! Click "Open Refinement Studio" to refine.`);
@@ -1558,6 +1560,22 @@
       dom.bgRemovalProgressWrap?.classList.add("hidden");
       if (dom.btnRunBgRemoval) dom.btnRunBgRemoval.disabled = false;
     }
+  }
+
+  function restoreOriginalBg() {
+    const activeLayer = getActiveLayer();
+    if (!activeLayer || !activeLayer.originalSource) {
+      showToast("No original image found to restore.");
+      return;
+    }
+    activeLayer.source = activeLayer.originalSource;
+    activeLayer.maskCanvas = null;
+    activeLayer.isCutout = false;
+    if (dom.btnRestoreOriginalBg) dom.btnRestoreOriginalBg.disabled = true;
+    if (dom.btnOpenRefinementStudio) dom.btnOpenRefinementStudio.disabled = true;
+    pushHistory("Restore Original Image");
+    requestRender();
+    showToast("Original image restored.");
   }
 
   function openRefinementStudio() {
@@ -1851,6 +1869,10 @@
 
     dom.btnRunBgRemoval?.addEventListener("click", () => {
       triggerAiBackgroundRemoval();
+    });
+
+    dom.btnRestoreOriginalBg?.addEventListener("click", () => {
+      restoreOriginalBg();
     });
 
     dom.inspectorRemoveBgBtn?.addEventListener("click", () => {

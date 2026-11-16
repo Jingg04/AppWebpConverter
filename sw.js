@@ -3,11 +3,12 @@
  * Strategy: Network-First with Offline Cache Fallback for dynamic updates.
  * Bypasses in-memory Blobs, API requests, and user conversion files.
  */
-const CACHE_NAME = "fluxwebp-shell-v10";
+const CACHE_NAME = "fluxwebp-shell-v11";
 const CORE_ASSETS = [
   "/",
   "/index.html",
   "/styles.css",
+  "/queue-db.js",
   "/app.js",
   "/manifest.json",
   "/robots.txt",
