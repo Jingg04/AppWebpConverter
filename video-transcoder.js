@@ -28,12 +28,22 @@
 })(typeof self !== "undefined" ? self : this, function () {
   "use strict";
 
+  // --- HandBrake Preset Categories ---
+  const HANDBRAKE_PRESET_CATEGORIES = [
+    { id: "all", label: "All Presets" },
+    { id: "100mb", label: "⚡ 1–2GB Compressor" },
+    { id: "general", label: "General (HandBrake Core)" },
+    { id: "web", label: "Web & Streaming" },
+    { id: "devices", label: "Devices (Apple & Android)" }
+  ];
+
   // --- HandBrake Presets Registry ---
   const HANDBRAKE_PRESETS = {
+    // ⚡ 1–2GB Video Compressor (MP4 under 100MB without visual loss)
     "mp4-100mb": {
       id: "mp4-100mb",
       name: "MP4 Compressor: 1–2GB → Under 100MB",
-      category: "MP4 Compressor",
+      category: "100mb",
       badge: "Under 100MB",
       description: "Compresses large 1GB–2GB+ videos to under 100MB without perceptible visual loss using smart bitrate allocation and H.264/AAC.",
       format: "mp4",
@@ -52,30 +62,10 @@
       fit: "contain",
       adaptiveScale: true
     },
-    "mp4-1080p-hq": {
-      id: "mp4-1080p-hq",
-      name: "MP4: High Quality 1080p (H.264 / AAC)",
-      category: "MP4 Compressor",
-      badge: "Universal MP4",
-      description: "Standard MP4 video with H.264 video and AAC audio for maximum compatibility with iPhone, Windows, Android, and social media.",
-      format: "mp4",
-      codec: "h264",
-      resolution: "1080p",
-      width: 1920,
-      height: 1080,
-      fps: 30,
-      qualityMode: "crf",
-      crf: 22,
-      bitrateKbps: 4800,
-      audioCodec: "aac",
-      audioBitrateKbps: 160,
-      volume: 1.0,
-      fit: "contain"
-    },
     "mp4-50mb": {
       id: "mp4-50mb",
       name: "MP4: Social Share (Under 50MB)",
-      category: "MP4 Compressor",
+      category: "100mb",
       badge: "50MB Target",
       description: "Reduces large video files to under 50MB for Discord Nitro, Telegram, and WhatsApp.",
       format: "mp4",
@@ -97,7 +87,7 @@
     "mp4-25mb": {
       id: "mp4-25mb",
       name: "MP4: Discord Free (Under 25MB)",
-      category: "MP4 Compressor",
+      category: "100mb",
       badge: "25MB Target",
       description: "Compresses video to fit inside Discord's 25MB free tier upload limit with crystal-clear audio.",
       format: "mp4",
@@ -116,10 +106,114 @@
       fit: "contain",
       adaptiveScale: true
     },
+
+    // General (HandBrake Core Presets from official HandBrake engine)
+    "hb-fast-1080p": {
+      id: "hb-fast-1080p",
+      name: "HandBrake Fast 1080p30 (Default)",
+      category: "general",
+      badge: "Standard",
+      description: "HandBrake's official standard preset for fast, high-quality H.264 MP4 encoding with universal playback.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 30,
+      qualityMode: "crf",
+      crf: 22,
+      bitrateKbps: 4500,
+      audioCodec: "aac",
+      audioBitrateKbps: 160,
+      volume: 1.0,
+      fit: "contain"
+    },
+    "hb-hq-1080p": {
+      id: "hb-hq-1080p",
+      name: "HandBrake HQ 1080p30 Surround",
+      category: "general",
+      badge: "HQ",
+      description: "Official HandBrake High Quality 1080p preset with RF 20 for rich clarity and premium detail.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 30,
+      qualityMode: "crf",
+      crf: 20,
+      bitrateKbps: 5500,
+      audioCodec: "aac",
+      audioBitrateKbps: 192,
+      volume: 1.0,
+      fit: "contain"
+    },
+    "hb-super-hq-1080p": {
+      id: "hb-super-hq-1080p",
+      name: "HandBrake Super HQ 1080p30",
+      category: "general",
+      badge: "Archival",
+      description: "Official HandBrake Super HQ preset with RF 18 for pristine, near-lossless archival preservation.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 30,
+      qualityMode: "crf",
+      crf: 18,
+      bitrateKbps: 8000,
+      audioCodec: "aac",
+      audioBitrateKbps: 256,
+      volume: 1.0,
+      fit: "contain"
+    },
+    "hb-very-fast-1080p": {
+      id: "hb-very-fast-1080p",
+      name: "HandBrake Very Fast 1080p30",
+      category: "general",
+      badge: "Fastest",
+      description: "High speed H.264 encode for rapid previews, drafts, and quick sharing.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 30,
+      qualityMode: "crf",
+      crf: 24,
+      bitrateKbps: 3200,
+      audioCodec: "aac",
+      audioBitrateKbps: 128,
+      volume: 1.0,
+      fit: "contain"
+    },
+    "mp4-1080p-hq": {
+      id: "mp4-1080p-hq",
+      name: "MP4: High Quality 1080p (H.264 / AAC)",
+      category: "general",
+      badge: "Universal MP4",
+      description: "Standard MP4 video with H.264 video and AAC audio for maximum compatibility with iPhone, Windows, Android, and social media.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 30,
+      qualityMode: "crf",
+      crf: 22,
+      bitrateKbps: 4800,
+      audioCodec: "aac",
+      audioBitrateKbps: 160,
+      volume: 1.0,
+      fit: "contain"
+    },
+
+    // Web & Streaming (WebM VP9/VP8 and HandBrake Creator)
     "web-1080p": {
       id: "web-1080p",
       name: "Web: HQ 1080p30 (VP9 WebM)",
-      category: "General Web",
+      category: "web",
       badge: "Recommended",
       description: "Crisp 1080p WebM using Google VP9 codec and Opus audio. Optimal for YouTube, web embeds, and portfolio sites.",
       format: "webm",
@@ -139,7 +233,7 @@
     "web-720p": {
       id: "web-720p",
       name: "Web: Fast 720p30 (VP8/VP9 WebM)",
-      category: "General Web",
+      category: "web",
       badge: "Fast",
       description: "Standard 720p HD WebM. Quick encoding with an optimal balance of visual clarity and compact file weight.",
       format: "webm",
@@ -156,10 +250,30 @@
       volume: 1.0,
       fit: "contain"
     },
+    "hb-creator-1080p60": {
+      id: "hb-creator-1080p60",
+      name: "HandBrake Creator 1080p60",
+      category: "web",
+      badge: "60 FPS Gaming",
+      description: "HandBrake's official Creator preset for 60fps YouTube gaming, fast-motion sports, and screencasts.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 60,
+      qualityMode: "crf",
+      crf: 21,
+      bitrateKbps: 6500,
+      audioCodec: "aac",
+      audioBitrateKbps: 192,
+      volume: 1.0,
+      fit: "contain"
+    },
     "discord-25mb": {
       id: "discord-25mb",
       name: "Discord & Social (Fit in 25MB)",
-      category: "Social & Sharing",
+      category: "web",
       badge: "Smart Size",
       description: "Calculates the exact video bitrate so your output WebM fits under Discord's 25MB file upload limit.",
       format: "webm",
@@ -180,7 +294,7 @@
     "mobile-480p": {
       id: "mobile-480p",
       name: "Mobile Data Saver 480p",
-      category: "Social & Sharing",
+      category: "web",
       badge: "Smallest",
       description: "Ultra-compact 480p WebM for mobile chat apps, low-bandwidth connections, and email attachments.",
       format: "webm",
@@ -200,7 +314,7 @@
     "hq-60fps": {
       id: "hq-60fps",
       name: "Smooth 60 FPS HQ (WebM)",
-      category: "High Framerate",
+      category: "web",
       badge: "60 FPS",
       description: "High frame rate 60 FPS for gameplay highlights, sports, UI animations, and screencasts.",
       format: "webm",
@@ -220,7 +334,7 @@
     "lossless-archival": {
       id: "lossless-archival",
       name: "Production / Near-Lossless (CRF 16)",
-      category: "Master / Archival",
+      category: "web",
       badge: "Master",
       description: "Pristine visual fidelity with minimal compression artifacts for archival, masters, and editing clips.",
       format: "webm",
@@ -240,7 +354,7 @@
     "muted-web": {
       id: "muted-web",
       name: "Silent Background Video (Muted)",
-      category: "Web Publishing",
+      category: "web",
       badge: "No Audio",
       description: "Strips all audio channels for zero-overhead website background loops and muted hero videos.",
       format: "webm",
@@ -260,7 +374,7 @@
     "audio-only": {
       id: "audio-only",
       name: "Audio Only (Opus Extractor)",
-      category: "Audio Extraction",
+      category: "web",
       badge: "Opus Audio",
       description: "Extract the audio track from video files and encode to high-fidelity standalone Opus WebM audio.",
       format: "webm",
@@ -274,6 +388,48 @@
       bitrateKbps: 0,
       audioCodec: "opus",
       audioBitrateKbps: 160,
+      volume: 1.0,
+      fit: "contain"
+    },
+
+    // Devices (Official HandBrake Device Presets)
+    "hb-apple-1080p": {
+      id: "hb-apple-1080p",
+      name: "HandBrake Apple 1080p Universal",
+      category: "devices",
+      badge: "Apple",
+      description: "Optimized for iPhone, iPad, Apple TV, and QuickTime Player with full hardware acceleration.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 30,
+      qualityMode: "crf",
+      crf: 22,
+      bitrateKbps: 4500,
+      audioCodec: "aac",
+      audioBitrateKbps: 160,
+      volume: 1.0,
+      fit: "contain"
+    },
+    "hb-android-1080p": {
+      id: "hb-android-1080p",
+      name: "HandBrake Android 1080p Universal",
+      category: "devices",
+      badge: "Android",
+      description: "Universal compatibility with Android phones, tablets, and Google TV devices.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 30,
+      qualityMode: "crf",
+      crf: 22,
+      bitrateKbps: 4200,
+      audioCodec: "aac",
+      audioBitrateKbps: 128,
       volume: 1.0,
       fit: "contain"
     }
@@ -483,9 +639,10 @@
         "video/webm"
       ],
       h264: [
-        "video/mp4;codecs=avc1.42E01E,mp4a.40.2",
+        "video/mp4;codecs=avc1,opus",
         "video/mp4;codecs=avc1",
         "video/mp4",
+        "video/mp4;codecs=avc1.42E01E,mp4a.40.2",
         "video/webm;codecs=vp9,opus",
         "video/webm"
       ],
@@ -1192,6 +1349,7 @@
     constructor() {
       this.engine = new VideoTranscoderEngine();
       this.currentPresetId = "web-1080p";
+      this.currentCategory = "all";
       this.settings = { ...HANDBRAKE_PRESETS["web-1080p"] };
       this.sourceFile = null;
       this.queue = [];
@@ -1204,8 +1362,10 @@
       this.container = containerElement || document.getElementById("view-video");
       if (!this.container) return;
 
+      this.currentCategory = "all";
       this.cacheDom();
-      this.renderPresets();
+      this.renderCategories();
+      this.renderPresets(this.currentCategory);
       this.bindEvents();
       this.applyPreset(this.currentPresetId);
     }
@@ -1226,7 +1386,8 @@
         sourceBitrate: c.querySelector("#hbSourceBitrate"),
         sourceContainer: c.querySelector("#hbSourceContainer"),
 
-        // Presets Container
+        // Presets Container & Category Tabs
+        presetCategories: c.querySelector("#hbPresetCategories"),
         presetsList: c.querySelector("#hbPresetsList"),
 
         // Tabs
@@ -1319,15 +1480,43 @@
       };
     }
 
-    renderPresets() {
+    renderCategories() {
+      if (!this.dom.presetCategories) return;
+      this.dom.presetCategories.innerHTML = "";
+      HANDBRAKE_PRESET_CATEGORIES.forEach((cat) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = `hb-cat-pill ${cat.id === this.currentCategory ? "active" : ""}`;
+        btn.dataset.category = cat.id;
+        btn.textContent = cat.label;
+        btn.addEventListener("click", () => {
+          this.currentCategory = cat.id;
+          if (this.dom.presetCategories) {
+            this.dom.presetCategories.querySelectorAll(".hb-cat-pill").forEach((b) => {
+              b.classList.toggle("active", b.dataset.category === cat.id);
+            });
+          }
+          this.renderPresets(cat.id);
+        });
+        this.dom.presetCategories.appendChild(btn);
+      });
+    }
+
+    renderPresets(category = this.currentCategory || "all") {
       if (!this.dom.presetsList) return;
       this.dom.presetsList.innerHTML = "";
 
-      Object.values(HANDBRAKE_PRESETS).forEach((p) => {
+      const presets = Object.values(HANDBRAKE_PRESETS).filter((p) => {
+        if (!category || category === "all") return true;
+        return p.category === category;
+      });
+
+      presets.forEach((p) => {
         const btn = document.createElement("button");
         btn.type = "button";
         btn.className = `hb-preset-pill ${p.id === this.currentPresetId ? "active" : ""}`;
         btn.dataset.presetId = p.id;
+        btn.dataset.category = p.category;
         btn.innerHTML = `
           <span class="hb-preset-name">${p.name}</span>
           ${p.badge ? `<span class="hb-preset-badge">${p.badge}</span>` : ""}
@@ -1891,6 +2080,7 @@
 
   return {
     HANDBRAKE_PRESETS,
+    HANDBRAKE_PRESET_CATEGORIES,
     VideoTranscoderEngine,
     VideoTranscoderUI,
     createSyntheticSampleVideo,

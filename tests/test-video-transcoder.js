@@ -94,13 +94,24 @@ async function runTests() {
   const transcoderModule = require(path.join(ROOT_DIR, "video-transcoder.js"));
   assert(transcoderModule !== undefined, "video-transcoder.js loads cleanly");
   assert(typeof transcoderModule.HANDBRAKE_PRESETS === "object", "HANDBRAKE_PRESETS object exists");
-  assert(Object.keys(transcoderModule.HANDBRAKE_PRESETS).length >= 12, `Has at least 12 presets (found ${Object.keys(transcoderModule.HANDBRAKE_PRESETS).length})`);
+  assert(Array.isArray(transcoderModule.HANDBRAKE_PRESET_CATEGORIES), "HANDBRAKE_PRESET_CATEGORIES array exists");
+  assert(transcoderModule.HANDBRAKE_PRESET_CATEGORIES.length === 5, `Has 5 preset categories (found ${transcoderModule.HANDBRAKE_PRESET_CATEGORIES.length})`);
+  assert(Object.keys(transcoderModule.HANDBRAKE_PRESETS).length >= 18, `Has at least 18 presets (found ${Object.keys(transcoderModule.HANDBRAKE_PRESETS).length})`);
 
   // Verify preset keys
   const presets = transcoderModule.HANDBRAKE_PRESETS;
   assert(presets["web-1080p"] && presets["web-1080p"].codec === "vp9", "web-1080p preset configured for VP9");
   assert(presets["web-720p"] && presets["web-720p"].resolution === "720p", "web-720p preset configured for 720p");
   assert(presets["discord-25mb"] && presets["discord-25mb"].targetSizeMB === 24.0, "discord-25mb preset configured for 24MB target");
+
+  // Verify Authentic HandBrake Core Presets (extracted from official HandBrake hb.dll)
+  assert(presets["hb-fast-1080p"] && presets["hb-fast-1080p"].crf === 22, "HandBrake Fast 1080p30 preset configured (RF 22)");
+  assert(presets["hb-hq-1080p"] && presets["hb-hq-1080p"].crf === 20, "HandBrake HQ 1080p30 Surround preset configured (RF 20)");
+  assert(presets["hb-super-hq-1080p"] && presets["hb-super-hq-1080p"].crf === 18, "HandBrake Super HQ 1080p30 preset configured (RF 18)");
+  assert(presets["hb-very-fast-1080p"] && presets["hb-very-fast-1080p"].crf === 24, "HandBrake Very Fast 1080p30 preset configured (RF 24)");
+  assert(presets["hb-creator-1080p60"] && presets["hb-creator-1080p60"].fps === 60, "HandBrake Creator 1080p60 preset configured (60 FPS)");
+  assert(presets["hb-apple-1080p"] && presets["hb-apple-1080p"].category === "devices", "HandBrake Apple 1080p Universal preset configured");
+  assert(presets["hb-android-1080p"] && presets["hb-android-1080p"].category === "devices", "HandBrake Android 1080p Universal preset configured");
 
   // Verify MP4 1-2GB to Under 100MB compressor presets
   assert(presets["mp4-100mb"] !== undefined, "mp4-100mb preset exists");
@@ -142,11 +153,13 @@ async function runTests() {
     const pageTitle = await page.title();
     assert(pageTitle.includes("FluxWebP"), `Main app loaded with title: ${pageTitle}`);
 
-    // Verify Nav Item "Video to WebM" exists
+    // Verify Nav Item "HandBrake Video" exists
     const videoNavExists = await page.locator("nav a[data-tab='video']").count();
-    assert(videoNavExists === 1, "Header navigation contains 'Video to WebM' link");
+    const videoNavText = await page.locator("nav a[data-tab='video']").textContent();
+    assert(videoNavExists === 1, "Header navigation contains video transcode nav link");
+    assert(videoNavText.includes("HandBrake Video"), `Header navigation text is 'HandBrake Video' (got: ${videoNavText.replace(/\s+/g, ' ').trim()})`);
 
-    // Click "Video to WebM" nav item
+    // Click "HandBrake Video" nav item
     await page.click("nav a[data-tab='video']");
     await page.waitForTimeout(300);
 
@@ -154,9 +167,37 @@ async function runTests() {
     const isVideoViewActive = await page.locator("#view-video.app-view.active").count();
     assert(isVideoViewActive === 1, "#view-video app-view became active on navigation click");
 
-    // Verify Presets are rendered
+    // Verify Category Tabs are rendered
+    const catPillCount = await page.locator("#hbPresetCategories .hb-cat-pill").count();
+    assert(catPillCount === 5, `Preset category tabs rendered 5 pills (got ${catPillCount})`);
+
+    // Verify All Presets are rendered by default
     const presetPillCount = await page.locator("#hbPresetsList .hb-preset-pill").count();
-    assert(presetPillCount >= 8, `HandBrake presets bar rendered with ${presetPillCount} preset pills`);
+    assert(presetPillCount === 19, `HandBrake presets bar rendered all ${presetPillCount} preset pills`);
+
+    // Test Category Filtering: Click ⚡ 1–2GB Compressor
+    await page.click("#hbPresetCategories button[data-category='100mb']");
+    await page.waitForTimeout(100);
+    const count100mb = await page.locator("#hbPresetsList .hb-preset-pill").count();
+    assert(count100mb === 3, `1–2GB Compressor category displays 3 presets (got ${count100mb})`);
+
+    // Test Category Filtering: Click General (HandBrake Core)
+    await page.click("#hbPresetCategories button[data-category='general']");
+    await page.waitForTimeout(100);
+    const countGeneral = await page.locator("#hbPresetsList .hb-preset-pill").count();
+    assert(countGeneral === 5, `General HandBrake Core category displays 5 presets (got ${countGeneral})`);
+
+    // Test Category Filtering: Click Devices
+    await page.click("#hbPresetCategories button[data-category='devices']");
+    await page.waitForTimeout(100);
+    const countDevices = await page.locator("#hbPresetsList .hb-preset-pill").count();
+    assert(countDevices === 2, `Devices category displays 2 presets (got ${countDevices})`);
+
+    // Return to All Presets
+    await page.click("#hbPresetCategories button[data-category='all']");
+    await page.waitForTimeout(100);
+    const countAll = await page.locator("#hbPresetsList .hb-preset-pill").count();
+    assert(countAll === 19, `All Presets restores full list of 19 presets (got ${countAll})`);
 
     // Verify Dropzone and Load Sample Video button exist
     const dropzoneExists = await page.locator("#hbDropzone").count();
@@ -286,7 +327,10 @@ async function runTests() {
     assert(standaloneTitle.includes("HandBrake Web"), `Standalone page loaded with title: ${standaloneTitle}`);
 
     const standalonePresetsCount = await page.locator("#hbPresetsList .hb-preset-pill").count();
-    assert(standalonePresetsCount >= 12, `Standalone page rendered ${standalonePresetsCount} presets`);
+    assert(standalonePresetsCount === 19, `Standalone page rendered all ${standalonePresetsCount} presets`);
+
+    const standaloneCatCount = await page.locator("#hbPresetCategories .hb-cat-pill").count();
+    assert(standaloneCatCount === 5, `Standalone page rendered ${standaloneCatCount} category tabs`);
 
     // Test /mp4-compressor/ entry
     await page.goto(`http://localhost:${PORT}/mp4-compressor/`, { waitUntil: "domcontentloaded" });

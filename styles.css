@@ -3998,6 +3998,44 @@ body.modal-open {
   gap: 8px;
 }
 
+.hb-category-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+  scrollbar-width: thin;
+}
+
+.hb-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.hb-cat-pill:hover {
+  background: var(--bg-subtle);
+  color: var(--text-main);
+}
+
+.hb-cat-pill.active {
+  background: var(--bg-subtle);
+  color: var(--primary-blue);
+  border-color: var(--border-color);
+  font-weight: 700;
+}
+
 .hb-presets-scroll {
   display: flex;
   gap: 8px;
