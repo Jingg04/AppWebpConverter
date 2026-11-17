@@ -59,6 +59,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
+  <url>
+    <loc>https://app-webp-converter.vercel.app/mp4-compressor/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
 
   <!-- High-Intent Dedicated Conversion Landing Pages -->
   <url>

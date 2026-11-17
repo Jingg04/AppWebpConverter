@@ -4046,6 +4046,36 @@ body.modal-open {
   letter-spacing: 0.3px;
 }
 
+.hb-format-pill {
+  transition: all var(--transition-fast);
+}
+
+.hb-format-pill:hover {
+  border-color: var(--primary-blue) !important;
+  color: var(--primary-blue) !important;
+}
+
+.hb-format-pill.active {
+  border-color: var(--primary-blue) !important;
+  background: var(--primary-blue-light) !important;
+  color: var(--primary-blue) !important;
+  box-shadow: 0 0 0 1px var(--primary-blue);
+}
+
+.hb-quick-target-btn {
+  transition: all var(--transition-fast);
+}
+
+.hb-quick-target-btn:hover {
+  border-color: var(--primary-blue) !important;
+  background: var(--primary-blue-light) !important;
+  color: var(--primary-blue) !important;
+}
+
+.hb-quick-target-btn:active {
+  transform: scale(0.98);
+}
+
 .hb-dropzone {
   border: 2px dashed var(--border-color);
   border-radius: var(--radius-lg);

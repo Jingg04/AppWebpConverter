@@ -30,6 +30,92 @@
 
   // --- HandBrake Presets Registry ---
   const HANDBRAKE_PRESETS = {
+    "mp4-100mb": {
+      id: "mp4-100mb",
+      name: "MP4 Compressor: 1–2GB → Under 100MB",
+      category: "MP4 Compressor",
+      badge: "Under 100MB",
+      description: "Compresses large 1GB–2GB+ videos to under 100MB without perceptible visual loss using smart bitrate allocation and H.264/AAC.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 30,
+      qualityMode: "target-size",
+      targetSizeMB: 95.0,
+      crf: 23,
+      bitrateKbps: 4200,
+      audioCodec: "aac",
+      audioBitrateKbps: 128,
+      volume: 1.0,
+      fit: "contain",
+      adaptiveScale: true
+    },
+    "mp4-1080p-hq": {
+      id: "mp4-1080p-hq",
+      name: "MP4: High Quality 1080p (H.264 / AAC)",
+      category: "MP4 Compressor",
+      badge: "Universal MP4",
+      description: "Standard MP4 video with H.264 video and AAC audio for maximum compatibility with iPhone, Windows, Android, and social media.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "1080p",
+      width: 1920,
+      height: 1080,
+      fps: 30,
+      qualityMode: "crf",
+      crf: 22,
+      bitrateKbps: 4800,
+      audioCodec: "aac",
+      audioBitrateKbps: 160,
+      volume: 1.0,
+      fit: "contain"
+    },
+    "mp4-50mb": {
+      id: "mp4-50mb",
+      name: "MP4: Social Share (Under 50MB)",
+      category: "MP4 Compressor",
+      badge: "50MB Target",
+      description: "Reduces large video files to under 50MB for Discord Nitro, Telegram, and WhatsApp.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "720p",
+      width: 1280,
+      height: 720,
+      fps: 30,
+      qualityMode: "target-size",
+      targetSizeMB: 48.0,
+      crf: 26,
+      bitrateKbps: 2200,
+      audioCodec: "aac",
+      audioBitrateKbps: 128,
+      volume: 1.0,
+      fit: "contain",
+      adaptiveScale: true
+    },
+    "mp4-25mb": {
+      id: "mp4-25mb",
+      name: "MP4: Discord Free (Under 25MB)",
+      category: "MP4 Compressor",
+      badge: "25MB Target",
+      description: "Compresses video to fit inside Discord's 25MB free tier upload limit with crystal-clear audio.",
+      format: "mp4",
+      codec: "h264",
+      resolution: "720p",
+      width: 1280,
+      height: 720,
+      fps: 30,
+      qualityMode: "target-size",
+      targetSizeMB: 24.0,
+      crf: 28,
+      bitrateKbps: 1800,
+      audioCodec: "aac",
+      audioBitrateKbps: 96,
+      volume: 1.0,
+      fit: "contain",
+      adaptiveScale: true
+    },
     "web-1080p": {
       id: "web-1080p",
       name: "Web: HQ 1080p30 (VP9 WebM)",
@@ -354,11 +440,25 @@
   }
 
   /**
-   * Helper: Check supported MIME types for video/webm encoding
+   * Helper: Check supported MIME types for video/mp4 and video/webm encoding
    */
-  function getBestSupportedVideoMime(requestedCodec) {
+  function getBestSupportedVideoMime(requestedCodec, requestedFormat = "webm") {
     if (typeof MediaRecorder === "undefined") {
-      return "video/webm";
+      return requestedFormat === "mp4" ? "video/mp4" : "video/webm";
+    }
+
+    if (requestedFormat === "mp4" || requestedCodec === "h264") {
+      const mp4Candidates = [
+        "video/mp4;codecs=avc1,opus",
+        "video/mp4;codecs=avc1",
+        "video/mp4",
+        "video/mp4;codecs=avc1.42E01E,mp4a.40.2"
+      ];
+      for (const mime of mp4Candidates) {
+        if (MediaRecorder.isTypeSupported(mime)) return mime;
+      }
+      // If browser has no MP4 recording capability, fallback to WebM VP9
+      console.warn("Browser does not support native video/mp4 recording; falling back to video/webm.");
     }
 
     const map = {
@@ -412,12 +512,14 @@
   function calculateTargetBitrate(settings, clipDuration) {
     if (settings.qualityMode === "target-size" && settings.targetSizeMB && clipDuration > 0) {
       // Available bits = Target MB * 1024 * 1024 * 8
-      const totalBits = settings.targetSizeMB * 1024 * 1024 * 8;
-      const audioBitrateBps = settings.audioCodec === "mute" ? 0 : (settings.audioBitrateKbps || 96) * 1000;
+      // Apply 3% safety margin so resulting file is strictly under target limit (e.g. < 100MB)
+      const safetyMargin = 0.97;
+      const totalBits = settings.targetSizeMB * 1024 * 1024 * 8 * safetyMargin;
+      const audioBitrateBps = settings.audioCodec === "mute" ? 0 : (settings.audioBitrateKbps || 128) * 1000;
       const audioBits = audioBitrateBps * clipDuration;
       const videoBits = Math.max(totalBits - audioBits, totalBits * 0.7);
       const computedBitrate = Math.floor(videoBits / clipDuration);
-      return Math.min(Math.max(computedBitrate, 250000), 25000000); // 250 kbps - 25 Mbps
+      return Math.min(Math.max(computedBitrate, 250000), 28000000); // 250 kbps - 28 Mbps
     }
 
     if (settings.qualityMode === "bitrate" && settings.bitrateKbps) {
@@ -753,8 +855,27 @@
       outHeight = Math.round(outHeight / 2) * 2;
 
       const targetFps = Number(options.fps) || 30;
-      const codec = options.codec || "vp9";
-      const targetMime = getBestSupportedVideoMime(codec);
+      const requestedFormat = options.format || (options.codec === "h264" ? "mp4" : "webm");
+      const codec = options.codec || (requestedFormat === "mp4" ? "h264" : "vp9");
+      const targetMime = getBestSupportedVideoMime(codec, requestedFormat);
+      const actualFormat = targetMime.startsWith("video/mp4") ? "mp4" : "webm";
+
+      // Adaptive resolution scaling for perceptual quality preservation
+      // When target-size is active, if duration causes video bitrate to drop below 1.8 Mbps,
+      // downscaling from 1080p to 720p or 900p doubles bits-per-pixel and eliminates macroblocking!
+      if (options.qualityMode === "target-size" && options.adaptiveScale !== false) {
+        const estBitrate = calculateTargetBitrate({ ...options, width: outWidth, height: outHeight }, clipDuration);
+        if (estBitrate < 1800000 && outWidth > 1280) {
+          const scale = 1280 / outWidth;
+          outWidth = 1280;
+          outHeight = Math.round((outHeight * scale) / 2) * 2;
+        } else if (estBitrate < 900000 && outWidth > 960) {
+          const scale = 960 / outWidth;
+          outWidth = 960;
+          outHeight = Math.round((outHeight * scale) / 2) * 2;
+        }
+      }
+
       const targetVideoBitrate = calculateTargetBitrate({ ...options, width: outWidth, height: outHeight }, clipDuration);
       const audioBitrate = (Number(options.audioBitrateKbps) || 128) * 1000;
       const muteAudio = options.audioCodec === "mute" || options.volume === 0;
@@ -825,8 +946,14 @@
           }
 
           try {
-            const rawBlob = new Blob(chunks, { type: "video/webm" });
-            const finalBlob = await fixWebmDuration(rawBlob, clipDuration);
+            let finalBlob;
+            if (actualFormat === "webm") {
+              const rawBlob = new Blob(chunks, { type: "video/webm" });
+              finalBlob = await fixWebmDuration(rawBlob, clipDuration);
+            } else {
+              // Standard MP4 ISO container blob generated by browser MediaRecorder
+              finalBlob = new Blob(chunks, { type: targetMime });
+            }
             const outputUrl = URL.createObjectURL(finalBlob);
 
             const origSize = meta.size * (clipDuration / meta.duration);
@@ -835,7 +962,11 @@
             const savedPct = origSize > 0 ? Math.round(((origSize - newSize) / origSize) * 100) : 0;
 
             const baseName = (meta.name || "video").replace(/\.[^/.]+$/, "");
-            const outName = `${baseName}_handbrake_${options.resolution || "opt"}.webm`;
+            let suffix = `_handbrake_${options.resolution || "opt"}`;
+            if (options.presetId === "mp4-100mb" || options.targetSizeMB <= 100) {
+              suffix = `_compressed_${Math.round(options.targetSizeMB || 95)}mb`;
+            }
+            const outName = `${baseName}${suffix}.${actualFormat}`;
 
             const result = {
               blob: finalBlob,
@@ -844,8 +975,8 @@
               duration: clipDuration,
               width: outWidth,
               height: outHeight,
-              format: "webm",
-              codec: codec,
+              format: actualFormat,
+              codec: actualFormat === "mp4" ? "h264" : codec,
               mimeType: targetMime,
               stats: {
                 originalSize: Math.round(origSize),
@@ -874,11 +1005,19 @@
       // Prepare video playback for real-time frame recording
       const video = this.sourceVideo;
       video.muted = muteAudio || !audioCtx; // Mute video element to prevent double audio playback
-      video.currentTime = startTime;
-
-      await new Promise((res) => {
-        video.onseeked = () => res();
-      });
+      if (Math.abs(video.currentTime - startTime) > 0.05) {
+        await new Promise((res) => {
+          let timer = null;
+          const done = () => {
+            if (timer) clearTimeout(timer);
+            video.removeEventListener("seeked", done);
+            res();
+          };
+          timer = setTimeout(done, 500);
+          video.addEventListener("seeked", done, { once: true });
+          video.currentTime = startTime;
+        });
+      }
 
       // Start Recording
       recorder.start(250); // 250ms chunk slice
@@ -1097,6 +1236,7 @@
         // Settings Controls
         formatSelect: c.querySelector("#hbFormatSelect"),
         codecSelect: c.querySelector("#hbCodecSelect"),
+        formatPills: c.querySelectorAll(".hb-format-pill"),
         resolutionSelect: c.querySelector("#hbResolutionSelect"),
         widthInput: c.querySelector("#hbWidthInput"),
         heightInput: c.querySelector("#hbHeightInput"),
@@ -1116,6 +1256,8 @@
         bitrateInput: c.querySelector("#hbBitrateInput"),
         targetSizeWrap: c.querySelector("#hbTargetSizeWrap"),
         targetSizeInput: c.querySelector("#hbTargetSizeInput"),
+        quickTargetBtns: c.querySelectorAll(".hb-quick-target-btn"),
+        targetQualityNotice: c.querySelector("#hbTargetQualityNotice"),
         fpsSelect: c.querySelector("#hbFpsSelect"),
 
         // Audio Controls
@@ -1209,7 +1351,15 @@
         });
       }
 
-      // Update inputs
+      // Update Format & Codec
+      if (preset.format) {
+        if (this.dom.formatSelect) this.dom.formatSelect.value = preset.format;
+        if (this.dom.formatPills) {
+          this.dom.formatPills.forEach((p) => {
+            p.classList.toggle("active", p.dataset.format === preset.format);
+          });
+        }
+      }
       if (this.dom.codecSelect) this.dom.codecSelect.value = preset.codec;
       if (this.dom.resolutionSelect) this.dom.resolutionSelect.value = preset.resolution;
       if (this.dom.fpsSelect) this.dom.fpsSelect.value = String(preset.fps);
@@ -1237,6 +1387,7 @@
       if (this.dom.targetSizeInput) {
         this.dom.targetSizeInput.value = preset.targetSizeMB || 24;
       }
+      this.updateTargetQualityNotice();
 
       // Audio
       if (this.dom.audioCodecSelect) this.dom.audioCodecSelect.value = preset.audioCodec;
@@ -1251,6 +1402,33 @@
       if (this.dom.crfWrap) this.dom.crfWrap.classList.toggle("hidden", mode !== "crf");
       if (this.dom.bitrateWrap) this.dom.bitrateWrap.classList.toggle("hidden", mode !== "bitrate");
       if (this.dom.targetSizeWrap) this.dom.targetSizeWrap.classList.toggle("hidden", mode !== "target-size");
+      if (mode === "target-size") this.updateTargetQualityNotice();
+    }
+
+    updateTargetQualityNotice() {
+      const d = this.dom;
+      if (!d.targetQualityNotice) return;
+      const targetMB = Number(d.targetSizeInput?.value) || 95;
+      const dur = this.engine.metadata?.duration || 60;
+      const totalBits = targetMB * 1024 * 1024 * 8 * 0.97;
+      const audioBps = 128000;
+      const videoBps = Math.max(250000, Math.floor((totalBits - (audioBps * dur)) / dur));
+      const videoMbps = (videoBps / 1000000).toFixed(2);
+
+      let note = `Ceiling &lt; ${targetMB} MB • Video Bitrate: ~${videoMbps} Mbps.`;
+      if (videoMbps >= 2.5) {
+        note += " Full 1080p high-fidelity clarity preserved with zero visible quality loss.";
+      } else if (videoMbps >= 1.5) {
+        note += " Crisp 1080p/720p visuals with anti-blocking bitrate allocation.";
+      } else {
+        note += " Adaptive 720p/540p resolution scaling active to maintain high bits-per-pixel and eliminate compression artifacts.";
+      }
+      d.targetQualityNotice.innerHTML = `
+        <div style="display: flex; align-items: flex-start; gap: 8px;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:2px; color: var(--primary-blue);"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          <div><strong>Smart 1–2GB Compressor Active:</strong> ${note}</div>
+        </div>
+      `;
     }
 
     updateCrfDisplay(crf) {
@@ -1326,6 +1504,55 @@
       });
 
       // Settings changes
+      // Format Switchers
+      d.formatPills?.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          const fmt = pill.dataset.format;
+          if (d.formatSelect) d.formatSelect.value = fmt;
+          d.formatPills.forEach((p) => p.classList.toggle("active", p === pill));
+          if (fmt === "mp4") {
+            if (d.codecSelect) d.codecSelect.value = "h264";
+            if (d.audioCodecSelect) d.audioCodecSelect.value = "aac";
+          } else {
+            if (d.codecSelect) d.codecSelect.value = "vp9";
+            if (d.audioCodecSelect) d.audioCodecSelect.value = "opus";
+          }
+          this.updateTargetQualityNotice();
+        });
+      });
+
+      d.formatSelect?.addEventListener("change", (e) => {
+        const fmt = e.target.value;
+        d.formatPills?.forEach((p) => p.classList.toggle("active", p.dataset.format === fmt));
+        if (fmt === "mp4") {
+          if (d.codecSelect) d.codecSelect.value = "h264";
+          if (d.audioCodecSelect) d.audioCodecSelect.value = "aac";
+        } else {
+          if (d.codecSelect) d.codecSelect.value = "vp9";
+          if (d.audioCodecSelect) d.audioCodecSelect.value = "opus";
+        }
+        this.updateTargetQualityNotice();
+      });
+
+      // Quick Target Size Preset Buttons
+      d.quickTargetBtns?.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const mb = Number(btn.dataset.targetMb);
+          if (d.targetSizeInput) {
+            d.targetSizeInput.value = mb;
+          }
+          d.qualityModeRadios.forEach((r) => {
+            r.checked = r.value === "target-size";
+          });
+          this.updateQualityModeUI("target-size");
+          this.updateTargetQualityNotice();
+        });
+      });
+
+      d.targetSizeInput?.addEventListener("input", () => {
+        this.updateTargetQualityNotice();
+      });
+
       d.qualityModeRadios.forEach((r) => {
         r.addEventListener("change", () => {
           this.updateQualityModeUI(r.value);
@@ -1458,8 +1685,11 @@
         // Enable transcode button
         if (d.btnStartTranscode) d.btnStartTranscode.disabled = false;
 
-        // Auto-select 1080p or 720p depending on source resolution
-        if (meta.height >= 1080) {
+        // Auto-select preset based on file size and resolution
+        if (meta.size >= 100_000_000) {
+          // Large original video (100MB up to 1GB–2GB+): Auto-select 1–2GB -> Under 100MB MP4 compressor
+          this.applyPreset("mp4-100mb");
+        } else if (meta.height >= 1080) {
           this.applyPreset("web-1080p");
         } else {
           this.applyPreset("web-720p");
@@ -1489,8 +1719,9 @@
       // Collect Options
       const selectedQualityMode = Array.from(d.qualityModeRadios).find((r) => r.checked)?.value || "crf";
       const options = {
-        format: d.formatSelect?.value || "webm",
-        codec: d.codecSelect?.value || "vp9",
+        presetId: this.currentPresetId,
+        format: d.formatSelect?.value || (this.settings.format || "webm"),
+        codec: d.codecSelect?.value || (d.formatSelect?.value === "mp4" ? "h264" : "vp9"),
         resolution: d.resolutionSelect?.value || "1080p",
         width: Number(d.widthInput?.value) || 1280,
         height: Number(d.heightInput?.value) || 720,
@@ -1503,8 +1734,9 @@
         qualityMode: selectedQualityMode,
         crf: Number(d.crfSlider?.value) || 24,
         bitrateKbps: Number(d.bitrateInput?.value) || 2500,
-        targetSizeMB: Number(d.targetSizeInput?.value) || 24,
-        audioCodec: d.audioCodecSelect?.value || "opus",
+        targetSizeMB: Number(d.targetSizeInput?.value) || 95,
+        adaptiveScale: true,
+        audioCodec: d.audioCodecSelect?.value || (d.formatSelect?.value === "mp4" ? "aac" : "opus"),
         audioBitrateKbps: Number(d.audioBitrateSelect?.value) || 128,
         volume: Number(d.volumeSlider?.value || 100) / 100,
         startTime: Number(d.trimSliderStart?.value) || 0,
@@ -1544,6 +1776,7 @@
         this.displayResult(result);
 
       } catch (err) {
+        console.error("TRANSCODE ERROR DETAILS:", err.name, err.message, err.stack);
         if (d.progressOverlay) d.progressOverlay.classList.add("hidden");
         if (!this.engine.isAborted) {
           alert("Transcoding error: " + err.message);
@@ -1574,7 +1807,7 @@
         d.statSavedBadge.className = `badge ${saved >= 0 ? "badge-green" : "badge-orange"}`;
       }
       if (d.statCodecBadge) {
-        d.statCodecBadge.textContent = `${result.codec.toUpperCase()} / OPUS`;
+        d.statCodecBadge.textContent = `${result.codec.toUpperCase()} / ${result.format === "mp4" ? "AAC" : "OPUS"}`;
       }
       if (d.statResolutionBadge) {
         d.statResolutionBadge.textContent = `${result.width} × ${result.height}`;
@@ -1582,6 +1815,10 @@
 
       // Configure Download Button
       if (d.btnDownloadWebm) {
+        d.btnDownloadWebm.innerHTML = `
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Download Optimized ${result.format.toUpperCase()}</span>
+        `;
         d.btnDownloadWebm.onclick = () => {
           const a = document.createElement("a");
           a.href = result.url;

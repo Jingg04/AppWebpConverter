@@ -94,7 +94,7 @@ async function runTests() {
   const transcoderModule = require(path.join(ROOT_DIR, "video-transcoder.js"));
   assert(transcoderModule !== undefined, "video-transcoder.js loads cleanly");
   assert(typeof transcoderModule.HANDBRAKE_PRESETS === "object", "HANDBRAKE_PRESETS object exists");
-  assert(Object.keys(transcoderModule.HANDBRAKE_PRESETS).length >= 8, `Has at least 8 HandBrake presets (found ${Object.keys(transcoderModule.HANDBRAKE_PRESETS).length})`);
+  assert(Object.keys(transcoderModule.HANDBRAKE_PRESETS).length >= 12, `Has at least 12 presets (found ${Object.keys(transcoderModule.HANDBRAKE_PRESETS).length})`);
 
   // Verify preset keys
   const presets = transcoderModule.HANDBRAKE_PRESETS;
@@ -102,7 +102,17 @@ async function runTests() {
   assert(presets["web-720p"] && presets["web-720p"].resolution === "720p", "web-720p preset configured for 720p");
   assert(presets["discord-25mb"] && presets["discord-25mb"].targetSizeMB === 24.0, "discord-25mb preset configured for 24MB target");
 
-  assert(transcoderModule.isAcceptedVideo({ name: "movie.mp4", type: "video/mp4" }) === true, "Accepts .mp4 video");
+  // Verify MP4 1-2GB to Under 100MB compressor presets
+  assert(presets["mp4-100mb"] !== undefined, "mp4-100mb preset exists");
+  assert(presets["mp4-100mb"].format === "mp4", "mp4-100mb preset format is 'mp4'");
+  assert(presets["mp4-100mb"].codec === "h264", "mp4-100mb preset codec is 'h264'");
+  assert(presets["mp4-100mb"].targetSizeMB === 95.0, "mp4-100mb preset targetSizeMB is 95.0MB (safety headroom under 100MB)");
+  assert(presets["mp4-100mb"].adaptiveScale === true, "mp4-100mb preset has adaptiveScale enabled for perceptual quality preservation");
+
+  assert(presets["mp4-50mb"] && presets["mp4-50mb"].targetSizeMB === 48.0, "mp4-50mb preset configured for 48MB");
+  assert(presets["mp4-25mb"] && presets["mp4-25mb"].targetSizeMB === 24.0, "mp4-25mb preset configured for 24MB");
+
+  assert(transcoderModule.isAcceptedVideo({ name: "huge_capture_2gb.mp4", type: "video/mp4" }) === true, "Accepts .mp4 video");
   assert(transcoderModule.isAcceptedVideo({ name: "clip.webm", type: "video/webm" }) === true, "Accepts .webm video");
   assert(transcoderModule.isAcceptedVideo({ name: "raw.mkv", type: "video/x-matroska" }) === true, "Accepts .mkv video");
   assert(transcoderModule.isAcceptedVideo({ name: "photo.jpg", type: "image/jpeg" }) === false, "Rejects .jpg image as video");
@@ -154,8 +164,8 @@ async function runTests() {
     assert(dropzoneExists === 1, "HandBrake dropzone element present");
     assert(sampleBtnExists === 1, "Load Sample Video button present");
 
-    // Test 2.2: Preset Switching
-    console.log("\n--- Phase 3: Presets & Controls Verification ---");
+    // Test 2.2: Preset Switching & MP4 1-2GB -> Under 100MB Controls
+    console.log("\n--- Phase 3: Presets & MP4 Compressor Controls Verification ---");
     await page.click("#hbPresetsList button[data-preset-id='discord-25mb']");
     await page.waitForTimeout(100);
 
@@ -166,14 +176,50 @@ async function runTests() {
     });
     assert(isTargetSizeChecked === true, "Selecting 'discord-25mb' preset activates target-size mode");
 
-    // Switch back to 1080p
-    await page.click("#hbPresetsList button[data-preset-id='web-1080p']");
+    // Select MP4 1–2GB to Under 100MB preset
+    await page.click("#hbPresetsList button[data-preset-id='mp4-100mb']");
     await page.waitForTimeout(100);
-    const crfValueText = await page.locator("#hbCrfValue").textContent();
-    assert(crfValueText === "24", `1080p preset sets CRF slider to 24 (got ${crfValueText})`);
+
+    const mp4FormatState = await page.evaluate(() => {
+      const sel = document.getElementById("hbFormatSelect");
+      const codecSel = document.getElementById("hbCodecSelect");
+      const targetInput = document.getElementById("hbTargetSizeInput");
+      const mp4Pill = document.querySelector(".hb-format-pill[data-format='mp4']");
+      const notice = document.getElementById("hbTargetQualityNotice");
+      return {
+        format: sel ? sel.value : null,
+        codec: codecSel ? codecSel.value : null,
+        targetMB: targetInput ? Number(targetInput.value) : null,
+        isPillActive: mp4Pill ? mp4Pill.classList.contains("active") : false,
+        hasNotice: notice ? notice.textContent.length > 10 : false
+      };
+    });
+    assert(mp4FormatState.format === "mp4", `mp4-100mb sets format to 'mp4' (got ${mp4FormatState.format})`);
+    assert(mp4FormatState.codec === "h264", `mp4-100mb sets video codec to 'h264' (got ${mp4FormatState.codec})`);
+    assert(mp4FormatState.targetMB === 95, `mp4-100mb sets target size to 95MB (got ${mp4FormatState.targetMB})`);
+    assert(mp4FormatState.isPillActive === true, "MP4 format pill is active");
+    assert(mp4FormatState.hasNotice === true, "Perceptual quality notice is displayed for 1-2GB compressor");
+
+    // Switch to Video & Quality tab to access rate control and target size
+    await page.click("button.hb-tab-btn[data-tab='video']");
+    await page.waitForTimeout(100);
+
+    // Test Quick Target Size buttons
+    const quickTarget48 = await page.locator("button.hb-quick-target-btn[data-target-mb='48']").count();
+    assert(quickTarget48 === 1, "Quick Target Button 'Under 50MB (48MB)' is present");
+    await page.click("button.hb-quick-target-btn[data-target-mb='48']");
+    await page.waitForTimeout(100);
+    const targetSizeVal48 = await page.locator("#hbTargetSizeInput").inputValue();
+    assert(targetSizeVal48 === "48", `Clicking quick target sets target size to 48MB (got ${targetSizeVal48})`);
+
+    // Reset back to Under 100MB
+    await page.click("button.hb-quick-target-btn[data-target-mb='95']");
+    await page.waitForTimeout(100);
+    const targetSizeVal95 = await page.locator("#hbTargetSizeInput").inputValue();
+    assert(targetSizeVal95 === "95", `Clicking quick target resets target size to 95MB (got ${targetSizeVal95})`);
 
     // Test 2.3: Generate Synthetic Sample Video and Load into Transcoder
-    console.log("\n--- Phase 4: Sample Video Loading & Telemetry ---");
+    console.log("\n--- Phase 4: Sample Video Loading & Auto 100MB Preset ---");
     await page.click("#hbBtnLoadSample");
     // Wait for sample video generation and telemetry display
     await page.waitForSelector("#hbSourceMetaCard:not(.hidden)", { timeout: 15000 });
@@ -192,16 +238,61 @@ async function runTests() {
       const btn = document.getElementById("hbBtnStartTranscode");
       return btn && !btn.disabled;
     });
-    assert(isTranscodeEnabled === true, "Start WebM Transcode button is enabled after video load");
+    assert(isTranscodeEnabled === true, "Start Transcode button is enabled after video load");
 
-    // Test 2.4: Standalone Video Transcoder Page
-    console.log("\n--- Phase 5: Standalone /video-transcoder/ Page Test ---");
+    // Test 2.4: Execute End-to-End MP4 Transcode
+    console.log("\n--- Phase 5: End-to-End MP4 Compression Transcode ---");
+    // Select MP4 preset
+    await page.click("#hbPresetsList button[data-preset-id='mp4-100mb']");
+    await page.waitForTimeout(200);
+
+    // Set trim end to 2 seconds for fast automated testing
+    await page.evaluate(() => {
+      const trimEnd = document.getElementById("hbTrimSliderEnd");
+      if (trimEnd) {
+        trimEnd.value = "2";
+        trimEnd.dispatchEvent(new Event("input"));
+      }
+    });
+
+    // Click Start Transcode
+    await page.click("#hbBtnStartTranscode");
+
+    // Wait for Result stage to appear
+    await page.waitForSelector("#hbResultStage:not(.hidden)", { timeout: 35000 });
+    console.log("  [INFO] Transcoding completed and Result Stage appeared!");
+
+    const resultData = await page.evaluate(() => {
+      const codecBadge = document.getElementById("hbStatCodecBadge");
+      const dlBtn = document.getElementById("hbBtnDownloadWebm");
+      const outputVideo = document.getElementById("hbOutputVideoPlayer");
+      const statSaved = document.getElementById("hbStatSavedBadge");
+      return {
+        codecBadgeText: codecBadge ? codecBadge.textContent : "",
+        dlBtnText: dlBtn ? dlBtn.textContent : "",
+        hasSrc: outputVideo ? !!outputVideo.src : false,
+        savedText: statSaved ? statSaved.textContent : ""
+      };
+    });
+
+    assert(resultData.codecBadgeText.includes("H264") && resultData.codecBadgeText.includes("AAC"), `Codec badge shows H264 / AAC (got: ${resultData.codecBadgeText})`);
+    assert(resultData.dlBtnText.includes("Download Optimized MP4"), `Download button reflects MP4 format (got: ${resultData.dlBtnText.trim()})`);
+    assert(resultData.hasSrc === true, "Output video player is loaded with blob URL");
+
+    // Test 2.5: Standalone Video Transcoder and MP4 Compressor Pages
+    console.log("\n--- Phase 6: Standalone Pages & URL Redirection ---");
     await page.goto(`http://localhost:${PORT}/video-transcoder/`, { waitUntil: "domcontentloaded" });
     const standaloneTitle = await page.title();
     assert(standaloneTitle.includes("HandBrake Web"), `Standalone page loaded with title: ${standaloneTitle}`);
 
     const standalonePresetsCount = await page.locator("#hbPresetsList .hb-preset-pill").count();
-    assert(standalonePresetsCount >= 8, `Standalone page rendered ${standalonePresetsCount} presets`);
+    assert(standalonePresetsCount >= 12, `Standalone page rendered ${standalonePresetsCount} presets`);
+
+    // Test /mp4-compressor/ entry
+    await page.goto(`http://localhost:${PORT}/mp4-compressor/`, { waitUntil: "domcontentloaded" });
+    await page.waitForTimeout(500);
+    const finalUrl = page.url();
+    assert(finalUrl.includes("/video-transcoder/"), `mp4-compressor route redirects to video-transcoder (url: ${finalUrl})`);
 
     // Check for page errors
     if (pageErrors.length > 0) {

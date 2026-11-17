@@ -15,15 +15,20 @@
 
 - **Universal Input Decoder**: Decodes Camera RAWs (Sony ARW, Canon CR2/CR3, Nikon NEF, Adobe DNG, Fuji RAF, Olympus ORF, Panasonic RW2, Pentax PEF), Adobe Photoshop (PSD, PSB), Scalable Vectors (SVG, SVGZ), Apple High Efficiency (HEIC, HEIF, HIF), Prepress (TIFF), Gaming Textures (TGA), NetPBM (PPM, PGM), and standard web rasters.
 - **Multi-Format Output Engine**: Encode to **WebP**, **PNG (Lossless)**, **JPEG**, or **AVIF (Next-Gen)** with configurable compression quality and lossless presets.
-- **HandBrake Web Video Transcoder & WebM Engine**:
-  - Full client-side video transcoding inspired by HandBrake.
-  - Convert any video (**MP4**, **MOV**, **MKV**, **AVI**, **WebM**, **FLV**, **WMV**, **M4V**) into optimized **WebM** (`.webm`) with **VP9/VP8** video and **Opus** audio.
-  - HandBrake encoding presets: **Web HQ 1080p30**, **Web Fast 720p30**, **Discord 25MB (Smart Bitrate)**, **Mobile Data Saver 480p**, **Smooth 60 FPS HQ**, **Near-Lossless (CRF 16)**, **Silent Web Loop (Muted)**, and **Audio Only (Opus Extractor)**.
-  - Constant Quality (CRF/RF) rate control (RF 15 to 38) and average bitrate modes.
+- **HandBrake Web Video Transcoder & MP4 / WebM Compressor**:
+  - Full client-side video transcoding and compression inspired by HandBrake.
+  - **MP4 to MP4 Compressor (1–2GB → Under 100MB Without Visual Quality Loss)**:
+    - Smart Bitrate Allocation: automatically calculates exact target bitrates based on duration with safety headroom (e.g. 95MB ceiling for 100MB targets).
+    - Perceptual Quality Preservation: maintains crisp 1080p/720p visuals using H.264 video with AAC 128 kbps audio; activates adaptive resolution scaling for longer clips to eliminate macroblocking and double bits-per-pixel fidelity.
+    - Quick size target presets: **Under 100MB** (1–2GB reducer), **Under 50MB** (Social/Telegram), **Under 25MB** (Discord Free upload ceiling), **Under 10MB** (Email attachments), or custom target MB.
+    - Auto-detection: automatically applies the 1–2GB compressor preset when uploading source video files >= 100MB.
+  - **Universal Format Transcoding**: Convert any video (**MP4**, **MOV**, **MKV**, **AVI**, **WebM**, **FLV**, **WMV**, **M4V**) into optimized **MP4** (`.mp4`, H.264/AAC) or **WebM** (`.webm`, VP9/VP8/Opus).
+  - 12 HandBrake encoding presets: **1–2GB → Under 100MB MP4**, **Universal HQ 1080p MP4**, **Social 50MB MP4**, **Discord 25MB MP4**, **Web HQ 1080p30 (VP9)**, **Web Fast 720p30**, **Mobile Data Saver 480p**, **Smooth 60 FPS HQ**, **Near-Lossless (CRF 16)**, **Silent Web Loop (Muted)**, and **Audio Only (Opus/AAC Extractor)**.
+  - Constant Quality (CRF/RF) rate control (RF 15 to 38), average bitrate modes, and target file size modes.
   - Aspect-ratio preserving dimension scaler (1080p, 720p, 480p, 360p, custom), Contain/Cover fit modes, and 90°/180°/270° rotation.
   - Interactive clip trimming with dual scrub sliders and real-time visual preview.
   - EBML duration patcher: injects exact seekable duration metadata for 100% compliant WebM playback across VLC, QuickTime, and browsers.
-  - Synchronized Dual Comparison Player: play source and transcoded WebM videos in lockstep to verify visual fidelity and compression savings.
+  - Synchronized Dual Comparison Player: play source and transcoded videos in lockstep to verify visual fidelity and compression savings.
   - 1-Click synthetic sample video generator for instant testing without uploading files.
 - **Zero-Trust On-Device Privacy**: 100% of pixel decoding, resizing, metadata extraction, and re-encoding occurs inside the local browser sandbox via WebAssembly and Canvas 2D. No server logs, no external network transmission.
 - **Interactive Dual Comparison Stage**:

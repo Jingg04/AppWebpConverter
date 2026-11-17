@@ -148,6 +148,10 @@
     {
       "source": "/handbrake/",
       "destination": "/video-transcoder/index.html"
+    },
+    {
+      "source": "/mp4-compressor/",
+      "destination": "/video-transcoder/index.html"
     }
   ]
 }
