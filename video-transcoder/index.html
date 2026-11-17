@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>HandBrake Web Video Transcoder – Convert Video to WebM (VP9/VP8) | FluxWebP Pro</title>
+    <meta
+      name="description"
+      content="Free online HandBrake-style video transcoder. Convert MP4, MOV, MKV, AVI to optimized WebM with VP9/VP8 video codecs, Opus audio, CRF rate control, and 100% private on-device processing."
+    />
+    <meta name="keywords" content="handbrake online, video to webm, convert video to webm, mp4 to webm, mov to webm, mkv to webm, vp9 encoder, webm compressor, video transcoder" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://app-webp-converter.vercel.app/video-transcoder/" />
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%232563EB'/><polygon points='22,16 12,10 12,22' fill='white'/><circle cx='24' cy='8' r='3' fill='%23F97316'/></svg>" />
+    <link rel="stylesheet" href="../styles.css" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "HandBrake Web Video Transcoder & WebM Encoder",
+      "url": "https://app-webp-converter.vercel.app/video-transcoder/",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All modern web browsers",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Enterprise-grade in-browser video transcoder inspired by HandBrake. Convert MP4, MOV, MKV, AVI, and WebM with VP9/VP8 codecs, CRF quality control, and audio normalization."
+    }
+    </script>
+  </head>
+  <body>
+    <div class="app-shell" id="top">
+      <!-- Global Header -->
+      <header class="global-header" role="banner">
+        <div class="header-container">
+          <div class="header-brand-group">
+            <a class="brand-link" href="/" aria-label="FluxWebP Pro Home">
+              <span class="brand-logo" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><polygon points="22,16 12,10 12,22" fill="#FFFFFF"></polygon><circle cx="24" cy="8" r="3" fill="#F97316"></circle></svg>
+              </span>
+              <span class="brand-name-wrap">
+                <span class="brand-title">FluxWebP</span>
+                <span class="brand-badge" style="background:#F97316;">HANDBRAKE</span>
+              </span>
+            </a>
+          </div>
+
+          <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
+            <ul class="nav-link-list">
+              <li><a href="/" class="nav-item">Converter</a></li>
+              <li><a href="/video-transcoder/" class="nav-item active" aria-current="page">Video to WebM</a></li>
+              <li><a href="/#/formats" class="nav-item">Formats</a></li>
+              <li><a href="/editor/" class="nav-item">Editor</a></li>
+              <li><a href="/poster-studio/" class="nav-item">Poster Studio</a></li>
+              <li><a href="/background-remover/" class="nav-item">AI Remover</a></li>
+              <li><a href="/resizer/" class="nav-item">Resizer</a></li>
+              <li><a href="/help/" class="nav-item">Docs</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-action-group">
+            <a href="/" class="btn btn-sm btn-outline">Image Converter</a>
+            <button class="icon-btn theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle visual theme">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="theme-icon-light"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="theme-icon-dark"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-viewport" role="main" style="max-width: 1100px; margin: 0 auto; padding: 32px 20px;">
+        <div id="hbStandaloneApp">
+          <!-- Page Header -->
+          <div class="view-header" style="margin-bottom: 24px;">
+            <div class="view-header-content">
+              <div class="title-with-pill" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <h1 class="view-title" style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 800; margin: 0;">
+                  HandBrake Web — Video Transcoder &amp; WebM Encoder
+                </h1>
+                <span class="status-indicator-pill"><span class="pulse-dot"></span>Ready</span>
+                <span class="badge badge-orange">100% Private On-Device</span>
+              </div>
+              <p class="view-description" style="font-size: 1rem; color: var(--text-secondary); margin-top: 8px; max-width: 820px;">
+                Transcode video files (MP4, MOV, MKV, AVI, WebM) to optimized WebM directly inside your browser. Features HandBrake-grade presets, Constant Quality (CRF/RF) rate control, VP9/VP8 video codecs, Opus audio, resolution scaling, and clip trimming with zero server uploads.
+              </p>
+            </div>
+            <div class="view-header-actions" style="margin-top: 12px;">
+              <button class="btn btn-sm btn-outline" type="button" id="hbBtnLoadSample" title="Generate an instant 720p test video with animated timer and audio">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>Load Sample Video</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- HandBrake Presets Selector Bar -->
+          <div class="hb-presets-section">
+            <div class="hb-presets-header">
+              <span class="hb-presets-title">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                HandBrake Encoding Presets
+              </span>
+              <span style="font-size: 0.8rem; color: var(--text-secondary);">Select a preset or customize parameters below</span>
+            </div>
+            <div class="hb-presets-scroll" id="hbPresetsList" role="radiogroup" aria-label="HandBrake Presets">
+              <!-- Dynamically populated by video-transcoder.js -->
+            </div>
+          </div>
+
+          <div class="hb-workspace">
+            <!-- Source Video Dropzone -->
+            <div class="hb-dropzone" id="hbDropzone">
+              <input type="file" id="hbFileInput" accept="video/*,.mp4,.m4v,.webm,.mov,.mkv,.avi,.flv,.wmv,.ts,.3gp" style="display:none;" />
+              <div class="hb-dropzone-icon">
+                <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+              </div>
+              <h2 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--text-main);">Drop Video File Here or Click to Browse</h2>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">MP4, MOV, MKV, AVI, WebM, FLV, WMV • Pure client-side hardware decoding</p>
+              <div style="display: flex; gap: 10px; margin-top: 6px;">
+                <button class="btn btn-primary" type="button" id="hbBtnChooseVideo">Choose Video File</button>
+              </div>
+            </div>
+
+            <!-- Source Video Telemetry Card (Hidden until video loaded) -->
+            <div class="hb-source-card hidden" id="hbSourceMetaCard">
+              <div class="hb-source-header">
+                <div class="hb-source-name-wrap">
+                  <span style="display: inline-flex; width: 32px; height: 32px; border-radius: 8px; background: rgba(37,99,235,0.12); color: var(--primary-blue); align-items: center; justify-content: center;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  </span>
+                  <div>
+                    <div class="hb-source-name" id="hbSourceName">sample.mp4</div>
+                    <span style="font-size: 0.78rem; color: var(--text-muted);">Source Stream Loaded • Hardware Accelerated</span>
+                  </div>
+                </div>
+                <span class="badge badge-blue" id="hbSourceContainer">MP4</span>
+              </div>
+              <div class="hb-telemetry-grid">
+                <div class="hb-telemetry-box">
+                  <div class="hb-telemetry-label">File Size</div>
+                  <div class="hb-telemetry-val" id="hbSourceSize">0 MB</div>
+                </div>
+                <div class="hb-telemetry-box">
+                  <div class="hb-telemetry-label">Duration</div>
+                  <div class="hb-telemetry-val" id="hbSourceDuration">00:00</div>
+                </div>
+                <div class="hb-telemetry-box">
+                  <div class="hb-telemetry-label">Native Resolution</div>
+                  <div class="hb-telemetry-val" id="hbSourceResolution">1920 × 1080</div>
+                </div>
+                <div class="hb-telemetry-box">
+                  <div class="hb-telemetry-label">Source Bitrate</div>
+                  <div class="hb-telemetry-val" id="hbSourceBitrate">0 kbps</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- HandBrake Tabbed Settings Card -->
+            <div class="hb-settings-card">
+              <div class="hb-tab-nav" role="tablist">
+                <button class="hb-tab-btn active" type="button" role="tab" data-tab="summary" aria-selected="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                  Summary
+                </button>
+                <button class="hb-tab-btn" type="button" role="tab" data-tab="dimensions" aria-selected="false">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle></svg>
+                  Dimensions
+                </button>
+                <button class="hb-tab-btn" type="button" role="tab" data-tab="video" aria-selected="false">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  Video &amp; Quality
+                </button>
+                <button class="hb-tab-btn" type="button" role="tab" data-tab="audio" aria-selected="false">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                  Audio
+                </button>
+                <button class="hb-tab-btn" type="button" role="tab" data-tab="range" aria-selected="false">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+                  Range &amp; Trimming
+                </button>
+              </div>
+
+              <!-- Tab Panel 1: Summary -->
+              <div class="hb-tab-panel active" id="hbTabPanel-summary">
+                <div class="hb-form-grid">
+                  <div class="hb-control-group">
+                    <label class="hb-control-label" for="hbFormatSelect">Output Container</label>
+                    <select id="hbFormatSelect" class="form-select">
+                      <option value="webm" selected>WebM (.webm) — Highly Recommended for Web</option>
+                      <option value="mp4">MP4 (.mp4) — Broad Hardware Compatibility</option>
+                    </select>
+                    <span class="hb-control-hint">WebM with VP9/Opus delivers 30-50% smaller size than legacy H.264 MP4.</span>
+                  </div>
+
+                  <div class="hb-control-group">
+                    <label class="hb-control-label" for="hbCodecSelect">Video Encoder</label>
+                    <select id="hbCodecSelect" class="form-select">
+                      <option value="vp9" selected>VP9 (Google High-Efficiency WebM)</option>
+                      <option value="vp8">VP8 (Broad Legacy WebM Compatibility)</option>
+                      <option value="av1">AV1 (Next-Generation Ultra Compression)</option>
+                    </select>
+                    <span class="hb-control-hint">VP9 provides crisp 1080p web playback with hardware acceleration.</span>
+                  </div>
+
+                  <div class="hb-control-group">
+                    <label class="hb-control-label">EBML Seekable Duration</label>
+                    <div style="background: var(--bg-subtle); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 0.85rem; color: var(--success-green); font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      Automatic EBML Segment Info Duration Patching Active
+                    </div>
+                    <span class="hb-control-hint">Output WebM will have precise duration metadata and instant seeking support.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab Panel 2: Dimensions -->
+              <div class="hb-tab-panel" id="hbTabPanel-dimensions">
+                <div class="hb-form-grid">
+                  <div class="hb-control-group">
+                    <label class="hb-control-label" for="hbResolutionSelect">Resolution Preset</label>
+                    <select id="hbResolutionSelect" class="form-select">
+                      <option value="1080p" selected>1080p Full HD (1920 × 1080)</option>
+                      <option value="720p">720p HD (1280 × 720)</option>
+                      <option value="480p">480p SD Mobile (854 × 480)</option>
+                      <option value="360p">360p Low Bandwidth (640 × 360)</option>
+                      <option value="source">Match Source Video Dimensions</option>
+                      <option value="custom">Custom Dimensions</option>
+                    </select>
+                  </div>
+
+                  <div class="hb-control-group">
+                    <label class="hb-control-label">Dimensions (px)</label>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <input type="number" id="hbWidthInput" class="form-select" value="1920" placeholder="Width" style="width: 50%;" />
+                      <span style="font-weight: 700; color: var(--text-muted);">×</span>
+                      <input type="number" id="hbHeightInput" class="form-select" value="1080" placeholder="Height" style="width: 50%;" />
+                    </div>
+                  </div>
+
+                  <div class="hb-control-group">
+                    <label class="hb-control-label" for="hbFitSelect">Fit &amp; Scaling</label>
+                    <select id="hbFitSelect" class="form-select">
+                      <option value="contain" selected>Contain (Letterbox / Pillarbox)</option>
+                      <option value="cover">Cover (Center Crop to Fill)</option>
+                    </select>
+                  </div>
+
+                  <div class="hb-control-group">
+                    <label class="hb-control-label" for="hbRotationSelect">Rotation &amp; Orientation</label>
+                    <select id="hbRotationSelect" class="form-select">
+                      <option value="0" selected>0° (Original)</option>
+                      <option value="90">90° Clockwise</option>
+                      <option value="180">180° Inverted</option>
+                      <option value="270">270° Counter-Clockwise</option>
+                    </select>
+                  </div>
+
+                  <div class="hb-control-group" style="grid-column: 1 / -1; display: flex; flex-direction: row; gap: 24px; align-items: center;">
+                    <label class="compact-toggle">
+                      <input type="checkbox" id="hbMaintainAspect" checked />
+                      <span class="compact-toggle-switch"></span>
+                      <span class="compact-toggle-text">Maintain Source Aspect Ratio</span>
+                    </label>
+                    <label class="compact-toggle">
+                      <input type="checkbox" id="hbFlipH" />
+                      <span class="compact-toggle-switch"></span>
+                      <span class="compact-toggle-text">Flip Horizontal</span>
+                    </label>
+                    <label class="compact-toggle">
+                      <input type="checkbox" id="hbFlipV" />
+                      <span class="compact-toggle-switch"></span>
+                      <span class="compact-toggle-text">Flip Vertical</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab Panel 3: Video & Quality -->
+              <div class="hb-tab-panel" id="hbTabPanel-video">
+                <div class="hb-form-grid">
+                  <div class="hb-control-group">
+                    <label class="hb-control-label" for="hbFpsSelect">Framerate (FPS)</label>
+                    <select id="hbFpsSelect" class="form-select">
+                      <option value="30" selected>30 FPS (Standard Web)</option>
+                      <option value="60">60 FPS (High Motion / Gaming)</option>
+                      <option value="24">24 FPS (Cinematic Film)</option>
+                      <option value="15">15 FPS (Compact Screencast)</option>
+                    </select>
+                  </div>
+
+                  <div class="hb-control-group" style="grid-column: 1 / -1;">
+                    <label class="hb-control-label">Rate Control Method</label>
+                    <div style="display: flex; gap: 16px; margin: 6px 0 14px 0; flex-wrap: wrap;">
+                      <label style="display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer;">
+                        <input type="radio" name="hbQualityMode" value="crf" checked /> Constant Quality (RF / CRF)
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer;">
+                        <input type="radio" name="hbQualityMode" value="bitrate" /> Average Bitrate (kbps)
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer;">
+                        <input type="radio" name="hbQualityMode" value="target-size" /> Target File Size (Discord / 25MB)
+                      </label>
+                    </div>
+
+                    <!-- CRF Slider (HandBrake RF slider) -->
+                    <div class="hb-crf-wrap" id="hbCrfWrap">
+                      <div class="hb-crf-readout">
+                        <div>
+                          <span style="font-weight: 700; color: var(--text-main);">Constant Quality: </span>
+                          <span class="hb-crf-num" id="hbCrfValue">24</span>
+                          <span style="color: var(--text-muted); font-size: 0.85rem; margin-left: 4px;">RF</span>
+                        </div>
+                        <span class="hb-crf-tag" id="hbCrfTag">High Quality (1080p recommended)</span>
+                      </div>
+                      <input type="range" id="hbCrfSlider" class="hb-slider" min="15" max="38" value="24" step="1" />
+                      <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">
+                        <span>RF 15 (Master / High Bitrate)</span>
+                        <span>RF 24 (Web Standard)</span>
+                        <span>RF 38 (Smallest File)</span>
+                      </div>
+                    </div>
+
+                    <!-- Bitrate Input Wrap -->
+                    <div class="hb-crf-wrap hidden" id="hbBitrateWrap">
+                      <label class="hb-control-label" for="hbBitrateInput">Target Video Bitrate (kbps)</label>
+                      <input type="number" id="hbBitrateInput" class="form-select" value="2500" min="200" max="25000" step="100" />
+                      <span class="hb-control-hint">Recommended: 1080p = 2500–5000 kbps • 720p = 1500–2500 kbps • 480p = 600–1000 kbps</span>
+                    </div>
+
+                    <!-- Target Size Wrap (Discord 25MB) -->
+                    <div class="hb-crf-wrap hidden" id="hbTargetSizeWrap">
+                      <label class="hb-control-label" for="hbTargetSizeInput">Target Output File Size (Megabytes)</label>
+                      <input type="number" id="hbTargetSizeInput" class="form-select" value="24" min="1" max="500" step="0.5" />
+                      <span class="hb-control-hint">Automatically calculates optimal video bitrate based on clip duration to guarantee file fits within upload ceiling.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab Panel 4: Audio -->
+              <div class="hb-tab-panel" id="hbTabPanel-audio">
+                <div class="hb-form-grid">
+                  <div class="hb-control-group">
+                    <label class="hb-control-label" for="hbAudioCodecSelect">Audio Codec</label>
+                    <select id="hbAudioCodecSelect" class="form-select">
+                      <option value="opus" selected>Opus 48kHz (High-Fidelity WebM Default)</option>
+                      <option value="aac">AAC (Standard Hardware Audio)</option>
+                      <option value="mute">Mute / Strip Audio (Zero Audio Track)</option>
+                    </select>
+                  </div>
+
+                  <div class="hb-control-group">
+                    <label class="hb-control-label" for="hbAudioBitrateSelect">Audio Bitrate</label>
+                    <select id="hbAudioBitrateSelect" class="form-select">
+                      <option value="64">64 kbps (Voice / Low Bandwidth)</option>
+                      <option value="96">96 kbps (Compact Web Audio)</option>
+                      <option value="128" selected>128 kbps (Standard High Quality)</option>
+                      <option value="160">160 kbps (Pristine Music / Podcast)</option>
+                      <option value="256">256 kbps (Studio Master)</option>
+                    </select>
+                  </div>
+
+                  <div class="hb-control-group" style="grid-column: 1 / -1;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                      <label class="hb-control-label" for="hbVolumeSlider">Audio Volume Gain / Normalization</label>
+                      <span id="hbVolumeValue" style="font-weight: 700; color: var(--primary-blue);">100%</span>
+                    </div>
+                    <input type="range" id="hbVolumeSlider" class="hb-slider" min="0" max="200" value="100" step="5" />
+                    <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">
+                      <span>0% (Mute)</span>
+                      <span>100% (Original Level)</span>
+                      <span>200% (+6dB Boost)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab Panel 5: Range & Trimming -->
+              <div class="hb-tab-panel" id="hbTabPanel-range">
+                <div class="hb-trim-wrap">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong style="color: var(--text-main); font-size: 0.95rem;">Interactive Video Trimming Range</strong>
+                    <span id="hbTrimDurationNotice" style="font-size: 0.85rem; font-weight: 700; color: var(--primary-blue);">Clip Duration: Full Video</span>
+                  </div>
+
+                  <div class="hb-trim-inputs">
+                    <div class="hb-trim-input-box">
+                      <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Start Time</label>
+                      <input type="text" id="hbTrimStartInput" class="form-select" value="00:00" placeholder="00:00" />
+                    </div>
+                    <div class="hb-trim-input-box">
+                      <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">End Time</label>
+                      <input type="text" id="hbTrimEndInput" class="form-select" value="00:00" placeholder="00:00" />
+                    </div>
+                  </div>
+
+                  <div style="margin-top: 8px;">
+                    <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 4px;">Start Scrub Handle:</label>
+                    <input type="range" id="hbTrimSliderStart" class="hb-slider" min="0" max="100" value="0" step="0.1" />
+                  </div>
+                  <div style="margin-top: 4px;">
+                    <label style="font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); display: block; margin-bottom: 4px;">End Scrub Handle:</label>
+                    <input type="range" id="hbTrimSliderEnd" class="hb-slider" min="0" max="100" value="100" step="0.1" />
+                  </div>
+                  <span class="hb-control-hint">Drag handles or type timecodes to transcode only a highlight or short section without encoding the entire video.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons Row -->
+            <div class="hb-actions-row">
+              <button class="btn btn-primary" id="hbBtnStartTranscode" type="button" disabled style="background: #F97316; border-color: #F97316; font-size: 1rem; padding: 12px 24px;">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>Start WebM Transcode</span>
+              </button>
+              <button class="btn btn-outline" id="hbBtnCaptureFrame" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle></svg>
+                <span>Capture Frame as WebP</span>
+              </button>
+            </div>
+
+            <!-- Transcoding Monitor & Progress Overlay (Hidden by default) -->
+            <div class="hb-progress-box hidden" id="hbProgressOverlay">
+              <div class="hb-progress-header">
+                <div class="hb-progress-title">
+                  <span class="pulse-dot" style="background: #F97316;"></span>
+                  <span>HandBrake Transcoder Active</span>
+                </div>
+                <button class="btn btn-sm btn-ghost text-red" type="button" id="hbBtnCancelTranscode">Cancel Transcode</button>
+              </div>
+
+              <div class="hb-progress-bar-wrap">
+                <div class="hb-progress-bar" id="hbProgressBar"></div>
+              </div>
+
+              <div class="hb-progress-stats">
+                <span id="hbProgressPercent" style="font-weight: 800; font-size: 1.1rem; color: var(--text-main);">0%</span>
+                <span id="hbProgressStatus">Encoding frame 0...</span>
+                <span id="hbProgressFps">0 FPS</span>
+                <span id="hbProgressElapsed">Elapsed: 00:00</span>
+                <span id="hbProgressEta">ETA: 00:00</span>
+              </div>
+
+              <div style="margin-top: 14px; text-align: center;">
+                <canvas id="hbProgressCanvas" style="max-width: 320px; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border-color); background: #000; display: inline-block;"></canvas>
+              </div>
+            </div>
+
+            <!-- Comparison & Result Stage (Hidden until transcoding complete) -->
+            <div class="hb-comparison-stage hidden" id="hbResultStage">
+              <div class="hb-comparison-header">
+                <div>
+                  <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0; color: var(--text-main);">
+                    Transcoded WebM Comparison Stage
+                  </h3>
+                  <span style="font-size: 0.85rem; color: var(--text-secondary);">
+                    Inspect original source video vs. optimized WebM output side-by-side with synchronized playback
+                  </span>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-sm btn-outline active" id="hbViewModeSideBtn" type="button">Side-by-Side</button>
+                </div>
+              </div>
+
+              <!-- Dual Video Player Grid -->
+              <div class="hb-player-grid" id="hbComparisonWrapper">
+                <div class="hb-player-card">
+                  <span class="hb-player-tag">ORIGINAL SOURCE</span>
+                  <video id="hbSourceVideoPlayer" class="hb-player-video" playsinline preload="metadata" muted></video>
+                </div>
+                <div class="hb-player-card">
+                  <span class="hb-player-tag" style="background: rgba(37,99,235,0.9);">TRANSCODED WEBM (VP9)</span>
+                  <video id="hbOutputVideoPlayer" class="hb-player-video" playsinline preload="metadata"></video>
+                </div>
+              </div>
+
+              <!-- Synchronized Player Controller Bar -->
+              <div class="hb-sync-bar">
+                <button class="btn btn-sm btn-primary" id="hbSyncPlayBtn" type="button">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  <span>Play Both</span>
+                </button>
+                <input type="range" id="hbSyncScrubBar" class="hb-slider" min="0" max="100" value="0" step="0.1" style="flex: 1;" />
+                <span id="hbSyncTimeDisplay" style="font-size: 0.85rem; font-weight: 700; color: var(--text-main); font-family: var(--font-mono); min-width: 90px; text-align: right;">00:00 / 00:00</span>
+              </div>
+
+              <!-- Telemetry Banner -->
+              <div class="hb-telemetry-banner">
+                <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                  <div>
+                    <span style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block;">Original Size</span>
+                    <span id="hbStatOrigSize" style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">0 MB</span>
+                  </div>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted);"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  <div>
+                    <span style="font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block;">Transcoded WebM</span>
+                    <span id="hbStatNewSize" style="font-size: 1.05rem; font-weight: 800; color: var(--primary-blue);">0 MB</span>
+                  </div>
+                  <span class="badge badge-green" id="hbStatSavedBadge" style="font-size: 0.88rem; padding: 6px 12px;">-0% Saved</span>
+                  <span class="badge badge-purple" id="hbStatCodecBadge">VP9 / OPUS</span>
+                  <span class="badge badge-blue" id="hbStatResolutionBadge">1920 × 1080</span>
+                </div>
+
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button class="btn btn-primary" id="hbBtnDownloadWebm" type="button" style="background: #F97316; border-color: #F97316;">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Download WebM</span>
+                  </button>
+                  <button class="btn btn-outline" id="hbBtnSendToEditor" type="button">
+                    <span>Edit Frame in Studio</span>
+                  </button>
+                  <button class="btn btn-ghost" id="hbBtnTranscodeAnother" type="button">
+                    <span>Transcode Another</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Educational Guide & FAQ -->
+          <div style="margin-top: 48px; border-top: 1px solid var(--border-color); padding-top: 36px;">
+            <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; color: var(--text-main);">
+              Why Transcode Video to WebM with HandBrake Web?
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+              <div class="card p-4">
+                <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--primary-blue);">
+                  VP9 High-Efficiency Compression
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                  Google's VP9 open video standard reduces bandwidth consumption by 35% to 50% compared to legacy H.264 (AVC) without perceptual quality loss. Ideal for fast website loading and modern browsers.
+                </p>
+              </div>
+              <div class="card p-4">
+                <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--primary-blue);">
+                  HandBrake Rate Factor (CRF)
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                  Constant Quality (RF) allocates more bits to complex action scenes and fewer bits to static scenes. RF 24 provides crisp 1080p web video while preventing file size bloat.
+                </p>
+              </div>
+              <div class="card p-4">
+                <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--primary-blue);">
+                  Zero Server Uploads &amp; Complete Privacy
+                </h3>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
+                  100% of video decoding, canvas resizing, audio mixing, and WebM multiplexing happens directly inside your browser sandbox. Confidential clips never touch cloud servers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Global Footer -->
+      <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+          <div class="footer-brand-col">
+            <div class="brand">
+              <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#2563EB"></rect><polygon points="22,16 12,10 12,22" fill="#FFFFFF"></polygon><circle cx="24" cy="8" r="3" fill="#F97316"></circle></svg></span>
+              <span class="brand-name">FluxWebP Pro</span>
+            </div>
+            <p class="footer-desc">
+              Universal on-device image &amp; video optimization platform. Designed for photographers, designers, video creators, and developers.
+            </p>
+          </div>
+          <div class="footer-links-col">
+            <h4>Creative Tools</h4>
+            <ul>
+              <li><a href="/video-transcoder/">HandBrake Video Transcoder</a></li>
+              <li><a href="/editor/">Image Editor</a></li>
+              <li><a href="/poster-studio/">AI Poster Studio</a></li>
+              <li><a href="/background-remover/">AI Background Remover</a></li>
+              <li><a href="/resizer/">Batch Image Resizer</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h4>Converters</h4>
+            <ul>
+              <li><a href="/video-transcoder/">Convert Video to WebM</a></li>
+              <li><a href="/jpg-to-webp/">JPG to WebP</a></li>
+              <li><a href="/png-to-webp/">PNG to WebP</a></li>
+              <li><a href="/image-compressor/">Image Compressor</a></li>
+              <li><a href="/heic-converter/">iPhone HEIC Converter</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../queue-db.js" defer></script>
+    <script src="../video-transcoder.js" defer></script>
+  </body>
+</html>

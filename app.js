@@ -278,7 +278,8 @@ const dom = {
     history: document.getElementById("view-history"),
     api: document.getElementById("view-api"),
     growth: document.getElementById("view-growth"),
-    trust: document.getElementById("view-trust")
+    trust: document.getElementById("view-trust"),
+    video: document.getElementById("view-video")
   },
   navItems: document.querySelectorAll(".nav-item"),
 
@@ -673,7 +674,7 @@ function initRouting() {
 
 function handleHashChange() {
   const hash = window.location.hash.replace("#/", "").replace("#", "").toLowerCase() || "converter";
-  const validTabs = ["converter", "formats", "history", "api", "growth", "trust"];
+  const validTabs = ["converter", "formats", "history", "api", "growth", "trust", "video"];
   const target = validTabs.includes(hash) ? hash : "converter";
   switchTab(target);
 }
@@ -1547,6 +1548,20 @@ function addFiles(fileList) {
       return;
     }
     if (!isAcceptedImage(file)) {
+      // Check if file is a video format for HandBrake Video Transcoder
+      const isVideo = file.type?.startsWith("video/") || /\.(mp4|m4v|webm|mov|mkv|avi|flv|wmv|ts|3gp|ogv)$/i.test(file.name || "");
+      if (isVideo) {
+        showToast(`Detected video "${file.name}". Switching to HandBrake Video Transcoder...`);
+        window.location.hash = "#/video";
+        if (window.FluxVideoTranscoder) {
+          setTimeout(() => {
+            const inst = window.FluxVideoTranscoder.getInstance();
+            if (inst) inst.handleFileSelected(file);
+          }, 350);
+        }
+        return;
+      }
+
       showToast(`"${file.name}" is not an image — supported: JPG, PNG, WebP, AVIF, GIF, SVG, HEIC, RAW…`);
       return;
     }

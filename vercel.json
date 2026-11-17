@@ -136,6 +136,18 @@
     {
       "source": "/docs/",
       "destination": "/help/index.html"
+    },
+    {
+      "source": "/video-transcoder/",
+      "destination": "/video-transcoder/index.html"
+    },
+    {
+      "source": "/video-to-webm/",
+      "destination": "/video-transcoder/index.html"
+    },
+    {
+      "source": "/handbrake/",
+      "destination": "/video-transcoder/index.html"
     }
   ]
 }

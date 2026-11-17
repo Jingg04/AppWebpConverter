@@ -15,6 +15,16 @@
 
 - **Universal Input Decoder**: Decodes Camera RAWs (Sony ARW, Canon CR2/CR3, Nikon NEF, Adobe DNG, Fuji RAF, Olympus ORF, Panasonic RW2, Pentax PEF), Adobe Photoshop (PSD, PSB), Scalable Vectors (SVG, SVGZ), Apple High Efficiency (HEIC, HEIF, HIF), Prepress (TIFF), Gaming Textures (TGA), NetPBM (PPM, PGM), and standard web rasters.
 - **Multi-Format Output Engine**: Encode to **WebP**, **PNG (Lossless)**, **JPEG**, or **AVIF (Next-Gen)** with configurable compression quality and lossless presets.
+- **HandBrake Web Video Transcoder & WebM Engine**:
+  - Full client-side video transcoding inspired by HandBrake.
+  - Convert any video (**MP4**, **MOV**, **MKV**, **AVI**, **WebM**, **FLV**, **WMV**, **M4V**) into optimized **WebM** (`.webm`) with **VP9/VP8** video and **Opus** audio.
+  - HandBrake encoding presets: **Web HQ 1080p30**, **Web Fast 720p30**, **Discord 25MB (Smart Bitrate)**, **Mobile Data Saver 480p**, **Smooth 60 FPS HQ**, **Near-Lossless (CRF 16)**, **Silent Web Loop (Muted)**, and **Audio Only (Opus Extractor)**.
+  - Constant Quality (CRF/RF) rate control (RF 15 to 38) and average bitrate modes.
+  - Aspect-ratio preserving dimension scaler (1080p, 720p, 480p, 360p, custom), Contain/Cover fit modes, and 90°/180°/270° rotation.
+  - Interactive clip trimming with dual scrub sliders and real-time visual preview.
+  - EBML duration patcher: injects exact seekable duration metadata for 100% compliant WebM playback across VLC, QuickTime, and browsers.
+  - Synchronized Dual Comparison Player: play source and transcoded WebM videos in lockstep to verify visual fidelity and compression savings.
+  - 1-Click synthetic sample video generator for instant testing without uploading files.
 - **Zero-Trust On-Device Privacy**: 100% of pixel decoding, resizing, metadata extraction, and re-encoding occurs inside the local browser sandbox via WebAssembly and Canvas 2D. No server logs, no external network transmission.
 - **Interactive Dual Comparison Stage**:
   - **Split View Slider**: Pixel-accurate vertical split handle with real-time sliding comparison.
