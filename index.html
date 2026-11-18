@@ -171,7 +171,7 @@
                 <a href="#/video" class="nav-item" data-tab="video">
                   <svg viewBox="0 0 24 24" aria-hidden="true" class="nav-icon"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                   <span>HandBrake Video</span>
-                  <span class="nav-count-badge" style="background:#F97316; color:#fff;">MP4 / WebM</span>
+                  <span class="nav-count-badge badge-orange">MP4 / WebM</span>
                 </a>
               </li>
               <li>
@@ -215,7 +215,7 @@
                 <button class="nav-item nav-dropdown-btn" id="studioMenuBtn" type="button" aria-haspopup="true" aria-expanded="false" title="Explore creative design and editing tools">
                   <svg viewBox="0 0 24 24" aria-hidden="true" class="nav-icon"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path></svg>
                   <span>Studio &amp; Tools</span>
-                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" style="margin-left: 2px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" class="dropdown-chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
                 <div class="nav-dropdown-menu" id="studioMenuDropdown">
                   <a href="/video-transcoder/" class="dropdown-item">
@@ -306,23 +306,26 @@
           </div>
 
           <!-- HandBrake Video Transcoder Feature Banner -->
-          <div class="video-promo-banner" style="background: linear-gradient(90deg, rgba(37,99,235,0.1), rgba(249,115,22,0.12)); border: 1px solid rgba(249,115,22,0.3); border-radius: 12px; padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
-            <div style="display: flex; align-items: center; gap: 14px;">
-              <span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #F97316, #EA580C); color: #fff; flex-shrink: 0; box-shadow: 0 2px 8px rgba(249,115,22,0.3);">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          <div class="video-promo-banner">
+            <div class="video-promo-content">
+              <span class="video-promo-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
               </span>
-              <div>
-                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                  <strong style="color: var(--text-main); font-size: 0.98rem;">HandBrake Video Engine &amp; 1–2GB MP4 Compressor</strong>
-                  <span class="badge badge-orange" style="font-size: 0.72rem; padding: 2px 7px; text-transform: uppercase;">Under 100MB</span>
-                  <span class="badge badge-blue" style="font-size: 0.72rem; padding: 2px 7px;">WebM VP9 / MP4</span>
+              <div class="video-promo-text">
+                <div class="video-promo-title-row">
+                  <strong class="video-promo-title">HandBrake Video Engine &amp; 1–2GB MP4 Compressor</strong>
+                  <span class="badge badge-orange">Under 100MB</span>
+                  <span class="badge badge-blue">WebM VP9 / MP4</span>
                 </div>
-                <div style="color: var(--text-secondary); font-size: 0.86rem; margin-top: 3px;">
+                <div class="video-promo-desc">
                   Compress 1GB–2GB+ large videos down to under 100MB with zero visual loss, convert video to WebM, and use authentic HandBrake core presets. 100% private in-browser.
                 </div>
               </div>
             </div>
-            <a href="#/video" class="btn btn-sm btn-primary" style="background: #F97316; border-color: #F97316; text-decoration: none; font-weight: 600; padding: 8px 16px;">Launch HandBrake Video</a>
+            <a href="#/video" class="btn btn-sm btn-orange video-promo-cta">
+              <span>Launch HandBrake Video</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
           </div>
 
           <!-- Compact Conversion Toolbar -->
@@ -406,7 +409,7 @@
                   </div>
                   <h3 class="dropzone-title">Drop images here to convert</h3>
                   <p class="dropzone-sub">or browse files from your computer</p>
-                  <div class="dropzone-limit-note" style="font-size:0.8rem; color:var(--text-secondary); margin-bottom:8px;">Max file size: 50 MB per image • 100% Client-Side</div>
+                  <div class="dropzone-limit-note">Max file size: 50 MB per image • 100% Client-Side</div>
 
                   <div class="dropzone-btn-group">
                     <button class="btn btn-primary" type="button" onclick="document.getElementById('fileInput').click()">
@@ -1088,14 +1091,14 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                 <input type="search" id="historySearchInput" class="form-input search-input form-input-sm" placeholder="Search history..." aria-label="Search conversion history" />
               </div>
-              <select id="historyFormatFilter" class="form-select form-select-sm" style="width: auto; min-width: 105px;" aria-label="Filter history by format">
+              <select id="historyFormatFilter" class="form-select form-select-sm" aria-label="Filter history by format">
                 <option value="all">All Formats</option>
                 <option value="webp">WebP</option>
                 <option value="png">PNG</option>
                 <option value="jpeg">JPEG</option>
                 <option value="avif">AVIF</option>
               </select>
-              <select id="historyDateFilter" class="form-select form-select-sm" style="width: auto; min-width: 105px;" aria-label="Filter history by time range">
+              <select id="historyDateFilter" class="form-select form-select-sm" aria-label="Filter history by time range">
                 <option value="all">All Time</option>
                 <option value="today">Today</option>
                 <option value="7days">Last 7 Days</option>
@@ -1133,7 +1136,7 @@
           </div>
 
           <!-- Range Coverage Statement (Requirement 13) -->
-          <div id="historyRangeSummary" style="font-size: 0.85rem; color: var(--text-secondary); margin: 6px 4px 14px; font-weight: 500;">
+          <div id="historyRangeSummary" class="history-range-summary">
             Showing all-time conversions recorded locally.
           </div>
 
@@ -1609,7 +1612,7 @@ console.log(result);
               <div class="title-with-pill">
                 <h1 class="view-title">HandBrake Web — Video Transcoder &amp; WebM Encoder</h1>
                 <span class="status-indicator-pill"><span class="pulse-dot"></span>Ready</span>
-                <span class="badge badge-orange" style="margin-left: 8px;">100% Private On-Device</span>
+                <span class="badge badge-orange">100% Private On-Device</span>
               </div>
               <p class="view-description">
                 Transcode video files (MP4, MOV, MKV, AVI, WebM) to optimized WebM directly inside your browser. Features HandBrake-grade presets, Constant Quality (CRF/RF) rate control, VP9/VP8 video codecs, Opus audio, resolution scaling, and clip trimming with zero server uploads.
@@ -1630,7 +1633,7 @@ console.log(result);
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
                 HandBrake Encoding Presets
               </span>
-              <span style="font-size: 0.8rem; color: var(--text-secondary);">Select a preset or customize parameters below</span>
+              <span class="hb-presets-sub">Select a preset or customize parameters below</span>
             </div>
             <div class="hb-category-tabs" id="hbPresetCategories" role="tablist" aria-label="Preset Categories">
               <!-- Dynamically populated category filter pills -->
@@ -1643,13 +1646,13 @@ console.log(result);
           <div class="hb-workspace">
             <!-- Source Video Dropzone -->
             <div class="hb-dropzone" id="hbDropzone">
-              <input type="file" id="hbFileInput" accept="video/*,.mp4,.m4v,.webm,.mov,.mkv,.avi,.flv,.wmv,.ts,.3gp" style="display:none;" />
+              <input type="file" id="hbFileInput" accept="video/*,.mp4,.m4v,.webm,.mov,.mkv,.avi,.flv,.wmv,.ts,.3gp" class="visually-hidden" />
               <div class="hb-dropzone-icon">
                 <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
               </div>
-              <h2 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--text-main);">Drop Video File Here or Click to Browse</h2>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">MP4, MOV, MKV, AVI, WebM, FLV, WMV • Pure client-side hardware decoding</p>
-              <div style="display: flex; gap: 10px; margin-top: 6px;">
+              <h2 class="hb-dropzone-title">Drop Video File Here or Click to Browse</h2>
+              <p class="hb-dropzone-desc">MP4, MOV, MKV, AVI, WebM, FLV, WMV • Pure client-side hardware decoding</p>
+              <div class="hb-dropzone-actions">
                 <button class="btn btn-primary" type="button" id="hbBtnChooseVideo">Choose Video File</button>
               </div>
             </div>
@@ -1658,12 +1661,12 @@ console.log(result);
             <div class="hb-source-card hidden" id="hbSourceMetaCard">
               <div class="hb-source-header">
                 <div class="hb-source-name-wrap">
-                  <span style="display: inline-flex; width: 32px; height: 32px; border-radius: 8px; background: rgba(37,99,235,0.12); color: var(--primary-blue); align-items: center; justify-content: center;">
+                  <span class="hb-source-icon">
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                   </span>
                   <div>
                     <div class="hb-source-name" id="hbSourceName">sample.mp4</div>
-                    <span style="font-size: 0.78rem; color: var(--text-muted);">Source Stream Loaded • Hardware Accelerated</span>
+                    <span class="hb-source-tagline">Source Stream Loaded • Hardware Accelerated</span>
                   </div>
                 </div>
                 <span class="badge badge-blue" id="hbSourceContainer">MP4</span>
@@ -1718,13 +1721,13 @@ console.log(result);
                 <div class="hb-form-grid">
                   <div class="hb-control-group">
                     <label class="hb-control-label" for="hbFormatSelect">Output Container</label>
-                    <div class="hb-format-pills" style="display: flex; gap: 8px; margin-bottom: 8px;">
-                      <button type="button" class="hb-format-pill active" data-format="webm" style="flex: 1; padding: 7px 12px; font-size: 0.82rem; font-weight: 700; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-main); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                    <div class="hb-format-pills">
+                      <button type="button" class="hb-format-pill active" data-format="webm">
                         <span>WebM (.webm)</span>
                       </button>
-                      <button type="button" class="hb-format-pill" data-format="mp4" style="flex: 1; padding: 7px 12px; font-size: 0.82rem; font-weight: 700; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-main); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                      <button type="button" class="hb-format-pill" data-format="mp4">
                         <span>MP4 (.mp4)</span>
-                        <span style="font-size: 0.68rem; padding: 1px 6px; background: rgba(16, 185, 129, 0.15); color: #10b981; border-radius: 4px;">Universal</span>
+                        <span class="badge badge-green badge-xs">Universal</span>
                       </button>
                     </div>
                     <select id="hbFormatSelect" class="form-select">
@@ -1747,7 +1750,7 @@ console.log(result);
 
                   <div class="hb-control-group">
                     <label class="hb-control-label">EBML Seekable Duration</label>
-                    <div style="background: var(--bg-subtle); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 0.85rem; color: var(--success-green); font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                    <div class="hb-ebml-badge">
                       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
                       Automatic EBML Segment Info Duration Patching Active
                     </div>

@@ -758,10 +758,10 @@
 
         recorder.onstop = async () => {
           if (osc) {
-            try { osc.stop(); } catch (_) {}
+            try { osc.stop(); } catch (_) { }
           }
           if (audioCtx) {
-            try { audioCtx.close(); } catch (_) {}
+            try { audioCtx.close(); } catch (_) { }
           }
           const rawBlob = new Blob(chunks, { type: "video/webm" });
           const fixedBlob = await fixWebmDuration(rawBlob, durationSeconds);
@@ -964,7 +964,7 @@
     /**
      * Start Transcoding Process
      */
-    async transcode(options = {}, onProgress = () => {}) {
+    async transcode(options = {}, onProgress = () => { }) {
       if (!this.sourceVideo || !this.metadata) {
         throw new Error("No source video loaded. Please select a video file first.");
       }
@@ -1092,7 +1092,7 @@
         recorder.onstop = async () => {
           // Cleanup audio
           if (audioCtx) {
-            try { audioCtx.close(); } catch (_) {}
+            try { audioCtx.close(); } catch (_) { }
           }
           // Stop media stream tracks
           stream.getTracks().forEach((t) => t.stop());
