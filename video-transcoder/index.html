@@ -50,19 +50,6 @@
             </div>
           </div>
 
-          <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
-            <ul class="nav-link-list">
-              <li><a href="/" class="nav-item">Converter</a></li>
-              <li><a href="/video-transcoder/" class="nav-item active" aria-current="page">Video to WebM</a></li>
-              <li><a href="/#/formats" class="nav-item">Formats</a></li>
-              <li><a href="/editor/" class="nav-item">Editor</a></li>
-              <li><a href="/poster-studio/" class="nav-item">Poster Studio</a></li>
-              <li><a href="/background-remover/" class="nav-item">AI Remover</a></li>
-              <li><a href="/resizer/" class="nav-item">Resizer</a></li>
-              <li><a href="/help/" class="nav-item">Docs</a></li>
-            </ul>
-          </nav>
-
           <div class="header-action-group">
             <a href="/" class="btn btn-sm btn-outline">Image Converter</a>
             <button class="icon-btn theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle visual theme">
@@ -760,7 +747,7 @@
     </div>
 
     <!-- Native Mobile App Bottom Navigation Bar -->
-    <div class="mobile-bottom-nav" id="mobileBottomNav" role="navigation" aria-label="Mobile Navigation">
+    <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Main Navigation">
       <a href="/" class="mobile-nav-item" aria-label="Converter">
         <svg viewBox="0 0 24 24" class="mobile-nav-icon" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="17 1 21 5 17 9"></polyline>
@@ -771,12 +758,12 @@
         <span class="mobile-nav-label">Converter</span>
       </a>
 
-      <a href="/video-transcoder/" class="mobile-nav-item active" aria-label="HandBrake Video Transcoder">
+      <a href="/video-transcoder/" class="mobile-nav-item active" data-tab="video" aria-label="HandBrake Video Transcoder">
         <svg viewBox="0 0 24 24" class="mobile-nav-icon" fill="none" stroke="currentColor" stroke-width="2">
           <polygon points="23 7 16 12 23 17 23 7"></polygon>
           <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
         </svg>
-        <span class="mobile-nav-label">Video</span>
+        <span class="mobile-nav-label">HandBrake Video</span>
         <span class="mobile-badge" style="background:#f97316;">NEW</span>
       </a>
 
@@ -807,7 +794,7 @@
         </svg>
         <span class="mobile-nav-label">Studio</span>
       </button>
-    </div>
+    </nav>
 
     <!-- Scripts -->
     <script src="../queue-db.js" defer></script>

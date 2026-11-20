@@ -330,14 +330,14 @@ a:hover {
 }
 
 .mobile-current-tab-pill {
-  display: none;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: var(--radius-full);
   background: var(--bg-muted);
   border: 1px solid var(--border);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--text-main);
   white-space: nowrap;
@@ -394,10 +394,9 @@ a:hover {
   box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);
 }
 
-/* Primary Desktop Navigation */
+/* Primary Desktop Navigation - Hidden in favor of modern Mobile App Bottom Navigation Bar */
 .primary-nav {
-  display: flex;
-  align-items: center;
+  display: none !important;
 }
 
 .nav-link-list {
@@ -5185,21 +5184,30 @@ body.modal-open {
 /* ======================================================== */
 
 .mobile-bottom-nav {
-  display: none;
+  display: flex !important;
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  padding: 6px 12px calc(6px + env(safe-area-inset-bottom, 0px)) 12px;
-  background: var(--bg-glass);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-top: 1px solid var(--border);
-  z-index: 500;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(580px, calc(100% - 32px));
+  height: 68px;
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--border-glass);
+  border-radius: 28px;
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+  z-index: 999;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .mobile-bottom-nav {
+  background: rgba(15, 23, 42, 0.92);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
 }
 
 .mobile-nav-item {
@@ -5444,22 +5452,31 @@ body.modal-open {
   border-top: 1px solid var(--border);
 }
 
-/* Mobile Breakpoint Adaptations */
+/* Global & Mobile Breakpoint Adaptations */
+body {
+  padding-bottom: 96px;
+}
+
 @media (max-width: 768px) {
   body {
-    padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
   }
 
   .mobile-bottom-nav {
-    display: flex;
-  }
-
-  .mobile-current-tab-pill {
-    display: inline-flex;
-  }
-
-  .primary-nav {
-    display: none !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    height: 64px;
+    border-radius: 0;
+    padding: 6px 12px calc(6px + env(safe-area-inset-bottom, 0px)) 12px;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
   }
 
   .header-container {

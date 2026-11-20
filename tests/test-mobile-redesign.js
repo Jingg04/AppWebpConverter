@@ -114,9 +114,9 @@ async function runMobileTests() {
     const bottomNavVisible = await page.locator("#mobileBottomNav").isVisible();
     assert(bottomNavVisible === true, "Mobile bottom navigation bar is visible on mobile screen");
 
-    // 1.2 Verify Desktop Nav is Hidden on Mobile
-    const desktopNavVisible = await page.locator(".primary-nav").isVisible();
-    assert(desktopNavVisible === false, "Desktop header navigation list is cleanly hidden on mobile");
+    // 1.2 Verify Desktop Nav is Removed
+    const desktopNavCount = await page.locator(".primary-nav").count();
+    assert(desktopNavCount === 0, "Old desktop header navigation list is cleanly removed in favor of bottom nav");
 
     // 1.3 Verify Mobile Current Tab Pill in Header
     const currentTabPillVisible = await page.locator("#mobileCurrentTabPill").isVisible();
@@ -216,11 +216,11 @@ async function runMobileTests() {
     await desktopPage.waitForTimeout(300);
 
     const desktopBottomNavVisible = await desktopPage.locator("#mobileBottomNav").isVisible();
-    const desktopPrimaryNavVisible = await desktopPage.locator(".primary-nav").isVisible();
+    const desktopPrimaryNavCount = await desktopPage.locator(".primary-nav").count();
     const desktopViewVideoActive = await desktopPage.locator("#view-video.app-view.active").count();
 
-    assert(desktopBottomNavVisible === false, "Mobile bottom nav is hidden on desktop viewport");
-    assert(desktopPrimaryNavVisible === true, "Desktop primary navigation is visible");
+    assert(desktopBottomNavVisible === true, "Mobile app bottom navigation dock is visible on desktop viewport");
+    assert(desktopPrimaryNavCount === 0, "Old top header horizontal link list is cleanly removed in favor of bottom nav");
     assert(desktopViewVideoActive === 1, "Desktop routes directly to #/video active view");
 
     await desktopContext.close();
