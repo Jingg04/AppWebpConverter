@@ -44,6 +44,10 @@
                 <span class="brand-badge" style="background:#F97316;">HANDBRAKE</span>
               </span>
             </a>
+            <div class="mobile-tab-pill" id="mobileCurrentTabPill" aria-live="polite">
+              <span class="mobile-tab-dot"></span>
+              <span class="mobile-tab-title" id="mobileTabTitle">HandBrake Video</span>
+            </div>
           </div>
 
           <nav class="primary-nav" id="mainNav" aria-label="Main Navigation">
@@ -120,6 +124,13 @@
               </div>
               <h2 style="font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--text-main);">Drop Video File Here or Click to Browse</h2>
               <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">MP4, MOV, MKV, AVI, WebM, FLV, WMV • Pure client-side hardware decoding</p>
+              <div class="hb-dropzone-capsules" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 4px;">
+                <span class="hb-dropzone-pill">MP4</span>
+                <span class="hb-dropzone-pill">WebM</span>
+                <span class="hb-dropzone-pill">MOV</span>
+                <span class="hb-dropzone-pill">MKV</span>
+                <span class="hb-dropzone-pill" style="border-color: rgba(249,115,22,0.4); color: #f97316;">⚡ 1–2GB Compressor</span>
+              </div>
               <div style="display: flex; gap: 10px; margin-top: 6px;">
                 <button class="btn btn-primary" type="button" id="hbBtnChooseVideo">Choose Video File</button>
               </div>
@@ -304,15 +315,27 @@
 
                   <div class="hb-control-group" style="grid-column: 1 / -1;">
                     <label class="hb-control-label">Rate Control Method</label>
-                    <div style="display: flex; gap: 16px; margin: 6px 0 14px 0; flex-wrap: wrap;">
-                      <label style="display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer;">
-                        <input type="radio" name="hbQualityMode" value="crf" checked /> Constant Quality (RF / CRF)
+                    <div class="hb-rate-mode-cards">
+                      <label class="hb-rate-card">
+                        <input type="radio" name="hbQualityMode" value="crf" checked />
+                        <div class="hb-rate-card-content">
+                          <span class="hb-rate-card-title">Constant Quality (CRF)</span>
+                          <span class="hb-rate-card-desc">HandBrake RF slider • Perceptual lossless web quality</span>
+                        </div>
                       </label>
-                      <label style="display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer;">
-                        <input type="radio" name="hbQualityMode" value="bitrate" /> Average Bitrate (kbps)
+                      <label class="hb-rate-card">
+                        <input type="radio" name="hbQualityMode" value="bitrate" />
+                        <div class="hb-rate-card-content">
+                          <span class="hb-rate-card-title">Average Bitrate</span>
+                          <span class="hb-rate-card-desc">Exact kbps target • Predictable file size</span>
+                        </div>
                       </label>
-                      <label style="display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer;">
-                        <input type="radio" name="hbQualityMode" value="target-size" /> Target File Size (1–2GB → Under 100MB, 50MB, 25MB)
+                      <label class="hb-rate-card">
+                        <input type="radio" name="hbQualityMode" value="target-size" />
+                        <div class="hb-rate-card-content">
+                          <span class="hb-rate-card-title">Target Size (1–2GB → 100MB)</span>
+                          <span class="hb-rate-card-desc">Zero visual loss auto-budgeting for Discord &amp; web</span>
+                        </div>
                       </label>
                     </div>
 
@@ -442,7 +465,7 @@
 
             <!-- Action Buttons Row -->
             <div class="hb-actions-row">
-              <button class="btn btn-primary" id="hbBtnStartTranscode" type="button" disabled style="background: #F97316; border-color: #F97316; font-size: 1rem; padding: 12px 24px;">
+              <button class="btn btn-primary hb-transcode-cta" id="hbBtnStartTranscode" type="button" disabled style="font-size: 1rem; padding: 12px 24px;">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 <span>Start WebM Transcode</span>
               </button>
@@ -621,8 +644,209 @@
       </footer>
     </div>
 
+    <!-- Mobile Studio Drawer / Bottom Sheet Backdrop -->
+    <div class="mobile-sheet-backdrop" id="mobileSheetBackdrop" aria-hidden="true"></div>
+
+    <!-- Mobile Studio Drawer / Bottom Sheet -->
+    <div class="mobile-bottom-sheet" id="mobileStudioSheet" role="dialog" aria-modal="true" aria-labelledby="mobileStudioSheetTitle">
+      <div class="sheet-drag-handle" aria-hidden="true"></div>
+      <div class="sheet-header">
+        <h3 id="mobileStudioSheetTitle" class="sheet-title">Creative Studio &amp; Tools</h3>
+        <button class="sheet-close-btn" id="mobileSheetCloseBtn" type="button" aria-label="Close tools menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="sheet-grid">
+        <a href="/video-transcoder/" class="sheet-tool-card" style="border-color: rgba(249,115,22,0.4); background: rgba(249,115,22,0.06);">
+          <div class="sheet-tool-icon" style="background: rgba(249,115,22,0.15); color: #f97316;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">Video Transcoder <span class="nav-badge" style="background: #f97316;">ACTIVE</span></div>
+            <div class="sheet-tool-desc">HandBrake Web • VP9 / MP4 compression</div>
+          </div>
+        </a>
+
+        <a href="/editor/" class="sheet-tool-card">
+          <div class="sheet-tool-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">Photo Editor</div>
+            <div class="sheet-tool-desc">Crop, filter, rotate, text watermarks</div>
+          </div>
+        </a>
+
+        <a href="/background-remover/" class="sheet-tool-card">
+          <div class="sheet-tool-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 21a4 4 0 0 1-4-4V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v12a4 4 0 0 1-4 4zm0 0h12a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2.5"></path></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">AI Background Remover</div>
+            <div class="sheet-tool-desc">Client-side AI cutout &amp; transparent PNG</div>
+          </div>
+        </a>
+
+        <a href="/poster-studio/" class="sheet-tool-card">
+          <div class="sheet-tool-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">Poster Studio</div>
+            <div class="sheet-tool-desc">Design marketing graphics and banners</div>
+          </div>
+        </a>
+
+        <a href="/resizer/" class="sheet-tool-card">
+          <div class="sheet-tool-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">Batch Resizer</div>
+            <div class="sheet-tool-desc">Multi-file dimensions scaling &amp; fit</div>
+          </div>
+        </a>
+
+        <a href="/#/saved" class="sheet-tool-card">
+          <div class="sheet-tool-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">Saved Projects</div>
+            <div class="sheet-tool-desc">In-browser IndexedDB persistent library</div>
+          </div>
+        </a>
+
+        <a href="/#/sdk" class="sheet-tool-card">
+          <div class="sheet-tool-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">Developer SDK</div>
+            <div class="sheet-tool-desc">Client-side NPM &amp; CDN documentation</div>
+          </div>
+        </a>
+
+        <a href="/#/seo" class="sheet-tool-card">
+          <div class="sheet-tool-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">SEO &amp; Performance</div>
+            <div class="sheet-tool-desc">Core Web Vitals &amp; PageSpeed benchmarks</div>
+          </div>
+        </a>
+
+        <a href="/#/trust" class="sheet-tool-card">
+          <div class="sheet-tool-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">Trust &amp; Privacy</div>
+            <div class="sheet-tool-desc">100% on-device sandboxed assurance</div>
+          </div>
+        </a>
+
+        <a href="/help/" class="sheet-tool-card">
+          <div class="sheet-tool-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          </div>
+          <div>
+            <div class="sheet-tool-name">Help &amp; Documentation</div>
+            <div class="sheet-tool-desc">Guides, keyboard shortcuts, and FAQs</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Native Mobile App Bottom Navigation Bar -->
+    <div class="mobile-bottom-nav" id="mobileBottomNav" role="navigation" aria-label="Mobile Navigation">
+      <a href="/" class="mobile-nav-item" aria-label="Converter">
+        <svg viewBox="0 0 24 24" class="mobile-nav-icon" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="17 1 21 5 17 9"></polyline>
+          <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+          <polyline points="7 23 3 19 7 15"></polyline>
+          <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+        </svg>
+        <span class="mobile-nav-label">Converter</span>
+      </a>
+
+      <a href="/video-transcoder/" class="mobile-nav-item active" aria-label="HandBrake Video Transcoder">
+        <svg viewBox="0 0 24 24" class="mobile-nav-icon" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="23 7 16 12 23 17 23 7"></polygon>
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+        </svg>
+        <span class="mobile-nav-label">Video</span>
+        <span class="mobile-badge" style="background:#f97316;">NEW</span>
+      </a>
+
+      <a href="/#/formats" class="mobile-nav-item" aria-label="Supported Formats">
+        <svg viewBox="0 0 24 24" class="mobile-nav-icon" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span class="mobile-nav-label">Formats</span>
+        <span class="mobile-badge">32</span>
+      </a>
+
+      <a href="/#/history" class="mobile-nav-item" aria-label="Conversion History">
+        <svg viewBox="0 0 24 24" class="mobile-nav-icon" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        <span class="mobile-nav-label">History</span>
+      </a>
+
+      <button type="button" class="mobile-nav-item" id="mobileStudioBtn" aria-label="Creative Studio Tools">
+        <svg viewBox="0 0 24 24" class="mobile-nav-icon" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        <span class="mobile-nav-label">Studio</span>
+      </button>
+    </div>
+
     <!-- Scripts -->
     <script src="../queue-db.js" defer></script>
     <script src="../video-transcoder.js" defer></script>
+    <script>
+      // Standalone Mobile UI Handler
+      document.addEventListener('DOMContentLoaded', () => {
+        const studioBtn = document.getElementById('mobileStudioBtn');
+        const sheet = document.getElementById('mobileStudioSheet');
+        const backdrop = document.getElementById('mobileSheetBackdrop');
+        const closeBtn = document.getElementById('mobileSheetCloseBtn');
+        const themeToggle = document.getElementById('themeToggle');
+
+        function openSheet() {
+          if (sheet) sheet.classList.add('open');
+          if (backdrop) backdrop.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeSheet() {
+          if (sheet) sheet.classList.remove('open');
+          if (backdrop) backdrop.classList.remove('show');
+          document.body.style.overflow = '';
+        }
+
+        if (studioBtn) studioBtn.addEventListener('click', openSheet);
+        if (closeBtn) closeBtn.addEventListener('click', closeSheet);
+        if (backdrop) backdrop.addEventListener('click', closeSheet);
+
+        if (themeToggle) {
+          themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+          });
+          const saved = localStorage.getItem('theme');
+          if (saved) document.documentElement.setAttribute('data-theme', saved);
+        }
+      });
+    </script>
   </body>
 </html>

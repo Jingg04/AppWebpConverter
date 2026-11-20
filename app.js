@@ -693,6 +693,26 @@ function switchTab(tabName) {
     }
   });
 
+  // Mobile Top Header Active Tab Pill
+  const mobileTabTitle = document.getElementById("mobileTabTitle");
+  if (mobileTabTitle) {
+    const titles = {
+      converter: "Converter",
+      video: "HandBrake Video",
+      formats: "Formats (32+)",
+      history: "History",
+      api: "Developer SDK",
+      growth: "SEO & Growth",
+      trust: "Trust & Privacy"
+    };
+    mobileTabTitle.textContent = titles[tabName] || tabName;
+  }
+
+  // Close mobile navigation drawer and sheet if open
+  dom.mainNav?.classList.remove("nav-open");
+  dom.mobileMenuToggle?.setAttribute("aria-expanded", "false");
+  closeMobileStudioSheet();
+
   // Switch View Containers
   Object.keys(dom.views).forEach((key) => {
     const view = dom.views[key];
@@ -1169,6 +1189,105 @@ function bindAllEvents() {
 
   // Touch comparison slider
   initTouchComparison();
+
+  // Mobile App Bottom Navigation & Studio Sheet UI
+  initMobileAppUI();
+}
+
+// --- Mobile App UX & Sheet System ---
+function openMobileStudioSheet() {
+  const sheet = document.getElementById("mobileStudioSheet");
+  const backdrop = document.getElementById("mobileSheetBackdrop");
+  const trigger = document.getElementById("mobileToolsTrigger");
+  if (sheet && backdrop) {
+    sheet.classList.add("open");
+    backdrop.classList.add("show");
+    trigger?.setAttribute("aria-expanded", "true");
+    sheet.setAttribute("aria-hidden", "false");
+    backdrop.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeMobileStudioSheet() {
+  const sheet = document.getElementById("mobileStudioSheet");
+  const backdrop = document.getElementById("mobileSheetBackdrop");
+  const trigger = document.getElementById("mobileToolsTrigger");
+  if (sheet && backdrop) {
+    sheet.classList.remove("open");
+    backdrop.classList.remove("show");
+    trigger?.setAttribute("aria-expanded", "false");
+    sheet.setAttribute("aria-hidden", "true");
+    backdrop.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+}
+
+function initMobileAppUI() {
+  const toolsTrigger = document.getElementById("mobileToolsTrigger");
+  const closeSheetBtn = document.getElementById("closeMobileSheetBtn");
+  const sheetBackdrop = document.getElementById("mobileSheetBackdrop");
+  const sheetSettingsBtn = document.getElementById("sheetSettingsBtn");
+
+  toolsTrigger?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const sheet = document.getElementById("mobileStudioSheet");
+    if (sheet?.classList.contains("open")) {
+      closeMobileStudioSheet();
+    } else {
+      openMobileStudioSheet();
+    }
+  });
+
+  closeSheetBtn?.addEventListener("click", closeMobileStudioSheet);
+  sheetBackdrop?.addEventListener("click", closeMobileStudioSheet);
+
+  sheetSettingsBtn?.addEventListener("click", () => {
+    closeMobileStudioSheet();
+    if (dom.settingsDialog) openModal(dom.settingsDialog);
+  });
+
+  // Mobile sheet tool cards with data-sheet-tab
+  document.querySelectorAll(".sheet-tool-card[data-sheet-tab]").forEach((card) => {
+    card.addEventListener("click", (e) => {
+      const tab = card.dataset.sheetTab;
+      if (tab) {
+        e.preventDefault();
+        window.location.hash = `#/${tab}`;
+        switchTab(tab);
+        closeMobileStudioSheet();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+  });
+
+  // Connect mobile menu toggle to sheet for native mobile app feel
+  dom.mobileMenuToggle?.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768) {
+      e.stopPropagation();
+      openMobileStudioSheet();
+    }
+  });
+
+  // Mobile Bottom Nav items synchronization
+  document.querySelectorAll(".mobile-bottom-nav .mobile-nav-item[data-tab]").forEach((navItem) => {
+    navItem.addEventListener("click", (e) => {
+      const tab = navItem.dataset.tab;
+      if (tab) {
+        e.preventDefault();
+        window.location.hash = `#/${tab}`;
+        switchTab(tab);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+  });
+
+  // Close sheet on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeMobileStudioSheet();
+    }
+  });
 }
 
 function initTouchComparison() {

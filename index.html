@@ -156,6 +156,10 @@
                 <span class="brand-badge">PRO</span>
               </span>
             </a>
+            <div class="mobile-current-tab-pill" id="mobileCurrentTabPill" aria-hidden="true">
+              <span class="pulse-dot"></span>
+              <span id="mobileTabTitle">Converter</span>
+            </div>
           </div>
 
           <!-- Primary Desktop Navigation -->
@@ -1652,8 +1656,18 @@ console.log(result);
               </div>
               <h2 class="hb-dropzone-title">Drop Video File Here or Click to Browse</h2>
               <p class="hb-dropzone-desc">MP4, MOV, MKV, AVI, WebM, FLV, WMV • Pure client-side hardware decoding</p>
+              <div class="hb-format-capsules">
+                <span class="hb-capsule">MP4 / AVC</span>
+                <span class="hb-capsule">WebM / VP9</span>
+                <span class="hb-capsule">MOV</span>
+                <span class="hb-capsule">MKV</span>
+                <span class="hb-capsule highlight">⚡ 1–2GB Compressor</span>
+              </div>
               <div class="hb-dropzone-actions">
-                <button class="btn btn-primary" type="button" id="hbBtnChooseVideo">Choose Video File</button>
+                <button class="btn btn-primary" type="button" id="hbBtnChooseVideo">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  <span>Choose Video File</span>
+                </button>
               </div>
             </div>
 
@@ -1662,30 +1676,45 @@ console.log(result);
               <div class="hb-source-header">
                 <div class="hb-source-name-wrap">
                   <span class="hb-source-icon">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                   </span>
                   <div>
                     <div class="hb-source-name" id="hbSourceName">sample.mp4</div>
                     <span class="hb-source-tagline">Source Stream Loaded • Hardware Accelerated</span>
                   </div>
                 </div>
-                <span class="badge badge-blue" id="hbSourceContainer">MP4</span>
+                <div class="hb-source-badge-wrap">
+                  <span class="badge badge-blue" id="hbSourceContainer">MP4</span>
+                  <span class="badge badge-green">Hardware Decoded</span>
+                </div>
               </div>
               <div class="hb-telemetry-grid">
                 <div class="hb-telemetry-box">
-                  <div class="hb-telemetry-label">File Size</div>
+                  <div class="hb-telemetry-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                    <span>File Size</span>
+                  </div>
                   <div class="hb-telemetry-val" id="hbSourceSize">0 MB</div>
                 </div>
                 <div class="hb-telemetry-box">
-                  <div class="hb-telemetry-label">Duration</div>
+                  <div class="hb-telemetry-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>Duration</span>
+                  </div>
                   <div class="hb-telemetry-val" id="hbSourceDuration">00:00</div>
                 </div>
                 <div class="hb-telemetry-box">
-                  <div class="hb-telemetry-label">Native Resolution</div>
+                  <div class="hb-telemetry-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <span>Resolution</span>
+                  </div>
                   <div class="hb-telemetry-val" id="hbSourceResolution">1920 × 1080</div>
                 </div>
                 <div class="hb-telemetry-box">
-                  <div class="hb-telemetry-label">Source Bitrate</div>
+                  <div class="hb-telemetry-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <span>Source Bitrate</span>
+                  </div>
                   <div class="hb-telemetry-val" id="hbSourceBitrate">0 kbps</div>
                 </div>
               </div>
@@ -1836,15 +1865,27 @@ console.log(result);
 
                   <div class="hb-control-group" style="grid-column: 1 / -1;">
                     <label class="hb-control-label">Rate Control Method</label>
-                    <div style="display: flex; gap: 16px; margin: 6px 0 14px 0; flex-wrap: wrap;">
-                      <label style="display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer;">
-                        <input type="radio" name="hbQualityMode" value="crf" checked /> Constant Quality (RF / CRF)
+                    <div class="hb-rate-mode-cards">
+                      <label class="hb-rate-card">
+                        <input type="radio" name="hbQualityMode" value="crf" checked />
+                        <div class="hb-rate-card-content">
+                          <span class="hb-rate-title">Constant Quality (CRF)</span>
+                          <span class="hb-rate-desc">HandBrake RF slider 15–38</span>
+                        </div>
                       </label>
-                      <label style="display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer;">
-                        <input type="radio" name="hbQualityMode" value="bitrate" /> Average Bitrate (kbps)
+                      <label class="hb-rate-card">
+                        <input type="radio" name="hbQualityMode" value="bitrate" />
+                        <div class="hb-rate-card-content">
+                          <span class="hb-rate-title">Average Bitrate</span>
+                          <span class="hb-rate-desc">Strict kbps bandwidth ceiling</span>
+                        </div>
                       </label>
-                      <label style="display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer;">
-                        <input type="radio" name="hbQualityMode" value="target-size" /> Target File Size (1–2GB → Under 100MB, 50MB, 25MB)
+                      <label class="hb-rate-card">
+                        <input type="radio" name="hbQualityMode" value="target-size" />
+                        <div class="hb-rate-card-content">
+                          <span class="hb-rate-title">Target File Size</span>
+                          <span class="hb-rate-desc">1–2GB → Under 100MB / 50MB</span>
+                        </div>
                       </label>
                     </div>
 
@@ -1974,7 +2015,7 @@ console.log(result);
 
             <!-- Action Buttons Row -->
             <div class="hb-actions-row">
-              <button class="btn btn-primary" id="hbBtnStartTranscode" type="button" disabled style="background: #F97316; border-color: #F97316; font-size: 1rem; padding: 12px 24px;">
+              <button class="btn btn-primary hb-transcode-cta" id="hbBtnStartTranscode" type="button" disabled>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 <span>Start WebM Transcode</span>
               </button>
@@ -2555,6 +2596,172 @@ console.log(result);
         </div>
       </div>
     </dialog>
+
+    <!-- ========================================== -->
+    <!-- NATIVE-FEEL MOBILE APP BOTTOM NAVIGATION   -->
+    <!-- ========================================== -->
+    <div class="mobile-bottom-nav" id="mobileBottomNav" role="navigation" aria-label="Mobile Bottom App Navigation">
+      <a href="#/converter" class="mobile-nav-item nav-item active" data-tab="converter" aria-label="Image Converter" aria-current="page">
+        <div class="mobile-nav-icon-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        </div>
+        <span class="mobile-nav-label">Converter</span>
+      </a>
+      <a href="#/video" class="mobile-nav-item nav-item" data-tab="video" aria-label="HandBrake Video Transcoder">
+        <div class="mobile-nav-icon-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          <span class="mobile-nav-badge">NEW</span>
+        </div>
+        <span class="mobile-nav-label">Video</span>
+      </a>
+      <a href="#/formats" class="mobile-nav-item nav-item" data-tab="formats" aria-label="Supported Formats Catalog">
+        <div class="mobile-nav-icon-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          <span class="mobile-nav-count">32</span>
+        </div>
+        <span class="mobile-nav-label">Formats</span>
+      </a>
+      <a href="#/history" class="mobile-nav-item nav-item" data-tab="history" aria-label="Conversion History">
+        <div class="mobile-nav-icon-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <span class="mobile-nav-label">History</span>
+      </a>
+      <button type="button" class="mobile-nav-item mobile-tools-trigger" id="mobileToolsTrigger" aria-label="Studio Tools &amp; More" aria-expanded="false" aria-controls="mobileStudioSheet">
+        <div class="mobile-nav-icon-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>
+        </div>
+        <span class="mobile-nav-label">Studio</span>
+      </button>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- NATIVE-FEEL MOBILE APP STUDIO BOTTOM SHEET -->
+    <!-- ========================================== -->
+    <div class="mobile-sheet-backdrop" id="mobileSheetBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-bottom-sheet" id="mobileStudioSheet" role="dialog" aria-modal="true" aria-labelledby="mobileSheetTitle" aria-hidden="true">
+      <div class="sheet-drag-handle-bar">
+        <div class="sheet-drag-handle"></div>
+      </div>
+      <div class="sheet-header">
+        <div class="sheet-title-group">
+          <h3 id="mobileSheetTitle" class="sheet-title">Studio &amp; Tools</h3>
+          <p class="sheet-sub">Client-side creative &amp; multimedia suite</p>
+        </div>
+        <button type="button" class="icon-btn sheet-close-btn" id="closeMobileSheetBtn" aria-label="Close studio menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="sheet-tools-grid">
+        <a href="#/video" class="sheet-tool-card" data-sheet-tab="video">
+          <div class="sheet-tool-icon icon-orange">
+            <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">HandBrake Video <span class="badge badge-orange badge-xs">MP4/WebM</span></div>
+            <div class="sheet-tool-desc">1–2GB to under 100MB video compressor</div>
+          </div>
+        </a>
+
+        <a href="/editor/" class="sheet-tool-card">
+          <div class="sheet-tool-icon icon-blue">
+            <svg viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">Image Editor <span class="badge badge-blue badge-xs">PRO</span></div>
+            <div class="sheet-tool-desc">Full raster editor, filters &amp; crop</div>
+          </div>
+        </a>
+
+        <a href="/background-remover/" class="sheet-tool-card">
+          <div class="sheet-tool-icon icon-purple">
+            <svg viewBox="0 0 24 24"><path d="M12 2L9.5 7.5 4 10l5.5 2.5L12 18l2.5-5.5L20 10l-5.5-2.5L12 2z"></path></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">AI Background Remover</div>
+            <div class="sheet-tool-desc">Instant transparent cutout PNG</div>
+          </div>
+        </a>
+
+        <a href="/poster-studio/" class="sheet-tool-card">
+          <div class="sheet-tool-icon icon-emerald">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">AI Poster Studio</div>
+            <div class="sheet-tool-desc">Graphic templates &amp; marketing canvas</div>
+          </div>
+        </a>
+
+        <a href="/resizer/" class="sheet-tool-card">
+          <div class="sheet-tool-icon icon-amber">
+            <svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">Batch Resizer</div>
+            <div class="sheet-tool-desc">Dimensions &amp; aspect-ratio presets</div>
+          </div>
+        </a>
+
+        <a href="/projects/" class="sheet-tool-card">
+          <div class="sheet-tool-icon icon-slate">
+            <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">Saved Projects</div>
+            <div class="sheet-tool-desc">Local IndexedDB drafts &amp; sessions</div>
+          </div>
+        </a>
+
+        <a href="#/api" class="sheet-tool-card" data-sheet-tab="api">
+          <div class="sheet-tool-icon icon-sky">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">Developer JavaScript SDK</div>
+            <div class="sheet-tool-desc">Integrate on-device conversion API</div>
+          </div>
+        </a>
+
+        <a href="#/growth" class="sheet-tool-card" data-sheet-tab="growth">
+          <div class="sheet-tool-icon icon-indigo">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">SEO &amp; Performance</div>
+            <div class="sheet-tool-desc">Core Web Vitals &amp; PageSpeed insights</div>
+          </div>
+        </a>
+
+        <a href="#/trust" class="sheet-tool-card" data-sheet-tab="trust">
+          <div class="sheet-tool-icon icon-rose">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">Trust &amp; Privacy Center</div>
+            <div class="sheet-tool-desc">100% On-device security verification</div>
+          </div>
+        </a>
+
+        <a href="/help/" class="sheet-tool-card">
+          <div class="sheet-tool-icon icon-teal">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          </div>
+          <div class="sheet-tool-info">
+            <div class="sheet-tool-title">Help &amp; Documentation</div>
+            <div class="sheet-tool-desc">Keyboard shortcuts, formats, guides</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="sheet-footer">
+        <button type="button" class="btn btn-outline btn-full" id="sheetSettingsBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Preferences &amp; Engine Settings</span>
+        </button>
+      </div>
+    </aside>
 
     <!-- Application Scripts -->
     <script src="/queue-db.js" defer></script>
